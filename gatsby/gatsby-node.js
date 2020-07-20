@@ -75,7 +75,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   )
 
-  // create the homepage
+  // create the blog homepage
   const {
     data: { allWpPost },
   } = await graphql(/* GraphQL */ `
@@ -99,7 +99,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       const offset = perPage * index
 
       await actions.createPage({
-        component: resolve(`./src/templates/index.js`),
+        component: resolve(`./src/templates/blog.js`),
         path: page === 1 ? `/blog/` : `/blog/${page}/`,
         context: {
           firstId: firstNode.id,
@@ -111,4 +111,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       })
     })
   )
+
 }
+
