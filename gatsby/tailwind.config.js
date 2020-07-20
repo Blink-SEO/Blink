@@ -4,6 +4,9 @@ module.exports = {
     colors: {
       yellow: '#e9c018',
     },
+    container: {
+      center: true,
+    },
     extend: {},
   },
   variants: {},
