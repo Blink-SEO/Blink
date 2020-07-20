@@ -1,0 +1,23 @@
+.hero-title {
+  --border-width: 2px;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    border-style: solid;
+    border-color: #303030;
+    width: 100%;
+    max-width: 450px;
+  }
+
+  &::before {
+    padding-bottom: 1.25rem;
+    border-top-width: var(--border-width);
+  }
+
+  &::after {
+    padding-top: 5.5rem;
+    border-bottom-width: var(--border-width);
+  }
+}
