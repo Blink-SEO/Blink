@@ -1,13 +1,15 @@
 module.exports = {
   purge: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
   theme: {
-    colors: {
-      yellow: '#e9c018',
-    },
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+      colors: {
+        white: '#fff',
+        yellow: '#e9c018',
+      },
+    },
   },
   variants: {},
   plugins: [],
