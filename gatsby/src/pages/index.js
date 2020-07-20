@@ -9,10 +9,14 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <article className='container grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 gap-8 h-screen'>
+      {/* TODO: Make this a hero component? */}
+      <article className='grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 gap-8 h-screen max-w-5xl mx-auto px-5 border-l-2 border-gray-600'>
         <div>
-          <h1 className='hero-title text-white text-6xl leading-none'>{ title }</h1>
-          <div dangerouslySetInnerHTML={{ __html: content }} />
+          <h1 className='hero-title text-white text-6xl leading-tight mb-5'>{ title }</h1>
+          <section dangerouslySetInnerHTML={{ __html: content }} />
+
+          {/* FIXME: Should there be more? */}
+          {/* <script async data-uid="9dc904560b" src="https://exciting-artist-7318.ck.page/9dc904560b/index.js"></script> */}
         </div>
 
         <div>
