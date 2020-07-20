@@ -18,7 +18,7 @@ const Header = () => {
   `)
 
   return (
-    <header className='flex container p-10'>
+    <header className='flex container py-10'>
       <Link to='/' className='flex-initial max-w-xs'>
         {/* Could use logo as an SVG */}
         <Img fixed={ data.file.childImageSharp.fixed } />
