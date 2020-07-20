@@ -44,7 +44,7 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-chakra-ui`,
+    `gatsby-plugin-chakra-ui`, //TODO: need to remove this once all references are gone
     `gatsby-transformer-sharp`,
     {
       resolve: "gatsby-plugin-react-svg",
