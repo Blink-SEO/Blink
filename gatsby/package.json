@@ -21,6 +21,7 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "add": "^2.0.6",
+    "dangerously-set-html-content": "^1.0.7",
     "dotenv": "^8.2.0",
     "emotion-theming": "^10.0.27",
     "gatsby": "2.22.5",
@@ -37,6 +38,7 @@
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
     "react-paginate": "^6.3.2",
     "yarn": "^1.22.4"
   },
