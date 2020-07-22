@@ -12,12 +12,18 @@
   }
 
   &::before {
-    padding-bottom: 1.25rem;
+    @apply pb-5;
+
     border-top-width: var(--border-width);
   }
 
   &::after {
-    padding-top: 5.5rem;
+    @apply pt-8;
+
     border-bottom-width: var(--border-width);
+
+    @media (min-width: 640px) {
+      @apply pt-24;
+    }
   }
 }
