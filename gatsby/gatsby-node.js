@@ -94,7 +94,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   await Promise.all(
     chunkedContentNodes.map(async (nodesChunk, index) => {
-      // const firstNode = nodesChunk[0]
+      const firstNode = nodesChunk[0]
       const page = index + 1
       const offset = perPage * index
 
@@ -102,7 +102,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         component: resolve(`./src/templates/blog.js`),
         path: page === 1 ? `/blog/` : `/blog/${page}/`,
         context: {
-          // firstId: firstNode.id,
+          firstId: firstNode.id,
           page: page,
           offset: offset,
           totalPages: chunkedContentNodes.length,
