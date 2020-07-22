@@ -1,5 +1,9 @@
 /* stylelint-disable */
 @tailwind base;
+
+// Include font family
+@import './typography';
+
 @tailwind components;
 @tailwind utilities;
 /* stylelint-enable */

@@ -1,3 +1,23 @@
-section p {
-  margin-bottom: 1em;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Gilmer Heavy', sans-serif;
+}
+
+p,
+li {
+  @apply font-sans;
+}
+
+section {
+  p {
+    margin-bottom: 1em;
+  }
+
+  a {
+    @apply underline;
+  }
 }
