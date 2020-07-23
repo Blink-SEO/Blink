@@ -8,6 +8,8 @@ require("dotenv").config({
 })
 
 module.exports = {
+  // Prefix for dev server
+  pathPrefix: `/blink`,
   siteMetadata: {
     title: `SEO and Digital Marketing Agency | Search and Content | Blink SEO`,
     description: `Intelligent SEO and digital marketing from Blink, focused on delivering a real return on your investment. Call us on 01603 928247 to find out more.`,
@@ -26,7 +28,7 @@ module.exports = {
       options: {
         url:
           process.env.WPGRAPHQL_URL ||
-          `https://dev-gatsby-source-wordpress-v4.pantheonsite.io/graphql`,
+          `http://localhost/Blink/blinksite/wp/graphql`,
         verbose: true,
         develop: {
           hardCacheMediaFiles: true,
@@ -64,7 +66,7 @@ module.exports = {
       options: {
         postCssPlugins: [
           require("tailwindcss"),
-          // require("./tailwind.config.js"), // Optional: Load custom Tailwind CSS configuration
+          require("./tailwind.config.js"), // Optional: Load custom Tailwind CSS configuration
         ],
       },
     },
