@@ -1,5 +1,6 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql, withPrefix, Link } from "gatsby"
+import Helmet from 'react-helmet'
 
 import SEO from '../components/seo'
 import Layout from "../components/layout"
@@ -11,6 +12,9 @@ export default ({ data }) => {
 
   return (
     <Layout>
+      <Helmet>
+        <script src={'anime.min.js'} type="text/javascript" defer />
+      </Helmet>
       <SEO
         url={ seo.canonical }
         title={ seo.title }
