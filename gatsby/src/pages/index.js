@@ -23,7 +23,7 @@ export default ({ data }) => {
         ogImage={ seo.opengraphImage.sourceUrl }
       />
       {/* TODO: Make this a hero component? */}
-      <article className='grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 gap-8 min-h-screen mx-auto pb-12'>
+      <article className='grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 gap-8 min-h-screen mx-auto'>
         <div>
           <h1 className='hero-title text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-5'>{ title }</h1>
           { content && <section dangerouslySetInnerHTML={{ __html: content }} /> }
