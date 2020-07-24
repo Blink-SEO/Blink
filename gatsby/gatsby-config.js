@@ -3,9 +3,7 @@ require("dotenv").config({
 })
 
 // require .env.development or .env.production
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+require("dotenv").config()
 
 module.exports = {
   // Prefix for dev server
