@@ -10,7 +10,7 @@ const Header = () => {
       file(relativePath: {eq: "BlinkLogo.png"}) {
         childImageSharp {
           fixed(width: 167) {
-            ...GatsbyImageSharpFixed_withWebp
+            ...GatsbyImageSharpFixed_withWebp_noBase64
           }
         }
       }
@@ -21,7 +21,7 @@ const Header = () => {
     <header className='flex container px-6 sm:px-0 pt-10 pb-20'>
       <Link to='/' className='flex-initial max-w-xs'>
         {/* Could use logo as an SVG */}
-        <Img fixed={ data.file.childImageSharp.fixed } />
+        <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ false } loading="eager" alt="Blink SEO" />
       </Link>
 
       <Menu />
