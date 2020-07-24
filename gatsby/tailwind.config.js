@@ -16,6 +16,9 @@ module.exports = {
         yellow: '#f4c800',
         grey: '#3f3f37',
       },
+      width: {
+        'full-1-5': '150%',
+      }
     },
   },
   variants: {},
