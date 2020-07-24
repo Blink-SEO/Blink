@@ -4,6 +4,7 @@ import { graphql, Link } from "gatsby"
 import SEO from '../components/seo'
 import Layout from "../components/layout"
 import ConvertKitFrom from '../components/template-parts/ConvertKitForm'
+import BarChart from '../components/template-parts/bar-chart'
 
 export default ({ data }) => {
   const { title, content, featuredImage, seo } = data.wpPage
@@ -30,9 +31,7 @@ export default ({ data }) => {
           <ConvertKitFrom />
         </div>
 
-        <div>
-          Animated bit here...
-        </div>
+        <BarChart />
       </article>
     </Layout>
   )
