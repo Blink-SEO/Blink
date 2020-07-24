@@ -7,7 +7,7 @@ import Footer from './footer'
 import '../assets/scss/style.scss'
 
 const Layout = ({ children }) => (
-  <div className='bg-yellow'>
+  <div className='bg-yellow overflow-x-hidden'>
     <Header />
     <main className='container px-6 sm:px-0'>
       { children }
