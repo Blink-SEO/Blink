@@ -3,16 +3,24 @@
 // ConvertKit
 .formkit-form {
   @apply py-8;
+
+  > div {
+    padding: 0 !important;
+  }
+}
+
+.formkit-input,
+.formkit-submit {
+  border-radius: 0 !important;
 }
 
 .formkit-submit {
   background: #000 !important;
 
-  border-radius: 0 !important;
   transition: background-color 0.5s ease;
 
   &:hover,
   &focus {
-    @apply bg-gray-900;
+    background: #1a202c !important;
   }
 }
