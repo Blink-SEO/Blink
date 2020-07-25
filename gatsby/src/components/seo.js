@@ -6,6 +6,7 @@
  */
 
 import React from "react"
+import { useLocation } from "@reach/router"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
@@ -13,7 +14,7 @@ import { useStaticQuery, graphql } from "gatsby"
 function SEO({
   lang,
   siteName,
-  url,
+  canonical,
   title,
   description,
   image,
@@ -26,6 +27,7 @@ function SEO({
   twDescription,
   twImage
 }) {
+  const { pathname } = useLocation()
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -33,20 +35,23 @@ function SEO({
           siteMetadata {
             defaultTitle: title
             defaultDescription: description
+            siteUrl
           }
         }
       }
     `
   )
 
-  const { defaultTitle, defaultDescription } = site.siteMetadata
+  const { defaultTitle, defaultDescription, siteUrl } = site.siteMetadata
+
   const metaDescription = description || defaultDescription
   const metaTitle = title || defaultTitle
+  const canonicalUrl =  canonical || `${siteUrl}${pathname}`
   // Open Graph options
   const openGTitle = ogTitle || metaTitle
   const opengDesc = ogDescription || metaDescription
   const openGImg = ogImage || image
-  const openUrl = ogUrl || url
+
   // Twitter options
   const twitTitle = twTitle || metaTitle
   const twitDesc = twDescription || metaDescription
@@ -55,11 +60,11 @@ function SEO({
   return (
       <Helmet htmlAttributes={{lang}}>
         <title>{ metaTitle }</title>
-        <link rel="canonical" href={ url } />
+        <link rel="canonical" href={ canonicalUrl } />
         <meta name="description" content={ metaDescription } />
         { image && <meta name="image" content={ image } /> }
 
-        <meta property="og:url" content={ openUrl } />
+        <meta property="og:url" content={ canonicalUrl } />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content={ siteName }/>
         <meta property="og:title" content={ openGTitle } />
