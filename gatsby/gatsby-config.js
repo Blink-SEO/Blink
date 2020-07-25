@@ -11,6 +11,7 @@ module.exports = {
   siteMetadata: {
     title: `SEO and Digital Marketing Agency | Search and Content | Blink SEO`,
     description: `Intelligent SEO and digital marketing from Blink, focused on delivering a real return on your investment. Call us on 01603 928247 to find out more.`,
+    siteUrl: `https://www.blinkseo.co.uk`, // No trailing slash allowed!
   },
   plugins: [
     `gatsby-plugin-sharp`,
