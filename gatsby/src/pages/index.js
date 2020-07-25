@@ -16,11 +16,9 @@ export default ({ data }) => {
         <script src={'anime.min.js'} type="text/javascript" defer />
       </Helmet>
       <SEO
-        url={ seo.canonical }
         title={ seo.title }
         description={ seo.metaDesc }
         image={ featuredImage.node.sourceUrl }
-        ogUrl={ seo.opengraphUrl }
         ogAuthor={ seo.opengraphAuthor }
         ogDescription={ seo.opengraphDescription }
         ogTitle={ seo.opengraphTitle }
@@ -61,7 +59,6 @@ export const query = graphql`
         }
       }
       seo {
-        canonical
         title
         metaDesc
         opengraphAuthor
@@ -70,7 +67,6 @@ export const query = graphql`
         opengraphImage {
           sourceUrl
         }
-        opengraphUrl
       }
     }
   }
