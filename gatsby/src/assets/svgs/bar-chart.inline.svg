@@ -1,344 +1,352 @@
-<svg
-  version="1.1"
-  id="Layer_1"
-  xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
-  x="0"
-  y="0"
-  viewBox="400 300 1896.67 2061.74"
-  xml:space="preserve"
->
-  <style>
-    .st2 {
-      fill: #d2ae13;
-    }
-    .st4 {
-      fill: #ef142a;
-    }
-    .st5 {
-      fill: #aa0619;
-    }
-    .st7 {
-      fill: #ffb800;
-    }
-    .st8 {
-      fill: #bf8d00;
-    }
-    .st10 {
-      fill: #ff8a7a;
-    }
-    .st11 {
-      fill: #fdb813;
-    }
-    .st12 {
-      fill: #bf8d0d;
-    }
-    .st13 {
-      fill: #ffd568;
-    }
-  </style>
-  <!-- <path fill="#f4c800" d="M354.25 192.56h2008.46v1555.21H354.25z" /> -->
-  <!-- Shadows -->
-  <defs>
-    <path id="SVGID_1_" d="M354.25 192.56h2008.46v1555.21H354.25z" />
-  </defs>
-  <clipPath id="SVGID_2_">
-    <use xlink:href="#SVGID_1_" overflow="visible" />
-  </clipPath>
-  <g clip-path="url(#SVGID_2_)">
-    <path
-      class="st2"
-      d="M2317.36 1792.64l81.69-46.48L1095.21 953l-81.72 46.48z"
-    />
-    <path
-      class="st2"
-      d="M2462.24 1843.08l130.98-79.82-1303.87-793.17-130.98 79.83zM2324.39 2012.26l80.81-48.36-1534.16-931.97-80.8 48.35z"
-    />
-  </g>
-  <!-- End shadows -->
-  <!-- Bar clip paths -->
-  <clipPath id="barClipRed" clipPathUnits="objectBoundingBox">
-    <rect width="50" height="50" />
-  </clipPath>
-  <clipPath id="barClipYellowOne" clipPathUnits="objectBoundingBox">
-    <rect width="50" height="50" />
-  </clipPath>
-  <clipPath id="barClipYellowTwo" clipPathUnits="objectBoundingBox">
-    <rect width="50" height="50" />
-  </clipPath>
-  <clipPath id="barClipYellowThree" clipPathUnits="objectBoundingBox">
-    <rect width="50" height="50" />
-  </clipPath>
+<svg viewBox="0 0 1897 2062" fill="none" xmlns="http://www.w3.org/2000/svg" id="barChart">
+      <g clip-path="url(#clip0)">
+        <!-- Shadow clip paths -->
+        <defs>
+          <clipPath id="shadowOne">
+            <path
+              id="SVGID_1_"
+              d="M354.25 192.56h2008.46v1555.21H354.25z"
+              overflow="visible"
+            />
+          </clipPath>
+          <clipPath id="shadowTwo">
+            <path
+              id="SVGID_1_"
+              d="M354.25 192.56h2008.46v1555.21H354.25z"
+              overflow="visible"
+            />
+          </clipPath>
+          <clipPath id="shadowThree">
+            <path
+              id="SVGID_1_"
+              d="M354.25 192.56h2008.46v1555.21H354.25z"
+              overflow="visible"
+            />
+          </clipPath>
+          <clipPath id="shadowFour">
+            <path
+              id="SVGID_1_"
+              d="M354.25 192.56h2008.46v1555.21H354.25z"
+              overflow="visible"
+            />
+          </clipPath>
+        </defs>
 
-  <!-- Back line -->
-  <path
-    fill="#bfa400"
-    d="M1451.57 578.68l-896.73 549.56-8.03-6.83 896.73-549.56z"
-  />
+        <!-- Shadows -->
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          overflow="hidden"
+          clip-path="url(#shadowOne)"
+        >
+          <path
+            d="M1907.36 1492.64L1989.05 1428.5L685.21 635.34L603.49 699.48L1907.36 1492.64Z"
+            fill="#D2AE13"
+          />
+        </svg>
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          overflow="hidden"
+          clip-path="url(#shadowTwo)"
+        >
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M1995.2 1663.9L1914.39 1712.26L380.24 780.28L461.04 731.93L1995.2 1663.9Z" fill="#D2AE13"/>
+        </svg>
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          overflow="hidden"
+          clip-path="url(#shadowThree)"
+        >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M1985.96 1658.81L1905.15 1707.17L1223 1296L564 883.5L648.5 838L1985.96 1658.81Z" fill="#D2AE13"/>
+        </svg>
 
-  <!-- End back line -->
-  <!-- Red bar -->
-  <svg
-    preserveAspectRatio="xMidYMid meet"
-    overflow="hidden"
-    class="bar bar--red"
-    clip-path="url(#barClipRed)"
-  >
-    <g class="bar--inner">
-      <path
-        class="st4"
-        d="M1094.93 857.68l-81.84-47.26-.01 95.84 81.85 47.26z"
-      />
-      <path
-        class="st4"
-        d="M1095.21 857.48l-81.83 47.25-81.85-47.25 81.85-47.26z"
-      />
-      <path
-        class="st4"
-        d="M1013.38 904.73l-81.85-47.25-.01 95.83 81.86 47.26z"
-      />
-      <path
-        class="st5"
-        d="M1013.38 904.73l81.83-47.25v95.83l-81.83 47.26z"
-      />
-      <path
-        class="st4"
-        d="M1094.93 766.71l-81.84-47.26-.01 95.84 81.85 47.26z"
-      />
-      <path
-        class="st4"
-        d="M1095.21 766.51l-81.83 47.25-81.85-47.25 81.85-47.26z"
-      />
-      <path
-        class="st4"
-        d="M1013.38 813.76l-81.85-47.25-.01 95.83 81.86 47.26z"
-      />
-      <path
-        class="st5"
-        d="M1013.38 813.76l81.83-47.25v95.83l-81.83 47.26z"
-      />
-      <path
-        class="st4"
-        d="M1094.93 675.74l-81.84-47.26-.01 95.84 81.85 47.26z"
-      />
-      <path
-        class="st4"
-        d="M1095.21 675.54l-81.83 47.25-81.85-47.25 81.85-47.26z"
-      />
-      <path
-        class="st4"
-        d="M1013.38 722.79l-81.85-47.25-.01 95.83 81.86 47.26z"
-      />
-      <path
-        class="st5"
-        d="M1013.38 722.79l81.83-47.25v95.83l-81.83 47.26z"
-      />
-      <path
-        class="st4"
-        d="M1094.93 584.77l-81.84-47.26-.01 95.84 81.85 47.26z"
-      />
-      <path
-        class="st4"
-        d="M1095.21 584.57l-81.83 47.25-81.85-47.25 81.85-47.25z"
-      />
-      <path
-        class="st4"
-        d="M1013.38 631.82l-81.85-47.25-.01 95.83 81.86 47.26z"
-      />
-      <path
-        class="st5"
-        d="M1013.38 631.82l81.83-47.25v95.83l-81.83 47.26z"
-      />
-      <path
-        class="st4"
-        d="M1095.21 493.6l-81.83 47.25-81.85-47.25 81.85-47.25z"
-      />
-      <path
-        class="st4"
-        d="M1013.38 540.85l-81.85-47.25-.01 95.84 81.86 47.25z"
-      />
-      <path
-        class="st5"
-        d="M1013.38 540.85l81.83-47.25v95.84l-81.83 47.25z"
-      />
-      <path
-        class="st4"
-        d="M1094.93 401.26l-81.84-47.25-.01 95.83 81.85 47.26z"
-      />
-      <path
-        fill="#f0574e"
-        d="M1095.21 401.06l-81.83 47.25-81.85-47.25 81.85-47.25z"
-      />
-      <path
-        class="st4"
-        d="M1013.38 448.31l-81.85-47.25-.01 95.84 81.86 47.25z"
-      />
-      <path
-        class="st5"
-        d="M1013.38 448.31l81.83-47.25v95.84l-81.83 47.25z"
-      />
-    </g>
-  </svg>
-  <!-- End red bar -->
-  <!-- Yellow bar - top left -->
-  <svg preserveAspectRatio="xMidYMid meet" class="bar bar--yellowOne" clip-path="url(#barClipYellowOne)">
-    <g class="bar--inner">
-      <g>
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          overflow="hidden"
+          clip-path="url(#shadowFour)"
+        >
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M2190.98 1453.17L2080.26 1504.41L807.76 721.84L887.11 660L2190.98 1453.17Z" fill="#D2AE13"/>
+        </svg>
+        <!-- End Shadows -->
+
         <path
-          class="st7"
-          d="M871.6 937.38l-81.85-47.25v95.84l81.85 47.25z"
+          d="M1051.57 278.68L154.84 828.24L146.81 821.41L1043.54 271.85L1051.57 278.68Z"
+          fill="#BFA400"
         />
+
+        <!-- Bar clip paths -->
+        <defs>
+          <clipPath id="barClipRed" clipPathUnits="objectBoundingBox">
+            <rect width="50" height="50" />
+          </clipPath>
+          <clipPath id="barClipYellowOne" clipPathUnits="objectBoundingBox">
+            <rect width="50" height="50" />
+          </clipPath>
+          <clipPath id="barClipYellowTwo" clipPathUnits="objectBoundingBox">
+            <rect width="50" height="50" />
+          </clipPath>
+          <clipPath id="barClipYellowThree" clipPathUnits="objectBoundingBox">
+            <rect width="50" height="50" />
+          </clipPath>
+        </defs>
+        <!-- Red bar -->
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          overflow="hidden"
+          class="bar bar--red"
+          clip-path="url(#barClipRed)"
+        >
+          <g class="bar--inner">
+            <path
+              d="M694.93 557.68L613.09 510.42L613.08 606.26L694.93 653.52V557.68Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M695.21 557.48L613.38 604.73L531.53 557.48L613.38 510.22L695.21 557.48Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M613.38 604.73L531.53 557.48L531.52 653.31L613.38 700.57V604.73Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M613.38 604.73L695.21 557.48V653.31L613.38 700.57V604.73Z"
+              fill="#AA0619"
+            />
+            <path
+              d="M694.93 466.71L613.09 419.45L613.08 515.29L694.93 562.55V466.71Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M695.21 466.51L613.38 513.76L531.53 466.51L613.38 419.25L695.21 466.51Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M613.38 513.76L531.53 466.51L531.52 562.34L613.38 609.6V513.76Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M613.38 513.76L695.21 466.51V562.34L613.38 609.6V513.76Z"
+              fill="#AA0619"
+            />
+            <path
+              d="M694.93 375.74L613.09 328.48L613.08 424.32L694.93 471.58V375.74Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M695.21 375.54L613.38 422.79L531.53 375.54L613.38 328.28L695.21 375.54Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M613.38 422.79L531.53 375.54L531.52 471.37L613.38 518.63V422.79Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M613.38 422.79L695.21 375.54V471.37L613.38 518.63V422.79Z"
+              fill="#AA0619"
+            />
+            <path
+              d="M694.93 284.77L613.09 237.51L613.08 333.35L694.93 380.61V284.77Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M695.21 284.57L613.38 331.82L531.53 284.57L613.38 237.32L695.21 284.57Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M613.38 331.82L531.53 284.57L531.52 380.4L613.38 427.66V331.82Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M613.38 331.82L695.21 284.57V380.4L613.38 427.66V331.82Z"
+              fill="#AA0619"
+            />
+            <path
+              d="M695.21 193.6L613.38 240.85L531.53 193.6L613.38 146.35L695.21 193.6Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M613.38 240.85L531.53 193.6L531.52 289.44L613.38 336.69V240.85Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M613.38 240.85L695.21 193.6V289.44L613.38 336.69V240.85Z"
+              fill="#AA0619"
+            />
+            <path
+              d="M694.93 101.26L613.09 54.01L613.08 149.84L694.93 197.1V101.26Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M695.21 101.06L613.38 148.31L531.53 101.06L613.38 53.81L695.21 101.06Z"
+              fill="#F0574E"
+            />
+            <path
+              d="M613.38 148.31L531.53 101.06L531.52 196.9L613.38 244.15V148.31Z"
+              fill="#EF142A"
+            />
+            <path
+              d="M613.38 148.31L695.21 101.06V196.9L613.38 244.15V148.31Z"
+              fill="#AA0619"
+            />
+          </g>
+        </svg>
+        <!-- End red bar -->
+
+        <!-- Yellow bar one -->
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          class="bar bar--yellowOne"
+          clip-path="url(#barClipYellowOne)"
+        >
+          <g class="bar--inner">
+            <path
+              d="M471.6 637.38L389.75 590.13V685.97L471.6 733.22V637.38Z"
+              fill="#FFB800"
+            />
+            <path
+              d="M471.88 637.18L390.04 684.44L308.19 637.18L390.04 589.93L471.88 637.18ZM390.04 684.44L308.19 637.18V733.02L390.04 780.28V684.44Z"
+              fill="#FFB800"
+            />
+            <path
+              d="M390.04 684.44L471.88 637.18V733.02L390.04 780.28V684.44Z"
+              fill="#BF8D00"
+            />
+            <path
+              d="M471.6 546.41L389.75 499.16V595L471.6 642.25V546.41Z"
+              fill="#FFB800"
+            />
+            <path
+              d="M471.88 546.21L390.04 593.47L308.19 546.21L390.04 498.96L471.88 546.21Z"
+              fill="#FFB800"
+            />
+            <path
+              d="M390.04 593.47L308.19 546.21V642.05L390.04 689.31V593.47Z"
+              fill="#FFB800"
+            />
+            <path
+              d="M390.04 593.47L471.88 546.21V642.05L390.04 689.31V593.47Z"
+              fill="#BF8D00"
+            />
+            <path
+              d="M471.6 455.44L389.75 408.19V504.03L471.6 551.28V455.44Z"
+              fill="#FFB800"
+            />
+            <path
+              d="M471.88 455.24L390.04 502.5L308.19 455.24L390.04 407.99L471.88 455.24Z"
+              fill="#FFB800"
+            />
+            <path
+              d="M390.04 502.5L308.19 455.24V551.08L390.04 598.34V502.5Z"
+              fill="#FFB800"
+            />
+            <path
+              d="M390.04 502.5L471.88 455.24V551.08L390.04 598.34V502.5Z"
+              fill="#BF8D00"
+            />
+            <path
+              d="M471.6 364.47L389.75 317.22V413.06L471.6 460.32V364.47Z"
+              fill="#FFB800"
+            />
+            <path
+              d="M471.88 364.27L390.04 411.53L308.19 364.27L390.04 317.02L471.88 364.27Z"
+              fill="#FFD55E"
+            />
+            <path
+              d="M390.04 411.53L308.19 364.27V460.11L390.04 507.37V411.53Z"
+              fill="#FFB800"
+            />
+            <path
+              d="M390.04 411.53L471.88 364.27V460.11L390.04 507.37V411.53Z"
+              fill="#BF8D00"
+            />
+          </g>
+        </svg>
+        <!-- End Yellow bar one -->
+
+        <!-- Yellow bar two -->
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          class="bar bar--yellow"
+          clip-path="url(#barClipYellowTwo)"
+        >
+          <g class="bar--inner">
+            <path
+              d="M926.72 598.62L844.88 645.87L763.03 598.62L844.88 551.36L926.72 598.62Z"
+              fill="#FF8A7A"
+            />
+            <path
+              d="M844.88 645.87L763.03 598.62L763.02 694.45L844.88 741.71V645.87Z"
+              fill="#FDB813"
+            />
+            <path
+              d="M844.88 645.87L926.72 598.62V694.45L844.88 741.71V645.87Z"
+              fill="#BF8D0D"
+            />
+            <path
+              d="M926.72 504.51L844.88 551.76L763.03 504.51L844.88 457.26L926.72 504.51Z"
+              fill="#FF8A7A"
+            />
+            <path
+              d="M844.88 551.76L763.03 504.51L763.02 600.35L844.88 647.6V551.76Z"
+              fill="#FDB813"
+            />
+            <path
+              d="M844.88 551.76L926.72 504.51V600.35L844.88 647.6V551.76Z"
+              fill="#BF8D0D"
+            />
+            <path
+              d="M926.72 410.4L844.88 457.66L763.03 410.4L844.88 363.15L926.72 410.4Z"
+              fill="#FFD568"
+            />
+            <path
+              d="M844.88 457.66L763.03 410.4L763.02 506.24L844.88 553.5V457.66Z"
+              fill="#FDB813"
+            />
+            <path
+              d="M844.88 457.66L926.72 410.4V506.24L844.88 553.5V457.66Z"
+              fill="#BF8D0D"
+            />
+            <path
+              d="M657.91 749.16L576.07 796.42L494.22 749.16L576.07 701.91L657.91 749.16Z"
+              fill="#FF8A7A"
+            />
+          </g>
+        </svg>
+        <!-- End yellow bar two -->
+
+        <!-- Yellow bar three -->
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          class="bar bar--yellow"
+          clip-path="url(#barClipYellowThree)"
+        >
+          <g class="bar--inner">
+            <path
+              d="M576.07 796.42L494.22 749.16V845L576.07 892.26V796.42Z"
+              fill="#FDB813"
+            />
+            <path
+              d="M576.07 796.42L657.91 749.16V845L576.07 892.26V796.42Z"
+              fill="#BF8D0D"
+            />
+            <path
+              d="M657.91 659.76L576.07 707.02L494.22 659.76L576.07 612.51L657.91 659.76Z"
+              fill="#FFD568"
+            />
+            <path
+              d="M576.07 707.02L494.22 659.76V755.6L576.07 802.86V707.02Z"
+              fill="#FDB813"
+            />
+            <path
+              d="M576.07 707.02L657.91 659.76V755.6L576.07 802.86V707.02Z"
+              fill="#BF8D0D"
+            />
+          </g>
+        </svg>
+        <!-- End yellow bar three -->
       </g>
-      <g>
-        <path
-          class="st7"
-          d="M871.88 937.18l-81.84 47.26-81.85-47.26 81.85-47.25zM790.04 984.44l-81.85-47.26v95.84l81.85 47.26z"
-        />
-        <path
-          class="st8"
-          d="M790.04 984.44l81.84-47.26v95.84l-81.84 47.26z"
-        />
-      </g>
-      <g>
-        <path class="st7" d="M871.6 846.41l-81.85-47.25V895l81.85 47.25z" />
-      </g>
-      <g>
-        <path
-          class="st7"
-          d="M871.88 846.21l-81.84 47.26-81.85-47.26 81.85-47.25z"
-        />
-        <path
-          class="st7"
-          d="M790.04 893.47l-81.85-47.26v95.84l81.85 47.26z"
-        />
-        <path
-          class="st8"
-          d="M790.04 893.47l81.84-47.26v95.84l-81.84 47.26z"
-        />
-      </g>
-      <g>
-        <path
-          class="st7"
-          d="M871.6 755.44l-81.85-47.25v95.84l81.85 47.25z"
-        />
-      </g>
-      <g>
-        <path
-          class="st7"
-          d="M871.88 755.24l-81.84 47.26-81.85-47.26 81.85-47.25z"
-        />
-        <path
-          class="st7"
-          d="M790.04 802.5l-81.85-47.26v95.84l81.85 47.26z"
-        />
-        <path
-          class="st8"
-          d="M790.04 802.5l81.84-47.26v95.84l-81.84 47.26z"
-        />
-      </g>
-      <g>
-        <path
-          class="st7"
-          d="M871.6 664.47l-81.85-47.25v95.84l81.85 47.26z"
-        />
-      </g>
-      <g>
-        <path
-          fill="#ffd55e"
-          d="M871.88 664.27l-81.84 47.26-81.85-47.26 81.85-47.25z"
-        />
-        <path
-          class="st7"
-          d="M790.04 711.53l-81.85-47.26v95.84l81.85 47.26z"
-        />
-        <path
-          class="st8"
-          d="M790.04 711.53l81.84-47.26v95.84l-81.84 47.26z"
-        />
-      </g>
-    </g>
-  </svg>
-  <!-- End Yellow bar - top left -->
-  <!-- Yellow bar - bottom right -->
-  <svg preserveAspectRatio="xMidYMid meet" class="bar bar--yellow" clip-path="url(#barClipYellowTwo)">
-    <g class="bar--inner">
-      <g>
-        <path
-          class="st10"
-          d="M1326.72 898.62l-81.84 47.25-81.85-47.25 81.85-47.26z"
-        />
-        <path
-          class="st11"
-          d="M1244.88 945.87l-81.85-47.25-.01 95.83 81.86 47.26z"
-        />
-        <path
-          class="st12"
-          d="M1244.88 945.87l81.84-47.25v95.83l-81.84 47.26z"
-        />
-      </g>
-      <g>
-        <path
-          class="st10"
-          d="M1326.72 804.51l-81.84 47.25-81.85-47.25 81.85-47.25z"
-        />
-        <path
-          class="st11"
-          d="M1244.88 851.76l-81.85-47.25-.01 95.84 81.86 47.25z"
-        />
-        <path
-          class="st12"
-          d="M1244.88 851.76l81.84-47.25v95.84l-81.84 47.25z"
-        />
-      </g>
-      <g>
-        <path
-          class="st13"
-          d="M1326.72 710.4l-81.84 47.26-81.85-47.26 81.85-47.25z"
-        />
-        <path
-          class="st11"
-          d="M1244.88 757.66l-81.85-47.26-.01 95.84 81.86 47.26z"
-        />
-        <path
-          class="st12"
-          d="M1244.88 757.66l81.84-47.26v95.84l-81.84 47.26z"
-        />
-      </g>
-    </g>
-  </svg>
-  <!-- End Yellow bar - bottom right -->
-  <!-- Yellow bar - bottom left -->
-  <svg preserveAspectRatio="xMidYMid meet" class="bar bar--yellow" clip-path="url(#barClipYellowThree)">
-    <g class="bar--inner">
-      <g>
-        <path
-          class="st10"
-          d="M1057.91 1049.16l-81.84 47.26-81.85-47.26 81.85-47.25z"
-        />
-        <path
-          class="st11"
-          d="M976.07 1096.42l-81.85-47.26V1145l81.85 47.26z"
-        />
-        <path
-          class="st12"
-          d="M976.07 1096.42l81.84-47.26V1145l-81.84 47.26z"
-        />
-      </g>
-      <g>
-        <path
-          class="st13"
-          d="M1057.91 959.76l-81.84 47.26-81.85-47.26 81.85-47.25z"
-        />
-        <path
-          class="st11"
-          d="M976.07 1007.02l-81.85-47.26v95.84l81.85 47.26z"
-        />
-        <path
-          class="st12"
-          d="M976.07 1007.02l81.84-47.26v95.84l-81.84 47.26z"
-        />
-      </g>
-    </g>
-  </svg>
-  <!-- End Yellow bar - bottom left -->
-</svg>
+      <defs>
+        <clipPath id="clip0">
+          <rect width="1896.67" height="2061.74" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
