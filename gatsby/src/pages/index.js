@@ -3,7 +3,7 @@ import { graphql, withPrefix, Link } from "gatsby"
 
 import SEO from '../components/seo'
 import Layout from "../components/layout"
-// import ConvertKitFrom from '../components/template-parts/ConvertKitForm'
+import ConvertKitFrom from '../components/template-parts/ConvertKitForm'
 import BarChart from '../components/template-parts/bar-chart'
 
 export default ({ data }) => {
@@ -26,7 +26,7 @@ export default ({ data }) => {
           <h1 className='hero-title text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-5'>{ title }</h1>
           { content && <section dangerouslySetInnerHTML={{ __html: content }} /> }
 
-          {/* <ConvertKitFrom /> */}
+          <ConvertKitFrom />
         </div>
 
         <BarChart />
