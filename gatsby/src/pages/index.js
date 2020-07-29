@@ -12,9 +12,6 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <Helmet>
-        <script src={'anime.min.js'} type="text/javascript" defer />
-      </Helmet>
       <SEO
         title={ seo.title }
         description={ seo.metaDesc }
