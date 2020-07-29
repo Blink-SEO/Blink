@@ -3,7 +3,9 @@ require("dotenv").config({
 })
 
 // require .env.development or .env.production
-require("dotenv").config()
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   // Prefix for dev server
@@ -49,7 +51,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-chakra-ui`, //TODO: need to remove this once all references are gone
     `gatsby-transformer-sharp`,
     {
       resolve: "gatsby-plugin-react-svg",

@@ -3,20 +3,13 @@ import { graphql, Link, navigate } from "gatsby"
 import Img from "gatsby-image"
 import ReactPaginate from "react-paginate"
 
-import { Stack, Box, Heading, Text, Grid, Button } from "@chakra-ui/core"
-
 import Layout from "../components/layout"
 import { normalizePath } from "../utils/get-url-path"
 
 export default ({ data, pageContext }) => (
   <Layout>
-    <Stack spacing={5}>
       {data.allWpPost.nodes.map((page) => (
-        <Box key={page.link}>
           <Link to={normalizePath(page.uri)}>
-            <Box p={5} shadow="md" borderWidth="1px">
-              <Grid templateColumns="1fr 2fr" gap={6}>
-                <Box>
                   {!!page?.featuredImage?.node?.remoteFile?.childImageSharp && (
                     <Img
                       fluid={
@@ -24,37 +17,23 @@ export default ({ data, pageContext }) => (
                       }
                     />
                   )}
-                </Box>
-                <Box>
-                  <Heading as="h2" size="md">
                     {page.title}
-                  </Heading>
                   {!!page.author && !!page.author.name && (
-                    <Heading as="h3" size="sm">
-                      Author: {page.author.name}
-                    </Heading>
+                      <div>Author: {page.author.name}</div>
                   )}
 
-                  <Box>
-                    <Text dangerouslySetInnerHTML={{ __html: page.excerpt }} />
-                  </Box>
-                </Box>
-              </Grid>
-            </Box>
+                    <div dangerouslySetInnerHTML={{ __html: page.excerpt }} />
           </Link>
-        </Box>
       ))}
-    </Stack>
 
     {pageContext && pageContext.totalPages > 1 && (
-      <Box mt={10}>
         <ReactPaginate
           previousLabel={
-            pageContext?.page !== 1 && <Button>Previous page</Button>
+            pageContext?.page !== 1 && <a>Previous page</a>
           }
           nextLabel={
             pageContext?.totalPages !== pageContext.page && (
-              <Button>Next page</Button>
+              <a>Next page</a>
             )
           }
           onPageChange={({ selected }) => {
@@ -73,7 +52,6 @@ export default ({ data, pageContext }) => (
           activeClassName={"active"}
           initialPage={pageContext.page - 1}
         />
-      </Box>
     )}
   </Layout>
 )
