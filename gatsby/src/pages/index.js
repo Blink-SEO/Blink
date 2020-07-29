@@ -1,10 +1,9 @@
 import React from "react"
 import { graphql, withPrefix, Link } from "gatsby"
-import Helmet from 'react-helmet'
 
 import SEO from '../components/seo'
 import Layout from "../components/layout"
-import ConvertKitFrom from '../components/template-parts/ConvertKitForm'
+// import ConvertKitFrom from '../components/template-parts/ConvertKitForm'
 import BarChart from '../components/template-parts/bar-chart'
 
 export default ({ data }) => {
@@ -23,11 +22,11 @@ export default ({ data }) => {
       />
       {/* TODO: Make this a hero component? */}
       <article className='grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 gap-8 min-h-screen mx-auto'>
-        <div>
+        <div className='border-l-2 border-dark-yellow pl-8'>
           <h1 className='hero-title text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-5'>{ title }</h1>
           { content && <section dangerouslySetInnerHTML={{ __html: content }} /> }
 
-          <ConvertKitFrom />
+          {/* <ConvertKitFrom /> */}
         </div>
 
         <BarChart />
