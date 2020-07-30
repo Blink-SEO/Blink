@@ -19,7 +19,10 @@ module.exports = {
       },
       width: {
         'full-1-5': '150%',
-      }
+      },
+      maxWidth: {
+        '45ch': '45ch',
+      },
     },
   },
   variants: {},
