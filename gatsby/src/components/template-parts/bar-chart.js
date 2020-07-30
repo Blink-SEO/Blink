@@ -22,11 +22,7 @@ const BarChart = () => {
     .fromTo("#mask0", {attr: {y: -initialPosition}}, {attr: {y: 591}, duration: duration}, offset)
   })
 
-  return (
-    <div className='overflow-visible' style={{height: '80%'}}>
-      <BarChartSVG id='barChart' className='w-full-1-5'  />
-    </div>
-  )
+  return <BarChartSVG id='barChart' className='w-full-1-5'  />
 }
 
 export default BarChart
