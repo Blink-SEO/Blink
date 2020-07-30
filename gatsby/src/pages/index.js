@@ -5,6 +5,7 @@ import SEO from '../components/seo'
 import Layout from "../components/layout"
 import ConvertKitFrom from '../components/template-parts/ConvertKitForm'
 import BarChart from '../components/template-parts/bar-chart'
+import Arrow from '../components/template-parts/bouncing-arrow'
 
 export default ({ data }) => {
   const { title, content, featuredImage, seo } = data.wpPage
@@ -21,15 +22,19 @@ export default ({ data }) => {
         ogImage={ seo.opengraphImage.sourceUrl }
       />
       {/* TODO: Make this a hero component? */}
-      <article className='grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 gap-8 min-h-screen mx-auto'>
+      <article className='grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 gap-16 min-h-screen mx-auto'>
         <div className='border-l-2 border-dark-yellow pl-8'>
           <h1 className='hero-title text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-5'>{ title }</h1>
-          { content && <section dangerouslySetInnerHTML={{ __html: content }} /> }
-
-          <ConvertKitFrom />
+          { content && <section className='hero-section max-w-45ch' dangerouslySetInnerHTML={{ __html: content }} /> }
+          <div className='max-w-45ch'>
+            <ConvertKitFrom />
+          </div>
         </div>
 
-        <BarChart />
+        <div className='overflow-visible relative'>
+          <BarChart />
+          <Arrow />
+        </div>
       </article>
     </Layout>
   )
