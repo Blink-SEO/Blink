@@ -1,28 +1,30 @@
-import React, { useLayoutEffect } from 'react'
-import { TimelineLite } from "gsap/dist/gsap";
+import React, { useEffect } from 'react'
+import { gsap } from 'gsap'
 
 import BarChartSVG from '../../assets/svgs/bar-chart.inline.svg'
 
 const BarChart = () => {
 
-  useLayoutEffect(() => {
-    const tl = new TimelineLite()
-    const offset = '>-1'
+  useEffect(() => {
+    const tl = gsap.timeline()
+    const duration = 1.3
+    const initialPosition = 1000
+    const offset = `>-${duration}`
 
     tl
-      .fromTo("#h", {y: 650}, {y: 0, duration: 1})
-      .fromTo("#c", {y: -1800}, {y: 0, duration: 1}, offset)
-      .fromTo("#g", {y: 650}, {y: 0, duration: 1})
-      .fromTo("#d", {y: -1800}, {y: 0, duration: 1}, offset)
-      .fromTo("#f", {y: 650}, {y: 0, duration: 1})
-      .fromTo("#b", {y: -1800}, {y: 0, duration: 1}, offset)
-      .fromTo("#e", {y: 650}, {y: 0, duration: 1})
-      .fromTo("#a", {y: -1800}, {y: 0, duration: 1}, offset);
+    .fromTo('#mask7', {attr: {y: initialPosition}}, {attr:{y: 556}, duration: duration})
+    .fromTo("#mask2", {attr: {y: -initialPosition}}, {attr: {y: 612}, duration: duration}, offset)
+    .fromTo('#mask6', {attr: {y: initialPosition}}, {attr:{y: 311}, duration: duration})
+    .fromTo("#mask3", {attr: {y: -initialPosition}}, {attr: {y: 605}, duration: duration}, offset)
+    .fromTo('#mask5', {attr: {y: initialPosition}}, {attr:{y: 270}, duration: duration})
+    .fromTo("#mask1", {attr: {y: -initialPosition}}, {attr: {y: 621}, duration: duration}, offset)
+    .fromTo('#mask4', {attr: {y: initialPosition}}, {attr:{y: 0}, duration: duration})
+    .fromTo("#mask0", {attr: {y: -initialPosition}}, {attr: {y: 591}, duration: duration}, offset)
   })
 
   return (
     <div className='overflow-visible' style={{height: '80%'}}>
-      <BarChartSVG className='w-full-1-5'  />
+      <BarChartSVG id='barChart' className='w-full-1-5'  />
     </div>
   )
 }
