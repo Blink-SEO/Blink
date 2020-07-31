@@ -1,20 +1,30 @@
-import React from "react"
-import { Box, Grid } from "@chakra-ui/core"
-import Header from "./header"
-import Menu from "./menu"
+import React from 'react'
+import CookieConsent from 'react-cookie-consent';
 
-import "../assets/style.css"
+import Header from './header'
+import Footer from './footer'
+
+import '../assets/scss/style.scss'
 
 const Layout = ({ children }) => (
-  <div>
-    <Grid style={{ margin: `0 auto` }} maxW="90%" w={900} alignSelf="center">
-      <Box mb={10} mt={20}>
-        <Header />
-      </Box>
-      <Menu />
+  <div className='bg-yellow overflow-x-hidden'>
+    <Header />
+    <main className='container px-6 sm:px-0'>
+      { children }
+    </main>
+    <Footer />
 
-      <Box mb={100}>{children}</Box>
-    </Grid>
+    <CookieConsent
+      location="bottom"
+      buttonText="Accept"
+      enableDeclineButton
+      flipButtons
+      declineButtonText="Decline"
+      cookieName="gatsby-gdpr-google-tagmanager"
+      style={{ background: "#3f3f37" }}
+    >
+      We use cookies to ensure that we give you the best experience on our website.
+    </CookieConsent>
   </div>
 )
 

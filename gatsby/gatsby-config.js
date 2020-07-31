@@ -8,6 +8,13 @@ require("dotenv").config({
 })
 
 module.exports = {
+  // Prefix for dev server
+  pathPrefix: `/blink`,
+  siteMetadata: {
+    title: `SEO and Digital Marketing Agency | Search and Content | Blink SEO`,
+    description: `Intelligent SEO and digital marketing from Blink, focused on delivering a real return on your investment. Call us on 01603 928247 to find out more.`,
+    siteUrl: `https://www.blinkseo.co.uk`, // No trailing slash allowed!
+  },
   plugins: [
     `gatsby-plugin-sharp`,
     {
@@ -22,7 +29,7 @@ module.exports = {
       options: {
         url:
           process.env.WPGRAPHQL_URL ||
-          `https://dev-gatsby-source-wordpress-v4.pantheonsite.io/graphql`,
+          `http://localhost/Blink/blinksite/wp/graphql`,
         verbose: true,
         develop: {
           hardCacheMediaFiles: true,
@@ -44,7 +51,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-chakra-ui`,
     `gatsby-transformer-sharp`,
     {
       resolve: "gatsby-plugin-react-svg",
@@ -55,5 +61,26 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify-cache`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        postCssPlugins: [
+          require("tailwindcss"),
+          require("./tailwind.config.js"), // Optional: Load custom Tailwind CSS configuration
+        ],
+      },
+    },
+    // Handle GDPR cookie consent and GTM
+    {
+      resolve: `gatsby-plugin-gdpr-cookies`,
+      options: {
+        googleTagManager: {
+          trackingId: process.env.GTM_TRACKING_ID, // leave empty if you want to disable the tracker
+          cookieName: 'gatsby-gdpr-google-tagmanager', // default
+          dataLayerName: 'dataLayer', // default
+        },
+      },
+    },
+    `gatsby-plugin-sitemap`,
   ],
 }

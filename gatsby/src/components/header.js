@@ -1,24 +1,33 @@
-import React from "react"
-import { Heading, Box, Grid } from "@chakra-ui/core"
-import { Link } from "gatsby"
-import GatsbyLogo from "../assets/svg/gatsby.inline.svg"
+import React from 'react'
+import { Link, useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
-export default () => (
-  <Heading as="h1">
-    <Link to="/">
-      <Grid gridTemplateColumns="50px 1fr" gridGap="20px">
-        <Box maxW={50}>
-          <GatsbyLogo />
-        </Box>
-        <span
-          style={{
-            transform: `translateY(5px)`,
-            display: `inline-block`,
-          }}
-        >
-          Gatsby Source WordPress V4 demo
-        </span>
-      </Grid>
-    </Link>
-  </Heading>
-)
+import Menu from './menu'
+
+const Header = () => {
+  const data = useStaticQuery(graphql`
+    {
+      file(relativePath: {eq: "BlinkLogo.png"}) {
+        childImageSharp {
+          fixed(width: 167) {
+            ...GatsbyImageSharpFixed_withWebp_noBase64
+          }
+        }
+      }
+    }
+  `)
+
+  return (
+    <header className='flex container px-6 sm:px-0 pt-10 pb-20'>
+      <Link to='/' className='flex-initial max-w-xs'>
+        {/* Could use logo as an SVG */}
+        <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ false } loading="eager" alt="Blink SEO" />
+      </Link>
+
+      <Menu />
+    </header>
+  )
+}
+
+
+export default Header
