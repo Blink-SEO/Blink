@@ -3,11 +3,10 @@ import { gsap } from 'gsap'
 
 import BarChartSVG from '../../assets/svgs/bar-chart.inline.svg'
 
-const BarChart = () => {
+const BarChart = ({ duration }) => {
 
   useEffect(() => {
     const tl = gsap.timeline()
-    const duration = 1.3
     const initialPosition = 1000
     const offset = `>-${duration}`
 
