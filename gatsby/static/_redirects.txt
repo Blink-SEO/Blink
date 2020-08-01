@@ -1,1 +1,0 @@
-https://blinkseo.netlify.app/* https://www.blinkseo.co.uk/:splat 301!
