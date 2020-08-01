@@ -61,6 +61,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify-cache`,
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-sass`,
       options: {
