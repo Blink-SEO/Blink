@@ -4,4 +4,4 @@ https://blinkseo.netlify.app/* https://www.blinkseo.co.uk/:splat 301!
 /about/ / 302
 /case-studies/* / 302
 /blog/* / 302
-/contact/
+/contact/ / 302
