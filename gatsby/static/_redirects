@@ -1,7 +1,35 @@
+# Redirect the netlify domain back to the main
 https://blinkseo.netlify.app/* https://www.blinkseo.co.uk/:splat 301!
 
-/services/* / 302
-/about/ / 302
-/case-studies/* / 302
-/blog/* / 302
-/contact/ / 302
+# Redirect pages back to homepage - these will change as and when they are added back in
+/about/ / 301
+/about-us/* / 301
+/author/* / 301
+/a-beginners-guide-to-content-curation/ / 301
+/blog/* / 301
+/blink/* / 301
+/blink-are-crowdfunding-for-the-green-door/ / 301
+/case-studies/* / 301
+/case-study-fao/* / 301
+/contact/ / 301
+/category/* / 301
+/campaign-hobbies-legacy-plans/ / 301
+/digital-marketing-for-science-organisations/* / 301
+/faq-items/* / 301
+/googles-meta-description-length-u-turn/ / 301
+/home/* / 301
+/how-to-write-about-specialised-or-technical-subjects/ / 301
+/just-useful-bings-places-business/ / 301
+/new-team-member-joins-blink-2/ / 301
+/new-team-member/ / 301
+/pagination-and-duplicate-content/ / 301
+/privacy/ / 301
+/services/* / 301
+/still-safe-charities-use-facebooks-lookalike-audience-feature/ / 301
+/the-power-of-the-past-nostalgia-in-marketing/ / 301
+/the-problem-with-paid-awards/ / 301
+/turning-news-into-seo-content/ / 301
+/what-is-objection-handling-and-how-do-copywriters-leverage-it-for-sales/ / 301
+/whisky-live-london-2017/ / 301
+/why-digital-marketing-methodologies-are-mostly-a-load-of-rubbish/ / 301
+/will-gdpr-mean-digital-marketing-firms/ / 301
