@@ -6,7 +6,7 @@
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function blank_theme_support() {
+function gatsby_blink_theme_support() {
 
   /*
 	 * Enable support for Post Thumbnails on posts and pages.
@@ -18,4 +18,4 @@ function blank_theme_support() {
 	// Set post thumbnail size.
 	set_post_thumbnail_size( 1200, 9999 );
 }
-add_action( 'after_setup_theme', 'blank_theme_support' );
+add_action( 'after_setup_theme', 'gatsby_blink_theme_support' );
