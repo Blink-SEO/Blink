@@ -18,3 +18,24 @@
   font-family: 'Gilmer Regular';
   src: url('../fonts/Gilmer/Gilmer-Regular.otf');
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Gilmer Heavy', sans-serif;
+}
+
+h2 {
+  @apply text-white;
+
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+p,
+li {
+  @apply font-sans;
+}
