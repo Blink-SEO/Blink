@@ -23,6 +23,6 @@ add_action( 'after_setup_theme', 'gatsby_blink_theme_support' );
 // Register Custom Post types.
 require get_template_directory() . '/post-types/case-study.php';
 
-// Register custom taxonomies
+// Register custom taxonomies.
 require get_template_directory() . '/taxonomies/industry.php';
 require get_template_directory() . '/taxonomies/service.php';
