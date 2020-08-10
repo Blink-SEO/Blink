@@ -20,6 +20,29 @@ function gatsby_blink_theme_support() {
 }
 add_action( 'after_setup_theme', 'gatsby_blink_theme_support' );
 
+/**
+ * Register the menu to sit in the site header
+ */
+function gatsby_blink_header_menu() {
+	wp_nav_menu(
+		array(
+			'theme_location' => 'primary',
+			'menu_id'        => 'primary-menu',
+			'menu_class'     => 'primary__menu',
+			'container'      => 'ul',
+		)
+	);
+}
+
+/**
+ * Register all navs
+ */
+register_nav_menus(
+	array(
+		'primary' => esc_html__( 'Primary', 'gatsby_blink' ),
+	)
+);
+
 // Register Custom Post types.
 require get_template_directory() . '/post-types/case-study.php';
 
