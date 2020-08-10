@@ -19,3 +19,10 @@ function gatsby_blink_theme_support() {
 	set_post_thumbnail_size( 1200, 9999 );
 }
 add_action( 'after_setup_theme', 'gatsby_blink_theme_support' );
+
+// Register Custom Post types.
+require get_template_directory() . '/post-types/case-study.php';
+
+// Register custom taxonomies
+require get_template_directory() . '/taxonomies/industry.php';
+require get_template_directory() . '/taxonomies/service.php';
