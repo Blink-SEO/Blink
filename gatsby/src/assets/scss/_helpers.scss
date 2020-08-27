@@ -4,3 +4,7 @@
   @apply self-center;
   @apply origin-top-left;
 }
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
