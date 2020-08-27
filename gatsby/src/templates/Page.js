@@ -22,9 +22,7 @@ export default ({ data }) => {
 
       <Hero title={ title } subtitle={ pageSettings.subtitle } />
 
-      <article>
-        { content && <section className='[ max-w-45ch ]' dangerouslySetInnerHTML={{ __html: content }} /> }
-      </article>
+      { content && <article className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: content }} /> }
 
     </Layout>
   )
