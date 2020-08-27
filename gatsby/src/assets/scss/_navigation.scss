@@ -1,0 +1,42 @@
+.primary-nav {
+  @include border-before(2px, 18ch, 0, 0, #000);
+
+  + * {
+    margin-left: rem-calc(20);
+  }
+}
+
+.menu {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.menu__item {
+  padding-right: rem-calc(10);
+  font-size: rem-calc(17);
+  font-weight: 500;
+
+  a {
+    padding: rem-calc(8) rem-calc(10);
+  }
+}
+
+.menu__item--large {
+  padding-right: 0;
+  font-size: rem-calc(28);
+  font-weight: 800;
+
+  @include border-before(24px, 12ch, 0, auto, #000);
+
+  // Edge case - as we don't have a right position in the mixin we'll declare it here
+  &::before {
+    right: 0;
+  }
+}
+
+.menu__item a:hover,
+.menu__item a:focus,
+.menu__item--active {
+  @apply bg-black;
+  @apply text-white;
+}
