@@ -1,14 +1,15 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 
 import SEO from '../components/seo'
-import Layout from "../components/layout"
+import Layout from '../components/layout'
+import Hero from '../components/template-parts/PageHero'
 
 export default ({ data }) => {
   const { title, content, pageSettings, featuredImage, seo } = data.page
 
   return (
-    <Layout backgroundColor={ pageSettings.backgroundColour }>
+    <Layout backgroundColor={ pageSettings.backgroundColour } className='page' >
       <SEO
         title={ seo.title }
         description={ seo.metaDesc }
@@ -18,12 +19,13 @@ export default ({ data }) => {
         ogTitle={ seo.opengraphTitle }
         ogImage={ seo.opengraphImage.sourceUrl }
       />
-      <article className='grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 gap-16 min-h-screen mx-auto'>
-        <div className='mb-8'>
-          <h1 className='hero-title hero-title--page text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-5'>{ title }</h1>
-          { content && <section className='hero-section max-w-45ch' dangerouslySetInnerHTML={{ __html: content }} /> }
-        </div>
+
+      <Hero title={ title } subtitle={ pageSettings.subtitle } />
+
+      <article>
+        { content && <section className='[ max-w-45ch ]' dangerouslySetInnerHTML={{ __html: content }} /> }
       </article>
+
     </Layout>
   )
 }
@@ -35,6 +37,7 @@ export const query = graphql`
       content
       pageSettings {
         backgroundColour
+        subtitle
       }
       featuredImage {
         node {
