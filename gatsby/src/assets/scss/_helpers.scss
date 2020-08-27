@@ -1,5 +1,6 @@
 .rotate {
   @apply transform;
   @apply -rotate-90;
-  width: 8ch;
+  @apply self-center;
+  @apply origin-top-left;
 }
