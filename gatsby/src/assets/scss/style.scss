@@ -1,3 +1,5 @@
+@import './functions';
+
 /* stylelint-disable */
 @tailwind base;
 
@@ -10,6 +12,7 @@
 
 @import './global';
 @import './hero';
+@import './page';
 @import './pagination';
 @import './plugins';
 @import './helpers';
