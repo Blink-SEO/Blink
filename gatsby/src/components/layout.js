@@ -10,7 +10,7 @@ import '../assets/scss/style.scss'
 const Layout = ({ children, backgroundColor, className }) => (
   <div className={`${backgroundColor} ${className} overflow-x-hidden`}>
     <Header />
-    <main className='[ container ] [ px-6 sm:px-0 ]'>
+    <main className='[ container relative ] [ px-6 sm:px-0 ]'>
       { children }
     </main>
     <Footer />
