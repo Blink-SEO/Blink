@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 import Menu from './menu'
 
 const Header = () => {
+  const [ Active, isActive ] = useState( false );
+
   const data = useStaticQuery(graphql`
     {
       file(relativePath: {eq: "BlinkLogo.png"}) {
@@ -26,13 +29,17 @@ const Header = () => {
         <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ false } loading="eager" alt="Blink SEO" />
       </Link>
 
-      <div className="[ flex ]">
+      <div className="[ menu__container menu__container--active ]">
         <Menu />
 
-        <div className="[ menu__item menu__item--large ] [ self-center ]">
+        <div className="[ menu__item menu__item--large menu__item--large ] [ self-center ]">
           <a href="tel:+441603928247"> <FontAwesomeIcon icon={ faPhone } size="sm" /> 01603 928247</a>
         </div>
       </div>
+
+      <button className="menu-button" onClick={ () => isActive( true ) }>
+        <FontAwesomeIcon icon={ faBars } size="3x" />
+      </button>
     </header>
   )
 }
