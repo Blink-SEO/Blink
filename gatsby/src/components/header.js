@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone } from '@fortawesome/free-solid-svg-icons'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faPhone, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import Menu from './menu'
 
@@ -23,13 +22,17 @@ const Header = () => {
   `)
 
   return (
-    <header className='[ flex justify-between ] [ container relative ] [ px-6 sm:px-0 pt-10 pb-20 ]'>
-      <Link to='/' className='flex-initial max-w-xs'>
+    <header className="[ flex justify-between items-center ] [ container relative ] [ px-6 sm:px-0 pt-10 pb-20 ]">
+      <Link to="/" className="flex-initial max-w-xs">
         {/* Could use logo as an SVG */}
         <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ false } loading="eager" alt="Blink SEO" />
       </Link>
 
-      <div className="[ menu__container menu__container--active ]">
+      <div className="[ menu__container menu__container--active ]" data-active={ Active }>
+        <button className="menu-button menu-button--close" onClick={ () => isActive( false ) }>
+          <FontAwesomeIcon icon={ faTimes } size="3x" />
+        </button>
+
         <Menu />
 
         <div className="[ menu__item menu__item--large menu__item--large ] [ self-center ]">
