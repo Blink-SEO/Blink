@@ -1,66 +1,66 @@
 {
-  "key": "group_5f315c6f14124",
-  "title": "Services",
-  "fields": [
-    {
-      "key": "field_5f315d2c2d76e",
-      "label": "Content",
-      "name": "content",
-      "type": "wysiwyg",
-      "instructions": "Enter your content here - the title will display automatically when",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "75",
-        "class": "",
-        "id": ""
-      },
-      "show_in_graphql": 1,
-      "default_value": "",
-      "tabs": "visual",
-      "toolbar": "basic",
-      "media_upload": 0,
-      "delay": 0
-    },
-    {
-      "key": "field_5f315c76e150f",
-      "label": "Display Services",
-      "name": "display_services",
-      "type": "true_false",
-      "instructions": "Shows the services on the page, switch to no if you do not want them displayed",
-      "required": 0,
-      "conditional_logic": 0,
-      "wrapper": {
-        "width": "25",
-        "class": "",
-        "id": ""
-      },
-      "show_in_graphql": 1,
-      "message": "",
-      "default_value": 1,
-      "ui": 1,
-      "ui_on_text": "",
-      "ui_off_text": ""
-    }
-  ],
-  "location": [
-    [
-      {
-        "param": "post_type",
-        "operator": "==",
-        "value": "case-study"
-      }
-    ]
-  ],
-  "menu_order": 0,
-  "position": "normal",
-  "style": "default",
-  "label_placement": "top",
-  "instruction_placement": "label",
-  "hide_on_screen": "",
-  "active": true,
-  "description": "",
-  "show_in_graphql": 0,
-  "graphql_field_name": "Block: Services",
-  "modified": 1598551420
+    "key": "group_5f315c6f14124",
+    "title": "Services",
+    "fields": [
+        {
+            "key": "field_5f315d2c2d76e",
+            "label": "Content",
+            "name": "content",
+            "type": "wysiwyg",
+            "instructions": "Enter your content here - the title will display automatically when",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "75",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "default_value": "",
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_5f315c76e150f",
+            "label": "Display Services",
+            "name": "display_services",
+            "type": "true_false",
+            "instructions": "Shows the services on the page, switch to no if you do not want them displayed",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "case-study"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_graphql": 0,
+    "graphql_field_name": "Services",
+    "modified": 1600101912
 }

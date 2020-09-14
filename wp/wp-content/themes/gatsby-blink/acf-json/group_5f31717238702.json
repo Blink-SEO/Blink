@@ -75,7 +75,7 @@
         ]
     ],
     "menu_order": 0,
-    "position": "side",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -84,5 +84,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "pageSettings",
-    "modified": 1598551433
+    "modified": 1600098426
 }
