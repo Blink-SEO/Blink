@@ -46,6 +46,9 @@ function service_init() {
 		'show_in_rest'      => true,
 		'rest_base'         => 'service',
 		'rest_controller_class' => 'WP_REST_Terms_Controller',
+		'show_in_graphql' => true,
+		'graphql_single_name' => 'service',
+		'graphql_plural_name' => 'services'
 	) );
 
 }

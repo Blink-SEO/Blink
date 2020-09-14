@@ -46,6 +46,9 @@ function industry_init() {
 		'show_in_rest'      => true,
 		'rest_base'         => 'industry',
 		'rest_controller_class' => 'WP_REST_Terms_Controller',
+		'show_in_graphql' => true,
+		'graphql_single_name' => 'industry',
+		'graphql_plural_name' => 'industries'
 	) );
 
 }
