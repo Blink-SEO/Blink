@@ -31,6 +31,11 @@ module.exports = {
           process.env.WPGRAPHQL_URL ||
           `http://localhost/Blink/blinksite/wp/graphql`,
         verbose: true,
+        html: {
+          useGatsbyImage: true,
+          imageMaxWidth: 1024,
+          fallbackImageMaxWidth: 800,
+        },
         develop: {
           hardCacheMediaFiles: true,
         },
