@@ -50,7 +50,7 @@
   .primary-nav {
     flex-direction: row;
 
-    @include border-before(2px, 18ch, 0, 0, #000);
+    @include border-before(2px, 18ch, -28px, 0, #000);
 
     + * {
       margin-left: rem-calc(20);
