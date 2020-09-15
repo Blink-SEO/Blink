@@ -38,12 +38,14 @@ function case_study_init() {
 		'show_in_nav_menus'     => true,
 		'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
 		'has_archive'           => true,
-		'rewrite'               => true,
+		'rewrite'               => array(
+			'slug' => 'case-studies'
+		),
 		'query_var'             => true,
 		'menu_position'         => null,
 		'menu_icon'             => 'dashicons-format-aside',
 		'show_in_rest'          => true,
-		'rest_base'             => 'case-study',
+		'rest_base'             => 'case-studies',
 		'rest_controller_class' => 'WP_REST_Posts_Controller',
 		'show_in_graphql' => true,
 		'graphql_single_name' => 'case_study',
