@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import CookieConsent from 'react-cookie-consent';
 
 import Header from './header'
@@ -6,10 +7,10 @@ import Footer from './footer'
 
 import '../assets/scss/style.scss'
 
-const Layout = ({ children }) => (
-  <div className='bg-yellow overflow-x-hidden'>
+const Layout = ({ children, backgroundColor, className }) => (
+  <div className={`${backgroundColor} ${className} overflow-x-hidden`}>
     <Header />
-    <main className='container px-6 sm:px-0'>
+    <main className='[ container relative ] [ px-6 sm:px-0 ]'>
       { children }
     </main>
     <Footer />
@@ -27,5 +28,14 @@ const Layout = ({ children }) => (
     </CookieConsent>
   </div>
 )
+
+Layout.defaultProps = {
+  backgroundColor: 'bg-yellow',
+}
+
+Layout.propTypes = {
+  backgroundColor: PropTypes.string,
+  className: PropTypes.string,
+}
 
 export default Layout

@@ -1,0 +1,16 @@
+.rotate {
+  @apply transform;
+  @apply -rotate-90;
+  @apply self-center;
+  @apply origin-bottom;
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
+@media (min-width: 768px) {
+  .rotate {
+    @apply origin-top-left;
+  }
+}

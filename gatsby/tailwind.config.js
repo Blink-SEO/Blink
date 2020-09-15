@@ -5,7 +5,7 @@ module.exports = {
   purge: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
   theme: {
     fontFamily: {
-      sans: ['Gilmer Regular', ...defaultTheme.fontFamily.sans]
+      sans: ['Gilmer', ...defaultTheme.fontFamily.sans]
     },
     container: {
       center: true,
@@ -15,6 +15,8 @@ module.exports = {
         white: '#fff',
         yellow: '#f4c800',
         'dark-yellow': '#D2AE13',
+        red: '#c12c1a',
+        teal: '#0a918f',
         grey: '#3f3f37',
       },
       width: {

@@ -1,116 +1,38 @@
-const { resolve } = require(`path`)
 const path = require(`path`)
-const glob = require(`glob`)
-const chunk = require(`lodash/chunk`)
-const { dd } = require(`dumper.js`)
+const { slash } = require(`gatsby-core-utils`)
 
-const getTemplates = () => {
-  const sitePath = path.resolve(`./`)
-  return glob.sync(`./src/templates/**/*.js`, { cwd: sitePath })
-}
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
 
-//
-// @todo move this to gatsby-theme-wordpress
-exports.createPages = async ({ actions, graphql, reporter }) => {
-  const templates = getTemplates()
-
+  // query content for WordPress pages
   const {
     data: {
-      allWpContentNode: { nodes: contentNodes },
+      allWpPage: { nodes: allPages },
     },
-  } = await graphql(/* GraphQL */ `
-    query ALL_CONTENT_NODES {
-      allWpContentNode(
-        sort: { fields: modifiedGmt, order: DESC }
-        filter: { nodeType: { ne: "MediaItem" } }
-      ) {
+  } = await graphql(`
+    query {
+      allWpPage(filter: {isFrontPage: {eq: false}}) {
         nodes {
-          nodeType
-          uri
           id
+          slug
         }
       }
     }
   `)
 
-  const contentTypeTemplateDirectory = `./src/templates/single/`
-  const contentTypeTemplates = templates.filter((path) =>
-    path.includes(contentTypeTemplateDirectory)
-  )
+  const pageTemplate = path.resolve(`./src/templates/Page.js`)
 
-  await Promise.all(
-    contentNodes.map(async (node, i) => {
-      const { nodeType, uri, id } = node
-      // this is a super super basic template hierarchy
-      // this doesn't reflect what our hierarchy will look like.
-      // this is for testing/demo purposes
-      const templatePath = `${contentTypeTemplateDirectory}${nodeType}.js`
-
-      const contentTypeTemplate = contentTypeTemplates.find(
-        (path) => path === templatePath
-      )
-
-      if (!contentTypeTemplate) {
-        dd(node)
-        reporter.log(``)
-        reporter.log(``)
-        reporter.panic(
-          `[using-gatsby-source-wordpress] No template found at ${templatePath}\nfor single ${nodeType} ${
-            node.id
-          } with path ${
-            node.uri
-          }\n\nAvailable templates:\n${contentTypeTemplates.join(`\n`)}`
-        )
-      }
-
-      await actions.createPage({
-        component: resolve(contentTypeTemplate),
-        path: uri,
-        context: {
-          id,
-          nextPage: (contentNodes[i + 1] || {}).id,
-          previousPage: (contentNodes[i - 1] || {}).id,
-        },
-      })
+  allPages.forEach(post => {
+    createPage({
+      // will be the url for the page
+      path: post.slug,
+      // specify the component template of your choice
+      component: slash(pageTemplate),
+      // In the ^template's GraphQL query, 'id' will be available
+      // as a GraphQL variable to query for this post's data.
+      context: {
+        id: post.id,
+      },
     })
-  )
-
-  // create the blog homepage
-  const {
-    data: { allWpPost },
-  } = await graphql(/* GraphQL */ `
-    {
-      allWpPost(sort: { fields: modifiedGmt, order: DESC }) {
-        nodes {
-          uri
-          id
-        }
-      }
-    }
-  `)
-
-  const perPage = 10
-  const chunkedContentNodes = chunk(allWpPost.nodes, perPage)
-
-  await Promise.all(
-    chunkedContentNodes.map(async (nodesChunk, index) => {
-      const firstNode = nodesChunk[0]
-      const page = index + 1
-      const offset = perPage * index
-
-      await actions.createPage({
-        component: resolve(`./src/templates/blog.js`),
-        path: page === 1 ? `/blog/` : `/blog/${page}/`,
-        context: {
-          firstId: firstNode.id,
-          page: page,
-          offset: offset,
-          totalPages: chunkedContentNodes.length,
-          perPage,
-        },
-      })
-    })
-  )
-
+  })
 }
-

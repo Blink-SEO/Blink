@@ -1,13 +1,15 @@
 .hero-title {
   --border-top-width: 10px;
   --border-bottom-width: 2px;
+  --border-color: #000;
+  --border-span: 4ch;
 
   &::before,
   &::after {
     content: '';
     display: block;
     border-style: solid;
-    border-color: #000;
+    border-color: var(--border-color);
     width: 100%;
     max-width: 450px;
   }
@@ -16,7 +18,7 @@
     @apply pb-5;
 
     border-top-width: var(--border-top-width);
-    width: 4ch;
+    width: var(--border-span);
   }
 
   &::after {
@@ -27,5 +29,19 @@
     @media (min-width: 640px) {
       @apply pt-24;
     }
+  }
+}
+
+.hero-title--page {
+  --border-top-width: 2px;
+  --border-bottom-width: 26px;
+  --border-color: #fff;
+
+  &::before {
+    width: 8ch;
+  }
+
+  &::after {
+    width: var(--border-span);
   }
 }

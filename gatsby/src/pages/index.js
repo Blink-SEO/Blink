@@ -39,13 +39,6 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  # fragment Thumbnail on File {
-  #   childImageSharp {
-  #     fluid(maxWidth: 500) {
-  #       ...GatsbyImageSharpFluid_tracedSVG
-  #     }
-  #   }
-  # }
   {
     wpPage(isFrontPage: {eq: true}) {
       id
