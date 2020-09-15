@@ -27,7 +27,7 @@ const Arrow = () => {
   })
 
   return (
-    <div class='arrow-container absolute hidden md:block' style={{bottom: '40%'}}>
+    <div class='[ arrow-container ] [ row-auto ] [ mb-5 ]'>
       <a href="#bottom">
         <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ false } loading="eager" className='arrow' alt="" />
       </a>
