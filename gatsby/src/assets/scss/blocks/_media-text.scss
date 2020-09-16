@@ -37,17 +37,26 @@
 }
 
 .media-text__case-study-image {
-  --image-margin: #{rem-calc(100)};
-
-  flex: 1 0 auto;
-  margin-left: var(--image-margin);
+  flex: 1 0 100%;
+  margin-top: rem-calc(30);
+  margin-left: var(--image-margin, 0);
 }
 
 .media-text__case-study:nth-child(even) a {
-  @apply flex-row-reverse;
-
   .media-text__case-study-image {
     margin-left: 0;
-    margin-right: var(--image-margin);
+    margin-right: var(--image-margin, 0);
+  }
+}
+
+@media (min-width: 768px) {
+  .media-text__case-study-image {
+    --image-margin: #{rem-calc(100)};
+    flex: 1 0 auto;
+    margin-top: 0;
+  }
+
+  .media-text__case-study:nth-child(even) a {
+    @apply flex-row-reverse;
   }
 }

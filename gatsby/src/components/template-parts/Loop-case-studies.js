@@ -15,8 +15,8 @@ const CaseStudiesLoop = () => {
             node {
               localFile {
                 childImageSharp {
-                  fixed(width: 700) {
-                    ...GatsbyImageSharpFixed_withWebp_noBase64
+                  fluid(maxWidth: 700) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
                   }
                 }
               }
@@ -51,14 +51,14 @@ const CaseStudiesLoop = () => {
               <div className="[ flow media-text__case-study-details ]" >
                 { caseStudy.industries && <h3>Industry: { caseStudy.industries.nodes[0].name }</h3> }
 
-                { caseStudy.title && <h2>{ caseStudy.title }</h2> }
+                { caseStudy.title && <h2 className="[ text-4xl sm:text-5xl leading-tight ]">{ caseStudy.title }</h2> }
 
                 { caseStudy.excerpt && <div className="excerpt__wrapper" dangerouslySetInnerHTML={{ __html: caseStudy.excerpt }} /> }
 
                 <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ true } loading="lazy" alt="" />
               </div>
 
-              <Img fixed={ caseStudy.featuredImage.node.localFile.childImageSharp.fixed } fadeIn={ true } loading="lazy" alt={caseStudy.altText} className="media-text__case-study-image" />
+              <Img fluid={ caseStudy.featuredImage.node.localFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudy.altText} className="media-text__case-study-image" />
             </Link>
           </div>
 

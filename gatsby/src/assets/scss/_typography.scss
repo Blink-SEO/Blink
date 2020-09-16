@@ -53,11 +53,21 @@ li {
   line-height: 1.2;
   font-weight: 800;
 
-  @include border-before(26px, 7ch, auto, 0, #fff);
+  @include border-before(26px, 7ch, -50px, 0, #fff);
 
   &--black {
     @apply text-black;
 
-    @include border-before(26px, 7ch, auto, 0, #000);
+    @include border-before(26px, 7ch, -50px, 0, #000);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lead {
+    @include border-before(26px, 7ch, auto, 0, #fff);
+
+    &--black {
+      @include border-before(26px, 7ch, auto, 0, #000);
+    }
   }
 }

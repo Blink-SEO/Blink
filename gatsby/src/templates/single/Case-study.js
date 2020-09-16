@@ -17,8 +17,8 @@ export const query = graphql`
         node {
           localFile {
             childImageSharp {
-              fixed(width: 550) {
-                ...GatsbyImageSharpFixed_withWebp_noBase64
+              fluid(maxWidth: 550) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
           }
@@ -82,20 +82,20 @@ export default ({ data }) => {
         <h1 className="[ hero-title hero-title--post ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
       </header>
 
-      <article className="flow">
+      <article className="[ flow ] [ relative ]">
         <section className="[ entry-content flow ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-6 md:col-gap-16 ]">
-          <h2 className="[ lead lead--black ] [ col-start-2 col-end-5 ] [ mb-16 ]">{ caseStudySettings.subtitle }</h2>
+          <h2 className="[ lead lead--black ] [ col-start-1 col-end-3 md:col-end-5 lg:col-start-2 ] [ md:mb-16 ]">{ caseStudySettings.subtitle }</h2>
 
-          { content && <div className="[ flow ] [ row-start-2 col-start-2 col-end-4 ]" dangerouslySetInnerHTML={{ __html: content }} /> }
+          { content && <div className="[ flow ] [ row-start-3 md:row-start-2 col-start-1 col-end-4 lg:col-start-2 ]" dangerouslySetInnerHTML={{ __html: content }} /> }
 
-          <Img fixed={ featuredImage.node.localFile.childImageSharp.fixed } fadeIn={ true } loading="lazy" alt={featuredImage.altText} className="[ row-start-2 col-start-4 ]" />
+          <Img fluid={ featuredImage.node.localFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={featuredImage.altText} className="[ row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ]" />
         </section>
 
         { blockServices && <Services content={blockServices.content} displayServices={blockServices.displayServices} services={services.nodes} /> }
 
         <nav className="[ case-study-nav ] [ flex items-center justify-center ]" aria-label="Case Studies">
           {previousPage && <Link to={previousPage.uri}><NavArrowLeft className="case-study-nav__arrow" /></Link>}
-            <h2>Next Case Study</h2>
+            <h2 className="[ text-4xl sm:text-5xl lg:text-6xl text-center leading-tight ]">Next Case Study</h2>
           {nextPage && <Link to={nextPage.uri}><NavArrowRight className="case-study-nav__arrow" /></Link>}
         </nav>
       </article>

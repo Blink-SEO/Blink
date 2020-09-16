@@ -1,5 +1,5 @@
 .services__block {
-  --flow-space: #{rem-calc(150)};
+  --flow-space: #{rem-calc(50)};
 }
 
 .services__content {
@@ -15,4 +15,10 @@
   text-transform: capitalize;
   font-size: rem-calc(25);
   font-weight: 800;
+}
+
+@media (min-width: 768px) {
+  .services__block {
+    --flow-space: #{rem-calc(150)};
+  }
 }
