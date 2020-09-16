@@ -1,9 +1,9 @@
 {
-    "key": "group_5f31717238702",
-    "title": "Page settings",
+    "key": "group_5f61ed0ae62a0",
+    "title": "Case study settings",
     "fields": [
         {
-            "key": "field_5f3171ab9a72c",
+            "key": "field_5f61ed0aed23c",
             "label": "Background colour",
             "name": "background_colour",
             "type": "select",
@@ -32,7 +32,7 @@
             "placeholder": ""
         },
         {
-            "key": "field_5f317ca8de679",
+            "key": "field_5f61ed0aed246",
             "label": "Subtitle",
             "name": "subtitle",
             "type": "text",
@@ -57,14 +57,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "page"
+                "value": "case-study"
             }
         ]
     ],
@@ -77,6 +70,6 @@
     "active": true,
     "description": "",
     "show_in_graphql": 1,
-    "graphql_field_name": "pageSettings",
-    "modified": 1600253186
+    "graphql_field_name": "caseStudySettings",
+    "modified": 1600253316
 }

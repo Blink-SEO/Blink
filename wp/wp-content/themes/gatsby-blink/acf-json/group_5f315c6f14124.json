@@ -60,7 +60,7 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "show_in_graphql": 0,
-    "graphql_field_name": "Services",
-    "modified": 1600101912
+    "show_in_graphql": 1,
+    "graphql_field_name": "blockServices",
+    "modified": 1600252859
 }
