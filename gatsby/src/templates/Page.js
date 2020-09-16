@@ -26,7 +26,7 @@ export default ({ data }) => {
       <article className="flow">
         { content && <section className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: content }} /> }
 
-        { template.templateName && <CaseStudiesLoop /> }
+        { template.templateName === 'Case Studies' && <CaseStudiesLoop /> }
       </article>
 
     </Layout>
