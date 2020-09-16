@@ -47,10 +47,17 @@ li {
 }
 
 .lead {
+  @apply text-white;
+
   font-size: rem-calc(36);
   line-height: 1.2;
   font-weight: 800;
-  @apply text-white;
 
   @include border-before(26px, 7ch, auto, 0, #fff);
+
+  &--black {
+    @apply text-black;
+
+    @include border-before(26px, 7ch, auto, 0, #000);
+  }
 }
