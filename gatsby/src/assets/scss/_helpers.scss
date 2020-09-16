@@ -12,5 +12,9 @@
 @media (min-width: 768px) {
   .rotate {
     @apply origin-top-left;
+
+    &.rotate--center {
+      margin-left: rem-calc(40);
+    }
   }
 }

@@ -22,6 +22,20 @@
   align-self: flex-end;
 }
 
+.case-study-nav {
+  --flow-space: #{rem-calc(100)};
+
+  h2 {
+    line-height: 1.5;
+    margin: 0 rem-calc(15);
+  }
+
+  &__arrow {
+    margin-top: rem-calc(4); //Slight padding to optically center
+    display: block !important;
+  }
+}
+
 @media (max-width: 768px) {
   .menu__container {
     @apply bg-black;
