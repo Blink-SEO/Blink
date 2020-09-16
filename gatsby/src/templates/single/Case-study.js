@@ -1,9 +1,12 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import SEO from "../../components/seo"
 import Layout from "../../components/layout"
+import Services from "../../components/template-parts/Block-case-study-services"
+import NavArrowLeft from "../../components/template-parts/NavArrowLeft"
+import NavArrowRight from "../../components/template-parts/NavArrowRight"
 
 export const query = graphql`
   query caseStudy($id: String!, $nextPage: String, $previousPage: String) {
@@ -31,6 +34,11 @@ export const query = graphql`
         content
         displayServices
       }
+      services {
+        nodes {
+          name
+        }
+      }
       # TODO: Make this a fragment
       seo {
         title
@@ -45,19 +53,18 @@ export const query = graphql`
     }
 
     nextPage: wpCaseStudy(id: { eq: $nextPage }) {
-      title
       uri
     }
 
     previousPage: wpCaseStudy(id: { eq: $previousPage }) {
-      title
       uri
     }
   }
 `
 
 export default ({ data }) => {
-  const { title, content, featuredImage, caseStudySettings, seo } = data.page
+  const { title, content, featuredImage, blockServices, caseStudySettings, services, seo } = data.page
+  const { nextPage, previousPage} = data
 
   return (
     <Layout backgroundColor={ caseStudySettings.backgroundColour } className="case-study" >
@@ -83,6 +90,14 @@ export default ({ data }) => {
 
           <Img fixed={ featuredImage.node.localFile.childImageSharp.fixed } fadeIn={ true } loading="lazy" alt={featuredImage.altText} className="[ row-start-2 col-start-4 ]" />
         </section>
+
+        { blockServices && <Services content={blockServices.content} displayServices={blockServices.displayServices} services={services.nodes} /> }
+
+        <nav className="[ case-study-nav ] [ flex items-center justify-center ]" aria-label="Case Studies">
+          {previousPage && <Link to={previousPage.uri}><NavArrowLeft className="case-study-nav__arrow" /></Link>}
+            <h2>Next Case Study</h2>
+          {nextPage && <Link to={nextPage.uri}><NavArrowRight className="case-study-nav__arrow" /></Link>}
+        </nav>
       </article>
 
     </Layout>
