@@ -45,3 +45,9 @@
     width: var(--border-span);
   }
 }
+
+.hero-title--post {
+  --border-top-width: 0;
+  --border-bottom-width: 0;
+  --border-color: #000;
+}
