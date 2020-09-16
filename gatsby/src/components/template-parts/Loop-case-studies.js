@@ -41,8 +41,6 @@ const CaseStudiesLoop = () => {
     }
   `)
 
-  console.log(data.allWpCaseStudy.nodes[0].featuredImage);
-
   return (
     <section className="[ media-text__wrapper flow ]">
       {data.allWpCaseStudy.nodes.map( (caseStudy, key) => (
