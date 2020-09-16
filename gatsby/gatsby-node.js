@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { slash } = require(`gatsby-core-utils`)
+const { pseudoRandomBytes } = require("crypto")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -9,14 +10,16 @@ exports.createPages = async ({ graphql, actions }) => {
   // query content for WordPress pages
   const {
     data: {
-      allWpPage: { nodes: allPages },
+      allWpPage: { edges: allPages },
     },
   } = await graphql(`
     query {
       allWpPage(filter: {isFrontPage: {eq: false}}) {
-        nodes {
-          id
-          slug
+        edges {
+          node {
+            id
+            slug
+          }
         }
       }
     }
@@ -25,14 +28,22 @@ exports.createPages = async ({ graphql, actions }) => {
   // query content for Case Studies
   const {
     data: {
-      allWpCaseStudy: { nodes: allCaseStudies },
+      allWpCaseStudy: { edges: allCaseStudies },
     },
   } = await graphql(`
     query {
       allWpCaseStudy(sort: {fields: date, order: ASC}) {
-        nodes {
-          id
-          slug
+        edges {
+          next {
+            id
+          }
+          previous {
+            id
+          }
+          node {
+            id
+            slug
+          }
         }
       }
     }
@@ -41,27 +52,29 @@ exports.createPages = async ({ graphql, actions }) => {
   allPages.forEach(post => {
     createPage({
       // will be the url for the page
-      path: post.slug,
+      path: post.node.slug,
       // specify the component template of your choice
       component: slash(pageTemplate),
       // In the ^template's GraphQL query, 'id' will be available
       // as a GraphQL variable to query for this post's data.
       context: {
-        id: post.id,
+        id: post.node.id,
       },
     })
   })
 
-  allCaseStudies.forEach(post => {
+  allCaseStudies.forEach((post) => {
     createPage({
       // will be the url for the page
-      path: `case-studies/${post.slug}`,
+      path: `case-studies/${post.node.slug}`,
       // specify the component template of your choice
       component: slash(caseStudyTemplate),
       // In the ^template's GraphQL query, 'id' will be available
       // as a GraphQL variable to query for this post's data.
       context: {
-        id: post.id,
+        id: post.node.id,
+        nextPage: (post.next || {}).id,
+        previousPage: (post.previous || {}).id
       },
     })
   })
