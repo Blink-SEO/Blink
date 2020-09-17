@@ -1,31 +1,58 @@
 import React from "react"
 import { graphql } from "gatsby"
-import BlogPost from "../../components/template-parts/blog-post"
+import Img from "gatsby-image"
 
-export default ({ data }) => <BlogPost data={data} />
+import SEO from "../../components/seo"
+import Layout from "../../components/layout"
+import { normalizePath } from "../../utils/get-url-path"
 
 export const query = graphql`
-  query post($id: String!, $nextPage: String, $previousPage: String) {
+  query post($id: String!) {
     page: wpPost(id: { eq: $id }) {
       title
       content
-      featuredImage {
-        node {
-          remoteFile {
-            ...HeroImage
-          }
+      pageSettings {
+        backgroundColour
+        subtitle
+      }
+      # TODO: Make this a fragment
+      seo {
+        title
+        metaDesc
+        opengraphAuthor
+        opengraphDescription
+        opengraphTitle
+        opengraphImage {
+          sourceUrl
         }
       }
     }
-
-    nextPage: wpPost(id: { eq: $nextPage }) {
-      title
-      uri
-    }
-
-    previousPage: wpPost(id: { eq: $previousPage }) {
-      title
-      uri
-    }
   }
 `
+export default ({ data }) => {
+
+  const { title, content, pageSettings, seo } = data.page
+
+  return (
+    <Layout backgroundColor={ pageSettings.backgroundColour } className="post single" >
+      <SEO
+        title={ seo.title }
+        description={ seo.metaDesc }
+        // image={ featuredImage.node.sourceUrl }
+        ogAuthor={ seo.opengraphAuthor }
+        ogDescription={ seo.opengraphDescription }
+        ogTitle={ seo.opengraphTitle }
+        // ogImage={ seo.opengraphImage.sourceUrl }
+      />
+
+      <article>
+        <header>
+          <h1 className="[ hero-title hero-title--page hero-title--wide ] [ mb-5 ] [ text-white text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+        </header>
+
+        <section className="[ single__content full-bleed flow ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-6 md:col-gap-16 ] [ py-24 ] [ text-white ]" dangerouslySetInnerHTML={{ __html: content }} />
+      </article>
+
+    </Layout>
+  )
+}
