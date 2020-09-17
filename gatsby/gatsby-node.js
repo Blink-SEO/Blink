@@ -1,10 +1,10 @@
 const path = require(`path`)
 const { slash } = require(`gatsby-core-utils`)
-const { pseudoRandomBytes } = require("crypto")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const pageTemplate = path.resolve(`./src/templates/Page.js`)
+  const postTemplate = path.resolve(`./src/templates/single/Post.js`)
   const caseStudyTemplate = path.resolve(`./src/templates/single/Case-study.js`)
 
   // query content for WordPress pages
@@ -16,6 +16,30 @@ exports.createPages = async ({ graphql, actions }) => {
     query {
       allWpPage(filter: {isFrontPage: {eq: false}}) {
         edges {
+          node {
+            id
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  // query content for WordPress posts
+  const {
+    data: {
+      allWpPost: { edges: allPosts },
+    },
+  } = await graphql(`
+    query {
+      allWpPost(sort: {fields: date, order: ASC}) {
+        edges {
+          next {
+            id
+          }
+          previous {
+            id
+          }
           node {
             id
             slug
@@ -55,6 +79,20 @@ exports.createPages = async ({ graphql, actions }) => {
       path: post.node.slug,
       // specify the component template of your choice
       component: slash(pageTemplate),
+      // In the ^template's GraphQL query, 'id' will be available
+      // as a GraphQL variable to query for this post's data.
+      context: {
+        id: post.node.id,
+      },
+    })
+  })
+
+  allPosts.forEach((post) => {
+    createPage({
+      // will be the url for the page
+      path: `blog/${post.node.slug}`,
+      // specify the component template of your choice
+      component: slash(postTemplate),
       // In the ^template's GraphQL query, 'id' will be available
       // as a GraphQL variable to query for this post's data.
       context: {
