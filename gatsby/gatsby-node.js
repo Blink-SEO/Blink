@@ -6,6 +6,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const pageTemplate = path.resolve(`./src/templates/Page.js`)
   const postTemplate = path.resolve(`./src/templates/single/Post.js`)
   const caseStudyTemplate = path.resolve(`./src/templates/single/Case-study.js`)
+  const archiveTemplate = path.resolve(`./src/templates/blog.js`)
 
   // query content for WordPress pages
   const {
@@ -43,6 +44,31 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             slug
+            date(formatString: "YYYY/MM/DD")
+          }
+        }
+      }
+    }
+  `)
+
+   // query content for WordPress blog archives
+   const {
+    data: {
+      allWpPost: { edges: archives },
+    },
+  } = await graphql(`
+    query {
+      allWpPost(sort: {fields: date, order: ASC}) {
+        edges {
+          next {
+            id
+          }
+          previous {
+            id
+          }
+          node {
+            id
+            date(formatString: "YYYY/MM")
           }
         }
       }
@@ -97,6 +123,23 @@ exports.createPages = async ({ graphql, actions }) => {
       // as a GraphQL variable to query for this post's data.
       context: {
         id: post.node.id,
+      },
+    })
+  })
+
+  archives.forEach((post) => {
+    createPage({
+      // will be the url for the page
+      path: `blog/${post.node.date}`,
+      // specify the component template of your choice
+      component: slash(archiveTemplate),
+      // In the ^template's GraphQL query, 'id' will be available
+      // as a GraphQL variable to query for this post's data.
+      context: {
+        id: post.node.id,
+        date: post.node.date,
+        perPage: 10,
+        offset: 0
       },
     })
   })
