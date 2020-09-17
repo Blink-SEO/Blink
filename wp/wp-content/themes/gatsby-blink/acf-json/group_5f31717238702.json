@@ -21,7 +21,9 @@
                 "bg-white": "White",
                 "bg-red": "Red",
                 "bg-teal": "Teal",
-                "bg-grey": "Grey"
+                "bg-grey": "Grey",
+                "bg-orange": "Orange",
+                "bg-green": "Green"
             },
             "default_value": false,
             "allow_null": 0,
@@ -78,5 +80,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "pageSettings",
-    "modified": 1600253186
+    "modified": 1600356394
 }

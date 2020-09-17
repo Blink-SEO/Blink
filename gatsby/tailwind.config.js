@@ -18,6 +18,8 @@ module.exports = {
         red: '#c12c1a',
         teal: '#0a918f',
         grey: '#3f3f37',
+        orange: '#fb6107',
+        green: '#a9c40d',
       },
       width: {
         'full-1-5': '150%',
