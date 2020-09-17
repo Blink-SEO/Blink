@@ -1,4 +1,16 @@
+// Pages
 .page .entry-content {
   max-width: 85ch;
   margin: 0 auto;
+}
+
+// Posts
+.single__content {
+  background: center / cover no-repeat url('../images/singleContent-bg.jpg');
+
+  > * {
+    @apply col-start-2;
+    @apply col-end-4;
+    @apply mb-0;
+  }
 }
