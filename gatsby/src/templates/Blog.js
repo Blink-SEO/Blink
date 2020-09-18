@@ -28,6 +28,14 @@ export const query = graphql`
         }
       }
     }
+    wp {
+      blogPage {
+        blogPage {
+          title
+          blogContent
+        }
+      }
+    }
   }
 `
 
@@ -43,7 +51,11 @@ export default ({ data, pageContext }) => (
       // ogImage={ seo.opengraphImage.sourceUrl }
     />
 
-      <Hero title='News' />
+      <Hero title={ data.wp.blogPage.blogPage.title } />
+
+      <article className="[ flow ] [ relative ]">
+        { data.wp.blogPage.blogPage.blogContent && <section className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: data.wp.blogPage.blogPage.blogContent }} /> }
+      </article>
 
       {data.allWpPost.nodes.map((page) => (
         <Link to={`/blog${normalizePath(page.uri)}`}>
