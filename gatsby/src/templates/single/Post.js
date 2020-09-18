@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import SEO from "../../components/seo"
 import Layout from "../../components/layout"
 import RecentPosts from "../../components/Recent-posts-list"
-import Archives from "../../components/Archives-list"
+import Archives from "../../components/Archives-navList"
 
 export const query = graphql`
   query post($id: String!) {
