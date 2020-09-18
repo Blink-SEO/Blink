@@ -15,7 +15,7 @@ export const query = graphql`
   #   }
   # }
 
-  query HomePage($offset: Int!, $perPage: Int!, $date: String) {
+  query ArchivePage($offset: Int!, $perPage: Int!, $date: String) {
     allWpPost(
       limit: $perPage
       skip: $offset
