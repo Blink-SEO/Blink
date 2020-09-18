@@ -15,7 +15,10 @@ const Archives = () => {
   `)
 
   // Return the name of the month
-  const convertMonth = date => new Date(date).toLocaleString('default', { month: 'long' })
+  const getMonth = date => new Date(date).toLocaleString('default', { month: 'long' })
+
+  // Return the year
+  const getYear = date => new Date(date).toLocaleString('default', { year: 'numeric' })
 
   // Trim the day from the date
   const trimDate = date => date.slice(0, -3)
@@ -27,7 +30,7 @@ const Archives = () => {
         { data.allWpPost.edges.map( (post, key) => (
           <li className="mb-3" key={ key } >
             {/* We're leaving the /'s off as the slash is included in the uri by default */}
-            <Link className="no-underline" to={`/blog/${trimDate(post.node.date)}`}>{convertMonth(post.node.date)}</Link>
+            <Link className="no-underline" to={`/blog/${trimDate(post.node.date)}`}>{getMonth(post.node.date)} {getYear(post.node.date)}</Link>
           </li>
         )) }
       </ul>
