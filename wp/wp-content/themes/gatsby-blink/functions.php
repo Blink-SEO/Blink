@@ -49,10 +49,22 @@ register_nav_menus(
 if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page(array(
+		'page_title' 			=> 'Blog Page',
+		'menu_title' 			=> 'Blog Page',
+		'menu_slug' 			=> 'blog-page-settings',
+		'capability'			=> 'edit_posts',
+		'icon_url'				=> 'dashicons-index-card',
+		'position' 				=> '20.5',
+		'redirect' 				=> true,
+		'show_in_graphql' => true,
+	));
+
+	acf_add_options_page(array(
 		'page_title' 			=> 'Footer',
 		'menu_title' 			=> 'Footer',
 		'menu_slug' 			=> 'footer-settings',
 		'capability'			=> 'edit_posts',
+		'icon_url'				=> 'dashicons-location-alt',
 		'position' 				=> '20.5',
 		'redirect' 				=> true,
 		'show_in_graphql' => true,

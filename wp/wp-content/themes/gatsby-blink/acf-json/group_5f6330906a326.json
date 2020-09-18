@@ -59,7 +59,7 @@
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "default",
+    "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
@@ -67,5 +67,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "footerOptions",
-    "modified": 1600338362
+    "modified": 1600444809
 }
