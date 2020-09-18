@@ -6,7 +6,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const pageTemplate = path.resolve(`./src/templates/Page.js`)
   const postTemplate = path.resolve(`./src/templates/single/Post.js`)
   const caseStudyTemplate = path.resolve(`./src/templates/single/Case-study.js`)
-  const archiveTemplate = path.resolve(`./src/templates/blog.js`)
+  const archiveTemplate = path.resolve(`./src/templates/archive.js`)
 
   // query content for WordPress pages
   const {
