@@ -137,7 +137,9 @@ exports.createPages = async ({ graphql, actions }) => {
       // as a GraphQL variable to query for this post's data.
       context: {
         id: post.node.id,
-        date: post.node.date,
+        // We need to replace the / with a - to match the date format of the dateGMT
+        // This is because we can only use a regex filter on dateGMT
+        date: `/${post.node.date.replace('/', '-')}/`,
         perPage: 10,
         offset: 0
       },
