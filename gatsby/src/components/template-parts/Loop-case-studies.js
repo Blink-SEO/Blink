@@ -13,12 +13,8 @@ const CaseStudiesLoop = () => {
           uri
           featuredImage {
             node {
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 700) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                  }
-                }
+              remoteFile {
+                ...Thumbnail
               }
             altText
             }
@@ -58,7 +54,7 @@ const CaseStudiesLoop = () => {
                 <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ true } loading="lazy" alt="" />
               </div>
 
-              <Img fluid={ caseStudy.featuredImage.node.localFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudy.altText} className="media-text__case-study-image" />
+              <Img fluid={ caseStudy.featuredImage.node.remoteFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudy.altText} className="media-text__case-study-image" />
             </Link>
           </div>
 
