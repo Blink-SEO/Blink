@@ -2,7 +2,13 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  purge: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
+  purge: {
+    content: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
+    // These options are passed through directly to PurgeCSS
+    options: {
+      whitelist: ['bg-white', 'bg-yellow', 'bg-dark-yellow', 'bg-red', 'bg-teal', 'bg-grey'],
+    }
+  },
   theme: {
     fontFamily: {
       sans: ['Gilmer', ...defaultTheme.fontFamily.sans]
