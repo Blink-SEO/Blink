@@ -1,0 +1,24 @@
+.services__block {
+  --flow-space: #{rem-calc(50)};
+}
+
+.services__content {
+  --flow-space: #{rem-calc(40)};
+  position: relative;
+
+  @include border-before(26px, 14ch, -50px, 0, #000);
+}
+
+.services__list {
+  --flow-space: #{rem-calc(15)};
+
+  text-transform: capitalize;
+  font-size: rem-calc(25);
+  font-weight: 800;
+}
+
+@media (min-width: 768px) {
+  .services__block {
+    --flow-space: #{rem-calc(150)};
+  }
+}

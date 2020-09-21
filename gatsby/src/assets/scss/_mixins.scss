@@ -1,0 +1,21 @@
+// Psuedo border element
+@mixin border-before($height, $width, $top: auto, $left: 0, $color: #fff) {
+  &::before {
+    content: '';
+    position: absolute;
+    top: $top;
+    left: $left;
+    display: block;
+    border-top-style: solid;
+    border-top-color: $color;
+    border-top-width: $height;
+    margin-top: rem-calc(10);
+    width: $width;
+
+    @media (max-width: 768px) {
+      position: initial;
+      border-top-width: $height / 2;
+      margin-bottom: rem-calc(10);
+    }
+  }
+}

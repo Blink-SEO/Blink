@@ -1,0 +1,82 @@
+{
+    "key": "group_5f31717238702",
+    "title": "Page settings",
+    "fields": [
+        {
+            "key": "field_5f3171ab9a72c",
+            "label": "Background colour",
+            "name": "background_colour",
+            "type": "select",
+            "instructions": "Default colour is yellow",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "choices": {
+                "bg-yellow": "Yellow",
+                "bg-white": "White",
+                "bg-red": "Red",
+                "bg-teal": "Teal",
+                "bg-grey": "Grey"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5f317ca8de679",
+            "label": "Subtitle",
+            "name": "subtitle",
+            "type": "text",
+            "instructions": "Text will display rotated",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_graphql": 1,
+    "graphql_field_name": "pageSettings",
+    "modified": 1600253186
+}

@@ -1,0 +1,62 @@
+.media-text__wrapper {
+  --flow-space: #{rem-calc(100)};
+  padding-bottom: rem-calc(260);
+}
+
+.media-text__case-study {
+  @apply text-white;
+
+  --flow-space: #{rem-calc(75)};
+
+  h2 {
+    --flow-space: 0.5em;
+    max-width: 10ch;
+  }
+
+  h3 {
+    font-size: rem-calc(23);
+    font-weight: 300;
+    text-transform: capitalize;
+  }
+
+  h3,
+  .excerpt__wrapper,
+  .gatsby-image-wrapper {
+    --flow-space: 0;
+  }
+
+  p {
+    font-size: rem-calc(30);
+    line-height: 1.5;
+    max-width: 18ch;
+  }
+}
+
+.media-text__case-study-details {
+  flex: 0 1 auto;
+}
+
+.media-text__case-study-image {
+  flex: 1 0 100%;
+  margin-top: rem-calc(30);
+  margin-left: var(--image-margin, 0);
+}
+
+.media-text__case-study:nth-child(even) a {
+  .media-text__case-study-image {
+    margin-left: 0;
+    margin-right: var(--image-margin, 0);
+  }
+}
+
+@media (min-width: 768px) {
+  .media-text__case-study-image {
+    --image-margin: #{rem-calc(100)};
+    flex: 1 0 auto;
+    margin-top: 0;
+  }
+
+  .media-text__case-study:nth-child(even) a {
+    @apply flex-row-reverse;
+  }
+}

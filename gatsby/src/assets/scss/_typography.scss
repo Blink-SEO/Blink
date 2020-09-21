@@ -1,20 +1,73 @@
 @font-face {
-  font-family: 'Gilmer Bold';
+  font-family: 'Gilmer';
   src: url('../fonts/Gilmer/Gilmer-Bold.otf');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-  font-family: 'Gilmer Heavy';
+  font-family: 'Gilmer';
   src: url('../fonts/Gilmer/Gilmer-Heavy.otf');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-  font-family: 'Gilmer Light';
-  src: url('../fonts/Gilmer/Gilmer-Light.otf');
-}
-@font-face {
-  font-family: 'Gilmer Medium';
+  font-family: 'Gilmer';
   src: url('../fonts/Gilmer/Gilmer-Medium.otf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
-@font-face {
-  font-family: 'Gilmer Regular';
-  src: url('../fonts/Gilmer/Gilmer-Regular.otf');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+}
+
+h2 {
+  @apply text-white;
+
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+p,
+li {
+  @apply font-sans;
+}
+
+.subtitle {
+  width: 8ch;
+  line-height: 0.8;
+}
+
+.lead {
+  @apply text-white;
+
+  font-size: rem-calc(36);
+  line-height: 1.2;
+  font-weight: 800;
+
+  @include border-before(26px, 7ch, -50px, 0, #fff);
+
+  &--black {
+    @apply text-black;
+
+    @include border-before(26px, 7ch, -50px, 0, #000);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lead {
+    @include border-before(26px, 7ch, auto, 0, #fff);
+
+    &--black {
+      @include border-before(26px, 7ch, auto, 0, #000);
+    }
+  }
 }
