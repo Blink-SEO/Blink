@@ -23,7 +23,13 @@ export const query = graphql`
         opengraphDescription
         opengraphTitle
         opengraphImage {
-          sourceUrl
+          localFile {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
         }
       }
     }

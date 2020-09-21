@@ -41,7 +41,6 @@ const CaseStudiesLoop = () => {
     <section className="[ media-text__wrapper flow ]">
       {data.allWpCaseStudy.nodes.map( (caseStudy, key) => (
         <>
-
           <div  key={key} className="[ media-text__case-study ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 md:col-gap-16 ]">
             <Link to={ normalizePath(caseStudy.uri) } className="[ flex flex-wrap items-center col-span-3 ] [ no-underline ]">
               <div className="[ flow media-text__case-study-details ]" >
@@ -54,10 +53,10 @@ const CaseStudiesLoop = () => {
                 <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ true } loading="lazy" alt="" />
               </div>
 
-              <Img fluid={ caseStudy.featuredImage.node.remoteFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudy.altText} className="media-text__case-study-image" />
+              { caseStudy.featuredImage?.node?.remoteFile?.childImageSharp &&
+                <Img fluid={ caseStudy.featuredImage.node.remoteFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudy.altText} className="media-text__case-study-image" /> }
             </Link>
           </div>
-
         </>
       ))}
     </section>

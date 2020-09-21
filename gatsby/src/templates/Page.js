@@ -17,7 +17,13 @@ export const query = graphql`
       }
       featuredImage {
         node {
-          sourceUrl
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 550) {
+                src
+              }
+            }
+          }
         }
       }
       template {
@@ -36,7 +42,13 @@ export const query = graphql`
         opengraphDescription
         opengraphTitle
         opengraphImage {
-          sourceUrl
+          localFile {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
         }
       }
     }
@@ -51,11 +63,11 @@ export default ({ data }) => {
       <SEO
         title={ seo.title }
         description={ seo.metaDesc }
-        // image={ featuredImage.node.sourceUrl }
+        image={ featuredImage.node.localFile.childImageSharp.fluid.src }
         ogAuthor={ seo.opengraphAuthor }
         ogDescription={ seo.opengraphDescription }
         ogTitle={ seo.opengraphTitle }
-        // ogImage={ seo.opengraphImage.sourceUrl }
+        ogImage={ seo.opengraphImage.localFile.childImageSharp.fluid.src }
       />
 
       <Hero title={ title } subtitle={ pageSettings.subtitle } className='hero--full' />

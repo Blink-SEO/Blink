@@ -6,6 +6,44 @@ import Layout from "../components/layout"
 import ConvertKitFrom from '../components/template-parts/ConvertKitForm'
 import BarChart from '../components/template-parts/bar-chart'
 
+export const query = graphql`
+{
+  wpPage(isFrontPage: {eq: true}) {
+    id
+    title
+    slug
+    content
+    featuredImage {
+      node {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 550) {
+              src
+            }
+          }
+        }
+      }
+    }
+    seo {
+      title
+      metaDesc
+      opengraphAuthor
+      opengraphDescription
+      opengraphTitle
+      opengraphImage {
+        localFile {
+          childImageSharp {
+            fluid {
+              src
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`
+
 export default ({ data }) => {
   const { title, content, featuredImage, seo } = data.wpPage
 
@@ -14,11 +52,11 @@ export default ({ data }) => {
       <SEO
         title={ seo.title }
         description={ seo.metaDesc }
-        image={ featuredImage.node.sourceUrl }
+        image={ featuredImage.node.localFile.childImageSharp.fluid.src }
         ogAuthor={ seo.opengraphAuthor }
         ogDescription={ seo.opengraphDescription }
         ogTitle={ seo.opengraphTitle }
-        ogImage={ seo.opengraphImage.sourceUrl }
+        ogImage={ seo.opengraphImage.localFile.childImageSharp.fluid.src }
       />
       {/* TODO: Make this a hero component? */}
       <article className='grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 gap-16 min-h-screen mx-auto'>
@@ -37,29 +75,3 @@ export default ({ data }) => {
     </Layout>
   )
 }
-
-export const query = graphql`
-  {
-    wpPage(isFrontPage: {eq: true}) {
-      id
-      title
-      slug
-      content
-      featuredImage {
-        node {
-          sourceUrl
-        }
-      }
-      seo {
-        title
-        metaDesc
-        opengraphAuthor
-        opengraphDescription
-        opengraphTitle
-        opengraphImage {
-          sourceUrl
-        }
-      }
-    }
-  }
-`

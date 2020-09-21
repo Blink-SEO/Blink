@@ -18,6 +18,7 @@ export const query = graphql`
           localFile {
             childImageSharp {
               fluid(maxWidth: 550) {
+                src
                 ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
@@ -39,7 +40,7 @@ export const query = graphql`
           name
         }
       }
-      # TODO: Make this a fragment
+      # TODO: Make this a fragment?
       seo {
         title
         metaDesc
@@ -47,7 +48,13 @@ export const query = graphql`
         opengraphDescription
         opengraphTitle
         opengraphImage {
-          sourceUrl
+          localFile {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
         }
       }
     }
@@ -71,11 +78,11 @@ export default ({ data }) => {
       <SEO
         title={ seo.title }
         description={ seo.metaDesc }
-        // image={ featuredImage.node.sourceUrl }
+        image={ featuredImage.node.localFile.childImageSharp.fluid.src }
         ogAuthor={ seo.opengraphAuthor }
         ogDescription={ seo.opengraphDescription }
         ogTitle={ seo.opengraphTitle }
-        // ogImage={ seo.opengraphImage.sourceUrl }
+        ogImage={ seo.opengraphImage.localFile.childImageSharp.fluid.src }
       />
 
       <header>
@@ -88,7 +95,7 @@ export default ({ data }) => {
 
           { content && <div className="[ flow ] [ row-start-3 md:row-start-2 col-start-1 col-end-4 lg:col-start-2 ]" dangerouslySetInnerHTML={{ __html: content }} /> }
 
-          <Img fluid={ featuredImage.node.localFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={featuredImage.altText} className="[ row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ]" />
+          { featuredImage?.node?.localFile?.childImageSharp &&<Img fluid={ featuredImage.node.localFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={featuredImage.altText} className="[ row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ]" /> }
         </section>
 
         { blockServices && <Services content={blockServices.content} displayServices={blockServices.displayServices} services={services.nodes} /> }
