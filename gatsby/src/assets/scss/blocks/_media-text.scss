@@ -3,7 +3,7 @@
   padding-bottom: rem-calc(260);
 }
 
-.media-text__case-study {
+.media-text {
   @apply text-white;
 
   --flow-space: #{rem-calc(75)};
@@ -32,31 +32,31 @@
   }
 }
 
-.media-text__case-study-details {
+.media-text__details {
   flex: 0 1 auto;
 }
 
-.media-text__case-study-image {
+.media-text__image {
   flex: 1 0 100%;
   margin-top: rem-calc(30);
   margin-left: var(--image-margin, 0);
 }
 
-.media-text__case-study:nth-child(even) a {
-  .media-text__case-study-image {
+.media-text--reverse {
+  .media-text__image {
     margin-left: 0;
     margin-right: var(--image-margin, 0);
   }
 }
 
 @media (min-width: 768px) {
-  .media-text__case-study-image {
+  .media-text__image {
     --image-margin: #{rem-calc(100)};
     flex: 1 0 auto;
     margin-top: 0;
   }
 
-  .media-text__case-study:nth-child(even) a {
+  .media-text:nth-child(even) a {
     @apply flex-row-reverse;
   }
 }
