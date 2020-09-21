@@ -54,6 +54,10 @@
   --border-color: #000;
 }
 
+.hero-title--no-bottom-border::after {
+  display: none;
+}
+
 .hero-title--wide {
   --title-width: 16ch;
 }
