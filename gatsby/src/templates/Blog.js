@@ -28,6 +28,13 @@ export const query = graphql`
         }
       }
     }
+    file(relativePath: {eq: "rightArrow.png"}) {
+      childImageSharp {
+        fixed(width: 90) {
+          ...GatsbyImageSharpFixed_withWebp_noBase64
+        }
+      }
+    }
     wp {
       blogPage {
         blogPage {
@@ -39,8 +46,13 @@ export const query = graphql`
   }
 `
 
-export default ({ data, pageContext }) => (
-  <Layout backgroundColor='bg-red' className='page' >
+export default ({ data, pageContext }) => {
+
+  const { title, blogContent } = data.wp.blogPage.blogPage
+  console.log(data.file);
+
+  return (
+    <Layout backgroundColor='bg-red' className='page' >
     <SEO
       // title={ seo.title }
       // description={ seo.metaDesc }
@@ -51,28 +63,29 @@ export default ({ data, pageContext }) => (
       // ogImage={ seo.opengraphImage.sourceUrl }
     />
 
-      <Hero title={ data.wp.blogPage.blogPage.title } />
+      <Hero title={ title } titleClass="hero-title--no-bottom-border" />
 
       <article className="[ flow ] [ relative ]">
-        { data.wp.blogPage.blogPage.blogContent && <section className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: data.wp.blogPage.blogPage.blogContent }} /> }
+        { blogContent && <section className="[ entry-content flow ]" dangerouslySetInnerHTML={{ __html: blogContent }} /> }
       </article>
 
-      {data.allWpPost.nodes.map((page) => (
-        <Link to={`/blog${normalizePath(page.uri)}`}>
-          {!!page?.featuredImage?.node?.remoteFile?.childImageSharp && (
-            <Img
-              fluid={
-                page.featuredImage.node.remoteFile.childImageSharp.fluid
-              }
-            />
-          )}
-            {page.title}
-          {!!page.author && !!page.author.name && (
-              <div>Author: {page.author.name}</div>
-          )}
+      {data.allWpPost.nodes.map((page, key) => (
+        <>
+          <div key={key} className="[ media-text ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 md:col-gap-16 ]">
+            <Link to={ `/blog${normalizePath(page.uri)}` } className="[ flex flex-wrap items-center col-span-3 ] [ no-underline ]">
+              <div className="[ flow media-text__details ]" >
+                { page.title && <h2 className="[ text-4xl sm:text-5xl leading-tight ]">{ page.title }</h2> }
 
-            <div dangerouslySetInnerHTML={{ __html: page.excerpt }} />
-        </Link>
+                { page.excerpt && <div className="excerpt__wrapper" dangerouslySetInnerHTML={{ __html: page.excerpt }} /> }
+
+                <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ true } loading="lazy" alt="" />
+              </div>
+
+              { page.featuredImage?.node?.remoteFile?.childImageSharp &&
+                <Img fluid={ page.featuredImage.node.remoteFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={page.altText} className="media-text__image" /> }
+            </Link>
+          </div>
+        </>
       ))}
 
     {pageContext && pageContext.totalPages > 1 && (
@@ -103,4 +116,5 @@ export default ({ data, pageContext }) => (
         />
     )}
   </Layout>
-)
+  )
+}
