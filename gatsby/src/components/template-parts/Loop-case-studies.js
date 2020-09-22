@@ -45,7 +45,7 @@ const CaseStudiesLoop = () => {
               <div className="[ flow media-text__case-study-details ]" >
                 { caseStudy.industries && <h3>Industry: { caseStudy?.industries?.nodes[0]?.name }</h3> }
 
-                { caseStudy.title && <h2 className="[ text-4xl sm:text-5xl leading-tight ]">{ caseStudy.title }</h2> }
+                { caseStudy.title && <h2 className="[ media-text__title ] [ text-4xl sm:text-5xl leading-tight ]">{ caseStudy.title }</h2> }
 
                 { caseStudy.excerpt && <div className="excerpt__wrapper" dangerouslySetInnerHTML={{ __html: caseStudy.excerpt }} /> }
 

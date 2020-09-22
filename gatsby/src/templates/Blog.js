@@ -19,6 +19,7 @@ export const query = graphql`
       nodes {
         uri
         title
+        excerpt
         featuredImage {
           node {
             remoteFile {
@@ -69,20 +70,20 @@ export default ({ data, pageContext }) => {
         { blogContent && <section className="[ entry-content flow ]" dangerouslySetInnerHTML={{ __html: blogContent }} /> }
       </article>
 
-      {data.allWpPost.nodes.map((page, key) => (
+      {data.allWpPost.nodes.map((post, key) => (
         <>
-          <div key={key} className="[ media-text ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 md:col-gap-16 ]">
-            <Link to={ `/blog${normalizePath(page.uri)}` } className="[ flex flex-wrap items-center col-span-3 ] [ no-underline ]">
+          <div key={key} className="[ media-text media-text--half media-text--reverse ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 md:col-gap-16 ]">
+            <Link to={ `/blog${normalizePath(post.uri)}` } className="[ flex flex-wrap items-center col-span-3 ] [ no-underline ]">
               <div className="[ flow media-text__details ]" >
-                { page.title && <h2 className="[ text-4xl sm:text-5xl leading-tight ]">{ page.title }</h2> }
+                { post.title && <h2 className="[ media-text__title media-text__title--wide ] [ text-4xl sm:text-5xl leading-tight ]">{ post.title }</h2> }
 
-                { page.excerpt && <div className="excerpt__wrapper" dangerouslySetInnerHTML={{ __html: page.excerpt }} /> }
+                { post.excerpt && <div className="excerpt__wrapper" dangerouslySetInnerHTML={{ __html: post.excerpt }} /> }
 
                 <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ true } loading="lazy" alt="" />
               </div>
 
-              { page.featuredImage?.node?.remoteFile?.childImageSharp &&
-                <Img fluid={ page.featuredImage.node.remoteFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={page.altText} className="media-text__image" /> }
+              { post.featuredImage?.node?.remoteFile?.childImageSharp &&
+                <Img fluid={ post.featuredImage.node.remoteFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={post.altText} className="media-text__image" /> }
             </Link>
           </div>
         </>

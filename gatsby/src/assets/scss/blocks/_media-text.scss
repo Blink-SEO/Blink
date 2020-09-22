@@ -8,7 +8,7 @@
 
   --flow-space: #{rem-calc(75)};
 
-  h2 {
+  .media-text__title {
     --flow-space: 0.5em;
     max-width: 10ch;
   }
@@ -56,7 +56,18 @@
     margin-top: 0;
   }
 
-  .media-text:nth-child(even) a {
+  .media-text--reverse a {
     @apply flex-row-reverse;
+  }
+
+  .media-text--half {
+    .media-text__details,
+    .media-text__image {
+      max-width: 50%;
+    }
+
+    .media-text__details {
+      flex: 1 0 auto;
+    }
   }
 }
