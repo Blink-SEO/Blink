@@ -3,7 +3,7 @@
 }
 
 .services__content {
-  --flow-space: #{rem-calc(40)};
+  --flow-space: #{rem-calc(20)};
   position: relative;
 
   @include border-before(26px, 14ch, -50px, 0, #000);
@@ -17,7 +17,17 @@
   font-weight: 800;
 }
 
+@media (max-width: 640px) {
+  .services__list {
+    margin-top: rem-calc(40);
+  }
+}
+
 @media (min-width: 768px) {
+  .services__content {
+    --flow-space: #{rem-calc(40)};
+  }
+
   .services__block {
     --flow-space: #{rem-calc(150)};
   }
