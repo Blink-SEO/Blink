@@ -6,7 +6,7 @@ module.exports = {
     content: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
     // These options are passed through directly to PurgeCSS
     options: {
-      whitelist: ['bg-white', 'bg-yellow', 'bg-dark-yellow', 'bg-red', 'bg-teal', 'bg-grey'],
+      whitelist: ['bg-white', 'bg-yellow', 'bg-dark-yellow', 'bg-red', 'bg-teal', 'bg-grey', 'bg-orange', 'bg-green'],
     }
   },
   theme: {
