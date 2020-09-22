@@ -101,7 +101,10 @@ export default ({ data }) => {
 
         <nav className="[ case-study-nav ] [ flex items-center justify-center ]" aria-label="Case Studies">
           {previousPage && <Link to={previousPage.uri}><NavArrowLeft className="case-study-nav__arrow" /></Link>}
-            <h2 className="[ text-4xl sm:text-5xl lg:text-6xl text-center leading-tight ]">Next Case Study</h2>
+            <h2 className="[ text-4xl sm:text-5xl lg:text-6xl text-center leading-tight ]">
+              {/* If there is both a previous and next page, display next/previous content else if there is only a previous page display prev content else display next */}
+              { previousPage && nextPage ? 'Previous/Next Case Study' : previousPage ? 'Previous Case Study' : 'Next Case Study' }
+            </h2>
           {nextPage && <Link to={nextPage.uri}><NavArrowRight className="case-study-nav__arrow" /></Link>}
         </nav>
       </article>
