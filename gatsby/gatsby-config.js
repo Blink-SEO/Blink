@@ -88,5 +88,16 @@ module.exports = {
       },
     },
     `gatsby-plugin-sitemap`,
+    // Handle previews
+    {
+      resolve: `gatsby-plugin-wordpress-preview`,
+      options: {
+        graphqlEndpoint: process.env.WPGRAPHQL_URL, // defaults to `${generalSettings.url}/graphql` from wordpress
+        excludedTemplates: [], // exclude templates by their graphqlSingleName. defaults to none
+        debug: false, // shows extra console logs. defaults to false
+        templatesPath: `./src/templates/**/*.js`, // default
+        contentTypeTemplateDirectory: `./src/templates/single`, // default
+      },
+    },
   ],
 }
