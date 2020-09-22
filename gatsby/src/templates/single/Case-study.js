@@ -17,9 +17,8 @@ export const query = graphql`
         node {
           localFile {
             childImageSharp {
-              fluid(maxWidth: 550) {
-                src
-                ...GatsbyImageSharpFluid_withWebp_noBase64
+              fixed(width: 550) {
+                ...GatsbyImageSharpFixed_withWebp_noBase64
               }
             }
           }
@@ -95,7 +94,7 @@ export default ({ data }) => {
 
           { content && <div className="[ flow ] [ row-start-3 md:row-start-2 col-start-1 col-end-4 lg:col-start-2 ]" dangerouslySetInnerHTML={{ __html: content }} /> }
 
-          { featuredImage?.node?.localFile?.childImageSharp &&<Img fluid={ featuredImage.node.localFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={featuredImage.altText} className="[ row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ]" /> }
+          <Img fixed={ featuredImage.node.localFile.childImageSharp.fixed } fadeIn={ true } loading="lazy" alt={featuredImage.altText} className="[ row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ]" />
         </section>
 
         { blockServices && <Services content={blockServices.content} displayServices={blockServices.displayServices} services={services.nodes} /> }
