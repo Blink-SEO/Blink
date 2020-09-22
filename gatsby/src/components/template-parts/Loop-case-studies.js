@@ -49,7 +49,7 @@ const CaseStudiesLoop = () => {
           <div  key={key} className="[ media-text__case-study ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 md:col-gap-16 ]">
             <Link to={ normalizePath(caseStudy.uri) } className="[ flex flex-wrap items-center col-span-3 ] [ no-underline ]">
               <div className="[ flow media-text__case-study-details ]" >
-                { caseStudy.industries && <h3>Industry: { caseStudy.industries.nodes[0].name }</h3> }
+                { caseStudy.industries && <h3>Industry: { caseStudy?.industries?.nodes[0]?.name }</h3> }
 
                 { caseStudy.title && <h2 className="[ text-4xl sm:text-5xl leading-tight ]">{ caseStudy.title }</h2> }
 
