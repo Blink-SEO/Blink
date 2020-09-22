@@ -1,6 +1,6 @@
 .media-text__wrapper {
   --flow-space: #{rem-calc(100)};
-  padding-bottom: rem-calc(260);
+  padding-bottom: rem-calc(130);
 }
 
 .media-text {
@@ -50,6 +50,10 @@
 }
 
 @media (min-width: 768px) {
+  .media-text__wrapper {
+    padding-bottom: rem-calc(260);
+  }
+
   .media-text__image {
     --image-margin: #{rem-calc(100)};
     flex: 1 0 auto;

@@ -23,8 +23,8 @@
 }
 
 .case-study-nav {
-  --flow-space: #{rem-calc(100)};
-  margin-bottom: rem-calc(80);
+  --flow-space: #{rem-calc(40)};
+  margin-bottom: rem-calc(40);
 
   h2 {
     margin: 0 rem-calc(15);
@@ -33,6 +33,13 @@
   &__arrow {
     margin-top: rem-calc(4); //Slight padding to optically center
     display: block !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .case-study-nav {
+    --flow-space: #{rem-calc(100)};
+    margin-bottom: rem-calc(80);
   }
 }
 

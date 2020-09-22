@@ -40,9 +40,9 @@ const Header = () => {
         </div>
       </div>
 
-{ /* <button className="menu-button" onClick={ () => isActive( true ) }>
+      <button className="menu-button" onClick={ () => isActive( true ) }>
         <FontAwesomeIcon icon={ faBars } size="3x" />
-      </button> */ }
+      </button>
     </header>
   )
 }

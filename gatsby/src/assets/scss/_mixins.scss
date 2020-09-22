@@ -12,7 +12,7 @@
     margin-top: rem-calc(10);
     width: $width;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       position: initial;
       border-top-width: $height / 2;
       margin-bottom: rem-calc(10);
