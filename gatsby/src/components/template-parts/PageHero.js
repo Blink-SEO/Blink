@@ -13,7 +13,7 @@ const Hero = ({ title, subtitle, className, titleClass }) => {
       { subtitle &&
         <div className='[ grid grid-cols-2 md:grid-cols-none md:grid-rows-2 justify-center ] [ max-w-45ch ]'>
           <Arrow />
-          <Subtitle content={ subtitle } orientation='rotate' />
+          <Subtitle content={ subtitle } orientation='rotate' className='[ col-start-2 lg:col-start-1 md:row-start-3 lg:row-start-2 ]' />
         </div> }
     </header>
   )

@@ -72,7 +72,7 @@ export default ({ data }) => {
 
       <Hero title={ title } subtitle={ pageSettings.subtitle } className='hero--full' />
 
-      <article className="[ flow ] [ relative ]">
+      <article id="article" className="[ flow ] [ relative ]">
         { content && <section className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: content }} /> }
 
         { template.templateName === 'Case Studies' && <CaseStudiesLoop /> }

@@ -24,7 +24,6 @@ const Header = () => {
   return (
     <header className="[ flex justify-between items-center ] [ container relative ] [ px-6 sm:px-0 pt-10 pb-20 ]">
       <Link to="/" className="flex-initial max-w-xs">
-        {/* Could use logo as an SVG */}
         <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ false } loading="eager" alt="Blink SEO" />
       </Link>
 
