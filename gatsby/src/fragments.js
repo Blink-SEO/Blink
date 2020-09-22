@@ -1,10 +1,10 @@
 import { graphql } from "gatsby"
 
 export const fragments = graphql`
-  fragment HeroImage on File {
+  fragment Thumbnail on File {
     childImageSharp {
-      fluid(maxWidth: 1440) {
-        ...GatsbyImageSharpFluid_tracedSVG
+      fluid(maxWidth: 700) {
+        ...GatsbyImageSharpFluid_withWebp_noBase64
       }
     }
   }

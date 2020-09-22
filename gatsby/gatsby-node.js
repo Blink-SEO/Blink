@@ -1,11 +1,27 @@
 const path = require(`path`)
 const { slash } = require(`gatsby-core-utils`)
-const { pseudoRandomBytes } = require("crypto")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const pageTemplate = path.resolve(`./src/templates/Page.js`)
+  const postTemplate = path.resolve(`./src/templates/single/Post.js`)
   const caseStudyTemplate = path.resolve(`./src/templates/single/Case-study.js`)
+  const archiveTemplate = path.resolve(`./src/templates/archive.js`)
+  const blogTemplate = path.resolve(`./src/templates/Blog.js`)
+
+  const {
+    data: {
+      wp: { allSettings: globalSettings }
+    },
+  } = await graphql(`
+    query {
+      wp {
+        allSettings {
+          readingSettingsPostsPerPage
+        }
+      }
+    }
+  `)
 
   // query content for WordPress pages
   const {
@@ -14,11 +30,60 @@ exports.createPages = async ({ graphql, actions }) => {
     },
   } = await graphql(`
     query {
-      allWpPage(filter: {isFrontPage: {eq: false}}) {
+      allWpPage(filter: {isFrontPage: {eq: false}, slug: { ne: "blog" }}) {
         edges {
           node {
             id
             slug
+          }
+        }
+      }
+    }
+  `)
+
+  // query content for WordPress posts
+  const {
+    data: {
+      allWpPost: { edges: allPosts },
+    },
+  } = await graphql(`
+    query {
+      allWpPost(sort: {fields: date, order: ASC}) {
+        edges {
+          next {
+            id
+          }
+          previous {
+            id
+          }
+          node {
+            id
+            slug
+            date(formatString: "YYYY/MM/DD")
+          }
+        }
+      }
+    }
+  `)
+
+   // query content for WordPress blog archives
+   const {
+    data: {
+      allWpPost: { edges: archives },
+    },
+  } = await graphql(`
+    query {
+      allWpPost(sort: {fields: date, order: ASC}) {
+        edges {
+          next {
+            id
+          }
+          previous {
+            id
+          }
+          node {
+            id
+            date(formatString: "YYYY/MM")
           }
         }
       }
@@ -59,6 +124,63 @@ exports.createPages = async ({ graphql, actions }) => {
       // as a GraphQL variable to query for this post's data.
       context: {
         id: post.node.id,
+      },
+    })
+  })
+
+  allPosts.forEach((post) => {
+    createPage({
+      // will be the url for the page
+      path: `blog/${post.node.slug}`,
+      // specify the component template of your choice
+      component: slash(postTemplate),
+      // In the ^template's GraphQL query, 'id' will be available
+      // as a GraphQL variable to query for this post's data.
+      context: {
+        id: post.node.id,
+      },
+    })
+  })
+
+  const totalPosts = allPosts.length
+  const perPage = globalSettings.readingSettingsPostsPerPage
+
+  allPosts.forEach((post, index) => {
+    const page = index + 1
+    const offset = perPage * index
+
+    createPage({
+      // will be the url for the page
+      path: page === 1 ? `blog/` : `blog/${page}`,
+      // specify the component template of your choice
+      component: slash(blogTemplate),
+      // In the ^template's GraphQL query, 'id' will be available
+      // as a GraphQL variable to query for this post's data.
+      context: {
+        perPage,
+        offset,
+        totalPages: totalPosts
+      },
+    })
+  })
+
+  // TODO: This needs to mimic the above blog page func once it's storted
+  archives.forEach((post) => {
+    createPage({
+      // will be the url for the page
+      path: `blog/${post.node.date}`,
+      // specify the component template of your choice
+      component: slash(archiveTemplate),
+      // In the ^template's GraphQL query, 'id' will be available
+      // as a GraphQL variable to query for this post's data.
+      context: {
+        id: post.node.id,
+        // We need to replace the / with a - to match the date format of the dateGMT
+        // This is because we can only use a regex filter on dateGMT
+        date: `/${post.node.date.replace('/', '-')}/`,
+        perPage: 10,
+        offset: 0,
+        // totalPages:
       },
     })
   })

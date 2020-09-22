@@ -13,18 +13,18 @@ function BlogPost({ data }) {
     <Layout>
         {title}
 
-      {!!featuredImage?.node?.remoteFile?.childImageSharp && (
+      { featuredImage?.node?.remoteFile?.childImageSharp && (
           <Img fluid={featuredImage.node.remoteFile.childImageSharp.fluid} />
       )}
 
       <p dangerouslySetInnerHTML={{ __html: content }} />
 
       <br />
-      {!!nextPage && (
+      { nextPage && (
         <Link to={normalizePath(nextPage.uri)}>Next: {nextPage.title}</Link>
       )}
       <br />
-      {!!previousPage && (
+      { previousPage && (
         <Link to={normalizePath(previousPage.uri)}>
           Previous: {previousPage.title}
         </Link>

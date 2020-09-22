@@ -9,8 +9,7 @@ https://blinkseo.netlify.app/* https://www.blinkseo.co.uk/:splat 301!
 /blog/* / 301
 /blink/* / 301
 /blink-are-crowdfunding-for-the-green-door/ / 301
-/case-studies/* / 301
-/case-study-fao/* / 301
+/case-study-fao/* /case-studies
 /contact/ / 301
 /category/* / 301
 /campaign-hobbies-legacy-plans/ / 301

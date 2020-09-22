@@ -6,10 +6,41 @@ import ReactPaginate from "react-paginate"
 import Layout from "../components/layout"
 import { normalizePath } from "../utils/get-url-path"
 
+export const query = graphql`
+  # fragment Thumbnail on File {
+  #   childImageSharp {
+  #     fluid(maxWidth: 500) {
+  #       ...GatsbyImageSharpFluid_tracedSVG
+  #     }
+  #   }
+  # }
+
+  query ArchivePage($offset: Int!, $perPage: Int!, $date: String) {
+    allWpPost(
+      limit: $perPage
+      skip: $offset
+      filter: { nodeType: { in: "Post" }, dateGmt: {regex: $date} }
+      sort: { fields: date, order: DESC }
+    ) {
+      nodes {
+        uri
+        title
+        # featuredImage {
+        #   node {
+        #     remoteFile {
+        #       ...Thumbnail
+        #     }
+        #   }
+        # }
+      }
+    }
+  }
+`
+
 export default ({ data, pageContext }) => (
   <Layout>
       {data.allWpPost.nodes.map((page) => (
-          <Link to={normalizePath(page.uri)}>
+          <Link to={`/blog${normalizePath(page.uri)}`}>
                   {!!page?.featuredImage?.node?.remoteFile?.childImageSharp && (
                     <Img
                       fluid={
@@ -55,34 +86,3 @@ export default ({ data, pageContext }) => (
     )}
   </Layout>
 )
-
-export const query = graphql`
-  fragment Thumbnail on File {
-    childImageSharp {
-      fluid(maxWidth: 500) {
-        ...GatsbyImageSharpFluid_tracedSVG
-      }
-    }
-  }
-
-  query HomePage($offset: Int!, $perPage: Int!) {
-    allWpPost(
-      limit: $perPage
-      skip: $offset
-      filter: { nodeType: { in: ["Post", "Page", "Alot"] } }
-      sort: { fields: date, order: DESC }
-    ) {
-      nodes {
-        uri
-        title
-        featuredImage {
-          node {
-            remoteFile {
-              ...Thumbnail
-            }
-          }
-        }
-      }
-    }
-  }
-`
