@@ -113,13 +113,13 @@ export default ({ data }) => {
 
           { caseStudyImages?.images && caseStudyImages.images.length >= 1 ? <Img fluid={ caseStudyImages?.images[0]?.image?.remoteFile?.childImageSharp.fluid } adeIn={ true } loading="lazy" alt={caseStudyImages?.images[0]?.image.altText} className="[ self-start row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-6 ] [ max-w-full ]" /> : null }
 
-          { caseStudyImages?.images && caseStudyImages.images.length >= 2 ? <Img fluid={ caseStudyImages?.images[1]?.image?.remoteFile?.childImageSharp.fluid } adeIn={ true } loading="lazy" alt={caseStudyImages?.images[1]?.image.altText} className="[ self-start row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ]" /> : null }
+          { caseStudyImages?.images && caseStudyImages.images.length >= 2 ? <Img fluid={ caseStudyImages?.images[1]?.image?.remoteFile?.childImageSharp.fluid } adeIn={ true } loading="lazy" alt={caseStudyImages?.images[1]?.image.altText} className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ]" /> : null }
         </section>
 
         { blockServices && <Services content={blockServices.content} displayServices={blockServices.displayServices} services={services.nodes} /> }
 
         { caseStudyImages?.images && caseStudyImages.images.length >= 3 ? <div className="[ flow ] [ grid grid-flow-row lg:grid-flow-col sm:grid-cols-8 ]">
-          <Img fluid={ caseStudyImages?.images[2]?.image?.remoteFile?.childImageSharp.fluid } adeIn={ true } loading="lazy" alt={caseStudyImages?.images[2]?.image.altText} className="[ slef-start ] [ col-start-2 col-end-8 ] [ ml-16 ]" />
+          <Img fluid={ caseStudyImages?.images[2]?.image?.remoteFile?.childImageSharp.fluid } adeIn={ true } loading="lazy" alt={caseStudyImages?.images[2]?.image.altText} className="[ slef-start ] [ col-start-1 md:col-start-2 col-end-8 ] [ md:ml-16 ]" />
         </div> : null }
 
         <nav className="[ case-study-nav ] [ flex items-center justify-center ]" aria-label="Case Studies">
