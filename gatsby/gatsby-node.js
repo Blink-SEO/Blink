@@ -6,6 +6,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const pageTemplate = path.resolve(`./src/templates/Page.js`)
   const postTemplate = path.resolve(`./src/templates/single/Post.js`)
   const caseStudyTemplate = path.resolve(`./src/templates/single/Case-study.js`)
+  const serviceTemplate = path.resolve(`./src/templates/single/Service.js`)
   const archiveTemplate = path.resolve(`./src/templates/archive.js`)
   const blogTemplate = path.resolve(`./src/templates/Blog.js`)
 
@@ -67,6 +68,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
    // query content for WordPress blog archives
+  //  TODO: This can be removed and we just query the posts
    const {
     data: {
       allWpPost: { edges: archives },
@@ -98,6 +100,30 @@ exports.createPages = async ({ graphql, actions }) => {
   } = await graphql(`
     query {
       allWpCaseStudy(sort: {fields: date, order: ASC}) {
+        edges {
+          next {
+            id
+          }
+          previous {
+            id
+          }
+          node {
+            id
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  // query content for Services
+  const {
+    data: {
+      allWpCptService: { edges: allServices },
+    },
+  } = await graphql(`
+    query {
+      allWpCptService(sort: {fields: date, order: ASC}) {
         edges {
           next {
             id
@@ -185,18 +211,34 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  allCaseStudies.forEach((post) => {
+  allCaseStudies.forEach( caseStudy => {
     createPage({
       // will be the url for the page
-      path: `case-studies/${post.node.slug}`,
+      path: `case-studies/${caseStudy.node.slug}`,
       // specify the component template of your choice
       component: slash(caseStudyTemplate),
       // In the ^template's GraphQL query, 'id' will be available
       // as a GraphQL variable to query for this post's data.
       context: {
-        id: post.node.id,
-        nextPage: (post.next || {}).id,
-        previousPage: (post.previous || {}).id
+        id: caseStudy.node.id,
+        nextPage: (caseStudy.next || {}).id,
+        previousPage: (caseStudy.previous || {}).id
+      },
+    })
+  })
+
+  allServices.forEach( service => {
+    createPage({
+      // will be the url for the page
+      path: `services/${service.node.slug}`,
+      // specify the component template of your choice
+      component: slash(serviceTemplate),
+      // In the ^template's GraphQL query, 'id' will be available
+      // as a GraphQL variable to query for this service's data.
+      context: {
+        id: service.node.id,
+        nextPage: (service.next || {}).id,
+        previousPage: (service.previous || {}).id
       },
     })
   })
