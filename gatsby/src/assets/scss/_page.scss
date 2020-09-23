@@ -35,3 +35,10 @@
     bottom: -10%;
   }
 }
+
+// Case Studies
+.case-study .entry-content {
+  .gatsby-image-wrapper:nth-child(2n) {
+    --flow-space: 2em;
+  }
+}

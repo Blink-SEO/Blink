@@ -63,16 +63,16 @@ export default ({ data }) => {
       <SEO
         title={ seo.title }
         description={ seo.metaDesc }
-        image={ featuredImage.node.localFile.childImageSharp.fluid.src }
+        image={ featuredImage?.node?.localFile?.childImageSharp?.fluid.src }
         ogAuthor={ seo.opengraphAuthor }
         ogDescription={ seo.opengraphDescription }
         ogTitle={ seo.opengraphTitle }
-        ogImage={ seo.opengraphImage.localFile.childImageSharp.fluid.src }
+        ogImage={ seo?.opengraphImage?.localFile?.childImageSharp?.fluid.src }
       />
 
       <Hero title={ title } subtitle={ pageSettings.subtitle } className='hero--full' />
 
-      <article className="[ flow ] [ relative ]">
+      <article id="article" className="[ flow ] [ relative ]">
         { content && <section className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: content }} /> }
 
         { template.templateName === 'Case Studies' && <CaseStudiesLoop /> }
