@@ -16,6 +16,9 @@ module.exports = {
     container: {
       center: true,
     },
+    boxShadow: {
+      default: '-10px 10px 30px -5px rgba(0,0,0,0.45)',
+    },
     extend: {
       colors: {
         white: '#fff',
