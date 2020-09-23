@@ -4,8 +4,6 @@
 }
 
 .media-text {
-  @apply text-white;
-
   --flow-space: #{rem-calc(75)};
 
   .media-text__title {
@@ -24,12 +22,6 @@
   .gatsby-image-wrapper {
     --flow-space: 0;
   }
-
-  p {
-    font-size: rem-calc(30);
-    line-height: 1.5;
-    max-width: 18ch;
-  }
 }
 
 .media-text__details {
@@ -38,6 +30,7 @@
 
 .media-text__image {
   flex: 1 0 100%;
+  align-self: center;
   margin-top: rem-calc(30);
   margin-left: var(--image-margin, 0);
 }
@@ -46,6 +39,14 @@
   .media-text__image {
     margin-left: 0;
     margin-right: var(--image-margin, 0);
+  }
+}
+
+.media-text--large-text {
+  p {
+    font-size: rem-calc(30);
+    line-height: 1.5;
+    max-width: 18ch;
   }
 }
 
@@ -60,7 +61,8 @@
     margin-top: 0;
   }
 
-  .media-text--reverse a {
+  .media-text--reverse,
+  .media-text--reverse > a {
     @apply flex-row-reverse;
   }
 
