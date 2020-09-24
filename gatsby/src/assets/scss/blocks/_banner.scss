@@ -2,8 +2,14 @@
   @apply bg-cover;
   @apply bg-center;
   @apply bg-no-repeat;
+  @apply bg-fixed;
 
   height: 60vh;
+
+  // Let's make it full bleed
+  // Doing this here as we want to apply the fixed bg effect. Which can't be done with the full bleed util
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
 .banner,
