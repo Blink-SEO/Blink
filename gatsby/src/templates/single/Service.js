@@ -1,9 +1,10 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import SEO from "../../components/seo"
 import Layout from "../../components/layout"
+import RelatedCaseStudies from "../../components/Related-case-studies"
 import PostNav from "../../components/template-parts/post-navigation"
 
 
@@ -96,11 +97,12 @@ export default ({ data }) => {
       />
 
       <header>
-        <h1 className="[ hero-title ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+        <h1 className="[ hero-title hero-title--post hero-title--wide ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
       </header>
 
       <article className="[ flow ] [ relative ]">
         <section className="[ entry-content flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
+        <h2 className="[ lead ] [ col-start-1 col-end-6 lg:col-start-2 ]">{ pageSettings.subtitle }</h2>
           { content && <div className="[ flow ] [ col-start-1 col-end-6 lg:col-start-2 ]" dangerouslySetInnerHTML={{ __html: content }} /> }
         </section>
 
@@ -108,15 +110,17 @@ export default ({ data }) => {
 
         <section className="[ flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
           { panels && panels.map( (panel, key) => (
-            <div key={ key } className={`[ flow media-text media-text--half ${panel.showImageOn === 'left' ? 'media-text--reverse' : '' } ] [ flex ] [ col-start-1 col-end-6 lg:col-start-2 ]`}>
-              <div className="[ media-text__details ]" dangerouslySetInnerHTML={{ __html: panel.contentArea }} />
+            <div key={ key } className={`[ flow media-text media-text--half ${panel.showImageOn === 'left' ? 'media-text--reverse' : '' } ] [ flex flex-wrap ] [ col-start-1 col-end-6 lg:col-start-2 ]`}>
+              <div className="[ media-text__details flow ] [ heading-5xl ] [ text-black ]" dangerouslySetInnerHTML={{ __html: panel.contentArea }} />
 
               { panel?.image && <Img fluid={panel?.image?.remoteFile?.childImageSharp.fluid} fadeIn={ true } loading="lazy" alt={panel?.image?.altText} className="[ media-text__image ]" />}
             </div>
           )) }
         </section>
 
-        <PostNav previousPage={ previousPage?.uri } nextPage={ nextPage?.uri } postType="Service" />
+        { previousPage || nextPage ? <PostNav previousPage={ previousPage?.uri } nextPage={ nextPage?.uri } postType="Service" /> : null }
+
+        <RelatedCaseStudies currentService={ title } />
       </article>
 
     </Layout>
