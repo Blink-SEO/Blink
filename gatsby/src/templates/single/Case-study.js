@@ -5,8 +5,7 @@ import Img from "gatsby-image"
 import SEO from "../../components/seo"
 import Layout from "../../components/layout"
 import Services from "../../components/template-parts/Block-case-study-services"
-import NavArrowLeft from "../../components/template-parts/NavArrowLeft"
-import NavArrowRight from "../../components/template-parts/NavArrowRight"
+import PostNav from "../../components/template-parts/post-navigation"
 
 export const query = graphql`
   query caseStudy($id: String!, $nextPage: String, $previousPage: String) {
@@ -122,14 +121,7 @@ export default ({ data }) => {
           <Img fluid={ caseStudyImages?.images[2]?.image?.remoteFile?.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudyImages?.images[2]?.image.altText} className="[ slef-start ] [ col-start-1 md:col-start-2 col-end-8 ] [ md:ml-16 ]" />
         </div> : null }
 
-        <nav className="[ case-study-nav ] [ flex items-center justify-center ]" aria-label="Case Studies">
-          {previousPage && <Link to={previousPage.uri}><NavArrowLeft className="case-study-nav__arrow" /></Link>}
-            <h2 className="[ text-4xl sm:text-5xl lg:text-6xl text-center leading-tight ]">
-              {/* If there is both a previous and next page, display next/previous content else if there is only a previous page display prev content else display next */}
-              { previousPage && nextPage ? 'Previous/Next Case Study' : previousPage ? 'Previous Case Study' : 'Next Case Study' }
-            </h2>
-          {nextPage && <Link to={nextPage.uri}><NavArrowRight className="case-study-nav__arrow" /></Link>}
-        </nav>
+        <PostNav previousPage={ previousPage?.uri } nextPage={ nextPage?.uri } postType="Case Study" />
       </article>
 
     </Layout>

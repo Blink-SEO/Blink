@@ -4,8 +4,8 @@ import Img from "gatsby-image"
 
 import SEO from "../../components/seo"
 import Layout from "../../components/layout"
-import NavArrowLeft from "../../components/template-parts/NavArrowLeft"
-import NavArrowRight from "../../components/template-parts/NavArrowRight"
+import PostNav from "../../components/template-parts/post-navigation"
+
 
 export const query = graphql`
   query ($id: String!, $nextPage: String, $previousPage: String) {
@@ -81,6 +81,7 @@ export const query = graphql`
 export default ({ data }) => {
   const { title, content, featuredImage, servicesPageBanner, servicesPanels, pageSettings, seo } = data.page
   const panels = servicesPanels.servicesPanels
+  const { nextPage, previousPage} = data
 
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className="service" >
@@ -114,6 +115,8 @@ export default ({ data }) => {
             </div>
           )) }
         </section>
+
+        <PostNav previousPage={ previousPage?.uri } nextPage={ nextPage?.uri } postType="Service" />
       </article>
 
     </Layout>
