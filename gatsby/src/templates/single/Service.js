@@ -106,7 +106,7 @@ export default ({ data }) => {
           { content && <div className="[ flow ] [ col-start-1 col-end-6 lg:col-start-2 ]" dangerouslySetInnerHTML={{ __html: content }} /> }
         </section>
 
-        { servicesPageBanner?.image && <div className="[ banner banner--parallax full-bleed ]" style={{ backgroundImage: `url(${servicesPageBanner?.image?.localFile?.childImageSharp?.fluid.src})` }}></div> }
+        { servicesPageBanner?.image && <div className="[ banner ]" style={{ backgroundImage: `url(${servicesPageBanner?.image?.localFile?.childImageSharp?.fluid.src})` }}></div>}
 
         <section className="[ flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
           { panels && panels.map( (panel, key) => (
