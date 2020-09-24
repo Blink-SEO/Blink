@@ -121,7 +121,7 @@ export default ({ data }) => {
           <Img fluid={ caseStudyImages?.images[2]?.image?.remoteFile?.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudyImages?.images[2]?.image.altText} className="[ slef-start ] [ col-start-1 md:col-start-2 col-end-8 ] [ md:ml-16 ]" />
         </div> : null }
 
-        <PostNav previousPage={ previousPage?.uri } nextPage={ nextPage?.uri } postType="Case Study" />
+          { previousPage || nextPage ? <PostNav previousPage={ previousPage?.uri } nextPage={ nextPage?.uri } postType="Case Study" /> : null }
       </article>
 
     </Layout>
