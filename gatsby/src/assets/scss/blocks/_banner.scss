@@ -5,3 +5,8 @@
 
   height: 60vh;
 }
+
+.banner,
+.banner + * {
+  --flow-space: #{rem-calc(90)};
+}
