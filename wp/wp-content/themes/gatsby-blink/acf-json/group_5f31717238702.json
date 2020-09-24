@@ -68,6 +68,13 @@
                 "operator": "==",
                 "value": "page"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "cpt_service"
+            }
         ]
     ],
     "menu_order": 0,
@@ -80,5 +87,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "pageSettings",
-    "modified": 1600356394
+    "modified": 1600875470
 }

@@ -5,8 +5,7 @@ import Img from "gatsby-image"
 import SEO from "../../components/seo"
 import Layout from "../../components/layout"
 import Services from "../../components/template-parts/Block-case-study-services"
-import NavArrowLeft from "../../components/template-parts/NavArrowLeft"
-import NavArrowRight from "../../components/template-parts/NavArrowRight"
+import PostNav from "../../components/template-parts/post-navigation"
 
 export const query = graphql`
   query caseStudy($id: String!, $nextPage: String, $previousPage: String) {
@@ -111,25 +110,18 @@ export default ({ data }) => {
             * checking for true.
             */}
 
-          { caseStudyImages?.images && caseStudyImages.images.length >= 1 ? <Img fluid={ caseStudyImages?.images[0]?.image?.remoteFile?.childImageSharp.fluid } adeIn={ true } loading="lazy" alt={caseStudyImages?.images[0]?.image.altText} className="[ self-start row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-6 ] [ max-w-full ]" /> : null }
+          { caseStudyImages?.images && caseStudyImages.images.length >= 1 ? <Img fluid={ caseStudyImages?.images[0]?.image?.remoteFile?.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudyImages?.images[0]?.image.altText} className="[ self-start row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-6 ] [ max-w-full ]" /> : null }
 
-          { caseStudyImages?.images && caseStudyImages.images.length >= 2 ? <Img fluid={ caseStudyImages?.images[1]?.image?.remoteFile?.childImageSharp.fluid } adeIn={ true } loading="lazy" alt={caseStudyImages?.images[1]?.image.altText} className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ]" /> : null }
+          { caseStudyImages?.images && caseStudyImages.images.length >= 2 ? <Img fluid={ caseStudyImages?.images[1]?.image?.remoteFile?.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudyImages?.images[1]?.image.altText} className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ]" /> : null }
         </section>
 
         { blockServices && <Services content={blockServices.content} displayServices={blockServices.displayServices} services={services.nodes} /> }
 
         { caseStudyImages?.images && caseStudyImages.images.length >= 3 ? <div className="[ flow ] [ grid grid-flow-row lg:grid-flow-col sm:grid-cols-8 ]">
-          <Img fluid={ caseStudyImages?.images[2]?.image?.remoteFile?.childImageSharp.fluid } adeIn={ true } loading="lazy" alt={caseStudyImages?.images[2]?.image.altText} className="[ slef-start ] [ col-start-1 md:col-start-2 col-end-8 ] [ md:ml-16 ]" />
+          <Img fluid={ caseStudyImages?.images[2]?.image?.remoteFile?.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudyImages?.images[2]?.image.altText} className="[ slef-start ] [ col-start-1 md:col-start-2 col-end-8 ] [ md:ml-16 ]" />
         </div> : null }
 
-        <nav className="[ case-study-nav ] [ flex items-center justify-center ]" aria-label="Case Studies">
-          {previousPage && <Link to={previousPage.uri}><NavArrowLeft className="case-study-nav__arrow" /></Link>}
-            <h2 className="[ text-4xl sm:text-5xl lg:text-6xl text-center leading-tight ]">
-              {/* If there is both a previous and next page, display next/previous content else if there is only a previous page display prev content else display next */}
-              { previousPage && nextPage ? 'Previous/Next Case Study' : previousPage ? 'Previous Case Study' : 'Next Case Study' }
-            </h2>
-          {nextPage && <Link to={nextPage.uri}><NavArrowRight className="case-study-nav__arrow" /></Link>}
-        </nav>
+          { previousPage || nextPage ? <PostNav previousPage={ previousPage?.uri } nextPage={ nextPage?.uri } postType="Case Study" /> : null }
       </article>
 
     </Layout>

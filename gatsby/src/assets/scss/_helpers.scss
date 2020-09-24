@@ -25,6 +25,10 @@
   }
 }
 
+.heading-5xl > h2 {
+  @apply text-5xl;
+}
+
 @media (max-width: 1024px) {
   .rotate--mob-none {
     transform: none;

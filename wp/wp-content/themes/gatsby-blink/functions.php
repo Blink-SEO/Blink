@@ -74,6 +74,7 @@ if( function_exists('acf_add_options_page') ) {
 
 // Register Custom Post types.
 require get_template_directory() . '/post-types/case-study.php';
+require get_template_directory() . '/post-types/services.php';
 
 // Register custom taxonomies.
 require get_template_directory() . '/taxonomies/industry.php';
