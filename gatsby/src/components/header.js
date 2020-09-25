@@ -38,10 +38,10 @@ const Header = () => {
           <a href="tel:+441603928247"> <FontAwesomeIcon icon={ faPhone } size="sm" /> 01603 928247</a>
         </div>
       </div>
-
-      <button className="menu-button" onClick={ () => isActive( true ) }>
+      {/* Hide this for now */}
+      {/* <button className="menu-button" onClick={ () => isActive( true ) }>
         <FontAwesomeIcon icon={ faBars } size="3x" />
-      </button>
+      </button> */}
     </header>
   )
 }
