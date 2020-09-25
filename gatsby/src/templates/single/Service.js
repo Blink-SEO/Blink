@@ -9,7 +9,7 @@ import PostNav from "../../components/template-parts/post-navigation"
 
 
 export const query = graphql`
-  query ($id: String!, $nextPage: String, $previousPage: String) {
+  query ($id: String!, $titleRegex: String, $nextPage: String, $previousPage: String) {
     page: wpCptService(id: { eq: $id }) {
       title
       content
@@ -77,6 +77,10 @@ export const query = graphql`
     previousPage: wpCptService(id: { eq: $previousPage }) {
       uri
     }
+
+    service: wpService(name: { regex: $titleRegex }) {
+      name
+    }
   }
 `
 export default ({ data }) => {
@@ -120,7 +124,7 @@ export default ({ data }) => {
 
         { previousPage || nextPage ? <PostNav previousPage={ previousPage?.uri } nextPage={ nextPage?.uri } postType="Service" /> : null }
 
-        <RelatedCaseStudies currentService={ title } />
+        { data?.service && <RelatedCaseStudies currentService={ data?.service?.name } />}
       </article>
 
     </Layout>
