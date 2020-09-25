@@ -7,7 +7,6 @@ import Layout from "../../components/layout"
 import RelatedCaseStudies from "../../components/Related-case-studies"
 import PostNav from "../../components/template-parts/post-navigation"
 
-
 export const query = graphql`
   query ($id: String!, $nextPage: String, $previousPage: String) {
     page: wpCptService(id: { eq: $id }) {
@@ -48,6 +47,24 @@ export const query = graphql`
           }
         }
       }
+      relatedCaseStudies {
+        selectCaseStudies {
+          ...on WpCaseStudy {
+            id
+            title
+            excerpt
+            uri
+            featuredImage {
+              node {
+                remoteFile {
+                  ...Thumbnail
+                }
+                altText
+              }
+            }
+          }
+        }
+      }
       pageSettings {
         backgroundColour
         subtitle
@@ -80,10 +97,12 @@ export const query = graphql`
   }
 `
 export default ({ data }) => {
-  const { title, content, featuredImage, servicesPageBanner, servicesPanels, pageSettings, seo } = data.page
+  const { title, content, featuredImage, servicesPageBanner, servicesPanels, relatedCaseStudies, pageSettings, seo } = data.page
   const panels = servicesPanels.servicesPanels
+  const caseStudies = relatedCaseStudies.selectCaseStudies
   const { nextPage, previousPage} = data
 
+  console.log(caseStudies);
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className="service" >
       <SEO
@@ -120,7 +139,7 @@ export default ({ data }) => {
 
         { previousPage || nextPage ? <PostNav previousPage={ previousPage?.uri } nextPage={ nextPage?.uri } postType="Service" /> : null }
 
-        <RelatedCaseStudies currentService={ title } />
+        { caseStudies && <RelatedCaseStudies caseStudies={ caseStudies } />}
       </article>
 
     </Layout>

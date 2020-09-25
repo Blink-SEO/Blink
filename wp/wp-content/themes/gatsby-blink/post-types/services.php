@@ -45,7 +45,7 @@ function cpt_service_init() {
 		'menu_position'         => null,
 		'menu_icon'             => 'dashicons-forms',
 		'show_in_rest'          => true,
-		'rest_base'             => 'service',
+		'rest_base'             => 'cpt_service',
 		'rest_controller_class' => 'WP_REST_Posts_Controller',
 		'show_in_graphql' => true,
 		'graphql_single_name' => 'cpt_service',

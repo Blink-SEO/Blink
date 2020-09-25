@@ -48,8 +48,8 @@ function case_study_init() {
 		'rest_base'             => 'case-studies',
 		'rest_controller_class' => 'WP_REST_Posts_Controller',
 		'show_in_graphql' => true,
-		'graphql_single_name' => 'case_study',
-		'graphql_plural_name' => 'case_studies'
+		'graphql_single_name' => 'caseStudy',
+		'graphql_plural_name' => 'caseStudies'
 	) );
 
 }

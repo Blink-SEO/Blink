@@ -134,6 +134,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             slug
+            title
           }
         }
       }
@@ -226,6 +227,7 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
 
   allServices.forEach( service => {
     createPage({
