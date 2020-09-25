@@ -5,7 +5,7 @@
  * for use with 'case-study'.
  */
 function service_init() {
-	register_taxonomy( 'service', array( 'case-study' ), array(
+	register_taxonomy( 'service', array( 'case-study', 'cpt_service' ), array(
 		'hierarchical'      => false,
 		'public'            => true,
 		'show_in_nav_menus' => true,
