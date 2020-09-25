@@ -11,7 +11,7 @@ const RelatedCaseStudies = ({ caseStudies }) => (
     <h2 className="[ col-start-1 col-end-6 row-start-1 ] [ mb-12 ]" >Case studies</h2>
     <div className="[ thumbnail__grid thumbnail__grid--thirds ] [ col-start-1 col-end-7 row-start-2 ] [ mb-16 ]">
 
-      { caseStudies && caseStudies?.nodes.map( ( caseStudy, key ) => (
+      { caseStudies && caseStudies.map( ( caseStudy, key ) => (
         <Link key={ key } to={ normalizePath(caseStudy.uri) } className="[ flex ] [ relative ] [ shadow ]">
 
           <Img fluid={ caseStudy?.featuredImage?.node?.remoteFile?.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudy?.featuredImage?.node.altText} className="[ w-full ]"/>
@@ -31,7 +31,7 @@ const RelatedCaseStudies = ({ caseStudies }) => (
 )
 
 RelatedCaseStudies.propTypes = {
-  service: PropTypes.object,
+  service: PropTypes.array,
 }
 
 export default RelatedCaseStudies
