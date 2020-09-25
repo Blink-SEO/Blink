@@ -239,7 +239,6 @@ exports.createPages = async ({ graphql, actions }) => {
       // as a GraphQL variable to query for this service's data.
       context: {
         id: service.node.id,
-        titleRegex: service.node.title === 'eCommerce SEO' ? service.node.title  = "/seo/gi" : service.node.title,
         nextPage: (service.next || {}).id,
         previousPage: (service.previous || {}).id
       },
