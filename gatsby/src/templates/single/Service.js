@@ -6,6 +6,7 @@ import SEO from "../../components/seo"
 import Layout from "../../components/layout"
 import RelatedCaseStudies from "../../components/Related-case-studies"
 import PostNav from "../../components/template-parts/post-navigation"
+import Contact from "../../components/contactArea"
 
 export const query = graphql`
   query ($id: String!, $nextPage: String, $previousPage: String) {
@@ -140,7 +141,11 @@ export default ({ data }) => {
         { previousPage || nextPage ? <PostNav previousPage={ previousPage?.uri } nextPage={ nextPage?.uri } postType="Service" /> : null }
 
         { caseStudies && <RelatedCaseStudies caseStudies={ caseStudies } />}
+
+        <Contact backgroundColor="bg-teal" />
+
       </article>
+
 
     </Layout>
   )
