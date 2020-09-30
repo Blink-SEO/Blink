@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-const Contact = ({ backgroundColor }) => (
+const Contact = ({ backgroundColor, title, message }) => (
   <section className={`[ full-bleed contact ] [ ${backgroundColor} ] [ text-white ]`}>
     <div className="[ flow ] [ container ]">
-      <h2 className="[ inline-block ] [ pb-2 ] [ border-b-16 border-yellow ]">Get in touch</h2>
-      <p className="[ contact__content ]" >Have a problem that Blink can help with? Let us know more about your project below and we'll be in contact as soon as we can.</p>
+      { title && <h2 className="[ inline-block ] [ pb-2 ] [ border-b-16 border-yellow ]">{ title }</h2>}
+      { message && <div className="[ contact__content ]" dangerouslySetInnerHTML={{ __html: message }} /> }
 
       <form name="contact" className="[ contact__form ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-8 ]" method="POST" netlify-honeypot="bot-field" data-netlify="true">
         <label class="hidden">Don’t fill this out if you're human: <input name="bot-field" /></label>
@@ -32,7 +32,9 @@ Contact.defaultProps = {
 }
 
 Contact.propTypes = {
-  backgroundColor: PropTypes.string
+  backgroundColor: PropTypes.string,
+  title: PropTypes.string,
+  message: PropTypes.string,
 }
 
 export default Contact
