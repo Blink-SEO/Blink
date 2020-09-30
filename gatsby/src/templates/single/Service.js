@@ -66,6 +66,10 @@ export const query = graphql`
           }
         }
       }
+      contactBlock {
+        title
+        message
+      }
       pageSettings {
         backgroundColour
         subtitle
@@ -98,7 +102,7 @@ export const query = graphql`
   }
 `
 export default ({ data }) => {
-  const { title, content, featuredImage, servicesPageBanner, servicesPanels, relatedCaseStudies, pageSettings, seo } = data.page
+  const { title, content, featuredImage, servicesPageBanner, servicesPanels, relatedCaseStudies, contactBlock, pageSettings, seo } = data.page
   const panels = servicesPanels.servicesPanels
   const caseStudies = relatedCaseStudies.selectCaseStudies
   const { nextPage, previousPage} = data
@@ -142,7 +146,7 @@ export default ({ data }) => {
 
         { caseStudies && <RelatedCaseStudies caseStudies={ caseStudies } />}
 
-        <Contact backgroundColor="bg-teal" />
+        { contactBlock && <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } />}
 
       </article>
 
