@@ -1,0 +1,49 @@
+.contact {
+  padding: rem-calc(100) rem-calc(24);
+}
+
+.contact__content {
+  --flow-space: #{rem-calc(45)};
+  @apply text-xl;
+
+  max-width: 36ch;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.contact__form {
+  --flow-space: #{rem-calc(45)};
+
+  label {
+    @apply text-3xl;
+  }
+
+  input[type='email'],
+  input[type='text'],
+  textarea {
+    @apply bg-white;
+    @apply bg-opacity-50;
+    @apply border-b-2;
+    @apply border-yellow;
+    @apply mb-3;
+    @apply px-3;
+    @apply py-2;
+    @apply text-xl;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact h2 {
+    font-size: rem-calc(54);
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact {
+    @apply pl-32;
+  }
+
+  .contact__form {
+    --flow-space: #{rem-calc(80)};
+  }
+}
