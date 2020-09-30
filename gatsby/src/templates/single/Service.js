@@ -6,6 +6,7 @@ import SEO from "../../components/seo"
 import Layout from "../../components/layout"
 import RelatedCaseStudies from "../../components/Related-case-studies"
 import PostNav from "../../components/template-parts/post-navigation"
+import Contact from "../../components/contactArea"
 
 export const query = graphql`
   query ($id: String!, $nextPage: String, $previousPage: String) {
@@ -65,6 +66,10 @@ export const query = graphql`
           }
         }
       }
+      contactBlock {
+        title
+        message
+      }
       pageSettings {
         backgroundColour
         subtitle
@@ -97,7 +102,7 @@ export const query = graphql`
   }
 `
 export default ({ data }) => {
-  const { title, content, featuredImage, servicesPageBanner, servicesPanels, relatedCaseStudies, pageSettings, seo } = data.page
+  const { title, content, featuredImage, servicesPageBanner, servicesPanels, relatedCaseStudies, contactBlock, pageSettings, seo } = data.page
   const panels = servicesPanels.servicesPanels
   const caseStudies = relatedCaseStudies.selectCaseStudies
   const { nextPage, previousPage} = data
@@ -140,7 +145,11 @@ export default ({ data }) => {
         { previousPage || nextPage ? <PostNav previousPage={ previousPage?.uri } nextPage={ nextPage?.uri } postType="Service" /> : null }
 
         { caseStudies && <RelatedCaseStudies caseStudies={ caseStudies } />}
+
+        { contactBlock && <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } />}
+
       </article>
+
 
     </Layout>
   )
