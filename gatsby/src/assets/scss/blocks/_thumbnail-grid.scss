@@ -1,11 +1,13 @@
 .thumbnail__grid {
   --gap: #{rem-calc(64)};
+}
 
+.thumbnail__grid--flex {
   display: flex;
   flex-flow: row wrap;
 }
 
-.thumbnail__grid > * {
+.thumbnail__grid--flex > * {
   flex: 0 1 100%;
   margin-bottom: calc(var(--gap) / 2);
 }
