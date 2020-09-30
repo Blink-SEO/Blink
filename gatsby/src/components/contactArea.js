@@ -9,7 +9,7 @@ const Contact = ({ backgroundColor, title, message }) => (
       { title && <h2 className="[ inline-block ] [ pb-2 ] [ border-b-16 border-yellow ]">{ title }</h2>}
       { message && <div className="[ contact__content ]" dangerouslySetInnerHTML={{ __html: message }} /> }
 
-      <form name="contact" className="[ contact__form ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-8 ]" method="POST" netlify-honeypot="bot-field" data-netlify="true">
+      <form name="contact" className="[ contact__form ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-8 ]" method="POST" netlify-honeypot="bot-field" data-netlify="true" action="/success/">
         <label class="hidden">Don’t fill this out if you're human: <input name="bot-field" /></label>
 
         <label htmlFor="name" className="[ row-start-1 col-start-1 ]">Name</label>
