@@ -99,7 +99,7 @@ export default ({ data }) => {
       </header>
 
       <article className="[ flow ] [ relative ]">
-        <section className="[ entry-content flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
+        <section className="[ entry-content flow ] [ grid grid-flow-row grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
           <h2 className="[ lead lead--black ] [ col-start-1 col-end-3 md:col-end-5 lg:col-start-2 ] [ md:mb-16 ]">{ caseStudySettings.subtitle }</h2>
 
           { content && <div className="[ flow ] [ row-start-3 md:row-start-2 md:row-end-4 col-start-1 col-end-4 lg:col-start-2 ]" dangerouslySetInnerHTML={{ __html: content }} /> }
