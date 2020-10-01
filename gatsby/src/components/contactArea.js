@@ -20,7 +20,7 @@ const Contact = ({ backgroundColor, title, message }) => (
         <input type="email" name="email" id="email" className="[ row-start-4 md:row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-7 lg:col-start-3 lg:col-end-5 ] [ text-black ]" />
 
         <label htmlFor="message" className="[ row-start-5 md:row-start-3 col-start-1 ]">Message</label>
-        <textarea name="message" id="message" rows="3" className="[ row-start-6 md:row-start-4 col-start-1 col-end-4 md:col-end-7 lg:col-end-5 ] [ text-black ]"></textarea>
+        <textarea name="message" id="message" rows="3" className="[ row-start-6 md:row-start-4 col-start-1 col-end-4 md:col-end-7 lg:col-end-5 ]"></textarea>
 
         <button type="submit" className="[ row-start-7 md:row-start-5 col-start-3 md:col-start-6 lg:col-start-4 ] [ text-right ]"><FontAwesomeIcon icon={ faArrowRight } size="3x" title="Submit" /> <span class="sr-only">Submit</span></button>
       </form>
