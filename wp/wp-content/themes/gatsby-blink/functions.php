@@ -32,6 +32,15 @@ function gatsby_blink_header_menu() {
 			'container'      => 'ul',
 		)
 	);
+
+	wp_nav_menu(
+		array(
+			'theme_location' => 'footer',
+			'menu_id'        => 'footer-menu',
+			'menu_class'     => 'footer__menu',
+			'container'      => 'ul',
+		)
+	);
 }
 
 /**
@@ -40,6 +49,7 @@ function gatsby_blink_header_menu() {
 register_nav_menus(
 	array(
 		'primary' => esc_html__( 'Primary', 'gatsby_blink' ),
+		'footer' => esc_html__( 'Footer', 'gatsby_blink' ),
 	)
 );
 

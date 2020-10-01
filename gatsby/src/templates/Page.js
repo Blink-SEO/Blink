@@ -5,6 +5,7 @@ import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/template-parts/PageHero'
 import CaseStudiesLoop from '../components/template-parts/Loop-case-studies'
+import ServicesLoop from '../components/template-parts/Loop-services'
 import TeamPhotos from '../components/template-parts/TeamPhotos'
 import Contact from "../components/contactArea"
 
@@ -30,6 +31,9 @@ export const query = graphql`
       }
       template {
         ... on WpCaseStudiesTemplate {
+          templateName
+        }
+        ... on WpServicesTemplate {
           templateName
         }
         ... on WpDefaultTemplate {
@@ -89,12 +93,14 @@ export default ({ data }) => {
         ogImage={ seo?.opengraphImage?.localFile?.childImageSharp?.fluid.src }
       />
 
-      <Hero title={ title } subtitle={ pageSettings.subtitle } className='hero--full' />
+      <Hero title={ title } subtitle={ pageSettings.subtitle } className={ pageSettings.subtitle ? 'hero--full' : '' } titleClass={ pageSettings.subtitle ? '' : 'hero-title--no-bottom-border' } />
 
       <article id="article" className="[ flow ] [ relative ]">
         { content && <section className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: content }} /> }
 
         { template.templateName === 'Case Studies' && <CaseStudiesLoop /> }
+
+        { template.templateName === 'Services' && <ServicesLoop pageBackgroundColour={ pageSettings.backgroundColour } /> }
 
         { teamGallery.teamMember && <TeamPhotos backgroundColor={ pageSettings.backgroundColour } members={ teamGallery.teamMember } /> }
 

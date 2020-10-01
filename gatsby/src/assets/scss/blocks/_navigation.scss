@@ -3,6 +3,15 @@
   flex-direction: column;
 }
 
+.menu,
+.submenu {
+  position: relative;
+}
+
+.social__menu {
+  --flow-space: #{rem-calc(40)};
+}
+
 .menu__item {
   @apply text-white;
 
@@ -15,11 +24,41 @@
   }
 }
 
+.menu__item:hover > .submenu,
+.menu__item:focus-within > .submenu {
+  opacity: 1;
+  pointer-events: all;
+  height: auto;
+}
+
 .menu-button--close {
   @apply text-white;
   @apply pr-6;
 
   align-self: flex-end;
+}
+
+.submenu {
+  @apply bg-white;
+  @apply text-black;
+
+  display: flex;
+  flex-direction: column;
+  max-width: 25ch;
+  margin-top: rem-calc(6);
+  z-index: 1;
+
+  /* Hide by default */
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+}
+
+.submenu__item {
+  a {
+    display: block;
+    padding: rem-calc(8) rem-calc(10);
+  }
 }
 
 .case-study-nav {
@@ -83,6 +122,10 @@
     flex-flow: row wrap;
   }
 
+  .menu--column {
+    flex-flow: column nowrap;
+  }
+
   .menu__item {
     @apply text-black;
 
@@ -112,5 +155,12 @@
 
   .menu-button {
     display: none;
+  }
+
+  .submenu {
+    @apply text-left;
+
+    /* Absolutely position so it hangs underneath the navbar */
+    position: absolute;
   }
 }

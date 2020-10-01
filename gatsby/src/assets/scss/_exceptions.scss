@@ -15,3 +15,24 @@
 .page .contact {
   --flow-space: #{rem-calc(100)};
 }
+
+.footer {
+  .menu__item {
+    font-weight: 400;
+    font-size: rem-calc(18);
+  }
+
+  .menu__item a:hover,
+  .menu__item a:focus,
+  .menu__item--active {
+    @apply bg-transparent;
+  }
+}
+@media (min-width: 768px) {
+  .footer {
+    .menu__item {
+      --flow-space: #{rem-calc(40)};
+      font-weight: 400;
+    }
+  }
+}
