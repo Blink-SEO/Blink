@@ -9,7 +9,7 @@ import { normalizePath } from "../utils/get-url-path"
 const RelatedCaseStudies = ({ caseStudies }) => (
   <section className="[ flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
     <h2 className="[ col-start-1 col-end-6 row-start-1 ] [ mb-12 ]" >Case studies</h2>
-    <div className="[ thumbnail__grid thumbnail__grid--thirds ] [ col-start-1 col-end-7 row-start-2 ] [ mb-16 ]">
+    <div className="[ thumbnail__grid thumbnail__grid--flex thumbnail__grid--thirds ] [ col-start-1 col-end-7 row-start-2 ] [ mb-16 ]">
 
       { caseStudies && caseStudies.map( ( caseStudy, key ) => (
         <Link key={ key } to={ normalizePath(caseStudy.uri) } className="[ flex ] [ relative ] [ shadow ]">
