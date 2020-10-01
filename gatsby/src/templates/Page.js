@@ -5,6 +5,8 @@ import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/template-parts/PageHero'
 import CaseStudiesLoop from '../components/template-parts/Loop-case-studies'
+import TeamPhotos from '../components/template-parts/TeamPhotos'
+import Contact from "../components/contactArea"
 
 export const query = graphql`
   query page($id: String!) {
@@ -34,6 +36,23 @@ export const query = graphql`
           templateName
         }
       }
+      teamGallery {
+        teamMember {
+          fieldGroupName
+          jobTitle
+          name
+          photo {
+            remoteFile {
+              ...Thumbnail
+            }
+            altText
+          }
+        }
+      }
+      contactBlock {
+        title
+        message
+      }
       # TODO: Make this a fragment
       seo {
         title
@@ -56,7 +75,7 @@ export const query = graphql`
 `
 
 export default ({ data }) => {
-  const { title, content, pageSettings, featuredImage, seo, template } = data.page
+  const { title, content, pageSettings, featuredImage, seo, template, teamGallery, contactBlock } = data.page
 
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className='page' >
@@ -76,6 +95,10 @@ export default ({ data }) => {
         { content && <section className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: content }} /> }
 
         { template.templateName === 'Case Studies' && <CaseStudiesLoop /> }
+
+        { teamGallery.teamMember && <TeamPhotos backgroundColor={ pageSettings.backgroundColour } members={ teamGallery.teamMember } /> }
+
+        { contactBlock && <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } /> }
       </article>
 
     </Layout>
