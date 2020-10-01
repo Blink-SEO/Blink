@@ -100,7 +100,7 @@ export default ({ data }) => {
 
         { template.templateName === 'Case Studies' && <CaseStudiesLoop /> }
 
-        { template.templateName === 'Services' && <ServicesLoop /> }
+        { template.templateName === 'Services' && <ServicesLoop pageBackgroundColour={ pageSettings.backgroundColour } /> }
 
         { teamGallery.teamMember && <TeamPhotos backgroundColor={ pageSettings.backgroundColour } members={ teamGallery.teamMember } /> }
 
