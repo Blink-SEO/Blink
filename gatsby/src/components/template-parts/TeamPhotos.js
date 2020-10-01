@@ -26,4 +26,3 @@ TeamPhotos.propTypes = {
 }
 
 export default TeamPhotos;
-// need some difference to repush this - ughghh I've made a mess -_-
