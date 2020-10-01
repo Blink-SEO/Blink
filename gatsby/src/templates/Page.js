@@ -96,7 +96,7 @@ export default ({ data }) => {
 
         { template.templateName === 'Case Studies' && <CaseStudiesLoop /> }
 
-        { teamGallery.teamMember && <TeamPhotos members={ teamGallery.teamMember } /> }
+        { teamGallery.teamMember && <TeamPhotos backgroundColor={ pageSettings.backgroundColour } members={ teamGallery.teamMember } /> }
 
         { contactBlock && <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } /> }
       </article>
