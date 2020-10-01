@@ -8,6 +8,10 @@
   position: relative;
 }
 
+.social__menu {
+  --flow-space: #{rem-calc(40)};
+}
+
 .menu__item {
   @apply text-white;
 
@@ -116,6 +120,10 @@
   .menu {
     display: flex;
     flex-flow: row wrap;
+  }
+
+  .menu--column {
+    flex-flow: column nowrap;
   }
 
   .menu__item {
