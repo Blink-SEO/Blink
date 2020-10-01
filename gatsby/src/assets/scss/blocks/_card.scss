@@ -15,7 +15,8 @@
 }
 
 .card * {
-  @apply text-black;
+  // Our exception will handle changing the text to black if the card bg is white
+  @apply text-white;
 }
 
 .card__arrow {
