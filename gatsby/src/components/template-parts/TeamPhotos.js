@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 
 const TeamPhotos = ({ backgroundColor, members }) => (
-  <section className={`[ flow ] [ lg:px-12 ] [ ${backgroundColor} ]`}>
+  <section className={`[ flow ] [ lg:px-12 pb-32 ] [ ${backgroundColor} ]`}>
     <h2 className="[ mt-16 mb-12 ]">Meet the team</h2>
 
     <div className="[ thumbnail__grid ] [ grid grid-flow-row grid-cols-2 md:grid-cols-3 lg:grid-cols-5 row-gap-6 col-gap-6 ]">
