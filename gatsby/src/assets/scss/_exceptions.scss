@@ -1,17 +1,6 @@
-.bg-white .hero,
-.bg-white .entry-content,
-.bg-white > {
-  h1,
+.bg-white {
   h2,
-  p {
+  .lead {
     @apply text-black;
   }
-
-  .lead {
-    @extend .lead--black;
-  }
-}
-
-.page .contact {
-  --flow-space: #{rem-calc(100)};
 }
