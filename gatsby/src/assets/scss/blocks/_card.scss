@@ -1,0 +1,35 @@
+.card {
+  @apply p-8;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: rem-calc(350);
+}
+
+.card:hover,
+.card:focus {
+  .card__arrow {
+    opacity: 1;
+  }
+}
+
+.card * {
+  @apply text-black;
+}
+
+.card__arrow {
+  align-self: flex-end;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card__title {
+  font-size: rem-calc(38);
+}
+
+@media (min-width: 768px) {
+  .card__title {
+    font-size: rem-calc(45);
+  }
+}
