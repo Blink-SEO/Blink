@@ -1,3 +1,7 @@
+.footer {
+  padding: rem-calc(150) 0 rem-calc(60);
+}
+
 .footer-location > * {
   flex: 1 0 100%;
 }
@@ -16,6 +20,8 @@
     @apply text-4xl;
     @apply leading-none;
     @apply text-black;
+
+    max-width: rem-calc(350);
 
     strong {
       @apply text-yellow;
