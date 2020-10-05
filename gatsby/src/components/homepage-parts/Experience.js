@@ -7,17 +7,15 @@ import { normalizePath } from "../../utils/get-url-path"
 const Experience = () => {
   const data = useStaticQuery(graphql`
     {
-      allWpCaseStudy(sort: {fields: date, order: ASC}, limit: 5) {
-        edges {
-          node {
-            title
-            uri
-            featuredImage {
-              node {
+      wpPage(isFrontPage: {eq: true}) {
+        homepage {
+          experience {
+            clients {
+              clientLogo {
+                altText
                 remoteFile {
                   ...Thumbnail
                 }
-                altText
               }
             }
           }
@@ -26,16 +24,16 @@ const Experience = () => {
     }
   `)
 
+  const { clients } = data.wpPage.homepage.experience
+
   return (
     <section className="[ full-bleed ] [ py-16 ] [ bg-red ]">
       <div className="[ flow ] [ container ]">
         <h2 className="leading-normal">Our experience</h2>
 
         <div className="[ grid grid-cols-2 md:grid-cols-5 lg:grid-cols-6 gap-6 ]">
-        { data?.allWpCaseStudy?.edges.map( (caseStudy, i) => (
-          <Link to={ normalizePath(caseStudy.node.uri) }>
-            <Img fluid={ caseStudy.node.featuredImage.node.remoteFile.childImageSharp.fluid } alt={caseStudy.node.title} className="h-full" />
-          </Link>
+        { clients.map( (client, i) => (
+          client?.clientLogo?.remoteFile?.childImageSharp?.fluid && <Img fluid={ client.clientLogo.remoteFile.childImageSharp.fluid } alt={ client.clientLogo.altText } key={i} className="h-full" />
         )) }
         </div>
 
@@ -44,7 +42,5 @@ const Experience = () => {
     </section>
   )
 }
-
-
 
 export default Experience
