@@ -5,6 +5,7 @@ import SEO from '../components/seo'
 import Layout from "../components/layout"
 import ConvertKitFrom from '../components/template-parts/ConvertKitForm'
 import BarChart from '../components/template-parts/bar-chart'
+import Experience from '../components/homepage-parts/Experience'
 
 export const query = graphql`
 {
@@ -60,7 +61,7 @@ export default ({ data }) => {
       />
       <article>
         <section className='[ grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 gap-16 ] [ mx-auto ]'>
-          <div className='[ pl-8 mb-8 ]'>
+          <div className='[ mb-8 ]'>
             <h1 className='[ hero-title hero-title--home ] [ text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-5 ]'>{ title }<span className="border-block"></span></h1>
             { content && <div className='[ hero-section ] [ max-w-45ch ]' dangerouslySetInnerHTML={{ __html: content }} /> }
           </div>
@@ -69,6 +70,8 @@ export default ({ data }) => {
             <BarChart duration={ 1.3 } />
           </div>
         </section>
+
+        <Experience />
       </article>
     </Layout>
   )
