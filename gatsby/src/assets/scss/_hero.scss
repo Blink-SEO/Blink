@@ -54,6 +54,32 @@
   --border-color: #000;
 }
 
+.hero-title--home {
+  --border-top-width: 2px;
+  --border-bottom-width: 2px;
+  --border-color: #000;
+
+  position: relative;
+  line-height: 1.04;
+
+  &::before {
+    width: 8ch;
+  }
+
+  &::after {
+    width: 8ch;
+  }
+
+  .border-block {
+    background-color: var(--border-color);
+    display: block;
+    height: 26px;
+    width: 3ch;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
 .hero-title--no-bottom-border::after {
   display: none;
 }
