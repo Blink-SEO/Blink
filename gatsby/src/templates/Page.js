@@ -100,11 +100,11 @@ export default ({ data }) => {
 
         { template.templateName === 'Case Studies' && <CaseStudiesLoop /> }
 
-        { template.templateName === 'Services' && <ServicesLoop pageBackgroundColour={ pageSettings.backgroundColour } /> }
+        { template.templateName === 'Services' && <ServicesLoop pageBackgroundColour={ pageSettings.backgroundColour} /> }
 
         { teamGallery.teamMember && <TeamPhotos backgroundColor={ pageSettings.backgroundColour } members={ teamGallery.teamMember } /> }
 
-        { contactBlock && <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } /> }
+        { contactBlock.title || contactBlock.message ? <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } /> : null }
       </article>
 
     </Layout>
