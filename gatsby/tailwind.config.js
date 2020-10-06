@@ -38,7 +38,10 @@ module.exports = {
       },
       borderWidth: {
         '16': '16px',
-      }
+      },
+      fontSize: {
+        '10xl': '7.5rem'
+      },
     },
   },
   variants: {},

@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import SEO from '../components/seo'
+import SEO from "../components/seo"
 import Layout from "../components/layout"
-import ConvertKitFrom from '../components/template-parts/ConvertKitForm'
-import BarChart from '../components/template-parts/bar-chart'
-import Experience from '../components/homepage-parts/Experience'
+import BarChart from "../components/template-parts/bar-chart"
+import Experience from "../components/homepage-parts/Experience"
+import Ebook from "../components/homepage-parts/Ebook"
 
 export const query = graphql`
 {
@@ -72,6 +72,8 @@ export default ({ data }) => {
         </section>
 
         <Experience />
+
+        <Ebook />
       </article>
     </Layout>
   )
