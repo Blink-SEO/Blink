@@ -81,7 +81,7 @@
                     "show_in_graphql": 1,
                     "collapsed": "",
                     "min": 0,
-                    "max": 0,
+                    "max": 3,
                     "layout": "table",
                     "button_label": "",
                     "sub_fields": [
@@ -104,6 +104,29 @@
                             "toolbar": "full",
                             "media_upload": 0,
                             "delay": 0
+                        },
+                        {
+                            "key": "field_5f7c781a81671",
+                            "label": "Link to",
+                            "name": "link_to",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_graphql": 1,
+                            "post_type": [
+                                "case-study"
+                            ],
+                            "taxonomy": "",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "return_format": "object",
+                            "ui": 1
                         }
                     ]
                 }
@@ -129,5 +152,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "homepage",
-    "modified": 1601912252
+    "modified": 1601992796
 }
