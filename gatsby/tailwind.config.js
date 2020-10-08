@@ -40,6 +40,7 @@ module.exports = {
         '16': '16px',
       },
       fontSize: {
+        '8xl': '6rem',
         '10xl': '7.5rem',
       },
       inset: {
