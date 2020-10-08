@@ -28,6 +28,17 @@
   @apply text-5xl;
 }
 
+.has-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: multiply;
+
+  &--about {
+    background-image: url('../images/about-bg.png');
+  }
+}
+
 @media (max-width: 1024px) {
   .rotate--mob-none {
     transform: none;
