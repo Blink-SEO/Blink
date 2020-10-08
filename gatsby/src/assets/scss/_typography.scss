@@ -69,6 +69,12 @@ li {
 
     @include border-before(12px, 6ch, -50px, 0, #000);
   }
+
+  &--small-heading {
+    @apply text-black;
+
+    @include border-before(12px, 6ch, -50px, 0, #000);
+  }
 }
 
 @media (min-width: 1024px) {
@@ -81,6 +87,13 @@ li {
 
     &--small {
       @include border-before(12px, 6ch, auto, 7%, #000);
+    }
+
+    &--small-heading {
+      position: relative;
+      padding-left: 2.5ch;
+
+      @include border-before(12px, 2ch, auto, 0, #000, 0);
     }
   }
 }
