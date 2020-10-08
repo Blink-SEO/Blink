@@ -8,4 +8,12 @@ export const fragments = graphql`
       }
     }
   }
+
+  fragment FixedThumbnail on File {
+    childImageSharp {
+      fixed(width: 133) {
+        ...GatsbyImageSharpFixed_withWebp_noBase64
+      }
+    }
+  }
 `
