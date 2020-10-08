@@ -3,11 +3,14 @@ import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
+
 import BarChart from "../components/template-parts/bar-chart"
 import Arrow from "../components/template-parts/bouncing-arrow"
+
 import Experience from "../components/homepage-parts/Experience"
 import Ebook from "../components/homepage-parts/Ebook"
 import About from "../components/homepage-parts/About"
+import Services from "../components/homepage-parts/Services"
 
 export const query = graphql`
 {
@@ -80,6 +83,8 @@ export default ({ data }) => {
         <Ebook />
 
         <About />
+
+        <Services />
       </article>
     </Layout>
   )
