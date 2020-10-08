@@ -12,10 +12,6 @@
   }
 }
 
-// .page .contact {
-//   --flow-space: #{rem-calc(100)};
-// }
-
 .footer {
   .menu__item {
     font-weight: 400;
@@ -28,6 +24,11 @@
     @apply bg-transparent;
   }
 }
+
+.gird-rows-2--short-top {
+  grid-template-rows: minmax(0, 1fr) minmax(0, 2fr);
+}
+
 @media (min-width: 768px) {
   .footer {
     .menu__item {
