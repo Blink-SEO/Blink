@@ -7,6 +7,7 @@ import BarChart from "../components/template-parts/bar-chart"
 import Arrow from "../components/template-parts/bouncing-arrow"
 import Experience from "../components/homepage-parts/Experience"
 import Ebook from "../components/homepage-parts/Ebook"
+import About from "../components/homepage-parts/About"
 
 export const query = graphql`
 {
@@ -77,6 +78,8 @@ export default ({ data }) => {
         <Experience />
 
         <Ebook />
+
+        <About />
       </article>
     </Layout>
   )
