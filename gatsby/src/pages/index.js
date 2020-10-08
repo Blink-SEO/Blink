@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
+import Contact from "../components/contactArea"
 
 import BarChart from "../components/template-parts/bar-chart"
 import Arrow from "../components/template-parts/bouncing-arrow"
@@ -30,6 +31,10 @@ export const query = graphql`
         }
       }
     }
+    contactBlock {
+      title
+      message
+    }
     seo {
       title
       metaDesc
@@ -51,7 +56,7 @@ export const query = graphql`
 `
 
 export default ({ data }) => {
-  const { title, content, featuredImage, seo } = data.wpPage
+  const { title, content, featuredImage, contactBlock, seo } = data.wpPage
 
   return (
     <Layout>
@@ -85,6 +90,8 @@ export default ({ data }) => {
         <About />
 
         <Services />
+
+        { contactBlock && <Contact backgroundColor="bg-dark-red" title={ contactBlock.title } message={ contactBlock.message } />}
       </article>
     </Layout>
   )
