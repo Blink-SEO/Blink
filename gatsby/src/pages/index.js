@@ -13,6 +13,9 @@ import Ebook from "../components/homepage-parts/Ebook"
 import About from "../components/homepage-parts/About"
 import Services from "../components/homepage-parts/Services"
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
 export const query = graphql`
 {
   wpPage(isFrontPage: {eq: true}) {
@@ -81,6 +84,8 @@ export default ({ data }) => {
           <div className='[ row-start-2 md:row-start-1 col-start-4 col-end-7 ] [ overflow-visible ] [ relative ]'>
             <BarChart duration={ 1.3 } />
           </div>
+
+          <FontAwesomeIcon icon={ faPlus } size="2x" className="[ row-start-1 col-start-1 ] [ self-end ] [ lg:mb-6 ] [ text-white ] [ hidden md:block ]" />
         </section>
 
         <Experience />

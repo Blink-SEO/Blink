@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import Wrapper from './HomeSectionWrapper'
 import { normalizePath } from "../../utils/get-url-path"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const About = () => {
 
@@ -53,6 +53,7 @@ const About = () => {
   return(
     <Wrapper className="[ bg-orange ] [ has-bg has-bg--about ]" >
       <div className="[ grid grid-cols-8 col-gap-12 row-gap-12 ] [ relative ]">
+      <FontAwesomeIcon icon={ faPlus } size="2x" className="[ col-start-8 ] [ justify-self-end ] [ text-white ]" />
 
         <h2
           className="[ rotate rotate--mob-none ] [ row-start-1 lg:row-start-2 col-start-1 col-span-6 ] [ lg:absolute ] [ lg:text-8xl ]"
