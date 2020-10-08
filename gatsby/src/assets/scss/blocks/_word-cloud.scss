@@ -1,0 +1,80 @@
+.word-cloud__text {
+  &--massive {
+    font-size: rem-calc(170);
+  }
+
+  &--xl {
+    font-size: rem-calc(50);
+  }
+
+  &--lg {
+    font-size: rem-calc(50);
+  }
+
+  &--md {
+    font-size: rem-calc(60);
+  }
+
+  &--sm {
+    font-size: rem-calc(40);
+  }
+}
+
+.line {
+  position: absolute;
+  width: rem-calc(250);
+  height: rem-calc(5);
+  background-color: #000;
+
+  &--short {
+    width: rem-calc(150);
+  }
+
+  &--thick {
+    height: rem-calc(30);
+  }
+}
+
+@media (min-width: 768px) {
+  .word-cloud__text {
+    &--massive {
+      font-size: rem-calc(280);
+    }
+
+    &--xl {
+      font-size: rem-calc(100);
+    }
+
+    &--lg {
+      font-size: rem-calc(75);
+    }
+
+    &--md {
+      font-size: rem-calc(50);
+    }
+
+    &--sm {
+      font-size: rem-calc(40);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .word-cloud__text {
+    &--massive {
+      font-size: rem-calc(300);
+    }
+
+    &--xl {
+      font-size: rem-calc(150);
+    }
+
+    &--lg {
+      font-size: rem-calc(100);
+    }
+  }
+
+  .line--short {
+    width: rem-calc(250);
+  }
+}

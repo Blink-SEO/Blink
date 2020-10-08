@@ -41,6 +41,10 @@
   &--services {
     background-image: url('../images/services-bg.png');
   }
+
+  &--word-cloud {
+    background-image: url('../images/wordCloud-bg.png');
+  }
 }
 
 .justify-self-end {
@@ -63,5 +67,10 @@
   .rotate.rotate--center {
     margin-left: rem-calc(40);
     width: auto;
+  }
+
+  .has-bg--half {
+    background-size: 50% 100%;
+    background-position: right;
   }
 }

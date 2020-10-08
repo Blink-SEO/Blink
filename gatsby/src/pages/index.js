@@ -12,6 +12,7 @@ import Experience from "../components/homepage-parts/Experience"
 import Ebook from "../components/homepage-parts/Ebook"
 import About from "../components/homepage-parts/About"
 import Services from "../components/homepage-parts/Services"
+import WordCloud from "../components/homepage-parts/WordCloud"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -95,6 +96,8 @@ export default ({ data }) => {
         <About />
 
         <Services />
+
+        <WordCloud />
 
         { contactBlock && <Contact backgroundColor="bg-dark-red" title={ contactBlock.title } message={ contactBlock.message } />}
       </article>
