@@ -53,7 +53,7 @@ li {
 
   font-size: rem-calc(36);
   line-height: 1.2;
-  font-weight: 800;
+  font-weight: 700;
 
   @include border-before(26px, 7ch, -50px, 0, #fff);
 
@@ -61,6 +61,13 @@ li {
     @apply text-black;
 
     @include border-before(26px, 7ch, -50px, 0, #000);
+  }
+
+  &--small {
+    font-size: rem-calc(24);
+    line-height: 1.3;
+
+    @include border-before(12px, 6ch, -50px, 0, #000);
   }
 }
 
@@ -70,6 +77,10 @@ li {
 
     &--black {
       @include border-before(26px, 7ch, auto, 0, #000);
+    }
+
+    &--small {
+      @include border-before(12px, 6ch, auto, 7%, #000);
     }
   }
 }
