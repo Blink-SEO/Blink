@@ -1,10 +1,18 @@
 // Psuedo border element
-@mixin border-before($height, $width, $top: auto, $left: 0, $color: #fff) {
+@mixin border-before(
+  $height,
+  $width,
+  $top: auto,
+  $left: 0,
+  $color: #fff,
+  $bottom: auto
+) {
   &::before {
     content: '';
     position: absolute;
     top: $top;
     left: $left;
+    bottom: $bottom;
     display: block;
     border-top-style: solid;
     border-top-color: $color;
