@@ -30,6 +30,9 @@ export const query = graphql`
         }
       }
       template {
+        ... on WpContactTemplate {
+          templateName
+        }
         ... on WpCaseStudiesTemplate {
           templateName
         }
@@ -104,7 +107,9 @@ export default ({ data }) => {
 
         { teamGallery.teamMember && <TeamPhotos backgroundColor={ pageSettings.backgroundColour } members={ teamGallery.teamMember } /> }
 
-        { contactBlock.title || contactBlock.message ? <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } /> : null }
+        { template.templateName != 'Contact' && (contactBlock.title || contactBlock.message) ? <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } /> : null }
+
+        { template.templateName === 'Contact' ? <Contact backgroundColor="bg-orange" backgroundImage="contact-bg-image" title={ contactBlock.title } message={ contactBlock.message } /> : null }
       </article>
 
     </Layout>
