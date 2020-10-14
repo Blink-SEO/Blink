@@ -100,7 +100,7 @@ export default ({ data }) => {
       <Hero title={ title } subtitle={ pageSettings.subtitle } className={ pageSettings.subtitle ? 'hero--full' : '' } titleClass={ pageSettings.subtitle ? '' : 'hero-title--no-bottom-border' } />
 
       <article id="article" className="[ flow ] [ relative ]">
-        { template.templateName != 'Contact' && content ?
+        { template.templateName !== 'Contact' && content ?
           <section className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: content }} />
         : null }
 
@@ -117,7 +117,7 @@ export default ({ data }) => {
 
         { teamGallery.teamMember && <TeamPhotos backgroundColor={ pageSettings.backgroundColour } members={ teamGallery.teamMember } /> }
 
-        { template.templateName != 'Contact' && (contactBlock.title || contactBlock.message) ?
+        { template.templateName !== 'Contact' && (contactBlock.title || contactBlock.message) ?
           <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } />
         : null }
 
