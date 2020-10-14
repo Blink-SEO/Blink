@@ -1,0 +1,11 @@
+.breadcrumb__list {
+  display: flex;
+}
+
+.breadcrumb__item {
+  @apply mr-4;
+}
+
+.breadcrumb__link--active {
+  @apply text-white;
+}
