@@ -4,6 +4,13 @@
   margin: 0 auto;
 }
 
+.page .entry-content--contact {
+  position: relative;
+  margin-bottom: rem-calc(100);
+
+  @include border-before(26px, 7ch, 100%, 0, #fff);
+}
+
 // Posts
 .single__content {
   --flow-space: #{rem-calc(70)};
