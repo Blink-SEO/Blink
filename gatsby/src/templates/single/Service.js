@@ -8,6 +8,7 @@ import RelatedCaseStudies from "../../components/Related-case-studies"
 import PostNav from "../../components/template-parts/post-navigation"
 import Contact from "../../components/contactArea"
 import Breadcrumbs from "../../components/Breadcrumbs"
+import ArrowWhite from "../../components/Img/DownArrowWhite-Bounce"
 
 export const query = graphql`
   query ($id: String!, $nextPage: String, $previousPage: String) {
@@ -129,8 +130,16 @@ export default ({ data }) => {
 
       <article className="[ flow ] [ relative ]">
         <section className="[ entry-content flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
+
         <h2 className="[ lead ] [ col-start-1 col-end-6 lg:col-start-2 ]">{ pageSettings.subtitle }</h2>
-          { content && <div className="[ flow ] [ col-start-1 col-end-6 lg:col-start-2 ]" dangerouslySetInnerHTML={{ __html: content }} /> }
+
+        { content &&
+          <div className="[ grid sm:grid-flow-col grid-cols-3 sm:grid-cols-8 md:col-gap-16 ] [ col-start-1 col-end-7 ]">
+            <ArrowWhite className="[ col-start-1 lg:col-start-2 col-end-4 ] [ hidden md:block ] [ text-center lg:text-right ]" />
+            <div className="[ flow ] [ col-start-4 col-end-8 ]" dangerouslySetInnerHTML={{ __html: content }} />
+          </div>
+        }
+
         </section>
 
         { servicesPageBanner?.image && <div className="[ banner ]" style={{ backgroundImage: `url(${servicesPageBanner?.image?.localFile?.childImageSharp?.fluid.src})` }}></div>}
