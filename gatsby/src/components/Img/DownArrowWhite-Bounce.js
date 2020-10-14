@@ -3,12 +3,12 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { gsap } from 'gsap'
 
-const Arrow = () => {
+const ArrowWhite = ({ className }) => {
   const data = useStaticQuery(graphql`
     {
-      file(relativePath: {eq: "downArrow.png"}) {
+      file(relativePath: {eq: "downArrowWhite.png"}) {
         childImageSharp {
-          fixed(width: 167) {
+          fixed(width: 230) {
             ...GatsbyImageSharpFixed_withWebp_noBase64
           }
         }
@@ -27,12 +27,10 @@ const Arrow = () => {
   })
 
   return (
-    <div class='[ arrow-container ] [ row-auto ] [ mb-5 ] [ text-center lg:text-left ]'>
-      <a href="#article">
-        <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ false } loading="eager" className='arrow' alt="" />
-      </a>
+    <div className={`[ arrow-container ${className} ] [ row-auto ] [ mb-5 ] [ text-center lg:text-left ]`}>
+      <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ false } loading="eager" className='arrow' alt="" />
     </div>
   )
 }
 
-export default Arrow
+export default ArrowWhite

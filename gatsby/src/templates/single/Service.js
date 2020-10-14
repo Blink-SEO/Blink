@@ -7,12 +7,15 @@ import Layout from "../../components/layout"
 import RelatedCaseStudies from "../../components/Related-case-studies"
 import PostNav from "../../components/template-parts/post-navigation"
 import Contact from "../../components/contactArea"
+import Breadcrumbs from "../../components/Breadcrumbs"
+import ArrowWhite from "../../components/Img/DownArrowWhite-Bounce"
 
 export const query = graphql`
   query ($id: String!, $nextPage: String, $previousPage: String) {
     page: wpCptService(id: { eq: $id }) {
       title
       content
+      uri
       featuredImage {
         node {
           localFile {
@@ -29,7 +32,7 @@ export const query = graphql`
         image {
           localFile {
             childImageSharp {
-              fluid {
+              fluid(maxWidth: 2000) {
                 src
               }
             }
@@ -102,12 +105,11 @@ export const query = graphql`
   }
 `
 export default ({ data }) => {
-  const { title, content, featuredImage, servicesPageBanner, servicesPanels, relatedCaseStudies, contactBlock, pageSettings, seo } = data.page
+  const { title, content, uri, featuredImage, servicesPageBanner, servicesPanels, relatedCaseStudies, contactBlock, pageSettings, seo } = data.page
   const panels = servicesPanels.servicesPanels
   const caseStudies = relatedCaseStudies.selectCaseStudies
   const { nextPage, previousPage} = data
 
-  console.log(caseStudies);
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className="service" >
       <SEO
@@ -120,14 +122,24 @@ export default ({ data }) => {
         ogImage={ seo?.opengraphImage?.localFile?.childImageSharp?.fluid?.src }
       />
 
-      <header>
-        <h1 className="[ hero-title hero-title--post hero-title--wide ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+      <header className="[ pb-24 ]">
+        <h1 className="[ hero-title hero-title--post hero-title--wide hero-title--no-bottom-border ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+
+        <Breadcrumbs parentPageTitle="Services" parentPageLink="/services/" currentPageTitle={ title } currentPageLink={ uri } />
       </header>
 
       <article className="[ flow ] [ relative ]">
         <section className="[ entry-content flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
+
         <h2 className="[ lead ] [ col-start-1 col-end-6 lg:col-start-2 ]">{ pageSettings.subtitle }</h2>
-          { content && <div className="[ flow ] [ col-start-1 col-end-6 lg:col-start-2 ]" dangerouslySetInnerHTML={{ __html: content }} /> }
+
+        { content &&
+          <div className="[ grid sm:grid-flow-col grid-cols-3 sm:grid-cols-8 md:col-gap-16 ] [ col-start-1 col-end-7 ]">
+            <ArrowWhite className="[ col-start-1 lg:col-start-2 col-end-4 ] [ hidden md:block ] [ text-center lg:text-right ]" />
+            <div className="[ flow ] [ col-start-4 col-end-8 ]" dangerouslySetInnerHTML={{ __html: content }} />
+          </div>
+        }
+
         </section>
 
         { servicesPageBanner?.image && <div className="[ banner ]" style={{ backgroundImage: `url(${servicesPageBanner?.image?.localFile?.childImageSharp?.fluid.src})` }}></div>}

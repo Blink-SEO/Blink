@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-const Contact = ({ backgroundColor, title, message }) => (
-  <section className={`[ full-bleed contact ] [ ${backgroundColor} ] [ text-white ]`}>
+const Contact = ({ backgroundColor, backgroundImage, title, message }) => (
+  <section className={`[ full-bleed contact ] [ ${backgroundColor} ${backgroundImage} ] [ text-white ]`}>
     <div className="[ flow ] [ container ]">
       { title && <h2 className="[ inline-block ] [ pb-2 ] [ border-b-16 border-yellow ]">{ title }</h2>}
       { message && <div className="[ contact__content ]" dangerouslySetInnerHTML={{ __html: message }} /> }

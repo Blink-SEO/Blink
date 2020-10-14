@@ -8,6 +8,7 @@ import CaseStudiesLoop from '../components/template-parts/Loop-case-studies'
 import ServicesLoop from '../components/template-parts/Loop-services'
 import TeamPhotos from '../components/template-parts/TeamPhotos'
 import Contact from "../components/contactArea"
+import ArrowWhite from '../components/Img/DownArrowWhite-Bounce'
 
 export const query = graphql`
   query page($id: String!) {
@@ -30,6 +31,9 @@ export const query = graphql`
         }
       }
       template {
+        ... on WpContactTemplate {
+          templateName
+        }
         ... on WpCaseStudiesTemplate {
           templateName
         }
@@ -96,7 +100,16 @@ export default ({ data }) => {
       <Hero title={ title } subtitle={ pageSettings.subtitle } className={ pageSettings.subtitle ? 'hero--full' : '' } titleClass={ pageSettings.subtitle ? '' : 'hero-title--no-bottom-border' } />
 
       <article id="article" className="[ flow ] [ relative ]">
-        { content && <section className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: content }} /> }
+        { template.templateName !== 'Contact' && content ?
+          <section className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: content }} />
+        : null }
+
+        { template.templateName === 'Contact' && content ?
+          <div className="[ grid sm:grid-cols-2 ]">
+            <section className="[ entry-content--contact flow ] [ font-bold leading-tight text-4xl text-white ]" dangerouslySetInnerHTML={{ __html: content }} />
+            <ArrowWhite className="text-center lg:text-center" />
+          </div>
+        : null}
 
         { template.templateName === 'Case Studies' && <CaseStudiesLoop /> }
 
@@ -104,7 +117,13 @@ export default ({ data }) => {
 
         { teamGallery.teamMember && <TeamPhotos backgroundColor={ pageSettings.backgroundColour } members={ teamGallery.teamMember } /> }
 
-        { contactBlock.title || contactBlock.message ? <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } /> : null }
+        { template.templateName !== 'Contact' && (contactBlock.title || contactBlock.message) ?
+          <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } />
+        : null }
+
+        { template.templateName === 'Contact' ?
+          <Contact backgroundColor="bg-orange" backgroundImage="contact-bg-image" title={ contactBlock.title } message={ contactBlock.message } />
+        : null }
       </article>
 
     </Layout>
