@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { gsap } from 'gsap'
 
-const Arrow = ({ className }) => {
+const ArrowWhite = ({ className }) => {
   const data = useStaticQuery(graphql`
     {
-      file(relativePath: {eq: "downArrow.png"}) {
+      file(relativePath: {eq: "downArrowWhite.png"}) {
         childImageSharp {
-          fixed(width: 134) {
+          fixed(width: 230) {
             ...GatsbyImageSharpFixed_withWebp_noBase64
           }
         }
@@ -28,14 +27,10 @@ const Arrow = ({ className }) => {
   })
 
   return (
-    <div class={`[ arrow-container ] [ row-auto ] [ mb-5 ] [ text-center lg:text-left ] ${className}`} >
+    <div className={`[ arrow-container ${className} ] [ row-auto ] [ mb-5 ] [ text-center lg:text-left ]`}>
       <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ false } loading="eager" className='arrow' alt="" />
     </div>
   )
 }
 
-Arrow.propTypes = {
-  className: PropTypes.string,
-}
-
-export default Arrow
+export default ArrowWhite

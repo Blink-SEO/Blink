@@ -12,6 +12,18 @@
   }
 }
 
+// .page .contact {
+//   --flow-space: #{rem-calc(100)};
+// }
+
+.contact-bg-image {
+  background-image: url('../images/Layer_34.png');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+
 .footer {
   .menu__item {
     font-weight: 400;

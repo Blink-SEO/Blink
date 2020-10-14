@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from 'prop-types'
 import { Link, useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 import { normalizePath } from "../../utils/get-url-path"
 
 import RightArrow from "../Img/RightArrow"
