@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Arrow from './bouncing-arrow'
+import Arrow from '../Img/DownArrow-Bounce'
 import Subtitle from './Subtitle'
 
 const Hero = ({ title, subtitle, className, titleClass }) => {
