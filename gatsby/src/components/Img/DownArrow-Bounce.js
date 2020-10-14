@@ -8,7 +8,7 @@ const Arrow = ({ className }) => {
     {
       file(relativePath: {eq: "downArrow.png"}) {
         childImageSharp {
-          fixed(width: 167) {
+          fixed(width: 134) {
             ...GatsbyImageSharpFixed_withWebp_noBase64
           }
         }
