@@ -7,12 +7,14 @@ import Layout from "../../components/layout"
 import RelatedCaseStudies from "../../components/Related-case-studies"
 import PostNav from "../../components/template-parts/post-navigation"
 import Contact from "../../components/contactArea"
+import Breadcrumbs from "../../components/Breadcrumbs"
 
 export const query = graphql`
   query ($id: String!, $nextPage: String, $previousPage: String) {
     page: wpCptService(id: { eq: $id }) {
       title
       content
+      uri
       featuredImage {
         node {
           localFile {
@@ -102,12 +104,11 @@ export const query = graphql`
   }
 `
 export default ({ data }) => {
-  const { title, content, featuredImage, servicesPageBanner, servicesPanels, relatedCaseStudies, contactBlock, pageSettings, seo } = data.page
+  const { title, content, uri, featuredImage, servicesPageBanner, servicesPanels, relatedCaseStudies, contactBlock, pageSettings, seo } = data.page
   const panels = servicesPanels.servicesPanels
   const caseStudies = relatedCaseStudies.selectCaseStudies
   const { nextPage, previousPage} = data
 
-  console.log(caseStudies);
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className="service" >
       <SEO
@@ -120,8 +121,10 @@ export default ({ data }) => {
         ogImage={ seo?.opengraphImage?.localFile?.childImageSharp?.fluid?.src }
       />
 
-      <header>
-        <h1 className="[ hero-title hero-title--post hero-title--wide ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+      <header className="[ pb-24 ]">
+        <h1 className="[ hero-title hero-title--post hero-title--wide hero-title--no-bottom-border ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+
+        <Breadcrumbs parentPageTitle="Services" parentPageLink="/services/" currentPageTitle={ title } currentPageLink={ uri } />
       </header>
 
       <article className="[ flow ] [ relative ]">
