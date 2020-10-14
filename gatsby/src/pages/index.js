@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import Contact from "../components/contactArea"
 
 import BarChart from "../components/template-parts/bar-chart"
-import Arrow from "../components/template-parts/bouncing-arrow"
+import Arrow from "../components/Img/DownArrow-Bounce"
 
 import Experience from "../components/homepage-parts/Experience"
 import Ebook from "../components/homepage-parts/Ebook"
