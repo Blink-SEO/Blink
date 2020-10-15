@@ -74,16 +74,20 @@ const Footer = () =>  {
             <p>Follow us</p>
             <ul className="[ social__menu ] [ flex ]">
               { Object.entries(socialLinks).map(( [label, link], i ) => (
-                <li key={i + link} className="[ mr-10 ]">
-                  <a href={ link }>
-                    {
-                      label === 'facebook' ? <FontAwesomeIcon icon={ faFacebookSquare } size="3x" /> :
-                      label === 'twitter' ? <FontAwesomeIcon icon={ faTwitter } size="3x" /> :
-                      label === 'linkedin' ? <FontAwesomeIcon icon={ faLinkedin } size="3x" /> :
-                      null
-                    }
-                  </a>
-                </li>
+                <>
+                { link &&
+                  <li key={i + link} className="[ mr-10 ]">
+                    <a href={ link }>
+                      {
+                        label === 'facebook' ? <FontAwesomeIcon icon={ faFacebookSquare } size="3x" /> :
+                        label === 'twitter' ? <FontAwesomeIcon icon={ faTwitter } size="3x" /> :
+                        label === 'linkedin' ? <FontAwesomeIcon icon={ faLinkedin } size="3x" /> :
+                        null
+                      }
+                    </a>
+                  </li>
+                }
+                </>
               )) }
             </ul>
           </div>
