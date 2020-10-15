@@ -12,9 +12,9 @@
   }
 }
 
-// .page .contact {
-//   --flow-space: #{rem-calc(100)};
-// }
+.blog .entry-content p:first-child {
+  @extend .lead;
+}
 
 .contact-bg-image {
   background-image: url('../images/Layer_34.png');
