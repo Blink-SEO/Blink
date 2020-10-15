@@ -82,8 +82,8 @@ export default ({ data }) => {
         <section className="[ single__content ] [ relative ] [ grid grid-flow-row grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
           <div className="[ flow ] [ col-start-1 col-end-5 ]" dangerouslySetInnerHTML={{ __html: content }} />
 
-          <div className="[ sidebar ] [ col-start-5 col-end-7 ] [ bg-black ]">
-            <h2>Related posts</h2>
+          <div className="[ sidebar ] [ col-start-1 md:col-start-5 col-end-7 ] [ bg-black ]">
+            <h2 className="[ sidebar__title ]">Related posts</h2>
           </div>
         </section>
 
