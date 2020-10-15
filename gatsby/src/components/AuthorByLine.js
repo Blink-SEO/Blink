@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 
 const ByLine = ({ author, title, avatar, readTime, className }) => (
   <div className={`[ byline ${className} ] [ flex items-center ] [ max-w-xs ]`}>
@@ -11,5 +13,13 @@ const ByLine = ({ author, title, avatar, readTime, className }) => (
     </div>
   </div>
 )
+
+ByLine.propTypes = {
+  author: PropTypes.string,
+  title: PropTypes.string,
+  avatar: PropTypes.string,
+  readTime: PropTypes.string,
+  className: PropTypes.string,
+}
 
 export default ByLine
