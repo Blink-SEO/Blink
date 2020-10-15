@@ -5,10 +5,12 @@ import SEO from "../../components/seo"
 import Layout from "../../components/layout"
 import ByLine from "../../components/AuthorByLine"
 import Contact from "../../components/contactArea"
+import Sidebar from "../../components/Sidebar"
 
 export const query = graphql`
   query post($id: String!) {
     page: wpPost(id: { eq: $id }) {
+      id
       title
       content
       pageSettings {
@@ -22,6 +24,17 @@ export const query = graphql`
             url
           }
           description
+        }
+      }
+      categories {
+        nodes {
+          posts {
+            nodes {
+              id
+              title
+              uri
+            }
+          }
         }
       }
       acfReadTime {
@@ -52,7 +65,7 @@ export const query = graphql`
 `
 export default ({ data }) => {
 
-  const { title, content, author, pageSettings, acfReadTime, contactBlock, seo } = data.page
+  const { id, title, content, author, pageSettings, acfReadTime, categories, contactBlock, seo } = data.page
 
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className="post single" >
@@ -67,8 +80,12 @@ export default ({ data }) => {
       />
 
       <article className="[ flow ]">
-        <header className="[ grid grid-flow-row grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
-          <h1 className="[ hero-title hero-title--page hero-title--wide ] [ row-start-1 col-start-1 col-end-7 md:col-end-6 ] [ mb-5 ] [ text-white text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+        <header>
+          <h1 className="[ hero-title hero-title--page hero-title--wide ] [ mb-5 ] [ text-white text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+        </header>
+
+        <section className="[ single__content ] [ relative ] [ grid grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
+          <div className="[ flow ] [ row-start-1 row-end-7 col-start-1 col-end-5 ]" dangerouslySetInnerHTML={{ __html: content }} />
 
           <ByLine
             author={ author.node.name }
@@ -77,14 +94,12 @@ export default ({ data }) => {
             readTime={ acfReadTime.readTime }
             className="[ md:row-start-1 col-start-1 md:col-start-5 col-end-7 ] [ self-end ] [ mb-6 ]"
           />
-        </header>
 
-        <section className="[ single__content ] [ relative ] [ grid grid-flow-row grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
-          <div className="[ flow ] [ col-start-1 col-end-5 ]" dangerouslySetInnerHTML={{ __html: content }} />
-
-          <div className="[ sidebar ] [ col-start-1 md:col-start-5 col-end-7 ] [ bg-black ]">
-            <h2 className="[ sidebar__title ]">Related posts</h2>
-          </div>
+          <Sidebar
+            currentPageID={ id }
+            relatedPosts={ categories.nodes }
+            className="[ col-start-1 md:col-start-5 col-end-7 ]"
+          />
         </section>
 
         { contactBlock && <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } />}
