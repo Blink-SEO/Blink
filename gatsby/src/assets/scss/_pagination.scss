@@ -1,24 +1,26 @@
 .pagination {
+  --flow-space: #{rem-calc(100)};
+
+  margin-bottom: rem-calc(100);
   width: 100%;
-  display: grid;
-  grid-auto-flow: column;
-  justify-items: center;
+  display: flex;
+  justify-content: center;
   align-items: center;
+
+  .disabled {
+    display: none;
+  }
 }
+
 .pagination li {
+  @apply bg-black;
+  @apply text-white;
+
   list-style: none;
-  display: inline-block;
-}
+  margin-right: rem-calc(16);
 
-.pagination li:not(.next):not(.previous) a {
-  padding: 15px;
-  display: block;
-}
-
-.pagination .next {
-  justify-self: end;
-}
-
-.pagination .previous {
-  justify-self: start;
+  > a {
+    display: block;
+    padding: rem-calc(8) rem-calc(16);
+  }
 }
