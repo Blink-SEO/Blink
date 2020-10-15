@@ -20,13 +20,12 @@ const Sidebar = ({ currentPageID, relatedPosts, className }) => {
   })
 
   const renderRelatedPostsObj = () => {
-    // Initialise an empty array so we can store the relates posts
+    // Initialise an empty array so we can store the related posts
     const arr = []
     // Push nodes into the empty array
     Object.values(relatedPosts).map( (posts) => arr.push(posts.posts.nodes) )
-    const flattenArr = arr.flat()
 
-    const uniqueArr = removeDupes(flattenArr)
+    const uniqueArr = removeDupes(arr.flat())
 
     return uniqueArr.map( (post, i) => (
       <li key={i}>
