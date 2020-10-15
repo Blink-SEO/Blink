@@ -6,6 +6,7 @@ import Layout from "../../components/layout"
 import ByLine from "../../components/AuthorByLine"
 import Contact from "../../components/contactArea"
 import Sidebar from "../../components/Sidebar"
+import Breadcrumbs from "../../components/Breadcrumbs"
 
 export const query = graphql`
   query post($id: String!) {
@@ -13,6 +14,7 @@ export const query = graphql`
       id
       title
       content
+      uri
       pageSettings {
         backgroundColour
         subtitle
@@ -76,7 +78,7 @@ export const query = graphql`
 `
 export default ({ data }) => {
 
-  const { id, title, content, featuredImage, author, pageSettings, acfReadTime, categories, contactBlock, seo } = data.page
+  const { id, title, content, uri, featuredImage, author, pageSettings, acfReadTime, categories, contactBlock, seo } = data.page
 
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className="post single" >
@@ -91,8 +93,9 @@ export default ({ data }) => {
       />
 
       <article className="[ flow ]">
-        <header>
-          <h1 className="[ hero-title hero-title--post hero-title--wide ] [ mb-5 ] [ text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+        <header className="[ pb-24 ]">
+        <h1 className="[ hero-title hero-title--post hero-title--wide hero-title--no-bottom-border ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+          <Breadcrumbs parentPageTitle="Blog" parentPageLink="/blog/" currentPageTitle={ title } currentPageLink={ uri } />
         </header>
 
         <section className="[ single__content ] [ relative ] [ grid grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
