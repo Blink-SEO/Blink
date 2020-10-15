@@ -35,13 +35,17 @@ const Sidebar = ({ currentPageID, relatedPosts, className }) => {
   }
 
   return (
-    <nav className={`[ sidebar ] ${className} [ p-8 ] [ bg-black ]`}>
-    <h2 className="[ sidebar__title ] [ mb-8 ]">Related posts</h2>
+    <>
+      { renderRelatedPostsObj().length > 1 &&
+        <nav className={`[ sidebar ] ${className} [ p-8 ] [ bg-black ]`}>
+          <h2 className="[ sidebar__title ] [ mb-8 ]">Related posts</h2>
 
-    <ul className="[ sidebar__list ] [ flow ] [ text-white ]">
-      { renderRelatedPostsObj() }
-    </ul>
-  </nav>
+          <ul className="[ sidebar__list ] [ flow ] [ text-white ]">
+            { renderRelatedPostsObj() }
+          </ul>
+        </nav>
+      }
+    </>
   )
 }
 
