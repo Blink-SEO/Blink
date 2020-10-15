@@ -6,11 +6,6 @@
 .media-text {
   --flow-space: #{rem-calc(75)};
 
-  .media-text__title {
-    --flow-space: 0.5em;
-    max-width: 10ch;
-  }
-
   h2 {
     color: inherit;
   }
@@ -22,9 +17,18 @@
   }
 
   h3,
-  .excerpt__wrapper,
-  .gatsby-image-wrapper {
+  .excerpt__wrapper--no-flow,
+  .gatsby-image-wrapper--no-flow {
     --flow-space: 0;
+  }
+}
+
+.media-text__title {
+  --flow-space: 0.5em;
+  max-width: 10ch;
+
+  &--wide {
+    max-width: 100%;
   }
 }
 

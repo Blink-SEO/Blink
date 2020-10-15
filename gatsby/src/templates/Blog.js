@@ -6,6 +6,7 @@ import ReactPaginate from "react-paginate"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/template-parts/PageHero"
+import RightArrowWhite from "../components/Img/RightArrowWhite"
 import { normalizePath } from "../utils/get-url-path"
 
 export const query = graphql`
@@ -26,13 +27,6 @@ export const query = graphql`
               ...Thumbnail
             }
           }
-        }
-      }
-    }
-    file(relativePath: {eq: "rightArrow.png"}) {
-      childImageSharp {
-        fixed(width: 90) {
-          ...GatsbyImageSharpFixed_withWebp_noBase64
         }
       }
     }
@@ -68,28 +62,31 @@ export default ({ data, pageContext }) => {
 
       <article className="[ flow ] [ relative ]">
         { blogContent && <section className="[ entry-content flow ]" dangerouslySetInnerHTML={{ __html: blogContent }} /> }
+
+        {data.allWpPost.nodes.map((post, key) => (
+          <>
+            <div key={key} className="[ media-text media-text--half media-text--reverse ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 md:col-gap-16 ]">
+              <Link to={ `/blog${normalizePath(post.uri)}` } className="[ media-text__link-wrapper ] [ flex flex-wrap items-center col-span-3 ] [ no-underline ]">
+
+                <div className="[ flow media-text__details ] [ text-white ]" >
+                  { post.title && <h2 className="[ media-text__title media-text__title--wide ] [ text-4xl sm:text-5xl leading-none ]">{ post.title }</h2> }
+
+                  { post.excerpt && <div className="excerpt__wrapper" dangerouslySetInnerHTML={{ __html: post.excerpt }} /> }
+
+                  <RightArrowWhite />
+                </div>
+
+                { post.featuredImage?.node?.remoteFile?.childImageSharp &&
+                  <Img fluid={ post.featuredImage.node.remoteFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={post.altText} className="media-text__image" /> }
+
+              </Link>
+            </div>
+          </>
+        ))}
       </article>
 
-      {data.allWpPost.nodes.map((post, key) => (
-        <>
-          <div key={key} className="[ media-text media-text--half media-text--reverse ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 md:col-gap-16 ]">
-            <Link to={ `/blog${normalizePath(post.uri)}` } className="[ flex flex-wrap items-center col-span-3 ] [ no-underline ]">
-              <div className="[ flow media-text__details ]" >
-                { post.title && <h2 className="[ media-text__title media-text__title--wide ] [ text-4xl sm:text-5xl leading-tight ]">{ post.title }</h2> }
 
-                { post.excerpt && <div className="excerpt__wrapper" dangerouslySetInnerHTML={{ __html: post.excerpt }} /> }
-
-                <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ true } loading="lazy" alt="" />
-              </div>
-
-              { post.featuredImage?.node?.remoteFile?.childImageSharp &&
-                <Img fluid={ post.featuredImage.node.remoteFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={post.altText} className="media-text__image" /> }
-            </Link>
-          </div>
-        </>
-      ))}
-
-    {pageContext && pageContext.totalPages > 1 && (
+    {/* {pageContext && pageContext.totalPages > 1 && (
         <ReactPaginate
           previousLabel={
             pageContext?.page !== 1 && <a>Previous page</a>
@@ -115,7 +112,7 @@ export default ({ data, pageContext }) => {
           activeClassName={"active"}
           initialPage={pageContext.page - 1}
         />
-    )}
+    )} */}
   </Layout>
   )
 }
