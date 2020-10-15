@@ -17,6 +17,17 @@ export const query = graphql`
         backgroundColour
         subtitle
       }
+      featuredImage {
+        node {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 550) {
+                src
+              }
+            }
+          }
+        }
+      }
       author {
         node {
           name
@@ -65,23 +76,23 @@ export const query = graphql`
 `
 export default ({ data }) => {
 
-  const { id, title, content, author, pageSettings, acfReadTime, categories, contactBlock, seo } = data.page
+  const { id, title, content, featuredImage, author, pageSettings, acfReadTime, categories, contactBlock, seo } = data.page
 
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className="post single" >
       <SEO
         title={ seo.title }
         description={ seo.metaDesc }
-        // image={ featuredImage.node.sourceUrl }
+        image={ featuredImage?.node?.localFile?.childImageSharp?.fluid.src }
         ogAuthor={ seo.opengraphAuthor }
         ogDescription={ seo.opengraphDescription }
         ogTitle={ seo.opengraphTitle }
-        // ogImage={ seo.opengraphImage.sourceUrl }
+        ogImage={ seo?.opengraphImage?.localFile?.childImageSharp?.fluid.src }
       />
 
       <article className="[ flow ]">
         <header>
-          <h1 className="[ hero-title hero-title--page hero-title--wide ] [ mb-5 ] [ text-white text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+          <h1 className="[ hero-title hero-title--post hero-title--wide ] [ mb-5 ] [ text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
         </header>
 
         <section className="[ single__content ] [ relative ] [ grid grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
