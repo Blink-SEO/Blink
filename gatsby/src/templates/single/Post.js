@@ -3,19 +3,58 @@ import { graphql } from "gatsby"
 
 import SEO from "../../components/seo"
 import Layout from "../../components/layout"
-import RecentPosts from "../../components/Recent-posts-list"
-import Archives from "../../components/Archives-navList"
+import ByLine from "../../components/AuthorByLine"
+import Contact from "../../components/contactArea"
+import Sidebar from "../../components/Sidebar"
 
 export const query = graphql`
   query post($id: String!) {
     page: wpPost(id: { eq: $id }) {
+      id
       title
       content
       pageSettings {
         backgroundColour
         subtitle
       }
-      # TODO: Make this a fragment
+      featuredImage {
+        node {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 550) {
+                src
+              }
+            }
+          }
+        }
+      }
+      author {
+        node {
+          name
+          avatar {
+            url
+          }
+          description
+        }
+      }
+      categories {
+        nodes {
+          posts {
+            nodes {
+              id
+              title
+              uri
+            }
+          }
+        }
+      }
+      acfReadTime {
+        readTime
+      }
+      contactBlock {
+        title
+        message
+      }
       seo {
         title
         metaDesc
@@ -37,35 +76,44 @@ export const query = graphql`
 `
 export default ({ data }) => {
 
-  const { title, content, pageSettings, seo } = data.page
+  const { id, title, content, featuredImage, author, pageSettings, acfReadTime, categories, contactBlock, seo } = data.page
 
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className="post single" >
       <SEO
         title={ seo.title }
         description={ seo.metaDesc }
-        // image={ featuredImage.node.sourceUrl }
+        image={ featuredImage?.node?.localFile?.childImageSharp?.fluid.src }
         ogAuthor={ seo.opengraphAuthor }
         ogDescription={ seo.opengraphDescription }
         ogTitle={ seo.opengraphTitle }
-        // ogImage={ seo.opengraphImage.sourceUrl }
+        ogImage={ seo?.opengraphImage?.localFile?.childImageSharp?.fluid.src }
       />
 
       <article className="[ flow ]">
         <header>
-          <h1 className="[ hero-title hero-title--page hero-title--wide ] [ mb-5 ] [ text-white text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+          <h1 className="[ hero-title hero-title--post hero-title--wide ] [ mb-5 ] [ text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
         </header>
 
-        <section className="[ single__content full-bleed flow ] [ relative ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-6 md:col-gap-16 ] [ py-24 mb-32 ] [ text-white ]">
-          <div className="single__content--left" dangerouslySetInnerHTML={{ __html: content }} />
+        <section className="[ single__content ] [ relative ] [ grid grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
+          <div className="[ flow ] [ row-start-2 md:row-start-1 row-end-7 col-start-1 col-end-5 ]" dangerouslySetInnerHTML={{ __html: content }} />
 
-          <aside className="[ single__content--right flow ] [ p-16 ] [ bg-black ] [ text-white ]">
-            <RecentPosts />
+          <ByLine
+            author={ author.node.name }
+            title={ author.node.description }
+            avatar={ author.node.avatar.url }
+            readTime={ acfReadTime.readTime }
+            className="[ row-start-1 md:row-start-1 col-start-1 md:col-start-5 col-end-7 ] [ self-end ] [ mb-6 ]"
+          />
 
-            <Archives />
-          </aside>
+          <Sidebar
+            currentPageID={ id }
+            relatedPosts={ categories.nodes }
+            className="[ col-start-1 md:col-start-5 col-end-7 ]"
+          />
         </section>
 
+        { contactBlock && <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } />}
       </article>
 
     </Layout>

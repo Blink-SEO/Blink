@@ -52,7 +52,7 @@ const Footer = () =>  {
         </Link>
 
         { !!data.wpMenu && !!data.wpMenu.menuItems && !!data.wpMenu.menuItems.nodes ?
-          <nav className="[ row-start-1 col-start-5 md:col-start-3 col-end-8 ]" aria-label="footer navigation">
+          <nav className="[ row-start-1 col-start-5 md:col-start-3 col-end-8 md:col-end-5 ]" aria-label="footer navigation">
             <ul className="[ flow menu menu--column ]">
               {data.wpMenu.menuItems.nodes.map( (menuItem, i) => (
                 <li className="[ menu__item ]">
@@ -74,16 +74,20 @@ const Footer = () =>  {
             <p>Follow us</p>
             <ul className="[ social__menu ] [ flex ]">
               { Object.entries(socialLinks).map(( [label, link], i ) => (
-                <li className="[ mr-10 ]">
-                  <a key={i + link} href={ link }>
-                    {
-                      label === 'facebook' ? <FontAwesomeIcon icon={ faFacebookSquare } size="3x" /> :
-                      label === 'twitter' ? <FontAwesomeIcon icon={ faTwitter } size="3x" /> :
-                      label === 'linkedin' ? <FontAwesomeIcon icon={ faLinkedin } size="3x" /> :
-                      null
-                    }
-                  </a>
-                </li>
+                <>
+                { link &&
+                  <li key={i + link} className="[ mr-10 ]">
+                    <a href={ link }>
+                      {
+                        label === 'facebook' ? <FontAwesomeIcon icon={ faFacebookSquare } size="3x" /> :
+                        label === 'twitter' ? <FontAwesomeIcon icon={ faTwitter } size="3x" /> :
+                        label === 'linkedin' ? <FontAwesomeIcon icon={ faLinkedin } size="3x" /> :
+                        null
+                      }
+                    </a>
+                  </li>
+                }
+                </>
               )) }
             </ul>
           </div>

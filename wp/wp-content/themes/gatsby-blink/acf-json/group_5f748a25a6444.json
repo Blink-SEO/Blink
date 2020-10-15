@@ -64,6 +64,20 @@
                 "operator": "==",
                 "value": "cpt_service"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "blog-page-settings"
+            }
         ]
     ],
     "menu_order": 10,
@@ -76,5 +90,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "contactBlock",
-    "modified": 1601473217
+    "modified": 1602775473
 }

@@ -47,9 +47,9 @@ const CaseStudiesLoop = () => {
 
                 { caseStudy.title && <h2 className="[ media-text__title ] [ text-4xl sm:text-5xl leading-tight ]">{ caseStudy.title }</h2> }
 
-                { caseStudy.excerpt && <div className="excerpt__wrapper" dangerouslySetInnerHTML={{ __html: caseStudy.excerpt }} /> }
+                { caseStudy.excerpt && <div className="[ excerpt__wrapper excerpt__wrapper--no-flow ]" dangerouslySetInnerHTML={{ __html: caseStudy.excerpt }} /> }
 
-                <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ true } loading="lazy" alt="" />
+                <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ true } loading="lazy" alt="" className="gatsby-image-wrapper--no-flow" />
               </div>
 
               { caseStudy.featuredImage?.node?.remoteFile?.childImageSharp &&

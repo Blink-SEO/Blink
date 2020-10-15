@@ -18,7 +18,7 @@ strong {
 
 main {
   ol,
-  ul:not(.services__list):not(.breadcrumb__list) {
+  ul:not(.services__list):not(.breadcrumb__list):not(.sidebar__list) {
     list-style: initial;
     padding-left: 2em;
   }
