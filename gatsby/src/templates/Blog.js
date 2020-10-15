@@ -48,13 +48,13 @@ export const query = graphql`
 
 export default ({ data, pageContext }) => {
 
-  const { title, blogContent } = data.wp.blogPage.blogPage
+  const { blogTitle, blogContent } = data.wp.blogPage.blogPage
   const { contactBlock } = data.wp.blogPage
 
   console.log(pageContext);
 
   return (
-    <Layout backgroundColor='bg-red' className='page' >
+    <Layout backgroundColor='bg-red' className='page blog' >
     <SEO
       // title={ seo.title }
       // description={ seo.metaDesc }
@@ -65,14 +65,14 @@ export default ({ data, pageContext }) => {
       // ogImage={ seo.opengraphImage.sourceUrl }
     />
 
-      <Hero title={ title } titleClass="hero-title--no-bottom-border" />
+      <Hero title={ blogTitle } titleClass="hero-title--no-bottom-border" />
 
       <article className="[ flow ] [ relative ]">
         { blogContent && <section className="[ entry-content flow ]" dangerouslySetInnerHTML={{ __html: blogContent }} /> }
 
         {data.allWpPost.nodes.map((post, key) => (
           <>
-            <div key={key} className="[ media-text media-text--half media-text--reverse ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 md:col-gap-16 ] [ mb-32 ]">
+            <section key={key} className="[ media-text media-text--half media-text--reverse ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 md:col-gap-16 ] [ mb-32 ]">
               <Link to={ `/blog${normalizePath(post.uri)}` } className="[ media-text__link-wrapper ] [ flex flex-wrap items-center col-span-3 ] [ no-underline ]">
 
                 <div className="[ flow media-text__details ] [ text-white ]" >
@@ -87,7 +87,7 @@ export default ({ data, pageContext }) => {
                   <Img fluid={ post.featuredImage.node.remoteFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={post.altText} className="media-text__image" /> }
 
               </Link>
-            </div>
+            </section>
           </>
         ))}
 
