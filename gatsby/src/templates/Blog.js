@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/template-parts/PageHero"
 import RightArrowWhite from "../components/Img/RightArrowWhite"
+import Contact from "../components/contactArea"
 import { normalizePath } from "../utils/get-url-path"
 
 export const query = graphql`
@@ -33,8 +34,12 @@ export const query = graphql`
     wp {
       blogPage {
         blogPage {
-          title
+          blogTitle
           blogContent
+        }
+        contactBlock {
+          title
+          message
         }
       }
     }
@@ -44,6 +49,9 @@ export const query = graphql`
 export default ({ data, pageContext }) => {
 
   const { title, blogContent } = data.wp.blogPage.blogPage
+  const { contactBlock } = data.wp.blogPage
+
+  console.log(pageContext);
 
   return (
     <Layout backgroundColor='bg-red' className='page' >
@@ -82,36 +90,39 @@ export default ({ data, pageContext }) => {
             </div>
           </>
         ))}
+
+        {pageContext && pageContext.totalPosts > pageContext.perPage && (
+            <ReactPaginate
+              previousLabel={
+                pageContext?.page !== 1 && <a>Previous page</a>
+              }
+              nextLabel={
+                pageContext?.totalPosts - 1 !== pageContext.page && (
+                  <a>Next page</a>
+                )
+              }
+              onPageChange={({ selected }) => {
+                const page = selected + 1
+                const path = page === 1 ? `/blog/` : `/blog/${page}/`
+                navigate(path)
+              }}
+              disableInitialCallback
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={pageContext.totalPosts - 1}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}
+              initialPage={pageContext.page - 1}
+            />
+        )}
+
+        { contactBlock.title || contactBlock.message ?
+          <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } />
+        : null }
       </article>
-
-
-    {pageContext && pageContext.totalPosts > 1 && (
-        <ReactPaginate
-          previousLabel={
-            pageContext?.page !== 1 && <a>Previous page</a>
-          }
-          nextLabel={
-            pageContext?.totalPosts - 1 !== pageContext.page && (
-              <a>Next page</a>
-            )
-          }
-          onPageChange={({ selected }) => {
-            const page = selected + 1
-            const path = page === 1 ? `/blog/` : `/blog/${page}/`
-            navigate(path)
-          }}
-          disableInitialCallback
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          pageCount={pageContext.totalPosts - 1}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          containerClassName={"pagination"}
-          subContainerClassName={"pages pagination"}
-          activeClassName={"active"}
-          initialPage={pageContext.page - 1}
-        />
-    )}
   </Layout>
   )
 }
