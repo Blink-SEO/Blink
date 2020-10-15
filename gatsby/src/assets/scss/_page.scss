@@ -12,36 +12,6 @@
 }
 
 // Posts
-.single__content {
-  --flow-space: #{rem-calc(70)};
-
-  background: center / cover no-repeat url('../images/singleContent-bg.jpg');
-
-  &--left {
-    @apply col-start-2;
-    @apply col-end-4;
-    @apply mb-0;
-  }
-
-  &--right {
-    @apply col-start-4;
-    @apply col-end-6;
-  }
-
-  .nav__archives {
-    --flow-space: #{rem-calc(90)};
-  }
-}
-
-@media (min-width: 768px) {
-  .single__content--right {
-    --flow-space: 0;
-
-    position: absolute;
-    top: -10%;
-    bottom: -10%;
-  }
-}
 
 // Case Studies
 .case-study .entry-content {
