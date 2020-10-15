@@ -44,7 +44,6 @@ export const query = graphql`
 export default ({ data, pageContext }) => {
 
   const { title, blogContent } = data.wp.blogPage.blogPage
-  console.log(data.file);
 
   return (
     <Layout backgroundColor='bg-red' className='page' >
@@ -86,13 +85,13 @@ export default ({ data, pageContext }) => {
       </article>
 
 
-    {/* {pageContext && pageContext.totalPages > 1 && (
+    {pageContext && pageContext.totalPosts > 1 && (
         <ReactPaginate
           previousLabel={
             pageContext?.page !== 1 && <a>Previous page</a>
           }
           nextLabel={
-            pageContext?.totalPages !== pageContext.page && (
+            pageContext?.totalPosts - 1 !== pageContext.page && (
               <a>Next page</a>
             )
           }
@@ -104,7 +103,7 @@ export default ({ data, pageContext }) => {
           disableInitialCallback
           breakLabel={"..."}
           breakClassName={"break-me"}
-          pageCount={pageContext.totalPages}
+          pageCount={pageContext.totalPosts - 1}
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
           containerClassName={"pagination"}
@@ -112,7 +111,7 @@ export default ({ data, pageContext }) => {
           activeClassName={"active"}
           initialPage={pageContext.page - 1}
         />
-    )} */}
+    )}
   </Layout>
   )
 }
