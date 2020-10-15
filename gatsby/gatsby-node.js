@@ -7,7 +7,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const postTemplate = path.resolve(`./src/templates/single/Post.js`)
   const caseStudyTemplate = path.resolve(`./src/templates/single/Case-study.js`)
   const serviceTemplate = path.resolve(`./src/templates/single/Service.js`)
-  const archiveTemplate = path.resolve(`./src/templates/archive.js`)
   const blogTemplate = path.resolve(`./src/templates/Blog.js`)
 
   const {
@@ -61,31 +60,6 @@ exports.createPages = async ({ graphql, actions }) => {
             id
             slug
             date(formatString: "YYYY/MM/DD")
-          }
-        }
-      }
-    }
-  `)
-
-   // query content for WordPress blog archives
-  //  TODO: This can be removed and we just query the posts
-   const {
-    data: {
-      allWpPost: { edges: archives },
-    },
-  } = await graphql(`
-    query {
-      allWpPost(sort: {fields: date, order: ASC}) {
-        edges {
-          next {
-            id
-          }
-          previous {
-            id
-          }
-          node {
-            id
-            date(formatString: "YYYY/MM")
           }
         }
       }
@@ -191,27 +165,6 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  // TODO: This needs to mimic the above blog page func once it's storted
-  archives.forEach((post) => {
-    createPage({
-      // will be the url for the page
-      path: `blog/${post.node.date}`,
-      // specify the component template of your choice
-      component: slash(archiveTemplate),
-      // In the ^template's GraphQL query, 'id' will be available
-      // as a GraphQL variable to query for this post's data.
-      context: {
-        id: post.node.id,
-        // We need to replace the / with a - to match the date format of the dateGMT
-        // This is because we can only use a regex filter on dateGMT
-        date: `/${post.node.date.replace('/', '-')}/`,
-        perPage: 10,
-        offset: 0,
-        // totalPages:
-      },
-    })
-  })
-
   allCaseStudies.forEach( caseStudy => {
     createPage({
       // will be the url for the page
@@ -228,7 +181,6 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-
   allServices.forEach( service => {
     createPage({
       // will be the url for the page
@@ -244,6 +196,5 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-
 
 }
