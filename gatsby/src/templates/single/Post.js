@@ -3,8 +3,8 @@ import { graphql } from "gatsby"
 
 import SEO from "../../components/seo"
 import Layout from "../../components/layout"
-import RecentPosts from "../../components/Recent-posts-list"
-import Archives from "../../components/Archives-navList"
+import ByLine from "../../components/AuthorByLine"
+import Contact from "../../components/contactArea"
 
 export const query = graphql`
   query post($id: String!) {
@@ -15,7 +15,22 @@ export const query = graphql`
         backgroundColour
         subtitle
       }
-      # TODO: Make this a fragment
+      author {
+        node {
+          name
+          avatar {
+            url
+          }
+          description
+        }
+      }
+      acfReadTime {
+        readTime
+      }
+      contactBlock {
+        title
+        message
+      }
       seo {
         title
         metaDesc
@@ -37,7 +52,7 @@ export const query = graphql`
 `
 export default ({ data }) => {
 
-  const { title, content, pageSettings, seo } = data.page
+  const { title, content, author, pageSettings, acfReadTime, contactBlock, seo } = data.page
 
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className="post single" >
@@ -52,20 +67,27 @@ export default ({ data }) => {
       />
 
       <article className="[ flow ]">
-        <header>
-          <h1 className="[ hero-title hero-title--page hero-title--wide ] [ mb-5 ] [ text-white text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+        <header className="[ grid grid-flow-row grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
+          <h1 className="[ hero-title hero-title--page hero-title--wide ] [ row-start-1 col-start-1 col-end-7 md:col-end-6 ] [ mb-5 ] [ text-white text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+
+          <ByLine
+            author={ author.node.name }
+            title={ author.node.description }
+            avatar={ author.node.avatar.url }
+            readTime={ acfReadTime.readTime }
+            className="[ md:row-start-1 col-start-1 md:col-start-5 col-end-7 ] [ self-end ] [ mb-6 ]"
+          />
         </header>
 
-        <section className="[ single__content full-bleed flow ] [ relative ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-6 md:col-gap-16 ] [ py-24 mb-32 ] [ text-white ]">
-          <div className="single__content--left" dangerouslySetInnerHTML={{ __html: content }} />
+        <section className="[ single__content ] [ relative ] [ grid grid-flow-row grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
+          <div className="[ flow ] [ col-start-1 col-end-5 ]" dangerouslySetInnerHTML={{ __html: content }} />
 
-          <aside className="[ single__content--right flow ] [ p-16 ] [ bg-black ] [ text-white ]">
-            <RecentPosts />
-
-            <Archives />
-          </aside>
+          <div className="[ sidebar ] [ col-start-5 col-end-7 ] [ bg-black ]">
+            <h2>Related posts</h2>
+          </div>
         </section>
 
+        { contactBlock && <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } />}
       </article>
 
     </Layout>
