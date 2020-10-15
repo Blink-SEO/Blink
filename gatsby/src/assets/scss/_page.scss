@@ -12,6 +12,25 @@
 }
 
 // Posts
+.post .single__content {
+  h2:not(.sidebar__title),
+  h3,
+  h4 {
+    @apply text-black;
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+}
 
 // Case Studies
 .case-study .entry-content {
