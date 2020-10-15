@@ -5,7 +5,7 @@
         {
             "key": "field_5f64d7369c977",
             "label": "Title",
-            "name": "title",
+            "name": "blog_title",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -62,5 +62,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "blogPage",
-    "modified": 1600444834
+    "modified": 1602775708
 }

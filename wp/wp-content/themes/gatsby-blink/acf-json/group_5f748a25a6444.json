@@ -71,6 +71,13 @@
                 "operator": "==",
                 "value": "post"
             }
+        ],
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "blog-page-settings"
+            }
         ]
     ],
     "menu_order": 10,
@@ -83,5 +90,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "contactBlock",
-    "modified": 1602756874
+    "modified": 1602775473
 }
