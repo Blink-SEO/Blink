@@ -85,14 +85,14 @@ export default ({ data }) => {
         </header>
 
         <section className="[ single__content ] [ relative ] [ grid grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
-          <div className="[ flow ] [ row-start-1 row-end-7 col-start-1 col-end-5 ]" dangerouslySetInnerHTML={{ __html: content }} />
+          <div className="[ flow ] [ row-start-2 md:row-start-1 row-end-7 col-start-1 col-end-5 ]" dangerouslySetInnerHTML={{ __html: content }} />
 
           <ByLine
             author={ author.node.name }
             title={ author.node.description }
             avatar={ author.node.avatar.url }
             readTime={ acfReadTime.readTime }
-            className="[ md:row-start-1 col-start-1 md:col-start-5 col-end-7 ] [ self-end ] [ mb-6 ]"
+            className="[ row-start-1 md:row-start-1 col-start-1 md:col-start-5 col-end-7 ] [ self-end ] [ mb-6 ]"
           />
 
           <Sidebar
