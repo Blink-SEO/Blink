@@ -155,12 +155,11 @@ exports.createPages = async ({ graphql, actions }) => {
       path: page === 1 ? `blog/` : `blog/${page}`,
       // specify the component template of your choice
       component: slash(blogTemplate),
-      // In the ^template's GraphQL query, 'id' will be available
-      // as a GraphQL variable to query for this post's data.
       context: {
+        page,
         perPage,
         offset,
-        totalPages: totalPosts
+        totalPosts
       },
     })
   })
