@@ -72,7 +72,7 @@ export default ({ data, pageContext }) => {
 
         {data.allWpPost.nodes.map((post, key) => (
           <>
-            <div key={key} className="[ media-text media-text--half media-text--reverse ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 md:col-gap-16 ]">
+            <div key={key} className="[ media-text media-text--half media-text--reverse ] [ grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 md:col-gap-16 ] [ mb-32 ]">
               <Link to={ `/blog${normalizePath(post.uri)}` } className="[ media-text__link-wrapper ] [ flex flex-wrap items-center col-span-3 ] [ no-underline ]">
 
                 <div className="[ flow media-text__details ] [ text-white ]" >
