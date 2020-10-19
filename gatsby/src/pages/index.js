@@ -48,7 +48,7 @@ export default ({ data }) => {
   const { title, content, featuredImage, seo } = data.wpPage
 
   return (
-    <Layout>
+    <Layout showLocation={false} >
       <SEO
         title={ seo.title }
         description={ seo.metaDesc }

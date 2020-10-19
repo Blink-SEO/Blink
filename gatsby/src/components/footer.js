@@ -7,7 +7,7 @@ import { faFacebookSquare, faTwitter, faLinkedin } from '@fortawesome/free-brand
 
 import FooterLocation from './footer-location'
 
-const Footer = () =>  {
+const Footer = ({showLocation}) =>  {
 
   const data = useStaticQuery(graphql`
     {
@@ -44,7 +44,7 @@ const Footer = () =>  {
 
   return (
     <>
-      {/* <FooterLocation /> */}
+      { showLocation === false ? undefined : <FooterLocation /> }
 
       <footer className='[ footer ] [ grid grid-flow-row grid-cols-8 row-gap-16 lg:row-gap-56 ] [ bg-grey ] [ px-6 sm:px-0 py-10 ]'>
         <Link to="/" className="[ col-start-2 ]" >
