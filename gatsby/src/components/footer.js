@@ -77,7 +77,7 @@ const Footer = () =>  {
                 <>
                 { link &&
                   <li key={i + link} className="[ mr-10 ]">
-                    <a href={ link }>
+                    <a href={ link } aria-label={`Vist our ${label} page`}>
                       {
                         label === 'facebook' ? <FontAwesomeIcon icon={ faFacebookSquare } size="3x" /> :
                         label === 'twitter' ? <FontAwesomeIcon icon={ faTwitter } size="3x" /> :
