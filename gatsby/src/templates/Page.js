@@ -10,6 +10,18 @@ import TeamPhotos from '../components/template-parts/TeamPhotos'
 import Contact from "../components/contactArea"
 import ArrowWhite from '../components/Img/DownArrowWhite-Bounce'
 
+import BarChart from "../components/template-parts/bar-chart"
+import Arrow from "../components/Img/DownArrow-Bounce"
+
+import Experience from "../components/homepage-parts/Experience"
+import Ebook from "../components/homepage-parts/Ebook"
+import About from "../components/homepage-parts/About"
+import Services from "../components/homepage-parts/Services"
+import WordCloud from "../components/homepage-parts/WordCloud"
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
 export const query = graphql`
   query page($id: String!) {
     page: wpPage(id: { eq: $id }) {
@@ -41,6 +53,9 @@ export const query = graphql`
           templateName
         }
         ... on WpDefaultTemplate {
+          templateName
+        }
+        ... on WpHomepageTemplate {
           templateName
         }
       }
@@ -97,34 +112,67 @@ export default ({ data }) => {
         ogImage={ seo?.opengraphImage?.localFile?.childImageSharp?.fluid.src }
       />
 
-      <Hero title={ title } subtitle={ pageSettings.subtitle } className={ pageSettings.subtitle ? 'hero--full' : '' } titleClass={ pageSettings.subtitle ? '' : 'hero-title--no-bottom-border' } />
+      { template.templateName === 'Homepage' ?
 
-      <article id="article" className="[ flow ] [ relative ]">
-        { template.templateName !== 'Contact' && content ?
-          <section className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: content }} />
-        : null }
-
-        { template.templateName === 'Contact' && content ?
-          <div className="[ grid sm:grid-cols-2 ]">
-            <section className="[ entry-content--contact flow ] [ font-bold leading-tight text-4xl text-white ]" dangerouslySetInnerHTML={{ __html: content }} />
-            <ArrowWhite className="text-center lg:text-center" />
+      <article>
+        <section className='[ grid grid-flow-row sm:grid-flow-col sm:grid-cols-6 md:gap-8 ] [ mx-auto ] [ relative ]'>
+          <div className='[ row-start-1 col-start-1 col-end-7 lg:col-end-4 ] [ mb-8 ]'>
+            <h1 className='[ hero-title hero-title--home ] [ text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-5 ]'>{ title }<span className="border-block"></span></h1>
+            { content && <div className='[ hero-section ] [ max-w-45ch ]' dangerouslySetInnerHTML={{ __html: content }} /> }
           </div>
-        : null}
 
-        { template.templateName === 'Case Studies' && <CaseStudiesLoop /> }
+          <Arrow className="[ row-start-2 md:row-start-1 col-start-1 ] [ md:absolute md:right-50 bottom-25 ]" />
 
-        { template.templateName === 'Services' && <ServicesLoop pageBackgroundColour={ pageSettings.backgroundColour} /> }
+          <div className='[ row-start-2 md:row-start-1 col-start-4 col-end-7 ] [ overflow-visible ] [ relative ]'>
+            <BarChart duration={ 1.3 } />
+          </div>
 
-        { teamGallery.teamMember && <TeamPhotos backgroundColor={ pageSettings.backgroundColour } members={ teamGallery.teamMember } /> }
+          <FontAwesomeIcon icon={ faPlus } size="2x" className="[ row-start-1 col-start-1 ] [ self-end ] [ lg:mb-6 ] [ text-white ] [ hidden md:block ]" />
+        </section>
 
-        { template.templateName !== 'Contact' && (contactBlock.title || contactBlock.message) ?
-          <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } />
-        : null }
+        <Experience />
 
-        { template.templateName === 'Contact' ?
-          <Contact backgroundColor="bg-orange" backgroundImage="contact-bg-image" title={ contactBlock.title } message={ contactBlock.message } />
-        : null }
+        <Ebook />
+
+        <About />
+
+        <Services />
+
+        <WordCloud />
+
+        { contactBlock && <Contact backgroundColor="bg-dark-red" title={ contactBlock.title } message={ contactBlock.message } />}
       </article>
+
+      : <>
+        <Hero title={ title } subtitle={ pageSettings.subtitle } className={ pageSettings.subtitle ? 'hero--full' : '' } titleClass={ pageSettings.subtitle ? '' : 'hero-title--no-bottom-border' } />
+
+        <article id="article" className="[ flow ] [ relative ]">
+          { template.templateName !== 'Contact' && content ?
+            <section className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: content }} />
+          : null }
+
+          { template.templateName === 'Contact' && content ?
+            <div className="[ grid sm:grid-cols-2 ]">
+              <section className="[ entry-content--contact flow ] [ font-bold leading-tight text-4xl text-white ]" dangerouslySetInnerHTML={{ __html: content }} />
+              <ArrowWhite className="text-center lg:text-center" />
+            </div>
+          : null}
+
+          { template.templateName === 'Case Studies' && <CaseStudiesLoop /> }
+
+          { template.templateName === 'Services' && <ServicesLoop pageBackgroundColour={ pageSettings.backgroundColour} /> }
+
+          { teamGallery.teamMember && <TeamPhotos backgroundColor={ pageSettings.backgroundColour } members={ teamGallery.teamMember } /> }
+
+          { template.templateName !== 'Contact' && (contactBlock.title || contactBlock.message) ?
+            <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } />
+          : null }
+
+          { template.templateName === 'Contact' ?
+            <Contact backgroundColor="bg-orange" backgroundImage="contact-bg-image" title={ contactBlock.title } message={ contactBlock.message } />
+          : null }
+        </article>
+      </> }
 
     </Layout>
   )

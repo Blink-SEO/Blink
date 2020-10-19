@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { gsap } from 'gsap'
@@ -33,6 +34,10 @@ const Arrow = ({ className }) => {
       </a>
     </div>
   )
+}
+
+Arrow.propTypes = {
+  className: PropTypes.string,
 }
 
 export default Arrow

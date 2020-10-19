@@ -40,6 +40,11 @@
     @apply bg-transparent;
   }
 }
+
+.gird-rows-2--short-top {
+  grid-template-rows: minmax(0, 1fr) minmax(0, 2fr);
+}
+
 @media (min-width: 768px) {
   .footer {
     .menu__item {

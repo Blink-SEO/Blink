@@ -14,9 +14,8 @@
 }
 
 .full-bleed {
-  width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 
   > * {
     width: 100%;
@@ -27,6 +26,29 @@
 
 .heading-5xl > h2 {
   @apply text-5xl;
+}
+
+.has-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: multiply;
+
+  &--about {
+    background-image: url('../images/about-bg.png');
+  }
+
+  &--services {
+    background-image: url('../images/services-bg.png');
+  }
+
+  &--word-cloud {
+    background-image: url('../images/wordCloud-bg.png');
+  }
+}
+
+.justify-self-end {
+  justify-self: end;
 }
 
 @media (max-width: 1024px) {
@@ -45,5 +67,10 @@
   .rotate.rotate--center {
     margin-left: rem-calc(40);
     width: auto;
+  }
+
+  .has-bg--half {
+    background-size: 50% 100%;
+    background-position: right;
   }
 }
