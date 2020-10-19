@@ -59,6 +59,62 @@ export const query = graphql`
           templateName
         }
       }
+      homepage {
+        experience {
+          clients {
+            clientLogo {
+              altText
+              remoteFile {
+                ...Thumbnail
+              }
+            }
+          }
+          resultsCallout {
+            linkTo {
+              ... on WpCaseStudy {
+                uri
+                title
+              }
+            }
+            results
+          }
+        }
+        ebook {
+          content
+          formIntro
+        }
+        whoAreBlink {
+          shortContent
+          longContent
+          linkTo {
+            ... on WpPage {
+              title
+              uri
+            }
+            ... on WpPost {
+              title
+              uri
+            }
+            ... on WpCaseStudy {
+              title
+              uri
+            }
+            ... on WpCpt_service {
+              title
+              uri
+            }
+          }
+        }
+        services {
+          icon {
+            remoteFile {
+              ...FixedThumbnail
+            }
+          }
+          heading
+          description
+        }
+      }
       teamGallery {
         teamMember {
           fieldGroupName
@@ -98,7 +154,8 @@ export const query = graphql`
 `
 
 export default ({ data }) => {
-  const { title, content, pageSettings, featuredImage, seo, template, teamGallery, contactBlock } = data.page
+  const { title, content, pageSettings, featuredImage, seo, template, homepage, teamGallery, contactBlock } = data.page
+  const { experience, ebook, whoAreBlink, services } = homepage
 
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className='page' >
@@ -130,13 +187,13 @@ export default ({ data }) => {
           <FontAwesomeIcon icon={ faPlus } size="2x" className="[ row-start-1 col-start-1 ] [ self-end ] [ lg:mb-6 ] [ text-white ] [ hidden md:block ]" />
         </section>
 
-        <Experience />
+        <Experience clients={ experience.clients } resultsCallout={ experience.resultsCallout } />
 
-        <Ebook />
+        <Ebook content={ ebook.content } formIntro={ ebook.formIntro } />
 
-        <About />
+        <About shortContent={ whoAreBlink.shortContent } longContent={ whoAreBlink.longContent } linkTo={ whoAreBlink.linkTo } />
 
-        <Services />
+        <Services services={ services } />
 
         <WordCloud />
 
@@ -144,11 +201,22 @@ export default ({ data }) => {
       </article>
 
       : <>
-        <Hero title={ title } subtitle={ pageSettings.subtitle } className={ pageSettings.subtitle ? 'hero--full' : '' } titleClass={ pageSettings.subtitle ? '' : 'hero-title--no-bottom-border' } />
+        <Hero title={ title } className={ 'pb-24' } titleClass={ 'hero-title--post hero-title--wide hero-title--no-bottom-border' } />
 
         <article id="article" className="[ flow ] [ relative ]">
-          { template.templateName !== 'Contact' && content ?
-            <section className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: content }} />
+          { template.templateName !== 'Contact' ?
+            <section className="[ entry-content flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
+
+            <h2 className="[ lead ] [ col-start-1 col-end-6 lg:col-start-2 ] [ pb-6 ]">{ pageSettings.subtitle }</h2>
+
+            { content &&
+              <div className="[ grid sm:grid-flow-col grid-cols-3 sm:grid-cols-8 md:col-gap-16 ] [ col-start-1 col-end-7 ]">
+                <ArrowWhite className="[ col-start-1 lg:col-start-2 col-end-4 ] [ hidden md:block ] [ text-center lg:text-right ]" />
+                <div className="[ flow ] [ col-start-4 col-end-8 ]" dangerouslySetInnerHTML={{ __html: content }} />
+              </div>
+            }
+
+            </section>
           : null }
 
           { template.templateName === 'Contact' && content ?

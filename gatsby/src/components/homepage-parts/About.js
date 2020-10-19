@@ -7,37 +7,10 @@ import { normalizePath } from "../../utils/get-url-path"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-const About = () => {
+const About = ({ shortContent, longContent, linkTo }) => {
 
   const data = useStaticQuery(graphql`
     {
-      wpPage(isFrontPage: {eq: true}) {
-        homepage {
-          whoAreBlink {
-            shortContent
-            longContent
-            linkTo {
-              ... on WpPage {
-                title
-                uri
-              }
-              ... on WpPost {
-                title
-                uri
-              }
-              ... on WpCaseStudy {
-                title
-                uri
-              }
-              ... on WpCpt_service {
-                title
-                uri
-              }
-            }
-          }
-        }
-      }
-
       file(relativePath: {eq: "BlinkLogoWhiteDot.png"}) {
         childImageSharp {
           fixed(width: 350) {
@@ -47,8 +20,6 @@ const About = () => {
       }
     }
   `)
-
-  const { whoAreBlink } = data.wpPage.homepage
 
   return(
     <Wrapper className="[ bg-orange ] [ has-bg has-bg--about ]" >
@@ -64,16 +35,16 @@ const About = () => {
         <Img fixed={ data.file.childImageSharp.fixed } alt="Blink" className="[ row-start-2 lg:row-start-1 col-start-1 lg:col-start-2 ] [ self-end ]" />
 
         <div className="[ grid grid-cols-4 col-gap-12 ] [ row-start-3 lg:row-start-2 col-start-1 col-end-8 lg:col-start-2 md:col-end-6 ] [ self-end ] [ relative ]">
-          <div className="[ lead lead--small ] [ col-start-1 lg:col-start-2 col-end-6 ]" dangerouslySetInnerHTML={{ __html: whoAreBlink.shortContent }} />
+          <div className="[ lead lead--small ] [ col-start-1 lg:col-start-2 col-end-6 ]" dangerouslySetInnerHTML={{ __html: shortContent }} />
         </div>
 
-        <div className="[ row-start-4 lg:row-start-1 row-end-4 col-start-1 lg:col-start-6 col-end-8 ]" dangerouslySetInnerHTML={{ __html: whoAreBlink.longContent }} />
+        <div className="[ row-start-4 lg:row-start-1 row-end-4 col-start-1 lg:col-start-6 col-end-8 ]" dangerouslySetInnerHTML={{ __html: longContent }} />
 
         <Link
           className="[ row-start-5 lg:row-start-3 col-start-1 lg:col-start-3 col-span-6 ] [ self-center ] [ text-white text-xl ] [ no-underline ]"
-          to={ normalizePath(whoAreBlink.linkTo.uri) }
+          to={ normalizePath(linkTo.uri) }
         >
-            { whoAreBlink.linkTo.title } <FontAwesomeIcon icon={ faArrowRight } size="md" className="[ ml-2 ]" />
+            { linkTo.title } <FontAwesomeIcon icon={ faArrowRight } size="md" className="[ ml-2 ]" />
         </Link>
 
       </div>

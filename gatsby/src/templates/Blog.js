@@ -56,19 +56,14 @@ export default ({ data, pageContext }) => {
   return (
     <Layout backgroundColor='bg-red' className='page blog' >
     <SEO
-      // title={ seo.title }
-      // description={ seo.metaDesc }
-      // image={ featuredImage.node.sourceUrl }
-      // ogAuthor={ seo.opengraphAuthor }
-      // ogDescription={ seo.opengraphDescription }
-      // ogTitle={ seo.opengraphTitle }
-      // ogImage={ seo.opengraphImage.sourceUrl }
+      title={ blogTitle }
+      description={ blogContent }
     />
 
-      <Hero title={ blogTitle } titleClass="hero-title--no-bottom-border" />
+      <Hero title={ blogTitle } titleClass=" hero-title--page hero-title--no-bottom-border" />
 
       <article className="[ flow ] [ relative ]">
-        { blogContent && <section className="[ entry-content flow ]" dangerouslySetInnerHTML={{ __html: blogContent }} /> }
+        { blogContent && <section className="[ entry-content entry-content--narrow flow ]" dangerouslySetInnerHTML={{ __html: blogContent }} /> }
 
         {data.allWpPost.nodes.map((post, key) => (
           <>
