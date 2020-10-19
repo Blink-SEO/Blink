@@ -82,6 +82,25 @@ if( function_exists('acf_add_options_page') ) {
 
 }
 
+/**
+ * Handle the excerpt.
+ */
+
+// This removes the annoying […].
+function gatsby_blink_excerpt_more($more) {
+	global $post;
+	return '...';
+}
+
+// Limit excerpt character count.
+function gatsby_blink_excerpt_length( $length ) {
+	return 22;
+}
+
+// cleaning up excerpt.
+add_filter('excerpt_more', 'gatsby_blink_excerpt_more');
+add_filter('excerpt_length', 'gatsby_blink_excerpt_length');
+
 // Register Custom Post types.
 require get_template_directory() . '/post-types/case-study.php';
 require get_template_directory() . '/post-types/services.php';
