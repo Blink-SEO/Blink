@@ -45,12 +45,17 @@ export default () => {
           const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url
           const childItems = menuItem.childItems?.nodes
 
+          /* Little polyfill to handle not showing the active class on the homepage link while also allowing partially active
+          to work on parent pages such as services or blog. */
+          const isPartiallyActive = ({ isPartiallyCurrent }) => isPartiallyCurrent ? { className: 'menu__item--active' } : null;
+
           return (
             <li className={`menu__item ${childItems.length > 0 ? 'menu__item--dropown' : '' }`}>
               <Link
                 key={i + menuItem.url}
                 to={normalizePath(path)}
                 activeClassName="menu__item--active"
+                getProps={path === "/" ? undefined : isPartiallyActive}
               >
                 {menuItem.label} {childItems.length > 0 && <FontAwesomeIcon icon={ faChevronDown } size="sm" />}
               </Link>
