@@ -59,6 +59,62 @@ export const query = graphql`
           templateName
         }
       }
+      homepage {
+        experience {
+          clients {
+            clientLogo {
+              altText
+              remoteFile {
+                ...Thumbnail
+              }
+            }
+          }
+          resultsCallout {
+            linkTo {
+              ... on WpCaseStudy {
+                uri
+                title
+              }
+            }
+            results
+          }
+        }
+        ebook {
+          content
+          formIntro
+        }
+        whoAreBlink {
+          shortContent
+          longContent
+          linkTo {
+            ... on WpPage {
+              title
+              uri
+            }
+            ... on WpPost {
+              title
+              uri
+            }
+            ... on WpCaseStudy {
+              title
+              uri
+            }
+            ... on WpCpt_service {
+              title
+              uri
+            }
+          }
+        }
+        services {
+          icon {
+            remoteFile {
+              ...FixedThumbnail
+            }
+          }
+          heading
+          description
+        }
+      }
       teamGallery {
         teamMember {
           fieldGroupName
@@ -98,7 +154,8 @@ export const query = graphql`
 `
 
 export default ({ data }) => {
-  const { title, content, pageSettings, featuredImage, seo, template, teamGallery, contactBlock } = data.page
+  const { title, content, pageSettings, featuredImage, seo, template, homepage, teamGallery, contactBlock } = data.page
+  const { experience, ebook, whoAreBlink, services } = homepage
 
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className='page' >
@@ -130,13 +187,13 @@ export default ({ data }) => {
           <FontAwesomeIcon icon={ faPlus } size="2x" className="[ row-start-1 col-start-1 ] [ self-end ] [ lg:mb-6 ] [ text-white ] [ hidden md:block ]" />
         </section>
 
-        <Experience />
+        <Experience clients={ experience.clients } resultsCallout={ experience.resultsCallout } />
 
-        <Ebook />
+        <Ebook content={ ebook.content } formIntro={ ebook.formIntro } />
 
-        <About />
+        <About shortContent={ whoAreBlink.shortContent } longContent={ whoAreBlink.longContent } linkTo={ whoAreBlink.linkTo } />
 
-        <Services />
+        <Services services={ services } />
 
         <WordCloud />
 

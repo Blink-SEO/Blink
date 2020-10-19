@@ -1,51 +1,28 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import Wrapper from "./HomeSectionWrapper"
 
-const Services = () => {
-  const data = useStaticQuery(graphql`
-    {
-      wpPage(isFrontPage: {eq: true}) {
-        homepage {
-          services {
-            icon {
-              remoteFile {
-                ...FixedThumbnail
-              }
-            }
-            heading
-            description
-          }
-        }
-      }
-    }
-  `)
+const Services = ({ services }) => (
+  <Wrapper className="[ has-bg has-bg--services ]">
+    <div className="[ grid grid-cols-8 col-gap-12 row-gap-12 ] [ relative ]">
+      <h2 className="[ lead--small-heading ] [ col-start-2 col-end-6 ]">Our Services</h2>
 
-  const { services } = data.wpPage.homepage
+      <div className="[ thumbnail__grid thumbnail__grid--flex thumbnail__grid--fifths ] [ col-start-1 col-end-9 ] [ justify-center ] [ relative ]">
+        { services.map( ( service, i ) => (
+          <div key={i} className="[ gird-rows-2--short-top ] [ grid grid-cols-1 ]">
+            <Img fixed={ service?.icon?.remoteFile?.childImageSharp?.fixed } alt="" className="[ self-center ] [ mx-auto ]"/>
 
-  return (
-    <Wrapper className="[ has-bg has-bg--services ]">
-      <div className="[ grid grid-cols-8 col-gap-12 row-gap-12 ] [ relative ]">
-        <h2 className="[ lead--small-heading ] [ col-start-2 col-end-6 ]">Our Services</h2>
+            <div className="[ flow ] [ row-start-2 ] [ self-start ] [ text-center ]">
+              { service.heading && <h3 className="[ text-2xl ]">{ service.heading }</h3> }
 
-        <div className="[ thumbnail__grid thumbnail__grid--flex thumbnail__grid--fifths ] [ col-start-1 col-end-9 ] [ justify-center ] [ relative ]">
-          { services.map( ( service, i ) => (
-            <div key={i} className="[ gird-rows-2--short-top ] [ grid grid-cols-1 ]">
-              <Img fixed={ service?.icon?.remoteFile?.childImageSharp?.fixed } alt="" className="[ self-center ] [ mx-auto ]"/>
-
-              <div className="[ flow ] [ row-start-2 ] [ self-start ] [ text-center ]">
-                { service.heading && <h3 className="[ text-2xl ]">{ service.heading }</h3> }
-
-                { service.description && <div dangerouslySetInnerHTML={{ __html: service.description }} />}
-              </div>
+              { service.description && <div dangerouslySetInnerHTML={{ __html: service.description }} />}
             </div>
-          )) }
-        </div>
+          </div>
+        )) }
       </div>
-    </Wrapper>
-  )
-}
+    </div>
+  </Wrapper>
+)
 
 export default Services
