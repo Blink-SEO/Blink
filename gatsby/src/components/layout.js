@@ -9,8 +9,9 @@ import '../assets/scss/style.scss'
 
 const Layout = ({ children, backgroundColor, className }) => (
   <div className={`${backgroundColor} ${className} overflow-x-hidden`}>
+    <a href="#main" className="[ sr-only focus:not-sr-only ] [ bg-black ] [ text-white ]">Skip to content</a>
     <Header />
-    <main className='[ container relative ] [ px-6 sm:px-0 ]'>
+    <main id="main" className='[ container relative ] [ px-6 sm:px-0 ]'>
       { children }
     </main>
     <Footer />
