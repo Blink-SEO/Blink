@@ -144,11 +144,22 @@ export default ({ data }) => {
       </article>
 
       : <>
-        <Hero title={ title } subtitle={ pageSettings.subtitle } className={ pageSettings.subtitle ? 'hero--full' : '' } titleClass={ pageSettings.subtitle ? '' : 'hero-title--no-bottom-border' } />
+        <Hero title={ title } className={ 'pb-24' } titleClass={ 'hero-title--post hero-title--wide hero-title--no-bottom-border' } />
 
         <article id="article" className="[ flow ] [ relative ]">
-          { template.templateName !== 'Contact' && content ?
-            <section className='[ entry-content flow ]' dangerouslySetInnerHTML={{ __html: content }} />
+          { template.templateName !== 'Contact' ?
+            <section className="[ entry-content flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
+
+            <h2 className="[ lead ] [ col-start-1 col-end-6 lg:col-start-2 ] [ pb-6 ]">{ pageSettings.subtitle }</h2>
+
+            { content &&
+              <div className="[ grid sm:grid-flow-col grid-cols-3 sm:grid-cols-8 md:col-gap-16 ] [ col-start-1 col-end-7 ]">
+                <ArrowWhite className="[ col-start-1 lg:col-start-2 col-end-4 ] [ hidden md:block ] [ text-center lg:text-right ]" />
+                <div className="[ flow ] [ col-start-4 col-end-8 ]" dangerouslySetInnerHTML={{ __html: content }} />
+              </div>
+            }
+
+            </section>
           : null }
 
           { template.templateName === 'Contact' && content ?
