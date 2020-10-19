@@ -237,7 +237,7 @@ export default ({ data }) => {
           : null }
 
           { template.templateName === 'Contact' ?
-            <Contact backgroundColor="bg-orange" backgroundImage="contact-bg-image" title={ contactBlock.title } message={ contactBlock.message } />
+            <Contact backgroundColor={pageSettings.backgroundColour} backgroundImage="contact-bg-image" title={ contactBlock.title } message={ contactBlock.message } />
           : null }
         </article>
       </> }

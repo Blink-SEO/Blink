@@ -35,10 +35,10 @@
         },
         {
             "key": "field_5f317ca8de679",
-            "label": "Subtitle",
+            "label": "Intro text",
             "name": "subtitle",
-            "type": "text",
-            "instructions": "Text will display rotated",
+            "type": "textarea",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -49,9 +49,9 @@
             "show_in_graphql": 1,
             "default_value": "",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -87,5 +87,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "pageSettings",
-    "modified": 1600875470
+    "modified": 1603105828
 }

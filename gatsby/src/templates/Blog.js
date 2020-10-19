@@ -89,12 +89,10 @@ export default ({ data, pageContext }) => {
         {pageContext && pageContext.totalPosts > pageContext.perPage && (
             <ReactPaginate
               previousLabel={
-                pageContext?.page !== 1 && <a>Previous page</a>
+                pageContext?.page !== 1 && 'Previous page'
               }
               nextLabel={
-                pageContext?.totalPosts - 1 !== pageContext.page && (
-                  <a>Next page</a>
-                )
+                pageContext?.totalPosts - 1 !== pageContext.page && 'Next page'
               }
               onPageChange={({ selected }) => {
                 const page = selected + 1

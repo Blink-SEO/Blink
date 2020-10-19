@@ -140,9 +140,10 @@
 
     @include border-before(24px, 12ch, 0, auto, #000);
 
-    // Edge case - as we don't have a right position in the mixin we'll declare it here
     &::before {
+      // Edge case - as we don't have a right position in the mixin we'll declare it here
       right: 0;
+      margin-top: 0;
     }
   }
 
