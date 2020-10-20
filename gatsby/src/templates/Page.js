@@ -43,6 +43,9 @@ export const query = graphql`
         }
       }
       template {
+        ... on WpAboutTemplate {
+          templateName
+        }
         ... on WpContactTemplate {
           templateName
         }
@@ -115,19 +118,6 @@ export const query = graphql`
           description
         }
       }
-      teamGallery {
-        teamMember {
-          fieldGroupName
-          jobTitle
-          name
-          photo {
-            remoteFile {
-              ...Thumbnail
-            }
-            altText
-          }
-        }
-      }
       contactBlock {
         title
         message
@@ -154,7 +144,7 @@ export const query = graphql`
 `
 
 export default ({ data }) => {
-  const { title, content, pageSettings, featuredImage, seo, template, homepage, teamGallery, contactBlock } = data.page
+  const { title, content, pageSettings, featuredImage, seo, template, homepage, contactBlock } = data.page
   const { experience, ebook, whoAreBlink, services } = homepage
 
   return (
@@ -230,7 +220,7 @@ export default ({ data }) => {
 
           { template.templateName === 'Services' && <ServicesLoop pageBackgroundColour={ pageSettings.backgroundColour} /> }
 
-          { teamGallery.teamMember && <TeamPhotos backgroundColor={ pageSettings.backgroundColour } members={ teamGallery.teamMember } /> }
+          { template.templateName === 'About' && <TeamPhotos backgroundColor={ pageSettings.backgroundColour } /> }
 
           { template.templateName !== 'Contact' && (contactBlock.title || contactBlock.message) ?
             <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } />

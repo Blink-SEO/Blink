@@ -31,15 +31,6 @@ export const query = graphql`
           }
         }
       }
-      author {
-        node {
-          name
-          avatar {
-            url
-          }
-          description
-        }
-      }
       categories {
         nodes {
           posts {
@@ -53,6 +44,21 @@ export const query = graphql`
       }
       acfReadTime {
         readTime
+        author {
+          ... on WpCpt_team {
+            acfJobTitle {
+              jobTitle
+            }
+            title
+            featuredImage {
+              node {
+                remoteFile {
+                  ...Thumbnail
+                }
+              }
+            }
+          }
+        }
       }
       contactBlock {
         title
@@ -79,7 +85,7 @@ export const query = graphql`
 `
 export default ({ data }) => {
 
-  const { id, title, content, uri, featuredImage, author, pageSettings, acfReadTime, categories, contactBlock, seo } = data.page
+  const { id, title, content, uri, featuredImage, pageSettings, acfReadTime, categories, contactBlock, seo } = data.page
 
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className="post single" >
@@ -103,9 +109,9 @@ export default ({ data }) => {
           <div className="[ flow ] [ row-start-2 md:row-start-1 row-end-7 col-start-1 col-end-5 ]" dangerouslySetInnerHTML={{ __html: content }} />
 
           <ByLine
-            author={ author.node.name }
-            title={ author.node.description }
-            avatar={ author.node.avatar.url }
+            author={ acfReadTime.author[0].title }
+            title={ acfReadTime.author[0].acfJobTitle.jobTitle }
+            avatar={ acfReadTime.author[0]?.featuredImage }
             readTime={ acfReadTime.readTime }
             className="[ row-start-1 md:row-start-1 col-start-1 md:col-start-5 col-end-7 ] [ self-end ] [ mb-6 ]"
           />

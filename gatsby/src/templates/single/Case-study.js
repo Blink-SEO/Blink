@@ -7,7 +7,6 @@ import Layout from "../../components/layout"
 import Services from "../../components/template-parts/Block-case-study-services"
 import PostNav from "../../components/template-parts/post-navigation"
 import Title from "../../components/template-parts/PageTitle"
-import Hero from "../../components/template-parts/PageHero"
 
 export const query = graphql`
   query caseStudy($id: String!, $nextPage: String, $previousPage: String) {
