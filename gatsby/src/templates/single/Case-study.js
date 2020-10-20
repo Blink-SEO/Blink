@@ -95,7 +95,7 @@ export default ({ data }) => {
       />
 
       <header>
-        <h1 className="[ hero-title hero-title--post ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+        <h1 className="[ hero-title hero-title--post ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-none ]">{ title }</h1>
       </header>
 
       <article className="[ flow ] [ relative ]">

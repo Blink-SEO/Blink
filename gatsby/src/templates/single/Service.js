@@ -123,7 +123,7 @@ export default ({ data }) => {
       />
 
       <header className="[ pb-24 ]">
-        <h1 className="[ hero-title hero-title--post hero-title--wide hero-title--no-bottom-border ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+        <h1 className="[ hero-title hero-title--post hero-title--wide hero-title--no-bottom-border ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-none ]">{ title }</h1>
 
         <Breadcrumbs parentPageTitle="Services" parentPageLink="/services/" currentPageTitle={ title } currentPageLink={ uri } />
       </header>
