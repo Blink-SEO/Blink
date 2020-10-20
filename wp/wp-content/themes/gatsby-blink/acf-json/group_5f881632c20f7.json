@@ -37,7 +37,7 @@
             },
             "show_in_graphql": 1,
             "post_type": [
-                "cpt_author"
+                "cpt_team"
             ],
             "taxonomy": "",
             "filters": "",
@@ -68,5 +68,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "acfReadTime",
-    "modified": 1603190927
+    "modified": 1603192791
 }

@@ -45,7 +45,7 @@ export const query = graphql`
       acfReadTime {
         readTime
         author {
-          ... on WpCpt_author {
+          ... on WpCpt_team {
             acfJobTitle {
               jobTitle
             }

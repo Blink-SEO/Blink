@@ -104,7 +104,7 @@ add_filter('excerpt_length', 'gatsby_blink_excerpt_length');
 // Register Custom Post types.
 require get_template_directory() . '/post-types/case-study.php';
 require get_template_directory() . '/post-types/services.php';
-require get_template_directory() . '/post-types/author.php';
+require get_template_directory() . '/post-types/team-member.php';
 
 // Register custom taxonomies.
 require get_template_directory() . '/taxonomies/industry.php';

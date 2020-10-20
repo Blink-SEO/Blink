@@ -1,6 +1,6 @@
 {
     "key": "group_5f8ebd293d52e",
-    "title": "Author job title",
+    "title": "Team member job title",
     "fields": [
         {
             "key": "field_5f8ebd340017d",
@@ -28,7 +28,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "cpt_author"
+                "value": "cpt_team"
             }
         ]
     ],
@@ -42,5 +42,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "acfJobTitle",
-    "modified": 1603190110
+    "modified": 1603192370
 }
