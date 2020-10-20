@@ -144,7 +144,7 @@ export const query = graphql`
 `
 
 export default ({ data }) => {
-  const { title, content, pageSettings, featuredImage, seo, template, homepage, teamGallery, contactBlock } = data.page
+  const { title, content, pageSettings, featuredImage, seo, template, homepage, contactBlock } = data.page
   const { experience, ebook, whoAreBlink, services } = homepage
 
   return (
