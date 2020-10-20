@@ -21,6 +21,32 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_5f8ec0608d0b3",
+            "label": "Author",
+            "name": "author",
+            "type": "relationship",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_graphql": 1,
+            "post_type": [
+                "cpt_author"
+            ],
+            "taxonomy": "",
+            "filters": "",
+            "elements": [
+                "featured_image"
+            ],
+            "min": "",
+            "max": "",
+            "return_format": "object"
         }
     ],
     "location": [
@@ -42,5 +68,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "acfReadTime",
-    "modified": 1602754204
+    "modified": 1603190927
 }
