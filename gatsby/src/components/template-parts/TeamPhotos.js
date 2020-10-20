@@ -34,7 +34,7 @@ const TeamPhotos = ({ backgroundColor }) => {
       <h2 className="[ mt-16 mb-12 ]">Meet the team</h2>
 
       <div className="[ thumbnail__grid ] [ grid grid-flow-row grid-cols-2 md:grid-cols-3 lg:grid-cols-5 row-gap-6 col-gap-6 ]">
-        { data.allWpCptTeam.edges.map(( member, key ) => (
+        { data.allWpCptTeam.edges.reverse().map(( member, key ) => (
 
           <div key={ key } className="[ flow ] [ flex flex-col justify-center ] [ text-center text-white ] [ bg-black bg-opacity-25 ]">
             { member.node?.featuredImage ?
