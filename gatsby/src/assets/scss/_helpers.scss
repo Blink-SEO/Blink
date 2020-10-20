@@ -13,6 +13,10 @@
   margin-top: var(--flow-space, 1em);
 }
 
+.flow--small > * + * {
+  --flow-space: 0.5em;
+}
+
 .full-bleed {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
