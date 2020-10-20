@@ -29,9 +29,7 @@ const Arrow = ({ className }) => {
 
   return (
     <div className={`[ arrow-container ${className} ] [ row-auto ] [ mb-5 ] [ text-center lg:text-left ]`}>
-      <a href="#article">
-        <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ false } loading="eager" className='arrow' alt="" />
-      </a>
+      <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ false } loading="eager" className='arrow' alt="" />
     </div>
   )
 }
