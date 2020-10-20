@@ -7,6 +7,7 @@ import ByLine from "../../components/AuthorByLine"
 import Contact from "../../components/contactArea"
 import Sidebar from "../../components/Sidebar"
 import Breadcrumbs from "../../components/Breadcrumbs"
+import Title from "../../components/template-parts/PageTitle"
 
 export const query = graphql`
   query post($id: String!) {
@@ -94,7 +95,7 @@ export default ({ data }) => {
 
       <article className="[ flow ]">
         <header className="[ pb-24 ]">
-        <h1 className="[ hero-title hero-title--post hero-title--wide hero-title--no-bottom-border ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-none ]">{ title }</h1>
+          <Title titleClass="hero-title--post hero-title--wide hero-title--no-bottom-border" title={ title } />
           <Breadcrumbs parentPageTitle="Blog" parentPageLink="/blog/" currentPageTitle={ title } currentPageLink={ uri } />
         </header>
 

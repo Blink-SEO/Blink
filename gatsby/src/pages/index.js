@@ -5,6 +5,7 @@ import SEO from '../components/seo'
 import Layout from "../components/layout"
 import ConvertKitFrom from '../components/template-parts/ConvertKitForm'
 import BarChart from '../components/template-parts/bar-chart'
+import Title from "../components/template-parts/PageTitle"
 
 export const query = graphql`
 {
@@ -61,7 +62,8 @@ export default ({ data }) => {
       {/* TODO: Make this a hero component? */}
       <article className='grid grid-flow-row sm:grid-flow-col sm:grid-cols-2 gap-16 min-h-screen mx-auto'>
         <div className='border-l-2 border-dark-yellow pl-8 mb-8'>
-          <h1 className='hero-title text-white text-4xl sm:text-5xl lg:text-6xl leading-none mb-5'>{ title }</h1>
+          <Title textColor="text-white" title={ title } />
+
           { content && <section className='hero-section max-w-45ch' dangerouslySetInnerHTML={{ __html: content }} /> }
           <div className='max-w-45ch'>
             <ConvertKitFrom />
