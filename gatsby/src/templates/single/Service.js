@@ -9,6 +9,7 @@ import PostNav from "../../components/template-parts/post-navigation"
 import Contact from "../../components/contactArea"
 import Breadcrumbs from "../../components/Breadcrumbs"
 import ArrowWhite from "../../components/Img/DownArrowWhite-Bounce"
+import Title from "../../components/template-parts/PageTitle"
 
 export const query = graphql`
   query ($id: String!, $nextPage: String, $previousPage: String) {
@@ -123,7 +124,7 @@ export default ({ data }) => {
       />
 
       <header className="[ pb-24 ]">
-        <h1 className="[ hero-title hero-title--post hero-title--wide hero-title--no-bottom-border ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+        <Title titleClass="hero-title--post hero-title--wide hero-title--no-bottom-border" textColor="text-black" title={ title } />
 
         <Breadcrumbs parentPageTitle="Services" parentPageLink="/services/" currentPageTitle={ title } currentPageLink={ uri } />
       </header>

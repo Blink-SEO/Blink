@@ -7,16 +7,6 @@ import Wrapper from "./HomeSectionWrapper"
 
 const Experience = ({ clients, resultsCallout }) => (
   <Wrapper className="[ bg-red ]">
-    <h2 className="leading-normal">Our experience</h2>
-
-    <div className="[ grid grid-cols-2 md:grid-cols-5 lg:grid-cols-6 gap-6 ]">
-    { clients.map( (client, i) => (
-
-      client?.clientLogo?.remoteFile?.childImageSharp?.fluid && <Img fluid={ client.clientLogo.remoteFile.childImageSharp.fluid } alt={ client.clientLogo.altText } key={i} className="h-full" />
-
-    )) }
-    </div>
-
     <h2 className="leading-normal">Our results</h2>
     <div className="[ grid grid-cols-2 md:grid-cols-5 lg:grid-cols-7 gap-6 ]">
       {resultsCallout.map( (result, i) => (
@@ -26,6 +16,15 @@ const Experience = ({ clients, resultsCallout }) => (
         </Link>
 
       )) }
+    </div>
+
+    <h2 className="leading-normal">Our experience</h2>
+    <div className="[ grid grid-cols-2 md:grid-cols-5 lg:grid-cols-6 gap-6 ]">
+    { clients.map( (client, i) => (
+
+      client?.clientLogo?.remoteFile?.childImageSharp?.fluid && <Img fluid={ client.clientLogo.remoteFile.childImageSharp.fluid } alt={ client.clientLogo.altText } key={i} className="h-full" />
+
+    )) }
     </div>
   </Wrapper>
 )

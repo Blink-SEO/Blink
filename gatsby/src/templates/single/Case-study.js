@@ -6,6 +6,8 @@ import SEO from "../../components/seo"
 import Layout from "../../components/layout"
 import Services from "../../components/template-parts/Block-case-study-services"
 import PostNav from "../../components/template-parts/post-navigation"
+import Title from "../../components/template-parts/PageTitle"
+import Hero from "../../components/template-parts/PageHero"
 
 export const query = graphql`
   query caseStudy($id: String!, $nextPage: String, $previousPage: String) {
@@ -95,7 +97,7 @@ export default ({ data }) => {
       />
 
       <header>
-        <h1 className="[ hero-title hero-title--post ] [ mb-5 ] [ text-black text-4xl sm:text-5xl lg:text-6xl leading-tight ]">{ title }</h1>
+        <Title titleClass="hero-title--post" title={ title } />
       </header>
 
       <article className="[ flow ] [ relative ]">

@@ -174,11 +174,11 @@ export default ({ data }) => {
       <article>
         <section className='[ grid grid-flow-row sm:grid-flow-col sm:grid-cols-6 md:gap-8 ] [ mx-auto ] [ relative ]'>
           <div className='[ row-start-1 col-start-1 col-end-7 lg:col-end-4 ] [ mb-8 ]'>
-            <h1 className='[ hero-title hero-title--home ] [ text-white text-4xl sm:text-5xl lg:text-6xl leading-tight mb-5 ]'>{ title }<span className="border-block"></span></h1>
+            <h1 className='[ hero-title hero-title--home ] [ text-white text-4xl sm:text-5xl lg:text-6xl leading-none mb-5 ]'>{ title }<span className="border-block"></span></h1>
             { content && <div className='[ hero-section ] [ max-w-45ch ]' dangerouslySetInnerHTML={{ __html: content }} /> }
           </div>
 
-          <Arrow className="[ row-start-2 md:row-start-1 col-start-1 ] [ md:absolute md:right-50 bottom-25 ]" />
+          <Arrow className="[ row-start-2 md:row-start-1 col-start-1 ] [ md:hidden lg:block ] [ lg:absolute lg:right-40 xl:right-50 bottom-25 ]" />
 
           <div className='[ row-start-2 md:row-start-1 col-start-4 col-end-7 ] [ overflow-visible ] [ relative ]'>
             <BarChart duration={ 1.3 } />
