@@ -12,6 +12,17 @@
   }
 }
 
+.bg-red .hero,
+.bg-red .entry-content,
+.bg-red .media-text__details,
+.bg-red > {
+  h1,
+  h2,
+  p {
+    @apply text-white;
+  }
+}
+
 .blog .entry-content p:first-child {
   @extend .lead;
 }

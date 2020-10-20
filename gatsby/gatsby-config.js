@@ -18,6 +18,17 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Blink SEO`,
+        short_name: `Blink SEO`,
+        start_url: `/`,
+        background_color: `#f4c800`,
+        theme_color: `#f4c800`,
+        icon: `${__dirname}/src/assets/images/favicon.jpg`,
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
