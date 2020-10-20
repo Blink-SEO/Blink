@@ -45,7 +45,7 @@
                 "featured_image"
             ],
             "min": "",
-            "max": "",
+            "max": 1,
             "return_format": "object"
         }
     ],
@@ -68,5 +68,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "acfReadTime",
-    "modified": 1603192791
+    "modified": 1603193429
 }
