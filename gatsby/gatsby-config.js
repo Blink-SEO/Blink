@@ -1,7 +1,3 @@
-require("dotenv").config({
-  path: `.env.GATSBY_CONCURRENT_DOWNLOAD`,
-})
-
 // require .env.development or .env.production
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
