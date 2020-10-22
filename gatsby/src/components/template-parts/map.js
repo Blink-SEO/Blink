@@ -35,6 +35,9 @@ const MapBox = () => {
         zoom,
       })
 
+      // disable map zoom when using scroll
+      map.scrollZoom.disable();
+
       map.on('load', () => {
         setMap(map)
         map.resize()
