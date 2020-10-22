@@ -89,6 +89,11 @@ export const query = graphql`
         }
         heading
         description
+        linkTo {
+          ... on WpCpt_service {
+            uri
+          }
+        }
       }
     }
     contactBlock {
@@ -152,7 +157,7 @@ export default ({ data }) => {
 
         <About shortContent={ whoAreBlink.shortContent } longContent={ whoAreBlink.longContent } linkTo={ whoAreBlink.linkTo } />
 
-        <Services services={ services } />
+        <Services services={ services } linkTo={ services.linkTo } />
 
         <WordCloud />
 
