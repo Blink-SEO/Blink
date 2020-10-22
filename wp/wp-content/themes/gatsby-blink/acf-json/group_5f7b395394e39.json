@@ -353,6 +353,29 @@
                     "toolbar": "full",
                     "media_upload": 0,
                     "delay": 0
+                },
+                {
+                    "key": "field_5f91a82112666",
+                    "label": "Link to",
+                    "name": "link_to",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "post_type": [
+                        "cpt_service"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
                 }
             ]
         }
@@ -376,5 +399,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "homepage",
-    "modified": 1602168093
+    "modified": 1603381385
 }
