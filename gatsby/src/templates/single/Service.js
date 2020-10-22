@@ -162,8 +162,6 @@ export default ({ data }) => {
         { contactBlock && <Contact backgroundColor="bg-teal" title={ contactBlock.title } message={ contactBlock.message } />}
 
       </article>
-
-
     </Layout>
   )
 }

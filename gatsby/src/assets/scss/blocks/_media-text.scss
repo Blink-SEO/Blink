@@ -44,6 +44,10 @@
   margin-left: var(--image-margin, 0);
 }
 
+.media-text__image--fixed {
+  flex: none;
+}
+
 .media-text--reverse {
   .media-text__image {
     margin-left: 0;
@@ -67,7 +71,7 @@
   .media-text__image {
     --image-margin: #{rem-calc(100)};
     flex: 1 0 auto;
-    margin-top: 0;
+    margin-top: 0 !important;
   }
 
   .media-text--reverse,

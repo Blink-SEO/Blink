@@ -1,23 +1,23 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import SEO from '../components/seo'
-import Layout from '../components/layout'
-import Hero from '../components/template-parts/PageHero'
-import CaseStudiesLoop from '../components/template-parts/Loop-case-studies'
-import ServicesLoop from '../components/template-parts/Loop-services'
-import TeamPhotos from '../components/template-parts/TeamPhotos'
-import Contact from "../components/contactArea"
-import ArrowWhite from '../components/Img/DownArrowWhite-Bounce'
+import SEO from '../../components/seo'
+import Layout from '../../components/layout'
+import Hero from '../../components/template-parts/PageHero'
+import CaseStudiesLoop from '../../components/template-parts/Loop-case-studies'
+import ServicesLoop from '../../components/template-parts/Loop-services'
+import TeamPhotos from '../../components/template-parts/TeamPhotos'
+import Contact from "../../components/contactArea"
+import ArrowWhite from '../../components/Img/DownArrowWhite-Bounce'
 
-import BarChart from "../components/template-parts/bar-chart"
-import Arrow from "../components/Img/DownArrow-Bounce"
+import BarChart from "../../components/template-parts/bar-chart"
+import Arrow from "../../components/Img/DownArrow-Bounce"
 
-import Experience from "../components/homepage-parts/Experience"
-import Ebook from "../components/homepage-parts/Ebook"
-import About from "../components/homepage-parts/About"
-import Services from "../components/homepage-parts/Services"
-import WordCloud from "../components/homepage-parts/WordCloud"
+import Experience from "../../components/homepage-parts/Experience"
+import Ebook from "../../components/homepage-parts/Ebook"
+import About from "../../components/homepage-parts/About"
+import Services from "../../components/homepage-parts/Services"
+import WordCloud from "../../components/homepage-parts/WordCloud"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -43,6 +43,9 @@ export const query = graphql`
         }
       }
       template {
+        ... on WpDefaultTemplate {
+          templateName
+        }
         ... on WpAboutTemplate {
           templateName
         }
@@ -147,6 +150,8 @@ export default ({ data }) => {
   const { title, content, pageSettings, featuredImage, seo, template, homepage, contactBlock } = data.page
   const { experience, ebook, whoAreBlink, services } = homepage
 
+  console.log(template.templateName);
+
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className='page' >
       <SEO
@@ -194,7 +199,7 @@ export default ({ data }) => {
         <Hero title={ title } className={ 'pb-24' } titleClass={ 'hero-title--post hero-title--wide hero-title--no-bottom-border' } />
 
         <article id="article" className="[ flow ] [ relative ]">
-          { template.templateName !== 'Contact' ?
+          { template.templateName !== 'Default' && template.templateName !== 'Contact' ?
             <section className="[ entry-content flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
 
             <h2 className="[ lead ] [ col-start-1 col-end-6 lg:col-start-2 ] [ pb-6 ]">{ pageSettings.subtitle }</h2>
@@ -207,14 +212,22 @@ export default ({ data }) => {
             }
 
             </section>
-          : null }
 
-          { template.templateName === 'Contact' && content ?
+          : template.templateName === 'Contact' && content ?
             <div className="[ grid sm:grid-cols-2 ]">
               <section className="[ entry-content--contact flow ] [ font-bold leading-tight text-4xl text-white ]" dangerouslySetInnerHTML={{ __html: content }} />
               <ArrowWhite className="text-center lg:text-center" />
             </div>
-          : null}
+
+          : template.templateName === 'Default' ?
+            <section className="[ entry-content flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
+
+              <h2 className="[ lead ] [ col-start-1 col-end-6 lg:col-start-2 ] [ pb-6 ]">{ pageSettings.subtitle }</h2>
+
+              { content && <div className="[ flow ] [ col-start-1 lg:col-start-2 col-end-5 ]" dangerouslySetInnerHTML={{ __html: content }} /> }
+
+            </section>
+          : null }
 
           { template.templateName === 'Case Studies' && <CaseStudiesLoop /> }
 

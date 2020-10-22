@@ -3,7 +3,7 @@ const { slash } = require(`gatsby-core-utils`)
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const pageTemplate = path.resolve(`./src/templates/Page.js`)
+  const pageTemplate = path.resolve(`./src/templates/single/Page.js`)
   const postTemplate = path.resolve(`./src/templates/single/Post.js`)
   const caseStudyTemplate = path.resolve(`./src/templates/single/Case-study.js`)
   const serviceTemplate = path.resolve(`./src/templates/single/Service.js`)
