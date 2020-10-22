@@ -135,7 +135,7 @@
 
   .menu__item--large {
     padding-right: 0;
-    font-size: rem-calc(28);
+    font-size: rem-calc(24);
     font-weight: 800;
 
     @include border-before(24px, 12ch, 0, auto, #000);
@@ -163,5 +163,11 @@
 
     /* Absolutely position so it hangs underneath the navbar */
     position: absolute;
+  }
+}
+
+@media (min-width: 1280px) {
+  .menu__item--large {
+    font-size: rem-calc(28);
   }
 }
