@@ -125,7 +125,7 @@ export default ({ data }) => {
   const { experience, ebook, whoAreBlink, services } = homepage
 
   return (
-    <Layout showLocation={false} >
+    <Layout>
       <SEO
         title={ seo.title }
         description={ seo.metaDesc }
