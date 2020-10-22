@@ -3,10 +3,10 @@ import { graphql } from "gatsby"
 
 import SEO from '../components/seo'
 import Layout from "../components/layout"
-import BarChart from '../components/template-parts/bar-chart'
 import Arrow from "../components/Img/DownArrow-Bounce"
 import Contact from "../components/contactArea"
 
+import BarChart from '../components/homepage-parts/bar-chart'
 import Experience from "../components/homepage-parts/Experience"
 import Ebook from "../components/homepage-parts/Ebook"
 import About from "../components/homepage-parts/About"

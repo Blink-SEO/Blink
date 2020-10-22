@@ -9,10 +9,8 @@ import ServicesLoop from '../../components/template-parts/Loop-services'
 import TeamPhotos from '../../components/template-parts/TeamPhotos'
 import Contact from "../../components/contactArea"
 import ArrowWhite from '../../components/Img/DownArrowWhite-Bounce'
-
-import BarChart from "../../components/template-parts/bar-chart"
 import Arrow from "../../components/Img/DownArrow-Bounce"
-
+import BarChart from "../../components/homepage-parts/bar-chart"
 import Experience from "../../components/homepage-parts/Experience"
 import Ebook from "../../components/homepage-parts/Ebook"
 import About from "../../components/homepage-parts/About"
