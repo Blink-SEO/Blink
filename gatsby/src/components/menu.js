@@ -64,7 +64,7 @@ export default () => {
               </Link>
 
               {
-                childItems &&
+                childItems.length > 0 &&
                 <ul className="submenu">
                   { childItems.map(( childItem, i ) => (
                     <li className="submenu__item">
