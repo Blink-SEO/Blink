@@ -123,7 +123,7 @@ export default ({ data }) => {
         ogImage={ seo?.opengraphImage?.localFile?.childImageSharp?.fluid?.src }
       />
 
-      <header className="[ pb-24 ]">
+      <header className="[ pb-12 ]">
         <Title titleClass="hero-title--post hero-title--wide hero-title--no-bottom-border" textColor="text-black" title={ title } />
 
         <Breadcrumbs parentPageTitle="Services" parentPageLink="/services/" currentPageTitle={ title } currentPageLink={ uri } />
