@@ -37,18 +37,6 @@
   background-position: center;
   background-size: cover;
   background-blend-mode: multiply;
-
-  &--about {
-    background-image: url('../images/about-bg.png');
-  }
-
-  &--services {
-    background-image: url('../images/services-bg.png');
-  }
-
-  &--word-cloud {
-    background-image: url('../images/wordCloud-bg.png');
-  }
 }
 
 .justify-self-end {

@@ -18,11 +18,22 @@ const About = ({ shortContent, longContent, linkTo }) => {
           }
         }
       }
+      background: file(relativePath: {eq: "about-bg.png"}) {
+        childImageSharp {
+          fluid(maxWidth: 1600) {
+            srcWebp
+          }
+        }
+      }
     }
   `)
 
+  const backgroundImage = {
+    backgroundImage: `url(${data.background.childImageSharp.fluid.srcWebp})`
+  }
+
   return(
-    <Wrapper className="[ bg-orange ] [ has-bg has-bg--about ]" >
+    <Wrapper className="[ bg-orange ] [ has-bg ]" style={backgroundImage}>
       <div className="[ grid grid-cols-8 col-gap-12 row-gap-12 ] [ relative ]">
       <FontAwesomeIcon icon={ faPlus } size="2x" className="[ col-start-8 ] [ justify-self-end ] [ text-white ]" />
 
