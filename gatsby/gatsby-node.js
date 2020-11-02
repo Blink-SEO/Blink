@@ -34,7 +34,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             id
-            slug
+            uri
           }
         }
       }
@@ -58,7 +58,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           node {
             id
-            slug
+            uri
             date(formatString: "YYYY/MM/DD")
           }
         }
@@ -83,7 +83,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           node {
             id
-            slug
+            uri
           }
         }
       }
@@ -107,7 +107,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           node {
             id
-            slug
+            uri
             title
           }
         }
@@ -118,7 +118,7 @@ exports.createPages = async ({ graphql, actions }) => {
   allPages.forEach(post => {
     createPage({
       // will be the url for the page
-      path: post.node.slug,
+      path: post.node.uri,
       // specify the component template of your choice
       component: slash(pageTemplate),
       // In the ^template's GraphQL query, 'id' will be available
@@ -132,7 +132,7 @@ exports.createPages = async ({ graphql, actions }) => {
   allPosts.forEach((post) => {
     createPage({
       // will be the url for the page
-      path: `blog/${post.node.slug}`,
+      path: `blog${post.node.uri}`,
       // specify the component template of your choice
       component: slash(postTemplate),
       // In the ^template's GraphQL query, 'id' will be available
@@ -167,7 +167,7 @@ exports.createPages = async ({ graphql, actions }) => {
   allCaseStudies.forEach( caseStudy => {
     createPage({
       // will be the url for the page
-      path: `case-studies/${caseStudy.node.slug}`,
+      path: caseStudy.node.uri,
       // specify the component template of your choice
       component: slash(caseStudyTemplate),
       // In the ^template's GraphQL query, 'id' will be available
@@ -183,7 +183,7 @@ exports.createPages = async ({ graphql, actions }) => {
   allServices.forEach( service => {
     createPage({
       // will be the url for the page
-      path: `services/${service.node.slug}`,
+      path: service.node.uri,
       // specify the component template of your choice
       component: slash(serviceTemplate),
       // In the ^template's GraphQL query, 'id' will be available
