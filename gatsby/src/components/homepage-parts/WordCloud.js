@@ -1,11 +1,28 @@
 import React from 'react'
+import { useStaticQuery, graphql } from "gatsby"
 
 import Wrapper from './HomeSectionWrapper'
 import BigPlus from '../Img/BigPlus'
 
 const WordCloud = () => {
+  const data = useStaticQuery(graphql`
+    {
+      background: file(relativePath: {eq: "wordCloud-bg.png"}) {
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            srcWebp
+          }
+        }
+      }
+    }
+  `)
+
+  const backgroundImage = {
+    backgroundImage: `url(${data.background.childImageSharp.fluid.srcWebp})`
+  }
+
   return (
-    <Wrapper className="[ bg-red ] [ has-bg has-bg--half has-bg--word-cloud ]">
+    <Wrapper className="[ bg-red ] [ has-bg has-bg--half ]" style={backgroundImage}>
       <div className="[ word-cloud ] [ grid grid-auto-rows-dense grid-cols-12 col-gap-12 ] [ relative ]">
 
         <span className="[ line ] [ row-start-1 col-start-5 ] [ absolute ]" style={{ top: '10%' }}></span>
