@@ -2,7 +2,7 @@
   @apply bg-cover;
   @apply bg-center;
   @apply bg-no-repeat;
-  @apply bg-fixed;
+  @apply bg-scroll;
 
   height: 60vh;
 
@@ -15,4 +15,10 @@
 .banner,
 .banner + * {
   --flow-space: #{rem-calc(90)};
+}
+
+@media (min-width: 640px) {
+  .banner {
+    @apply bg-fixed;
+  }
 }
