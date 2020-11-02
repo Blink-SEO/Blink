@@ -192,7 +192,7 @@ export default ({ data }) => {
       </article>
 
       : <>
-        <Hero title={ title } className={ 'pb-24' } titleClass={ 'hero-title--post hero-title--wide hero-title--no-bottom-border' } />
+        <Hero title={ title } className={ 'pb-12' } titleClass={ 'hero-title--post hero-title--wide hero-title--no-bottom-border' } />
 
         <article id="article" className="[ flow ] [ relative ]">
           { template.templateName !== 'Default' && template.templateName !== 'Contact' ?

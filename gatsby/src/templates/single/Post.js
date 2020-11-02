@@ -100,7 +100,7 @@ export default ({ data }) => {
       />
 
       <article className="[ flow ]">
-        <header className="[ pb-24 ]">
+        <header className="[ pb-12 ]">
           <Title titleClass="hero-title--post hero-title--wide hero-title--no-bottom-border" title={ title } />
           <Breadcrumbs parentPageTitle="Blog" parentPageLink="/blog/" currentPageTitle={ title } currentPageLink={ uri } />
         </header>
