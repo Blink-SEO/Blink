@@ -148,8 +148,6 @@ export default ({ data }) => {
   const { title, content, pageSettings, featuredImage, seo, template, homepage, contactBlock } = data.page
   const { experience, ebook, whoAreBlink, services } = homepage
 
-  console.log(template.templateName);
-
   return (
     <Layout backgroundColor={ pageSettings.backgroundColour } className='page' >
       <SEO

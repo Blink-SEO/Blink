@@ -2,13 +2,12 @@
 https://blinkseo.netlify.app/* https://www.blinkseo.co.uk/:splat 301!
 
 # Redirect pages back to homepage - these will change as and when they are added back in
-/about-us/* /about
+/about-us/* /about/ 301
 /author/* / 301
 /a-beginners-guide-to-content-curation/ / 301
 /blink/* / 301
 /blink-are-crowdfunding-for-the-green-door/ / 301
 /case-study-fao/* /case-studies
-/contact/ / 301
 /category/* / 301
 /campaign-hobbies-legacy-plans/ / 301
 /digital-marketing-for-science-organisations/* / 301
