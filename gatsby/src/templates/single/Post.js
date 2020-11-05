@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import parse from "html-react-parser"
 
 import SEO from "../../components/seo"
 import Layout from "../../components/layout"
@@ -8,6 +9,7 @@ import Contact from "../../components/contactArea"
 import Sidebar from "../../components/Sidebar"
 import Breadcrumbs from "../../components/Breadcrumbs"
 import Title from "../../components/template-parts/PageTitle"
+import { replaceCode } from "../../components/template-parts/ReplaceCode"
 
 export const query = graphql`
   query post($id: String!) {
@@ -106,7 +108,10 @@ export default ({ data }) => {
         </header>
 
         <section className="[ single__content ] [ relative ] [ grid grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
-          <div className="[ flow ] [ row-start-2 md:row-start-1 row-end-7 col-start-1 col-end-5 ]" dangerouslySetInnerHTML={{ __html: content }} />
+          <div className="[ flow ] [ row-start-2 md:row-start-1 row-end-7 col-start-1 col-end-5 ]" >
+            {/* Uses html react parser so we can repace code snippets from WP */}
+            { parse(content, { replace: replaceCode }) }
+          </div>
 
           <ByLine
             author={ acfReadTime.author[0].title }
