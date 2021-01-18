@@ -129,11 +129,11 @@ export default ({ data }) => {
       <SEO
         title={ seo.title }
         description={ seo.metaDesc }
-        image={ featuredImage.node.localFile.childImageSharp.fluid.src }
+        image={ featuredImage?.node?.localFile?.childImageSharp?.fluid?.src }
         ogAuthor={ seo.opengraphAuthor }
         ogDescription={ seo.opengraphDescription }
         ogTitle={ seo.opengraphTitle }
-        ogImage={ seo.opengraphImage.localFile.childImageSharp.fluid.src }
+        ogImage={ featuredImage?.node?.localFile?.childImageSharp?.fluid?.src }
       />
       <article>
         <section className='[ grid grid-flow-row sm:grid-flow-col sm:grid-cols-6 md:gap-8 ] [ mx-auto ] [ relative ]'>

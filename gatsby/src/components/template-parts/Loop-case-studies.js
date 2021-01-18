@@ -15,6 +15,7 @@ const CaseStudiesLoop = () => {
             node {
               remoteFile {
                 ...Thumbnail
+                publicURL
               }
             altText
             }
@@ -52,8 +53,9 @@ const CaseStudiesLoop = () => {
                 <Img fixed={ data.file.childImageSharp.fixed } fadeIn={ true } loading="lazy" alt="" className="gatsby-image-wrapper--no-flow" />
               </div>
 
-              { caseStudy.featuredImage?.node?.remoteFile?.childImageSharp &&
-                <Img fluid={ caseStudy.featuredImage.node.remoteFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudy.altText} className="media-text__image" /> }
+              { caseStudy.featuredImage?.node?.remoteFile?.childImageSharp ?
+                <Img fluid={ caseStudy.featuredImage.node.remoteFile.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudy.featuredImage.node.altText} className="media-text__image" />
+              : <div className="media-text__image gatsby-image-wrapper"><img src={caseStudy?.featuredImage?.node?.remoteFile?.publicURL} alt={caseStudy?.featuredImage?.node?.altText} className="mx-auto" /></div> }
             </Link>
           </div>
         </>
