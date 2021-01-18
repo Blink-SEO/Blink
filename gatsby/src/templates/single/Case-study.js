@@ -21,8 +21,8 @@ export const query = graphql`
                 ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
+            publicURL
           }
-          sourceUrl
         altText
         }
       }
@@ -35,8 +35,8 @@ export const query = graphql`
           image {
             remoteFile {
               ...Thumbnail
+              publicURL
             }
-            sourceUrl
             altText
           }
         }
@@ -90,11 +90,11 @@ export default ({ data }) => {
       <SEO
         title={ seo.title }
         description={ seo.metaDesc }
-        image={ featuredImage?.node?.localFile?.childImageSharp?.fluid?.src || featuredImage?.node?.sourceUrl }
+        image={ featuredImage?.node?.localFile?.childImageSharp?.fluid?.src || featuredImage?.node?.localFile?.publicURL }
         ogAuthor={ seo.opengraphAuthor }
         ogDescription={ seo.opengraphDescription }
         ogTitle={ seo.opengraphTitle }
-        ogImage={ seo?.opengraphImage?.localFile?.childImageSharp?.fluid?.src }
+        ogImage={ seo?.opengraphImage?.localFile?.childImageSharp?.fluid?.src || featuredImage?.node?.localFile?.publicURL }
       />
 
       <header>
@@ -119,7 +119,7 @@ export default ({ data }) => {
               <Img fluid={ caseStudyImages?.images[0]?.image?.remoteFile?.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudyImages?.images[1]?.image.altText} className="[ self-start row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-6 ] [ max-w-full ]" />
 
               : <div className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ] gatsby-image-wrapper">
-                <img src={caseStudyImages?.images[0]?.image.sourceUrl} alt={caseStudyImages?.images[0]?.image.altText} loading="lazy" cclassName="[ self-start row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-6 ] [ max-w-full ]" />
+                <img src={ caseStudyImages.images[0].image.remoteFile.publicURL } alt={caseStudyImages?.images[0]?.image.altText} loading="lazy" cclassName="[ self-start row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-6 ] [ max-w-full ]" />
               </div>
 
            : null }
@@ -130,7 +130,7 @@ export default ({ data }) => {
               <Img fluid={ caseStudyImages?.images[1]?.image?.remoteFile?.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudyImages?.images[1]?.image.altText} className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ]" />
 
               : <div className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ] gatsby-image-wrapper">
-                <img src={caseStudyImages?.images[1]?.image.sourceUrl} alt={caseStudyImages?.images[1]?.image.altText} loading="lazy" className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ]" />
+                <img src={ caseStudyImages.images[1].image.remoteFile.publicURL } alt={caseStudyImages?.images[1]?.image.altText} loading="lazy" className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ]" />
               </div>
 
            : null }
