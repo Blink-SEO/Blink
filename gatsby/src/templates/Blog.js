@@ -51,8 +51,6 @@ export default ({ data, pageContext }) => {
   const { blogTitle, blogContent } = data.wp.blogPage.blogPage
   const { contactBlock } = data.wp.blogPage
 
-  console.log(pageContext);
-
   return (
     <Layout backgroundColor='bg-red' className='page blog' >
     <SEO
