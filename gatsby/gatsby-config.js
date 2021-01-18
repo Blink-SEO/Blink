@@ -97,5 +97,7 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     // Handle fontawesome css load so we don't get a fouc
     `gatsby-plugin-fontawesome-css`,
+    // Stop fingerprinting as Netlify will handle the caching for us
+    `gatsby-plugin-remove-fingerprints`,
   ],
 }
