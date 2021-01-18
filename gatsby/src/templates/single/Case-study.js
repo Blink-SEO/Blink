@@ -139,9 +139,20 @@ export default ({ data }) => {
 
         { blockServices && <Services content={blockServices.content} displayServices={blockServices.displayServices} services={services.nodes} /> }
 
-        { caseStudyImages?.images && caseStudyImages.images.length >= 3 ? <div className="[ flow ] [ grid grid-flow-row lg:grid-flow-col sm:grid-cols-8 ]">
-          <Img fluid={ caseStudyImages?.images[2]?.image?.remoteFile?.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudyImages?.images[2]?.image.altText} className="[ slef-start ] [ col-start-1 md:col-start-2 col-end-8 ] [ md:ml-16 ]" />
-        </div> : null }
+        { caseStudyImages?.images && caseStudyImages.images.length >= 3 ?
+            caseStudyImages?.images[2]?.image?.remoteFile?.childImageSharp != null ?
+
+            <div className="[ flow ] [ grid grid-flow-row lg:grid-flow-col sm:grid-cols-8 ]">
+              <Img fluid={ caseStudyImages?.images[2]?.image?.remoteFile?.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudyImages?.images[1]?.image.altText} className="[ slef-start ] [ col-start-1 md:col-start-2 col-end-8 ] [ md:ml-16 ]" />
+              </div>
+
+              : <div className="[ flow ] [ grid grid-flow-row lg:grid-flow-col sm:grid-cols-8 ]">
+                  <div className="[ slef-start ] [ col-start-1 md:col-start-2 col-end-8 ] [ md:ml-16 ] gatsby-image-wrapper">
+                    <img src={ caseStudyImages.images[2].image.remoteFile.publicURL } alt={caseStudyImages?.images[2]?.image.altText} loading="lazy" />
+                  </div>
+                </div>
+
+           : null }
 
           { previousPage || nextPage ? <PostNav previousPage={ previousPage?.uri } nextPage={ nextPage?.uri } postType="Case Study" /> : null }
       </article>
