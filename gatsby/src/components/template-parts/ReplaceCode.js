@@ -26,7 +26,6 @@ const getLanguage = node => {
 
 const replaceCode = node => {
   if ( node.name === 'pre' ) {
-    console.log(node);
     return node.children.length > 0 && <PostCode language={ getLanguage(node) }>{ domToReact(getCode(node)) }</PostCode>
   }
 }
