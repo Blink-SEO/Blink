@@ -119,7 +119,7 @@ export default ({ data }) => {
               <Img fluid={ caseStudyImages?.images[0]?.image?.remoteFile?.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudyImages?.images[1]?.image.altText} className="[ self-start row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-6 ] [ max-w-full ]" />
 
               : <div className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ] gatsby-image-wrapper">
-                <img src={ caseStudyImages.images[0].image.remoteFile.publicURL } alt={caseStudyImages?.images[0]?.image.altText} loading="lazy" cclassName="[ self-start row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-6 ] [ max-w-full ]" />
+                <img src={ caseStudyImages?.images[0]?.image?.remoteFile?.publicURL } alt={caseStudyImages?.images[0]?.image?.altText} loading="lazy" cclassName="[ self-start row-start-2 col-start-1 col-end-4 md:col-start-4 md:col-end-6 ] [ max-w-full ]" />
               </div>
 
            : null }
@@ -130,7 +130,7 @@ export default ({ data }) => {
               <Img fluid={ caseStudyImages?.images[1]?.image?.remoteFile?.childImageSharp.fluid } fadeIn={ true } loading="lazy" alt={caseStudyImages?.images[1]?.image.altText} className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ]" />
 
               : <div className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ] gatsby-image-wrapper">
-                <img src={ caseStudyImages.images[1].image.remoteFile.publicURL } alt={caseStudyImages?.images[1]?.image.altText} loading="lazy" className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ]" />
+                <img src={ caseStudyImages?.images[1]?.image?.remoteFile?.publicURL } alt={caseStudyImages?.images[1]?.image?.altText} loading="lazy" className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ]" />
               </div>
 
            : null }
@@ -148,7 +148,7 @@ export default ({ data }) => {
 
               : <div className="[ flow ] [ grid grid-flow-row lg:grid-flow-col sm:grid-cols-8 ]">
                   <div className="[ slef-start ] [ col-start-1 md:col-start-2 col-end-8 ] [ md:ml-16 ] gatsby-image-wrapper">
-                    <img src={ caseStudyImages.images[2].image.remoteFile.publicURL } alt={caseStudyImages?.images[2]?.image.altText} loading="lazy" />
+                    <img src={ caseStudyImages?.images[2]?.image?.remoteFile?.publicURL } alt={caseStudyImages?.images[2]?.image?.altText} loading="lazy" />
                   </div>
                 </div>
 
