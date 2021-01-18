@@ -97,7 +97,7 @@ export default ({ data }) => {
         ogImage={ seo?.opengraphImage?.localFile?.childImageSharp?.fluid?.src || featuredImage?.node?.localFile?.publicURL }
       />
 
-      <header>
+      <header className="hero">
         <Title titleClass="hero-title--post" title={ title } />
       </header>
 
