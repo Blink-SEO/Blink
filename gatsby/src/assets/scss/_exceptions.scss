@@ -23,6 +23,17 @@
   }
 }
 
+.bg-orange .hero,
+.bg-orange .hero-title,
+.bg-orange .entry-content,
+.bg-orange .media-text__details,
+.bg-orange > {
+  h1,
+  h2 {
+    @apply text-white;
+  }
+}
+
 .blog .entry-content p:first-child {
   @extend .lead;
 }
