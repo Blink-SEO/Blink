@@ -24,6 +24,10 @@
   }
 }
 
+.footer .menu__item a {
+  padding: rem-calc(8);
+}
+
 .menu__item:hover > .submenu,
 .menu__item:focus-within > .submenu {
   opacity: 1;
