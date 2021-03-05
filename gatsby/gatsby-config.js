@@ -12,7 +12,14 @@ module.exports = {
     siteUrl: `https://www.blinkseo.co.uk`, // No trailing slash allowed!
   },
   plugins: [
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        // Set to false to allow builds to continue on image errors
+        failOnError: false,
+        stripMetadata: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

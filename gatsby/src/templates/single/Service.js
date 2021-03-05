@@ -105,7 +105,7 @@ export const query = graphql`
     }
   }
 `
-export default ({ data }) => {
+const Service = ({ data }) => {
   const {
     title,
     content,
@@ -223,3 +223,5 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default Service
