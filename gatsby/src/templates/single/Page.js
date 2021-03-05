@@ -44,22 +44,19 @@ export const query = graphql`
         ... on WpDefaultTemplate {
           templateName
         }
-        ... on WpAboutTemplate {
+        ... on WpTemplate_About {
           templateName
         }
-        ... on WpContactTemplate {
+        ... on WpTemplate_Contact {
           templateName
         }
-        ... on WpCaseStudiesTemplate {
+        ... on WpTemplate_CaseStudies {
           templateName
         }
-        ... on WpServicesTemplate {
+        ... on WpTemplate_Services {
           templateName
         }
-        ... on WpDefaultTemplate {
-          templateName
-        }
-        ... on WpHomepageTemplate {
+        ... on WpTemplate_Homepage {
           templateName
         }
       }
