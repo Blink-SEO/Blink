@@ -53,9 +53,9 @@ const Menu = () => {
               className={`menu__item ${
                 childItems.length > 0 ? 'menu__item--dropown' : ''
               }`}
+              key={i + menuItem.url}
             >
               <Link
-                key={i + menuItem.url}
                 to={normalizePath(path)}
                 activeClassName="menu__item--active"
                 getProps={path === '/' ? undefined : isPartiallyActive}
@@ -69,11 +69,8 @@ const Menu = () => {
               {childItems.length > 0 && (
                 <ul className="submenu">
                   {childItems.map((childItem, i) => (
-                    <li className="submenu__item">
-                      <Link
-                        key={i + childItem.url}
-                        to={normalizePath(childItem.url)}
-                      >
+                    <li className="submenu__item" key={i + childItem.url}>
+                      <Link to={normalizePath(childItem.url)}>
                         {childItem.label}
                       </Link>
                     </li>

@@ -9,7 +9,7 @@ const fourOfour = () => (
       <div className="border-l-2 border-dark-yellow pl-8 mb-8">
         <Title textColor="text-white" title="Oops, that's a 404" />
         <section>
-          <h2 class="text-3xl mb-4">That means this page can't be found</h2>
+          <h2 className="text-3xl mb-4">That means this page can't be found</h2>
           <p>
             <Link to="/">Take me back to the homepage</Link>
           </p>
