@@ -85,7 +85,7 @@ export const query = graphql`
     }
   }
 `
-export default ({ data }) => {
+const Post = ({ data }) => {
   const {
     id,
     title,
@@ -160,3 +160,5 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default Post

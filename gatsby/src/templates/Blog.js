@@ -46,7 +46,7 @@ export const query = graphql`
   }
 `
 
-export default ({ data, pageContext }) => {
+const Blog = ({ data, pageContext }) => {
   const { blogTitle, blogContent } = data.wp.blogPage.blogPage
   const { contactBlock } = data.wp.blogPage
 
@@ -145,3 +145,5 @@ export default ({ data, pageContext }) => {
     </Layout>
   )
 }
+
+export default Blog
