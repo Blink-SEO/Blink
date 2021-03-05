@@ -1,5 +1,5 @@
 // require .env.development or .env.production
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
@@ -22,7 +22,7 @@ module.exports = {
         background_color: `#f4c800`,
         theme_color: `#f4c800`,
         icon: `${__dirname}/src/assets/images/favicon.jpg`,
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -32,7 +32,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-wordpress-experimental`,
+      resolve: `gatsby-source-wordpress`,
       options: {
         url:
           process.env.WPGRAPHQL_URL ||
@@ -65,7 +65,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
           include: /\.inline\.svg$/, // See below to configure properly
@@ -78,8 +78,8 @@ module.exports = {
       resolve: `gatsby-plugin-sass`,
       options: {
         postCssPlugins: [
-          require("tailwindcss"),
-          require("./tailwind.config.js"), // Optional: Load custom Tailwind CSS configuration
+          require('tailwindcss'),
+          require('./tailwind.config.js'), // Optional: Load custom Tailwind CSS configuration
         ],
       },
     },

@@ -8,19 +8,11 @@ export default () => {
   const { wpMenu } = useStaticQuery(graphql`
     {
       wpMenu(slug: { eq: "primary" }) {
-        name
         menuItems {
           nodes {
             label
             url
             parentId
-            connectedNode {
-              node {
-                ... on WpContentNode {
-                  uri
-                }
-              }
-            }
             childItems {
               nodes {
                 label
@@ -42,7 +34,7 @@ export default () => {
             return null
           }
 
-          const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url
+          const path = menuItem.url
           const childItems = menuItem.childItems?.nodes
 
           /*
