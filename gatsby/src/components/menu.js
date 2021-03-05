@@ -1,10 +1,10 @@
-import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import { normalizePath } from "../utils/get-url-path"
+import React from 'react'
+import { Link, useStaticQuery, graphql } from 'gatsby'
+import { normalizePath } from '../utils/get-url-path'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
-export default () => {
+const Menu = () => {
   const { wpMenu } = useStaticQuery(graphql`
     {
       wpMenu(slug: { eq: "primary" }) {
@@ -27,7 +27,10 @@ export default () => {
   `)
 
   return !!wpMenu && !!wpMenu.menuItems && !!wpMenu.menuItems.nodes ? (
-    <nav className="[ primary-nav ] [ flex items-center ] [ text-center ] [ relative ]" aria-label="primary navigation">
+    <nav
+      className="[ primary-nav ] [ flex items-center ] [ text-center ] [ relative ]"
+      aria-label="primary navigation"
+    >
       <ul className="menu">
         {wpMenu.menuItems.nodes.map((menuItem, i) => {
           if (menuItem.parentId) {
@@ -42,34 +45,38 @@ export default () => {
             to work on parent pages such as services or blog.
             https://reach.tech/router/api/Link
           */
-          const isPartiallyActive = ({ isPartiallyCurrent }) => isPartiallyCurrent ? { className: 'menu__item--active' } : null;
+          const isPartiallyActive = ({ isPartiallyCurrent }) =>
+            isPartiallyCurrent ? { className: 'menu__item--active' } : null
 
           return (
-            <li className={`menu__item ${childItems.length > 0 ? 'menu__item--dropown' : '' }`}>
+            <li
+              className={`menu__item ${
+                childItems.length > 0 ? 'menu__item--dropown' : ''
+              }`}
+              key={i + menuItem.url}
+            >
               <Link
-                key={i + menuItem.url}
                 to={normalizePath(path)}
                 activeClassName="menu__item--active"
-                getProps={path === "/" ? undefined : isPartiallyActive}
+                getProps={path === '/' ? undefined : isPartiallyActive}
               >
-                {menuItem.label} {childItems.length > 0 && <FontAwesomeIcon icon={ faChevronDown } size="sm" />}
+                {menuItem.label}{' '}
+                {childItems.length > 0 && (
+                  <FontAwesomeIcon icon={faChevronDown} size="sm" />
+                )}
               </Link>
 
-              {
-                childItems.length > 0 &&
+              {childItems.length > 0 && (
                 <ul className="submenu">
-                  { childItems.map(( childItem, i ) => (
-                    <li className="submenu__item">
-                      <Link
-                        key={i + childItem.url}
-                        to={normalizePath(childItem.url)}
-                      >
+                  {childItems.map((childItem, i) => (
+                    <li className="submenu__item" key={i + childItem.url}>
+                      <Link to={normalizePath(childItem.url)}>
                         {childItem.label}
                       </Link>
                     </li>
-                  ) )}
+                  ))}
                 </ul>
-              }
+              )}
             </li>
           )
         })}
@@ -77,3 +84,5 @@ export default () => {
     </nav>
   ) : null
 }
+
+export default Menu

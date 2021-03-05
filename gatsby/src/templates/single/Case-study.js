@@ -153,6 +153,7 @@ const CaseStudy = ({ data }) => {
               />
             ) : (
               <div className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ] gatsby-image-wrapper">
+                {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                 <img
                   src={caseStudyImages?.images[0]?.image?.localFile?.publicURL}
                   alt={caseStudyImages?.images[0]?.image?.altText}
@@ -178,6 +179,7 @@ const CaseStudy = ({ data }) => {
               />
             ) : (
               <div className="[ self-start row-start-4 md:row-start-3 col-start-1 col-end-4 md:col-start-4 md:col-end-7 ] [ max-w-full ] [ shadow ] gatsby-image-wrapper">
+                {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                 <img
                   src={caseStudyImages?.images[1]?.image?.localFile?.publicURL}
                   alt={caseStudyImages?.images[1]?.image?.altText}
@@ -215,6 +217,7 @@ const CaseStudy = ({ data }) => {
           ) : (
             <div className="[ flow ] [ grid grid-flow-row lg:grid-flow-col sm:grid-cols-8 ]">
               <div className="[ slef-start ] [ col-start-1 md:col-start-2 col-end-8 ] [ md:ml-16 ] gatsby-image-wrapper">
+                {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                 <img
                   src={caseStudyImages?.images[2]?.image?.localFile?.publicURL}
                   alt={caseStudyImages?.images[2]?.image?.altText}

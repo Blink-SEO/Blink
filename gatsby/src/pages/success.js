@@ -14,7 +14,7 @@ const Success = () => (
         />
 
         <section>
-          <h2 class="text-3xl mb-4">Someone will be in touch shortly</h2>
+          <h2 className="text-3xl mb-4">Someone will be in touch shortly</h2>
           <p>
             <Link to="/">Take me back to the homepage</Link>
           </p>
