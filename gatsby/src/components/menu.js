@@ -12,6 +12,11 @@ const Menu = () => {
           nodes {
             label
             url
+            connectedNode {
+              node {
+                uri
+              }
+            }
             parentId
             childItems {
               nodes {
@@ -37,7 +42,7 @@ const Menu = () => {
             return null
           }
 
-          const path = menuItem.url
+          const path = menuItem.connectedNode.node.uri || menuItem.url
           const childItems = menuItem.childItems?.nodes
 
           /*
