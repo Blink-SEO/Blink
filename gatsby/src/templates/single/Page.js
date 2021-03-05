@@ -157,12 +157,12 @@ export default ({ data }) => {
   return (
     <Layout backgroundColor={pageSettings.backgroundColour} className="page">
       <SEO
-        title={seo.title}
-        description={seo.metaDesc}
+        title={seo?.title}
+        description={seo?.metaDesc}
         image={featuredImage?.node?.localFile?.childImageSharp?.fluid.src}
-        ogAuthor={seo.opengraphAuthor}
-        ogDescription={seo.opengraphDescription}
-        ogTitle={seo.opengraphTitle}
+        ogAuthor={seo?.opengraphAuthor}
+        ogDescription={seo?.opengraphDescription}
+        ogTitle={seo?.opengraphTitle}
         ogImage={seo?.opengraphImage?.localFile?.childImageSharp?.fluid.src}
       />
 
