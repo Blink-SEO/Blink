@@ -20,11 +20,11 @@ const MapBox = () => {
   const [map, setMap] = useState(null)
   const mapContainer = useRef(null)
   const { src } = data.file.childImageSharp.fixed
-  const coordinates = [1.2906164, 52.6302981]
-  const zoom = 15
 
   useEffect(() => {
     mapboxgl.accessToken = `${process.env.GATSBY_MAPBOX_ACCESS_TOKEN}`
+    const coordinates = [1.2906164, 52.6302981]
+    const zoom = 15
 
     const initMap = ({ setMap, mapContainer }) => {
       const map = new mapboxgl.Map({
@@ -36,7 +36,7 @@ const MapBox = () => {
       })
 
       // disable map zoom when using scroll
-      map.scrollZoom.disable();
+      map.scrollZoom.disable()
 
       map.on('load', () => {
         setMap(map)
@@ -75,7 +75,7 @@ const MapBox = () => {
     }
 
     if (!map) initMap({ setMap, mapContainer })
-  }, [map])
+  }, [map, src])
 
   return (
     <div
