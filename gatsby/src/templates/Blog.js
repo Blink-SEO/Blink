@@ -49,6 +49,7 @@ export const query = graphql`
 const Blog = ({ data, pageContext }) => {
   const { blogTitle, blogContent } = data.wp.blogPage.blogPage
   const { contactBlock } = data.wp.blogPage
+  const numPages = Math.ceil(pageContext.totalPosts / pageContext.perPage)
 
   return (
     <Layout backgroundColor="bg-red" className="page blog">
@@ -124,7 +125,7 @@ const Blog = ({ data, pageContext }) => {
             disableInitialCallback
             breakLabel={'...'}
             breakClassName={'break-me'}
-            pageCount={pageContext.totalPosts - 1}
+            pageCount={numPages}
             marginPagesDisplayed={2}
             pageRangeDisplayed={5}
             containerClassName={'pagination'}
