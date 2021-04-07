@@ -1,5 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5e3669ec-24fb-45bd-a60e-f53c8d6e2c1f/deploy-status)](https://app.netlify.com/sites/blinkseo/deploys)
-
 # Blink SEO site
 Gatsby build with headless WordPress backend.
 
