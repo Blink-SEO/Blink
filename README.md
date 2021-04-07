@@ -6,12 +6,10 @@ Gatsby build with headless WordPress backend.
 CI with GitHub, the master branch controlling the live deployment.
 
 ## Getting started
-Pull the master branch down to your dev environment and checkout a new branch called 'dev'.
+You will need to have a local WordPress install setup as well as the wp-gatsby and wp-graphql plugins installed.
 
 ## Developing with Gatsby
-Move into the gatsby directory `cd gatsby`
-
-Make sure your localhost is running and add your graphql url to the `WPGRAPHQL_URL` in your `.env.development` file.  There is a fallback to `http://localhost/Blink/blinksite/wp/graphql` in case you forget this step.
+Make sure you are in the Gatsby directory, that your localhost is running WordPress and add your graphql url to the `WPGRAPHQL_URL` in your `.env.development` file.  There is a fallback to `http://localhost/Blink/blinksite/wp/graphql` in case you forget this step.
 
 Run `npm install` to install the dependencies.
 
