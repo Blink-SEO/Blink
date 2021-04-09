@@ -67,14 +67,14 @@ const WebinarUpcoming = () => {
     card = Object.entries(events).map(([key, value]) => (
       <li
         key={key + value.id}
-        class="[ card card--webinar flow ] [ col-start-1 col-end-5 ] [ bg-black ]"
+        className="[ card card--webinar flow ] [ col-start-1 col-end-5 ] [ bg-black ]"
       >
-        <h3 class="text-3xl">{value.name.text}</h3>
-        <p class="text-xl">
+        <h3 className="text-3xl">{value.name.text}</h3>
+        <p className="text-xl">
           {new Date(value.start.local).toLocaleDateString(undefined, options)}
         </p>
         <p>{value.description.text}</p>
-        <div class="[ grid sm:grid-flow-col grid-cols-3 ]">
+        <div className="[ grid sm:grid-flow-col grid-cols-3 ]">
           <EventbriteButton
             ebEventId={value.id}
             className="[ col-start-1 col-end-2 ] [ py-3 mt-3 ] [ bg-white text-black ]"
@@ -86,8 +86,8 @@ const WebinarUpcoming = () => {
     ))
   } else {
     card = (
-      <li class="[ card card--webinar flow ] [ col-start-1 col-end-5 ] [ bg-black ]">
-        <h3 class="text-3xl">No up coming events</h3>
+      <li className="[ card card--webinar flow ] [ col-start-1 col-end-5 ] [ bg-black ]">
+        <h3 className="text-3xl">No up coming events</h3>
         <p>Check back soon!</p>
       </li>
     )
@@ -100,10 +100,10 @@ const WebinarUpcoming = () => {
   } else {
     return (
       <>
-        <h2 class="[ col-start-1 col-end-6 row-start-1 ] [ mb-12 ] [ text-black ]">
+        <h2 className="[ col-start-1 col-end-6 row-start-1 ] [ mb-12 ] [ text-black ]">
           Upcoming events
         </h2>
-        <ul class="[ cards flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
+        <ul className="[ cards flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
           {card}
         </ul>
       </>
