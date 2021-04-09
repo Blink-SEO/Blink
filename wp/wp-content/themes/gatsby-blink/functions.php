@@ -80,6 +80,17 @@ if( function_exists('acf_add_options_page') ) {
 		'show_in_graphql' => true,
 	));
 
+	acf_add_options_page(array(
+		'page_title' 			=> 'Webinar',
+		'menu_title' 			=> 'Webinar',
+		'menu_slug' 			=> 'Webinar-settings',
+		'capability'			=> 'edit_posts',
+		'icon_url'				=> 'dashicons-format-video',
+		'position' 				=> '20.5',
+		'redirect' 				=> true,
+		'show_in_graphql' => true,
+	));
+
 }
 
 /**
