@@ -11,7 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const {
     data: {
-      wp: { allSettings: globalSettings }
+      wp: { allSettings: globalSettings },
     },
   } = await graphql(`
     query {
@@ -30,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
     },
   } = await graphql(`
     query {
-      allWpPage(filter: {isFrontPage: {eq: false}, slug: { ne: "blog" }}) {
+      allWpPage(filter: { isFrontPage: { eq: false }, slug: { ne: "blog" } }) {
         edges {
           node {
             id
@@ -48,7 +48,7 @@ exports.createPages = async ({ graphql, actions }) => {
     },
   } = await graphql(`
     query {
-      allWpPost(sort: {fields: date, order: ASC}) {
+      allWpPost(sort: { fields: date, order: ASC }) {
         edges {
           next {
             id
@@ -73,7 +73,7 @@ exports.createPages = async ({ graphql, actions }) => {
     },
   } = await graphql(`
     query {
-      allWpCaseStudy(sort: {fields: date, order: ASC}) {
+      allWpCaseStudy(sort: { fields: date, order: ASC }) {
         edges {
           next {
             id
@@ -97,7 +97,7 @@ exports.createPages = async ({ graphql, actions }) => {
     },
   } = await graphql(`
     query {
-      allWpCptService(sort: {fields: date, order: ASC}) {
+      allWpCptService(sort: { fields: date, order: ASC }) {
         edges {
           next {
             id
@@ -115,7 +115,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  allPages.forEach(post => {
+  allPages.forEach((post) => {
     createPage({
       // will be the url for the page
       path: post.node.uri,
@@ -159,12 +159,12 @@ exports.createPages = async ({ graphql, actions }) => {
         page,
         perPage,
         offset,
-        totalPosts
+        totalPosts,
       },
     })
   })
 
-  allCaseStudies.forEach( caseStudy => {
+  allCaseStudies.forEach((caseStudy) => {
     createPage({
       // will be the url for the page
       path: caseStudy.node.uri,
@@ -175,12 +175,12 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         id: caseStudy.node.id,
         nextPage: (caseStudy.next || {}).id,
-        previousPage: (caseStudy.previous || {}).id
+        previousPage: (caseStudy.previous || {}).id,
       },
     })
   })
 
-  allServices.forEach( service => {
+  allServices.forEach((service) => {
     createPage({
       // will be the url for the page
       path: service.node.uri,
@@ -191,9 +191,23 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         id: service.node.id,
         nextPage: (service.next || {}).id,
-        previousPage: (service.previous || {}).id
+        previousPage: (service.previous || {}).id,
       },
     })
   })
+}
 
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === 'build-html' || stage === 'develop-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /react-eventbrite-popup-checkout/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
 }
