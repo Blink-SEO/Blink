@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import EventbriteButton from 'react-eventbrite-popup-checkout'
 
 const WebinarUpcoming = () => {
   const data = useStaticQuery(graphql`
@@ -69,10 +70,18 @@ const WebinarUpcoming = () => {
         class="[ card card--webinar flow ] [ col-start-1 col-end-5 ] [ bg-black ]"
       >
         <h3 class="text-3xl">{value.name.text}</h3>
-        <p>
+        <p class="text-xl">
           {new Date(value.start.local).toLocaleDateString(undefined, options)}
         </p>
         <p>{value.description.text}</p>
+        <div class="[ grid sm:grid-flow-col grid-cols-3 ]">
+          <EventbriteButton
+            ebEventId={value.id}
+            className="[ col-start-1 col-end-2 ] [ py-3 mt-3 ] [ bg-white text-black ]"
+          >
+            Register
+          </EventbriteButton>
+        </div>
       </li>
     ))
   } else {
