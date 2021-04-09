@@ -383,8 +383,6 @@ const WebinarRecordings = () => {
     },
   }
 
-  console.log(mockData.items)
-
   let card
   if (mockData.items.length > 0) {
     card = Object.entries(mockData.items).map(([key, value]) => (

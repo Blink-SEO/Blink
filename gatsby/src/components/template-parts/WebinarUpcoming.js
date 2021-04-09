@@ -56,8 +56,6 @@ const WebinarUpcoming = () => {
       )
   }, [eventbriteOrganisationId, webinarApiKey])
 
-  console.log(events)
-
   let card
   if (events.length > 0) {
     const options = {
