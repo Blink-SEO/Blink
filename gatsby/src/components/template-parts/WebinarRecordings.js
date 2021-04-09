@@ -35,7 +35,7 @@ const WebinarRecordings = () => {
   useEffect(() => {
     // get data from eventbrite api
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails&part=id&part=snippet&part=status&maxResults=9&playlistId=PLeuaTaGD4kTYXw5okiEDK9u_A77OHvQ1Z&key=AIzaSyBzFB4Qadj3_D_fvTBC5QJJ60Kge8PYOjo`,
+      `https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails&part=id&part=snippet&part=status&maxResults=9&playlistId=${youtubePlaylistId}&key=${youtubeApiKey}`,
       // TODO: Set this param when we're ready to go live so we aren't showing unpublished events to the public
       {
         headers: {
