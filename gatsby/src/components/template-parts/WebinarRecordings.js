@@ -11,6 +11,9 @@ const WebinarRecordings = () => {
             webinarRecordings {
               youtubePlaylistId
               youtubeApiKey
+              recordingsFallbackHeader
+              recordingsFallbackText
+              recordingsHeading
             }
           }
         }
@@ -21,6 +24,9 @@ const WebinarRecordings = () => {
   const {
     youtubePlaylistId,
     youtubeApiKey,
+    recordingsFallbackHeader,
+    recordingsFallbackText,
+    recordingsHeading,
   } = data.wp.webinar.webinarSettings.webinarRecordings
 
   const [error, setError] = useState(null)
@@ -43,7 +49,7 @@ const WebinarRecordings = () => {
       .then(
         (result) => {
           setIsLoaded(true)
-          setEvents(result.events) // pass result to items
+          setEvents(result) // pass result to items
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -400,9 +406,15 @@ const WebinarRecordings = () => {
     ))
   } else {
     card = (
-      <li className="[ card card--webinar flow ] [ col-start-1 col-end-5 ] [ bg-black ]">
-        <h3 className="text-3xl">No recorded events yet.</h3>
-        <p>Check back soon!</p>
+      <li className="[ card card--webinar flow ] [ col-start-1 col-end-3 ] [ bg-black ]">
+        <h3 className="text-3xl">
+          {recordingsFallbackHeader
+            ? recordingsFallbackHeader
+            : 'No recorded events'}
+        </h3>
+        <p>
+          {recordingsFallbackText ? recordingsFallbackText : 'Check back soon!'}
+        </p>
       </li>
     )
   }
@@ -415,7 +427,7 @@ const WebinarRecordings = () => {
     return (
       <>
         <h2 className="[ col-start-1 col-end-6 row-start-1 ] [ mb-12 ] [ text-black ]">
-          Previous events
+          {recordingsHeading}
         </h2>
         <ul className="[ cards ] [ grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ]">
           {card}

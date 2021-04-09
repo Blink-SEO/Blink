@@ -11,6 +11,9 @@ const WebinarUpcoming = () => {
             upcomingWebinars {
               webinarApiKey
               eventbriteOrganisationId
+              noEventsFallbackHeader
+              noEventsFallbackText
+              upcomingEventsHeading
             }
           }
         }
@@ -21,6 +24,9 @@ const WebinarUpcoming = () => {
   const {
     eventbriteOrganisationId,
     webinarApiKey,
+    noEventsFallbackHeader,
+    noEventsFallbackText,
+    upcomingEventsHeading,
   } = data.wp.webinar.webinarSettings.upcomingWebinars
 
   const [error, setError] = useState(null)
@@ -87,8 +93,14 @@ const WebinarUpcoming = () => {
   } else {
     card = (
       <li className="[ card card--webinar flow ] [ col-start-1 col-end-5 ] [ bg-black ]">
-        <h3 className="text-3xl">No up coming events</h3>
-        <p>Check back soon!</p>
+        <h3 className="text-3xl">
+          {noEventsFallbackHeader
+            ? noEventsFallbackHeader
+            : 'No upcoming events'}
+        </h3>
+        <p>
+          {noEventsFallbackText ? noEventsFallbackText : 'Check back soon!'}
+        </p>
       </li>
     )
   }
@@ -101,7 +113,7 @@ const WebinarUpcoming = () => {
     return (
       <>
         <h2 className="[ col-start-1 col-end-6 row-start-1 ] [ mb-12 ] [ text-black ]">
-          Upcoming events
+          {upcomingEventsHeading}
         </h2>
         <ul className="[ cards flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
           {card}
