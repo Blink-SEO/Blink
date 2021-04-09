@@ -57,20 +57,28 @@ const WebinarUpcoming = () => {
 
   let card
   if (events.length > 0) {
+    const options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }
     card = Object.entries(events).map(([key, value]) => (
-      <li key={key + value.id} class="[ card ] [ bg-black ]">
-        <h3>{value.name.text}</h3>
+      <li
+        key={key + value.id}
+        class="[ card card--webinar flow ] [ col-start-1 col-end-5 ] [ bg-black ]"
+      >
+        <h3 class="text-3xl">{value.name.text}</h3>
+        <p>
+          {new Date(value.start.local).toLocaleDateString(undefined, options)}
+        </p>
         <p>{value.description.text}</p>
-        <p>{value.start.local}</p>
-        <button id={value.id} type="button">
-          Register
-        </button>
       </li>
     ))
   } else {
     card = (
-      <li class="">
-        <h3>No up coming events</h3>
+      <li class="[ card card--webinar flow ] [ col-start-1 col-end-5 ] [ bg-black ]">
+        <h3 class="text-3xl">No up coming events</h3>
         <p>Check back soon!</p>
       </li>
     )
@@ -83,8 +91,12 @@ const WebinarUpcoming = () => {
   } else {
     return (
       <>
-        <h2>Upcoming events</h2>
-        <ul class="[ cards ] [ grid ]">{card}</ul>
+        <h2 class="[ col-start-1 col-end-6 row-start-1 ] [ mb-12 ] [ text-black ]">
+          Upcoming events
+        </h2>
+        <ul class="[ cards flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
+          {card}
+        </ul>
       </>
     )
   }
