@@ -20,6 +20,7 @@ import WebinarUpcoming from '../../components/template-parts/WebinarUpcoming'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import WebinarRecordings from '../../components/template-parts/WebinarRecordings'
 
 export const query = graphql`
   query page($id: String!) {
@@ -287,7 +288,12 @@ const Page = ({ data }) => {
               <TeamPhotos backgroundColor={pageSettings.backgroundColour} />
             )}
 
-            {template.templateName === 'Webinars' ? <WebinarUpcoming /> : null}
+            {template.templateName === 'Webinars' ? (
+              <>
+                <WebinarUpcoming />
+                <WebinarRecordings />
+              </>
+            ) : null}
 
             {template.templateName !== 'Contact' &&
             (contactBlock.title || contactBlock.message) ? (
