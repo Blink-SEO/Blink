@@ -8,8 +8,10 @@ const WebinarUpcoming = () => {
       wp {
         webinar {
           webinarSettings {
-            eventbriteOrganisationId
-            webinarApiKey
+            upcomingWebinars {
+              webinarApiKey
+              eventbriteOrganisationId
+            }
           }
         }
       }
@@ -19,7 +21,7 @@ const WebinarUpcoming = () => {
   const {
     eventbriteOrganisationId,
     webinarApiKey,
-  } = data.wp.webinar.webinarSettings
+  } = data.wp.webinar.webinarSettings.upcomingWebinars
 
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)

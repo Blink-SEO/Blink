@@ -3,10 +3,10 @@
     "title": "Webinar settings",
     "fields": [
         {
-            "key": "field_6070312caa6d4",
-            "label": "API Key",
-            "name": "webinar_api_key",
-            "type": "text",
+            "key": "field_60705adb39495",
+            "label": "Upcoming webinars",
+            "name": "upcoming_webinars",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,31 +16,49 @@
                 "id": ""
             },
             "show_in_graphql": 1,
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_60703137aa6d5",
-            "label": "Eventbrite Organisation ID",
-            "name": "eventbrite_organisation_id",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "show_in_graphql": 1,
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_6070312caa6d4",
+                    "label": "Eventbrite API Key",
+                    "name": "webinar_api_key",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_60703137aa6d5",
+                    "label": "Eventbrite Organisation ID",
+                    "name": "eventbrite_organisation_id",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -62,5 +80,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "webinarSettings",
-    "modified": 1617965424
+    "modified": 1617976640
 }
