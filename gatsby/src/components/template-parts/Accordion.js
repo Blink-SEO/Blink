@@ -37,4 +37,9 @@ const Readmore = ({ buttonText, content }) => {
   )
 }
 
+Readmore.propTypes = {
+  buttonText: PropTypes.string,
+  content: PropTypes.string,
+}
+
 export default Readmore
