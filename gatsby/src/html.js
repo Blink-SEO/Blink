@@ -1,22 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql, useStaticQuery } from 'gatsby'
-
-const data = useStaticQuery(graphql`
-  {
-    wp {
-      webinar {
-        webinarSettings {
-          webinarBanner {
-            displayBanner
-          }
-        }
-      }
-    }
-  }
-`)
-
-const { displayBanner } = data.wp.webinar.webinarSettings.webinarBanner
 export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
@@ -29,7 +12,7 @@ export default function HTML(props) {
         />
         {props.headComponents}
       </head>
-      <body {...props.bodyAttributes} className={displayBanner && 'has-banner'}>
+      <body {...props.bodyAttributes}>
         {props.preBodyComponents}
         <div
           key={`body`}
