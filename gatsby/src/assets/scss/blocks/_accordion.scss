@@ -1,0 +1,15 @@
+.accordion {
+  .panel {
+    margin-top: 1em;
+  }
+
+  [data-expanded='false'] {
+    height: 0;
+    opacity: 0;
+  }
+
+  [data-expanded='true'] {
+    height: auto;
+    opacity: 1;
+  }
+}

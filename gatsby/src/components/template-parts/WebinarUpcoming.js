@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import EventbriteButton from 'react-eventbrite-popup-checkout'
+import Readmore from './Accordion'
 
 const WebinarUpcoming = () => {
   const data = useStaticQuery(graphql`
@@ -14,6 +15,7 @@ const WebinarUpcoming = () => {
               noEventsFallbackHeader
               noEventsFallbackText
               upcomingEventsHeading
+              upcomingEventLongDescription
             }
           }
         }
@@ -27,6 +29,7 @@ const WebinarUpcoming = () => {
     noEventsFallbackHeader,
     noEventsFallbackText,
     upcomingEventsHeading,
+    upcomingEventLongDescription,
   } = data.wp.webinar.webinarSettings.upcomingWebinars
 
   const [error, setError] = useState(null)
@@ -80,6 +83,12 @@ const WebinarUpcoming = () => {
           {new Date(value.start.local).toLocaleDateString(undefined, options)}
         </p>
         <p>{value.description.text}</p>
+
+        <Readmore
+          buttonText="Read more"
+          content={upcomingEventLongDescription}
+        />
+
         <div className="[ grid sm:grid-flow-col grid-cols-3 ]">
           <EventbriteButton
             ebEventId={value.id}
