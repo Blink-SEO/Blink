@@ -52,8 +52,8 @@
                         "id": ""
                     },
                     "show_in_graphql": 1,
-                    "display_format": "d\/m\/Y g:i a",
-                    "return_format": "Y-m-d H:i:s",
+                    "display_format": "F j, Y g:i a",
+                    "return_format": "F j, Y g:ia",
                     "first_day": 1
                 },
                 {
@@ -374,5 +374,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "webinarSettings",
-    "modified": 1618240310
+    "modified": 1618242785
 }

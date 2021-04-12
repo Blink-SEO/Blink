@@ -17,6 +17,27 @@
   --flow-space: #{rem-calc(90)};
 }
 
+// Webinar banner
+body.has-banner {
+  @apply bg-black;
+  margin-top: rem-calc(250);
+
+  @media screen and (min-width: 411px) {
+    margin-top: rem-calc(200);
+  }
+
+  @media screen and (min-width: 546px) {
+    margin-top: rem-calc(170);
+  }
+}
+
+.banner__webinar {
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+}
+
 @media (min-width: 640px) {
   .banner {
     @apply bg-fixed;
