@@ -151,6 +151,10 @@
     }
   }
 
+  .banner__webinar + header .menu__item--large::before {
+    display: none;
+  }
+
   .menu__item a:hover,
   .menu__item a:focus,
   .menu__item--active {
