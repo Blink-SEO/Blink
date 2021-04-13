@@ -13,9 +13,7 @@ const Readmore = ({ buttonText, content }) => {
         className="[ accordion-trigger ] [ flex flex-row items-center ]"
         aria-controls="sect1"
         id="accordion1id"
-        onClick={() =>
-          isActive == true ? setIsActive(false) : setIsActive(true)
-        }
+        onClick={() => isActive === setIsActive(!isActive)}
       >
         {buttonText}
         {isActive == true ? (
