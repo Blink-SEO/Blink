@@ -16,7 +16,7 @@ const Readmore = ({ buttonText, content }) => {
         onClick={() => isActive === setIsActive(!isActive)}
       >
         {buttonText}
-        {isActive == true ? (
+        {isActive === true ? (
           <FontAwesomeIcon icon={faChevronUp} className="ml-1" />
         ) : (
           <FontAwesomeIcon icon={faChevronDown} className="ml-1" />
