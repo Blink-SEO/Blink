@@ -176,50 +176,10 @@
                 },
                 {
                     "key": "field_6070312caa6d4",
-                    "label": "Eventbrite API Key",
+                    "label": "ClickMeeting API Key",
                     "name": "webinar_api_key",
                     "type": "text",
                     "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "show_in_graphql": 1,
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_60703137aa6d5",
-                    "label": "Eventbrite Organisation ID",
-                    "name": "eventbrite_organisation_id",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "show_in_graphql": 1,
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_607425b614a27",
-                    "label": "Upcoming event long description",
-                    "name": "upcoming_event_long_description",
-                    "type": "wysiwyg",
-                    "instructions": "Long description for upcoming events. Has to be added here as the eventbrite api only returns the summary.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -229,10 +189,10 @@
                     },
                     "show_in_graphql": 1,
                     "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 0,
-                    "delay": 0
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         },
@@ -374,5 +334,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "webinarSettings",
-    "modified": 1618242785
+    "modified": 1618392574
 }
