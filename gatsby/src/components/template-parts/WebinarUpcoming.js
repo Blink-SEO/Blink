@@ -34,6 +34,7 @@ const WebinarUpcoming = () => {
     fetch(`https://api.clickmeeting.com/v1/conferences/active`, {
       headers: {
         'X-Api-Key': webinarApiKey,
+        'Access-Control-Allow-Origin': '*',
       },
     })
       .then((response) => response.json()) // parse JSON from request
