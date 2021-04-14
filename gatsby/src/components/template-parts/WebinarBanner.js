@@ -7,7 +7,7 @@ const WebinarBanner = () => {
       wp {
         webinar {
           webinarSettings {
-            webinarBanner {
+            upcomingEvent {
               webinarDate
               webinarHost
               webinarTitle
@@ -22,7 +22,7 @@ const WebinarBanner = () => {
     webinarDate,
     webinarHost,
     webinarTitle,
-  } = data.wp.webinar.webinarSettings.webinarBanner
+  } = data.wp.webinar.webinarSettings.upcomingEvent
 
   return (
     <div className="[ banner__webinar ] [ bg-black text-white ]">

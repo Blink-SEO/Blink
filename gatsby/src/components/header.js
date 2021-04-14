@@ -22,7 +22,7 @@ const Header = () => {
       wp {
         webinar {
           webinarSettings {
-            webinarBanner {
+            upcomingEvent {
               displayBanner
             }
           }
@@ -31,7 +31,7 @@ const Header = () => {
     }
   `)
 
-  const { displayBanner } = data.wp.webinar.webinarSettings.webinarBanner
+  const { displayBanner } = data.wp.webinar.webinarSettings.upcomingEvent
 
   return (
     <>

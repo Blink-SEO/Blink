@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_60746148d69a1",
-            "label": "Webinar banner",
-            "name": "webinar_banner",
+            "label": "Upcoming event",
+            "name": "upcoming_event",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -18,6 +18,26 @@
             "show_in_graphql": 1,
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_6076e6a6d0bef",
+                    "label": "Upcoming Events Heading",
+                    "name": "upcoming_events_heading",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
                 {
                     "key": "field_607462abd69a3",
                     "label": "Title",
@@ -57,10 +77,10 @@
                     "first_day": 1
                 },
                 {
-                    "key": "field_607462f7d69a5",
-                    "label": "Hosted by",
-                    "name": "webinar_host",
-                    "type": "text",
+                    "key": "field_6076d9b3eda17",
+                    "label": "Event Description",
+                    "name": "event_description",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -71,53 +91,31 @@
                     },
                     "show_in_graphql": 1,
                     "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
                 },
                 {
-                    "key": "field_6074627cd69a2",
-                    "label": "Display banner",
-                    "name": "display_banner",
-                    "type": "true_false",
+                    "key": "field_6076d9c5eda18",
+                    "label": "Event link",
+                    "name": "event_link",
+                    "type": "link",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "show_in_graphql": 1,
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
-                }
-            ]
-        },
-        {
-            "key": "field_60705adb39495",
-            "label": "Upcoming webinars",
-            "name": "upcoming_webinars",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "show_in_graphql": 1,
-            "layout": "block",
-            "sub_fields": [
+                    "return_format": "array"
+                },
                 {
-                    "key": "field_607068ec0c574",
-                    "label": "Upcoming events heading",
-                    "name": "upcoming_events_heading",
+                    "key": "field_607462f7d69a5",
+                    "label": "Hosted by",
+                    "name": "webinar_host",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -175,10 +173,10 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_6070312caa6d4",
-                    "label": "ClickMeeting API Key",
-                    "name": "webinar_api_key",
-                    "type": "text",
+                    "key": "field_6074627cd69a2",
+                    "label": "Display banner",
+                    "name": "display_banner",
+                    "type": "true_false",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -188,11 +186,11 @@
                         "id": ""
                     },
                     "show_in_graphql": 1,
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 }
             ]
         },
@@ -334,5 +332,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "webinarSettings",
-    "modified": 1618392574
+    "modified": 1618405053
 }
