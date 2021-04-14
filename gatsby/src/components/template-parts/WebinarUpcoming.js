@@ -12,7 +12,6 @@ const WebinarUpcoming = () => {
               noEventsFallbackHeader
               noEventsFallbackText
               upcomingEventsHeading
-              upcomingEventLongDescription
             }
           }
         }
