@@ -1,3 +1,7 @@
+ul.cards {
+  padding-left: 0 !important;
+}
+
 .card {
   @apply p-8;
 
@@ -7,6 +11,10 @@
   min-height: rem-calc(350);
 }
 
+.card--webinar {
+  min-height: unset;
+}
+
 .card:hover,
 .card:focus {
   .card__arrow {
@@ -14,7 +22,7 @@
   }
 }
 
-.card * {
+.card *:not(.text-black) {
   // Our exception will handle changing the text to black if the card bg is white
   @apply text-white;
 }

@@ -16,9 +16,11 @@ import Ebook from '../../components/homepage-parts/Ebook'
 import About from '../../components/homepage-parts/About'
 import Services from '../../components/homepage-parts/Services'
 import WordCloud from '../../components/homepage-parts/WordCloud'
+import WebinarUpcoming from '../../components/template-parts/WebinarUpcoming'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import WebinarRecordings from '../../components/template-parts/WebinarRecordings'
 
 export const query = graphql`
   query page($id: String!) {
@@ -57,6 +59,9 @@ export const query = graphql`
           templateName
         }
         ... on WpTemplate_Homepage {
+          templateName
+        }
+        ... on WpTemplate_Webinars {
           templateName
         }
       }
@@ -282,6 +287,13 @@ const Page = ({ data }) => {
             {template.templateName === 'About' && (
               <TeamPhotos backgroundColor={pageSettings.backgroundColour} />
             )}
+
+            {template.templateName === 'Webinars' ? (
+              <>
+                <WebinarUpcoming />
+                <WebinarRecordings />
+              </>
+            ) : null}
 
             {template.templateName !== 'Contact' &&
             (contactBlock.title || contactBlock.message) ? (
