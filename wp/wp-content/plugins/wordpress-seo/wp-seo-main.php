@@ -15,7 +15,7 @@ if ( ! function_exists( 'add_filter' ) ) {
  * {@internal Nobody should be able to overrule the real version number as this can cause
  *            serious issues with the options, so no if ( ! defined() ).}}
  */
-define( 'WPSEO_VERSION', '14.9' );
+define( 'WPSEO_VERSION', '16.1.1' );
 
 
 if ( ! defined( 'WPSEO_PATH' ) ) {
@@ -33,6 +33,10 @@ if ( ! defined( 'WPSEO_BASENAME' ) ) {
 define( 'YOAST_VENDOR_NS_PREFIX', 'YoastSEO_Vendor' );
 define( 'YOAST_VENDOR_DEFINE_PREFIX', 'YOASTSEO_VENDOR__' );
 define( 'YOAST_VENDOR_PREFIX_DIRECTORY', 'vendor_prefixed' );
+
+define( 'YOAST_SEO_PHP_REQUIRED', '5.6' );
+define( 'YOAST_SEO_WP_TESTED', '5.7' );
+define( 'YOAST_SEO_WP_REQUIRED', '5.6' );
 
 if ( ! defined( 'WPSEO_NAMESPACES' ) ) {
 	define( 'WPSEO_NAMESPACES', true );
@@ -179,14 +183,19 @@ function _wpseo_activate() {
 		delete_option( 'rewrite_rules' );
 	}
 	else {
-		$wpseo_rewrite = new WPSEO_Rewrite();
-		$wpseo_rewrite->schedule_flush();
+		if ( WPSEO_Options::get( 'stripcategorybase' ) === true ) {
+			// Constructor has side effects so this registers all hooks.
+			$GLOBALS['wpseo_rewrite'] = new WPSEO_Rewrite();
+		}
+		add_action( 'shutdown', 'flush_rewrite_rules' );
 	}
 
 	// Reset tracking to be disabled by default.
-	if ( ! WPSEO_Utils::is_yoast_seo_premium() ) {
+	if ( ! YoastSEO()->helpers->product->is_premium() ) {
 		WPSEO_Options::set( 'tracking', false );
 	}
+
+	WPSEO_Options::set( 'indexing_reason', 'first_install' );
 
 	do_action( 'wpseo_register_roles' );
 	WPSEO_Role_Manager_Factory::get()->add();
@@ -250,7 +259,7 @@ function wpseo_on_activate_blog( $blog_id ) {
 		$blog_id = (int) $blog_id->blog_id;
 	}
 
-	if ( is_plugin_active_for_network( plugin_basename( WPSEO_FILE ) ) ) {
+	if ( is_plugin_active_for_network( WPSEO_BASENAME ) ) {
 		switch_to_blog( $blog_id );
 		wpseo_activate( false );
 		restore_current_blog();
@@ -290,6 +299,7 @@ function wpseo_init() {
 
 	if ( version_compare( WPSEO_Options::get( 'version', 1 ), WPSEO_VERSION, '<' ) ) {
 		if ( function_exists( 'opcache_reset' ) ) {
+			// phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- Prevent notices when opcache.restrict_api is set.
 			@opcache_reset();
 		}
 
@@ -322,9 +332,6 @@ function wpseo_init() {
 	// Loading Ryte integration.
 	$wpseo_ryte = new WPSEO_Ryte();
 	$wpseo_ryte->register_hooks();
-
-	// Initializes the Yoast indexables for the first time.
-	YoastSEO();
 }
 
 /**
@@ -343,10 +350,8 @@ function wpseo_init_rest_api() {
 	$statistics_service = new WPSEO_Statistics_Service( new WPSEO_Statistics() );
 
 	$endpoints   = [];
-	$endpoints[] = new WPSEO_Endpoint_Indexable( new WPSEO_Indexable_Service() );
 	$endpoints[] = new WPSEO_Endpoint_File_Size( new WPSEO_File_Size_Service() );
 	$endpoints[] = new WPSEO_Endpoint_Statistics( $statistics_service );
-	$endpoints[] = new WPSEO_Endpoint_MyYoast_Connect();
 
 	foreach ( $endpoints as $endpoint ) {
 		$endpoint->register();
@@ -368,7 +373,7 @@ function wpseo_admin_init() {
  * on PHP 5.3+, the constant should only be set when requirements are met.
  */
 function wpseo_cli_init() {
-	if ( WPSEO_Utils::is_yoast_seo_premium() ) {
+	if ( YoastSEO()->helpers->product->is_premium() ) {
 		WP_CLI::add_command(
 			'yoast redirect list',
 			'WPSEO_CLI_Redirect_List_Command',
@@ -452,6 +457,13 @@ if ( ! wp_installing() && ( $spl_autoload_exists && $filter_exists ) ) {
 	}
 
 	add_action( 'init', [ 'WPSEO_Replace_Vars', 'setup_statics_once' ] );
+
+	// Initializes the Yoast indexables for the first time.
+	YoastSEO();
+	/**
+	 * Action called when the Yoast SEO plugin file has loaded.
+	 */
+	do_action( 'wpseo_loaded' );
 }
 
 // Activation and deactivation hook.
@@ -561,6 +573,7 @@ function yoast_wpseo_missing_filter_notice() {
  * @param string $message Message string.
  */
 function yoast_wpseo_activation_failed_notice( $message ) {
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- This function is only called in 3 places that are safe.
 	echo '<div class="error"><p>' . esc_html__( 'Activation failed:', 'wordpress-seo' ) . ' ' . strip_tags( $message, '<a>' ) . '</p></div>';
 }
 
@@ -572,7 +585,7 @@ function yoast_wpseo_self_deactivate() {
 
 	if ( $is_deactivated === null ) {
 		$is_deactivated = true;
-		deactivate_plugins( plugin_basename( WPSEO_FILE ) );
+		deactivate_plugins( WPSEO_BASENAME );
 		if ( isset( $_GET['activate'] ) ) {
 			unset( $_GET['activate'] );
 		}
