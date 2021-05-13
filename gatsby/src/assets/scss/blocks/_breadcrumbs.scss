@@ -4,7 +4,8 @@
 }
 
 .breadcrumb__item {
-  @apply mr-4;
+  @apply pr-4;
+  @apply pl-4;
 }
 
 .breadcrumb__link--active {

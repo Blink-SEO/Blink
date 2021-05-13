@@ -101,7 +101,7 @@ const Post = ({ data }) => {
 
   return (
     <Layout
-      backgroundColor={pageSettings.backgroundColour}
+      backgroundColor="[bg-white]" /* pageSettings.backgroundColour ?? where is this to change ? */ 
       className="post single"
     >
       <SEO

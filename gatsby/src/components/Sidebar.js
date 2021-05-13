@@ -15,7 +15,7 @@ const Sidebar = ({ currentPageID, relatedPosts, className }) => {
          return true
        }
     }
-
+    
     return arr.findIndex( arrItem => checkID(arrItem) ) === index
   })
 
@@ -37,10 +37,10 @@ const Sidebar = ({ currentPageID, relatedPosts, className }) => {
   return (
     <>
       { renderRelatedPostsObj().length > 1 &&
-        <nav className={`[ sidebar ] ${className} [ p-8 ] [ bg-black ]`}>
+        <nav className={` [ border-l border-black ] [ sidebar ] ${className} [ p-8 ] [ bg-white ]`}>
           <h2 className="[ sidebar__title ] [ mb-8 ]">Related posts</h2>
 
-          <ul className="[ sidebar__list ] [ flow ] [ text-white ]">
+          <ul className="[ sidebar__list ] [ flow ] [ text-black ]">
             { renderRelatedPostsObj() }
           </ul>
         </nav>
