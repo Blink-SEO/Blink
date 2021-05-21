@@ -122,6 +122,26 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_60a7741f83f93",
+                    "label": "Instagram",
+                    "name": "instagram",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "show_in_graphql": 1,
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         }
@@ -145,5 +165,5 @@
     "description": "",
     "show_in_graphql": 1,
     "graphql_field_name": "footerOptions",
-    "modified": 1601553007
+    "modified": 1621587233
 }
