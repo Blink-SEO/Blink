@@ -7,6 +7,7 @@ import {
   faFacebookSquare,
   faTwitter,
   faLinkedin,
+  faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
 
 import FooterLocation from './footer-location'
@@ -36,6 +37,7 @@ const Footer = ({ showLocation }) => {
               facebook
               twitter
               linkedin
+              instagram
             }
           }
         }
@@ -91,6 +93,8 @@ const Footer = ({ showLocation }) => {
                           <FontAwesomeIcon icon={faTwitter} size="3x" />
                         ) : label === 'linkedin' ? (
                           <FontAwesomeIcon icon={faLinkedin} size="3x" />
+                        ) : label === 'instagram' ? (
+                          <FontAwesomeIcon icon={faInstagram} size="3x" />
                         ) : null}
                       </a>
                     </li>
