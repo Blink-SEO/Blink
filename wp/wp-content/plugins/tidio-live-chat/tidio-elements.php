@@ -4,12 +4,12 @@
  * Plugin Name: Tidio Chat
  * Plugin URI: http://www.tidio.com
  * Description: Tidio Live Chat - live chat boosted with chatbots for your online business. Integrates with your website in less than 20 seconds.
- * Version: 4.2.1
+ * Version: 4.3.0
  * Author: Tidio Ltd.
  * Author URI: http://www.tidio.com
  * License: GPL2
  */
-define('TIDIOCHAT_VERSION', '4.2.1');
+define('TIDIOCHAT_VERSION', '4.3.0');
 define('AFFILIATE_CONFIG_FILE_PATH', get_template_directory().'/tidio_affiliate_ref_id.txt');
 
 class TidioLiveChat
@@ -44,6 +44,7 @@ class TidioLiveChat
         }
 
         if (!is_admin()) {
+            add_action('wp_head', array($this,'addPreconnectLink'));
             if (get_option(TidioLiveChat::ASYNC_LOAD_OPTION)) {
                 add_action('wp_footer', array($this, 'enqueueScriptsAsync'), PHP_INT_MAX);
             } else {
@@ -275,6 +276,10 @@ class TidioLiveChat
         echo '1';
         exit;
     }
+
+    public function addPreconnectLink() {
+        echo '<link rel="preconnect" href="//code.tidio.co">';
+    }   
 
     public function enqueueScriptsAsync()
     {

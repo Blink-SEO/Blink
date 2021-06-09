@@ -194,9 +194,9 @@ abstract class Monitor {
 		/**
 		 * Filter to allow skipping a logged action. If set to false, the action will not be logged.
 		 *
-		 * @param null Whether the action should be logged
-		 * @param array $args The args to log
-		 * @param Monitor $this Instance of the Monitor
+		 * @param null|bool $enable    Whether the action should be logged
+		 * @param array     $arguments The args to log
+		 * @param Monitor   $monitor   Instance of the Monitor
 		 */
 		$pre_log_action = apply_filters( 'gatsby_pre_log_action_monitor_action', null, $args, $this );
 
@@ -276,7 +276,7 @@ abstract class Monitor {
 					'post_title'   => $args['title'],
 					'post_type'    => 'action_monitor',
 					'post_status'  => 'private',
-					'author'       => - 1,
+					'author'       => -1,
 					'post_name'    => sanitize_title( "{$args['title']}-{$time}" ),
 					'post_content' => wp_json_encode( $args ),
 				]

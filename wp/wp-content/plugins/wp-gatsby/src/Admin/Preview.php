@@ -44,6 +44,7 @@ class Preview {
 				'webhookWasCalled'       => self::was_preview_webhook_called_for_post_id(
 					$post_id
 				),
+				'wordpressSiteUrl' 		=> get_site_url()
 			]
 		);
 
@@ -410,10 +411,11 @@ class Preview {
 							? "/index/"
 							: $found_preview_path_post_meta;
 		
+						$page_data_path_trimmed = trim( $page_data_path, "/" );
 
 						$modified_deployed_url =
 							$gatbsy_preview_frontend_url .
-							"page-data/$page_data_path/page-data.json";
+							"page-data/$page_data_path_trimmed/page-data.json";
 
 						// check if node page was deployed
 						$request  = wp_remote_get( $modified_deployed_url );
@@ -611,8 +613,8 @@ class Preview {
 			return false;
 		}
 
-		if ( substr( $preview_url, - 1 ) !== '/' ) {
-			$preview_url = "$preview_url/";
+		if ( substr( $preview_url, -1 ) !== '/' ) {
+			$preview_url .= '/';
 		}
 
 		return $preview_url;
@@ -630,8 +632,8 @@ class Preview {
 			return false;
 		}
 
-		if ( substr( $preview_webhook, - 1 ) !== '/' ) {
-			$preview_webhook = "$preview_webhook/";
+		if ( substr( $preview_webhook, -1 ) !== '/' ) {
+			$preview_webhook .= '/';
 		}
 
 		return $preview_webhook;
