@@ -131,7 +131,6 @@ use WPGraphQL\Type\WPInterfaceType;
 use WPGraphQL\Type\WPObjectType;
 use WPGraphQL\Type\WPScalar;
 use WPGraphQL\Type\WPUnionType;
-use WPGraphQL\Utils\Utils;
 
 /**
  * Class TypeRegistry
@@ -220,8 +219,8 @@ class TypeRegistry {
 		Node::register_type();
 		CommenterInterface::register_type( $type_registry );
 		ContentNode::register_type( $type_registry );
-		ContentTemplate::register_type();
-		DatabaseIdentifier::register_type();
+		ContentTemplate::register_type( $type_registry );
+		DatabaseIdentifier::register_type( $type_registry );
 		EnqueuedAsset::register_type( $type_registry );
 		HierarchicalTermNode::register_type( $type_registry );
 		HierarchicalContentNode::register_type( $type_registry );
@@ -570,9 +569,8 @@ class TypeRegistry {
 					'RootQuery',
 					$group_name . 'Settings',
 					[
-						'type'        => ucfirst( $group_name ) . 'Settings',
-						'description' => sprintf( __( "Fields of the '%s' settings group", 'wp-graphql' ), ucfirst( $group_name ) . 'Settings' ),
-						'resolve'     => function() use ( $setting_type ) {
+						'type'    => ucfirst( $group_name ) . 'Settings',
+						'resolve' => function() use ( $setting_type ) {
 							return $setting_type;
 						},
 					]
@@ -953,8 +951,6 @@ class TypeRegistry {
 		add_filter(
 			'graphql_' . $type_name . '_fields',
 			function( $fields ) use ( $type_name, $field_name, $config ) {
-
-				$field_name = Utils::format_field_name( $field_name );
 
 				if ( preg_match( '/^\d/', $field_name ) ) {
 					graphql_debug(

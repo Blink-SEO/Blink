@@ -9,6 +9,7 @@ use GraphQL\Type\Definition\FieldDefinition;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\ResolveInfo;
 use WPGraphQL\AppContext;
+use WPGraphQL\Type\WPObjectType;
 use WPGraphQL\WPSchema;
 
 /**

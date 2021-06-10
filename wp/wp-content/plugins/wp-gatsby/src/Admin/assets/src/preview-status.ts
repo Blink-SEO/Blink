@@ -73,11 +73,10 @@ export async function fetchPreviewStatusAndUpdateUI({
 	refetchCount = 0,
 	refetchDelay = 500,
 } = {}): Promise<void> {
-	const { wordpressSiteUrl, graphqlEndpoint } = initialState
 	// Ask WPGraphQL for the status of this preview
 	// Gatsby will update this when the preview is ready
 	const response: PreviewStatusResponseJson = await (
-		await fetch(`${wordpressSiteUrl}/?${graphqlEndpoint}`, {
+		await fetch(`/?${initialState.graphqlEndpoint}`, {
 			method: "POST",
 			body: JSON.stringify({
 				query: previewStatusQuery,

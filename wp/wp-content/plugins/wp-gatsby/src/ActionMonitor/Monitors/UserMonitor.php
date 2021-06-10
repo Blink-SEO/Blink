@@ -9,21 +9,21 @@ class UserMonitor extends Monitor {
 	/**
 	 * The user object before deletion
 	 *
-	 * @var array<int, array{user:\WP_User|false, reassign:\WP_User|null}>
+	 * @var int[]
 	 */
 	protected $users_before_delete;
 
 	/**
 	 * IDs of posts to reassign
 	 *
-	 * @var array<string>
+	 * @var array
 	 */
 	protected $post_ids_to_reassign;
 
 	/**
 	 * Initialize UserMonitor Actions
 	 *
-	 * @return void
+	 * @return mixed|void
 	 */
 	public function init() {
 

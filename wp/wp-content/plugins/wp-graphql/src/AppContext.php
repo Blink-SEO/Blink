@@ -176,8 +176,9 @@ class AppContext {
 	/**
 	 * Returns the $args for the connection the field is a part of
 	 *
-	 * @deprecated use get_connection_args() instead
 	 * @return array|mixed
+	 *
+	 * @deprecated use get_connection_args() instead
 	 */
 	public function getConnectionArgs() {
 		return $this->get_connection_args();

@@ -1,25 +1,5 @@
 # Change Log
 
-## 1.0.10
-
-- Fixed preview loader logic for subdirectory WP installs so that we request the GraphQL endpoint from the right URL.
-
-## 1.0.9
-
-- Fixed a bug where draft posts weren't previewable.
-
-## 1.0.8
-
-- Our internal preview logic had a bug where a request was being made with double forward slashes in the url in some cases. This broke incremental builds previews but worked on regular `gatsby develop` previews. This is fixed in this release.
-
-## 1.0.7
-
-- Before using WPGraphQL::debug() we weren't making sure that the debug method exists on that class. This could throw errors for older versions of WPGraphQL - we now check that the method exists before using it.
-
-- Documents using multiple webhooks support in Build and Preview webhook input field labels.
-
-- Fixes trailing comma in MediaActionMonitor log array.
-
 ## 1.0.6
 
 - Bump stable version tag

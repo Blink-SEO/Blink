@@ -12,7 +12,6 @@ export type InitialState = {
 	postId: number
 	graphqlEndpoint: string
 	webhookWasCalled: boolean
-	wordpressSiteUrl: string
 }
 
 declare var initialState: InitialState

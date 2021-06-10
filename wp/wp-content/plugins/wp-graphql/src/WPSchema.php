@@ -5,6 +5,7 @@ namespace WPGraphQL;
 use GraphQL\Type\Schema;
 use GraphQL\Type\SchemaConfig;
 
+
 /**
  * Class WPSchema
  *
