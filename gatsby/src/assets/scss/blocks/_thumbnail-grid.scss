@@ -32,3 +32,13 @@
     margin-bottom: 0;
   }
 }
+
+@media (max-width: 350px) {
+  .thumbnail__adjustment {
+    width: rem-calc(275);
+  }
+
+  .lead--small-adjustment {
+    font-size: rem-calc(50) !important;
+  }
+}

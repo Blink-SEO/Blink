@@ -34,11 +34,11 @@ const Services = ({ services, linkTo }) => {
   return (
     <Wrapper className="[ has-bg ]" style={backgroundImage}>
       <div className="[ grid grid-cols-8 col-gap-12 row-gap-12 ] [ relative ]">
-        <h2 className="[ lead--small-heading ] [ col-start-2 col-end-6 ]">
+        <h2 className="[ lead--small-heading lead--small-adjustment ] [ col-start-2 col-end-6 ]">
           Our Services
         </h2>
 
-        <div className="[ thumbnail__grid thumbnail__grid--flex thumbnail__grid--fifths ] [ col-start-1 col-end-9 ] [ justify-center ] [ relative ]">
+        <div className="[ thumbnail__grid thumbnail__grid--flex thumbnail__grid--fifths thumbnail__adjustment ] [ col-start-1 col-end-9 ] [ justify-center ] [ relative ]">
           {services.map((service, i) => (
             <div
               key={i}
