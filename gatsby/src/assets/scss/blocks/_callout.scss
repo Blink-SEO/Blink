@@ -8,3 +8,11 @@
     font-size: 3.75rem;
   }
 }
+
+@media (max-width: 320px) {
+  .callout {
+    strong {
+      font-size: rem-calc(51) !important;
+    }
+  }
+}
