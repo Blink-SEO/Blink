@@ -16,7 +16,6 @@ class UniformResourceIdentifiable {
 	 * Registers the UniformResourceIdentifiable Interface to the Schema.
 	 *
 	 * @param TypeRegistry $type_registry
-	 *
 	 * @return void
 	 */
 	public static function register_type( TypeRegistry $type_registry ) {
@@ -34,7 +33,7 @@ class UniformResourceIdentifiable {
 						'description' => __( 'The unique resource identifier path', 'wp-graphql' ),
 					],
 				],
-				'resolveType' => function( $node ) use ( $type_registry ) {
+				'resolveType' => function ( $node ) use ( $type_registry ) {
 
 					switch ( true ) {
 						case $node instanceof Post:
@@ -58,7 +57,6 @@ class UniformResourceIdentifiable {
 					}
 
 					return $type;
-
 				},
 			]
 		);
