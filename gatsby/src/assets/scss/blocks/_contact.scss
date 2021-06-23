@@ -32,6 +32,18 @@
   }
 }
 
+.contact__submit {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  .submit__label {
+    font-size: rem-calc(20);
+    align-self: center;
+    place-self: center;
+    padding-right: rem-calc(5);
+  }
+}
+
 @media (max-width: 640px) {
   .contact h2 {
     font-size: rem-calc(54);

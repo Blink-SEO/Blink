@@ -97,3 +97,10 @@ li {
     }
   }
 }
+
+@media (max-width: 320px) {
+  h2,
+  .h2 {
+    font-size: rem-calc(51) !important;
+  }
+}

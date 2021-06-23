@@ -76,8 +76,9 @@ const Contact = ({ backgroundColor, backgroundImage, title, message }) => (
 
         <button
           type="submit"
-          className="[ row-start-7 md:row-start-5 col-start-3 md:col-start-6 lg:col-start-4 ] [ text-right ]"
+          className="[ row-start-7 md:row-start-5 col-start-3 md:col-start-6 lg:col-start-4 ] [ text-right ] contact__submit"
         >
+          <span class="submit__label">Submit</span>
           <FontAwesomeIcon icon={faArrowRight} size="3x" title="Submit" />{' '}
           <span className="sr-only">Submit</span>
         </button>
