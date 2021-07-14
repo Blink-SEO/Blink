@@ -10,7 +10,7 @@
   "scripts": {
     "develop": "gatsby develop",
     "clean": "gatsby clean",
-    "build": "cross-env gatsby build --log-pages",
+    "build": "GATSBY_CONCURRENT_DOWNLOAD=5 cross-env gatsby build --log-pages",
     "clean-develop": "gatsby clean && gatsby develop",
     "clean-build": "gatsby clean && gatsby build",
     "start": "npm run develop",
