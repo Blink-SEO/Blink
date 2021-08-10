@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 const TeamPhotos = ({ backgroundColor }) => {
   const data = useStaticQuery(graphql`
     {
-      allWpCptTeam {
+      allWpCptTeam(filter: { title: { ne: "Guest" } }) {
         edges {
           node {
             title
