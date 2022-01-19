@@ -10,6 +10,7 @@ import {
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
 
+
 import FooterLocation from './footer-location'
 
 const Footer = ({ showLocation }) => {
