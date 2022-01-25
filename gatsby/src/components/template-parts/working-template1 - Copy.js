@@ -15,8 +15,6 @@ const Process = () => {
           firstProcessDescription
           secondProcessTitle
           secondProcessDescription
-          firstProcessNumber
-          secondProcessNumber
         }
 
       }
@@ -32,8 +30,6 @@ const Process = () => {
     firstProcessDescription,
     secondProcessTitle,
     secondProcessDescription,
-    firstProcessNumber,
-    secondProcessNumber,
     
   } = data.wpPage.workingpage.processSection
 
@@ -49,30 +45,27 @@ const Process = () => {
    {introductionTitle}
    </div>
    <div className="first-process-part">
-   <p className="first-heading">
-       <span>{firstProcessNumber} </span>
-{firstProcessTitle} 
-       </p>
-
+   <p className="first-heading"
+          dangerouslySetInnerHTML={{ __html: firstProcessTitle }}
+        />
+        
    <div
           className="first-detail"
           dangerouslySetInnerHTML={{ __html: firstProcessDescription }}
         />
   
     </div>
-    <div className="first-process-part">
-   <p className="first-heading">
-       <span>{secondProcessNumber} </span>
-{secondProcessTitle}
-       </p>
-
+    <div className="second-process-part">
+   <p className="second-heading"
+          dangerouslySetInnerHTML={{ __html: secondProcessTitle }}
+        />
+        
    <div
-          className="first-detail"
+          className="second-detail"
           dangerouslySetInnerHTML={{ __html: secondProcessDescription }}
         />
   
     </div>
-  
     </div>
     </div>
 </div>

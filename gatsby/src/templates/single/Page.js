@@ -317,7 +317,6 @@ const Page = ({ data }) => {
                 <Values />
                   <Investment />
                   <Meet />
-                  <Contactus />
                 
               </>
             ) : null}

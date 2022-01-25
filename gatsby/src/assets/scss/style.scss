@@ -77,6 +77,7 @@ margin-left: calc(50% - 50vw);
     margin-top: 0px;
 }
 .process-inner-part {
+padding-bottom: 70px;
     padding-top: 70px;
     padding-left: 20px;
     padding-right: 20px;
@@ -117,6 +118,7 @@ p.first-heading {
     max-width: 500px;
 }
 .first-process-part {
+    padding-bottom: 30px;
     display: flex;
     justify-content: space-between;
 }
@@ -155,19 +157,40 @@ p.second-heading p {
     font-size: 60px; 
 }
 .contact-inner-part {
-    padding-top: 135px;
+    padding-top: 100px;
    padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 160px;
 }
 h2.find-out-detail {
-    padding-top: 122px;
+    padding-top: 80px;
     max-width: 890px;
 }
 .letus-part {
+    max-width: 1000px;
     padding-top: 50px;
-    max-width: 715px;
     padding-left: 207px;
+}
+.contact-col-md-half {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    margin: 10px 15px;
+}
+.contact-col-md-full {
+    display: flex;
+}
+.contact-col-md-half textarea#message {
+    margin-right: 30px;
+}
+.contact-form-part form .contact__submit {
+    padding-top: 15px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    width: 100%;
+    /* margin-right: 31px; */
+    padding-right: 15px;
 }
 .value-main-part {
     background-color: #f8c900;
@@ -435,12 +458,10 @@ p.second-heading:after{
 }
 .contact-form-part form{
 align-items: center;
-    display: flex;
     border: none !important;
 }
-.contact-form-part form input#name {
+.contact-form-part form input[type='text'], .contact-form-part form input[type='email'], .contact-form-part form textarea#message  {
     border: 1px solid #979797;
-        width: 667px;
         margin-bottom: 0px !important;
 }
 .contact-form-part {
@@ -451,6 +472,9 @@ button.contact__submit {
 }
 
 @media (max-width: 1280px) {
+p.first-heading {
+    max-width: 388px;
+}
 p.second-heading span:after{
      content: '';
 background-image: url('../images/line-new-2.png');
@@ -475,6 +499,9 @@ background-image: url('../images/line-new-2.png');
 .team-content-part{
     width: 47%;
 }
+}
+@media (max-width: 1150px) {
+    
 }
 @media (max-width: 1026px) {
 .workingbanner-inner-part h2{
@@ -611,6 +638,7 @@ a.get-in-btn{
     max-width: 100%;
     padding-left: 100px;
     }
+
 }
 @media (max-width: 600px) {
 .main-banner {
