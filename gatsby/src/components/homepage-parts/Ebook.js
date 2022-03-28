@@ -28,10 +28,10 @@ const Ebook = ({ content, formIntro, cta }) => (
         />
         {/* <ConvertKitFrom /> */}
 
-        {cta.title ? (
+        {cta?.title ? (
           <a
-            href={cta.url ? cta.url : '#'}
-            target={cta.target ? cta.target : null}
+            href={cta?.url ? cta.url : '#'}
+            target={cta?.target ? cta.target : null}
             class="bg-black text-white no-underline py-3 px-10"
           >
             {cta.title}
