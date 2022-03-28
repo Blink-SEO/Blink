@@ -19,6 +19,10 @@
   margin-top: var(--flow-space, 1em);
 }
 
+.flow--ul > ul > li + li {
+  margin-top: var(--flow-space, 0.5em);
+}
+
 .flow--small > * + * {
   --flow-space: 0.5em;
 }
