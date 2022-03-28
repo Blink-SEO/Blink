@@ -8,6 +8,7 @@ import {
   faTwitter,
   faLinkedin,
   faInstagram,
+  faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 
 import FooterLocation from './footer-location'
@@ -38,6 +39,7 @@ const Footer = ({ showLocation }) => {
               twitter
               linkedin
               instagram
+              youtube
             }
           }
         }
@@ -95,6 +97,8 @@ const Footer = ({ showLocation }) => {
                           <FontAwesomeIcon icon={faLinkedin} size="3x" />
                         ) : label === 'instagram' ? (
                           <FontAwesomeIcon icon={faInstagram} size="3x" />
+                        ) : label === 'youtube' ? (
+                          <FontAwesomeIcon icon={faYoutube} size="3x" />
                         ) : null}
                       </a>
                     </li>
