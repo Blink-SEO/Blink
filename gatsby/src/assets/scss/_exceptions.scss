@@ -46,6 +46,10 @@
   background-blend-mode: multiply;
 }
 
+.byline img {
+  filter: grayscale(100%);
+}
+
 .byline p {
   margin-bottom: 0;
 }
