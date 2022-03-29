@@ -1,24 +1,17 @@
 import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone, faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import Menu from './menu'
+import Logo from './Logo'
 import WebinarBanner from './template-parts/WebinarBanner'
 
-const Header = () => {
+const Header = ({ backgroundColor }) => {
   const [Active, isActive] = useState(false)
 
   const data = useStaticQuery(graphql`
     {
-      file(relativePath: { eq: "BlinkLogo.png" }) {
-        childImageSharp {
-          fixed(width: 167) {
-            ...GatsbyImageSharpFixed_withWebp_noBase64
-          }
-        }
-      }
       wp {
         webinar {
           webinarSettings {
@@ -38,12 +31,7 @@ const Header = () => {
       {displayBanner && <WebinarBanner />}
       <header className="[ flex justify-between items-center ] [ container relative ] [ px-6 sm:px-0 pt-10 pb-20 ]">
         <Link to="/" className="flex-initial max-w-xs">
-          <Img
-            fixed={data.file.childImageSharp.fixed}
-            fadeIn={false}
-            loading="eager"
-            alt="Blink SEO"
-          />
+          <Logo color={backgroundColor} />
         </Link>
 
         <div
