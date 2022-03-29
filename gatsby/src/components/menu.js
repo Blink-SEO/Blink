@@ -42,7 +42,7 @@ const Menu = () => {
             return null
           }
 
-          const path = menuItem.connectedNode.node.uri || menuItem.url
+          const path = menuItem.connectedNode?.node.uri || menuItem.url
           const childItems = menuItem.childItems?.nodes
 
           /*
