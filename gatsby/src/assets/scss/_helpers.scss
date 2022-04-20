@@ -9,8 +9,18 @@
   }
 }
 
+.rotate--long-text {
+  @media (min-width: 1024px) {
+    bottom: -140px;
+  }
+}
+
 .flow > * + * {
   margin-top: var(--flow-space, 1em);
+}
+
+.flow--ul > ul > li + li {
+  margin-top: var(--flow-space, 0.5em);
 }
 
 .flow--small > * + * {

@@ -159,7 +159,7 @@ const Service = ({ data }) => {
             <div className="[ grid sm:grid-flow-col grid-cols-3 sm:grid-cols-8 md:col-gap-16 ] [ col-start-1 col-end-7 ]">
               <ArrowWhite className="[ col-start-1 lg:col-start-2 col-end-4 ] [ hidden md:block ] [ text-center lg:text-right ]" />
               <div
-                className="[ flow ] [ col-start-4 col-end-8 ]"
+                className="[ flow flow--ul ] [ col-start-4 col-end-8 ] [ mt-12 ] [ text-2xl text-white font-bold ]"
                 dangerouslySetInnerHTML={{ __html: content }}
               />
             </div>

@@ -57,6 +57,11 @@ export const query = graphql`
         ebook {
           content
           formIntro
+          cta {
+            target
+            title
+            url
+          }
         }
         whoAreBlink {
           shortContent
@@ -174,7 +179,11 @@ const Index = ({ data }) => {
           resultsCallout={experience.resultsCallout}
         />
 
-        <Ebook content={ebook.content} formIntro={ebook.formIntro} />
+        <Ebook
+          content={ebook.content}
+          formIntro={ebook.formIntro}
+          cta={ebook.cta}
+        />
 
         <About
           shortContent={whoAreBlink.shortContent}

@@ -8,5 +8,6 @@
 }
 
 .breadcrumb__link--active {
-  @apply text-white;
+  color: #000;
+  text-decoration: underline;
 }

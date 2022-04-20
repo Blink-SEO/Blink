@@ -10,7 +10,7 @@
   "scripts": {
     "develop": "gatsby develop",
     "clean": "gatsby clean",
-    "build": "GATSBY_CONCURRENT_DOWNLOAD=1 cross-env gatsby build --log-pages",
+    "build": "cross-env gatsby build --log-pages",
     "clean-develop": "gatsby clean && gatsby develop",
     "clean-build": "gatsby clean && gatsby build",
     "start": "npm run develop",
@@ -44,7 +44,7 @@
     "gatsby-plugin-sharp": "^3.0.0",
     "gatsby-plugin-sitemap": "^3.0.0",
     "gatsby-source-filesystem": "^3.0.0",
-    "gatsby-source-wordpress": "^5.0.0",
+    "gatsby-source-wordpress": "^5.14.2",
     "gatsby-transformer-sharp": "^3.0.0",
     "gsap": "^3.6.0",
     "html-react-parser": "^1.2.4",
