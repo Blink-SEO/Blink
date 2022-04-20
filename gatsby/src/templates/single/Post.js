@@ -129,7 +129,7 @@ const Post = ({ data }) => {
         </header>
 
         <section className="[ single__content ] [ relative ] [ grid grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
-          <div className="[ flow ] [ row-start-2 md:row-start-1 row-end-7 col-start-1 col-end-5 ]">
+          <div className="[ flow ] [ row-start-2 md:row-start-1 row-end-7 col-start-1 col-end-4 sm:col-end-5 ]">
             {/* Uses html react parser so we can repace code snippets from WP */}
             {parse(content, { replace: replaceCode })}
           </div>
