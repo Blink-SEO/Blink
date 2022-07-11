@@ -30,6 +30,8 @@ Run `npm install` to install the dependencies.
 
 ## Deploying to Netlify
 
+Due to an ongoing issue with Netlify not being able to deploy automatically using the CI integration it may be necessary to deploy the site manually.
+
 To start with make sure to have the [Netlify cli](https://docs.netlify.com/cli/get-started/) installed
 
 Move into the `/gatsby` directory
