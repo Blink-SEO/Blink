@@ -19,6 +19,16 @@ to change it over to the correct version.
 ## Developing with Gatsby
 Make sure you are in the Gatsby directory, that your localhost is running WordPress and add your graphql url to the `WPGRAPHQL_URL` in your `.env.development` file.  There is a fallback to `http://localhost/Blink/blinksite/wp/graphql` in case you forget this step.
 
+There are a couple of other variables you need
+
+```.env
+# .env
+
+WPGRAPHQL_URL='http://localhost/Blink/blink/wp/graphql'
+GATSBY_MAPBOX_ACCESS_TOKEN=''
+GTM_TRACKING_ID=''
+```
+
 Run `npm install` to install the dependencies.
 
 * `npm run develop` - starts development with hot reloading on localhost:8000
@@ -31,6 +41,8 @@ Run `npm install` to install the dependencies.
 ## Deploying to Netlify
 
 Due to an ongoing issue with Netlify not being able to deploy automatically using the CI integration it may be necessary to deploy the site manually.
+
+Ensure you have the live graphql set to your .env file
 
 To start with make sure to have the [Netlify cli](https://docs.netlify.com/cli/get-started/) installed
 
