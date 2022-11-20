@@ -13,17 +13,20 @@ const FooterLocation = () => {
         }
       }
     }
+
   `)
 
   const { content } = data.wp.footer.footerOptions
 
 
   return (
+
     <section className="[ footer-location ] [ flex flex-wrap ] [ bg-yellow ]">
       <div className="[ footer-location__details flow ] [ flex-auto ] [ p-16 sm:py-32 sm:pl-32 sm:pr-56 ] [ bg-white ]" dangerouslySetInnerHTML={{ __html: content }} />
 
       <MapBox />
     </section>
+   
   )
 }
 

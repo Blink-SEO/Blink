@@ -17,6 +17,14 @@ import About from '../../components/homepage-parts/About'
 import Services from '../../components/homepage-parts/Services'
 import WordCloud from '../../components/homepage-parts/WordCloud'
 import WebinarUpcoming from '../../components/template-parts/WebinarUpcoming'
+import Working from '../../components/template-parts/working-template'
+import Process from '../../components/template-parts/working-template1'
+import Contactus from '../../components/template-parts/working-template2'
+import Values from '../../components/template-parts/working-template3'
+import Workingbanner from '../../components/template-parts/working-banner'
+import Investment from '../../components/template-parts/working-template4'
+import Meet from '../../components/template-parts/working-template5'
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -62,6 +70,9 @@ export const query = graphql`
           templateName
         }
         ... on WpTemplate_Webinars {
+          templateName
+        }
+        ... on WpTemplate_Workingwithblink {
           templateName
         }
       }
@@ -227,6 +238,7 @@ const Page = ({ data }) => {
         </article>
       ) : (
         <>
+ {template.templateName !== 'Workingwithblink' ? (
           <Hero
             title={title}
             className={'pb-12'}
@@ -234,9 +246,10 @@ const Page = ({ data }) => {
               'hero-title--post hero-title--wide hero-title--no-bottom-border'
             }
           />
+): null}
 
           <article id="article" className="[ flow ] [ relative ]">
-            {template.templateName !== 'Default' &&
+            {template.templateName !== 'Default' && template.templateName !== 'Workingwithblink' &&
             template.templateName !== 'Contact' ? (
               <section className="[ entry-content flow ] [ grid grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-6 md:col-gap-16 ]">
                 <h2 className="[ lead ] [ col-start-1 col-end-6 lg:col-start-2 ] [ pb-6 ]">
@@ -287,14 +300,26 @@ const Page = ({ data }) => {
             {template.templateName === 'About' && (
               <TeamPhotos backgroundColor={pageSettings.backgroundColour} />
             )}
-
+          
             {template.templateName === 'Webinars' ? (
               <>
                 <WebinarUpcoming />
                 <WebinarRecordings />
               </>
             ) : null}
+ {template.templateName === 'Workingwithblink' ? (
+              <>
 
+              <Workingbanner />
+                <Working />
+                <Process />
+                <Contactus />
+                <Values />
+                  <Investment />
+                  <Meet />
+                
+              </>
+            ) : null}
             {template.templateName !== 'Contact' &&
             (contactBlock.title || contactBlock.message) ? (
               <Contact
