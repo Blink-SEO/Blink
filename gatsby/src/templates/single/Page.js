@@ -12,7 +12,6 @@ import ArrowWhite from '../../components/Img/DownArrowWhite-Bounce'
 import Arrow from '../../components/Img/DownArrow-Bounce'
 import BarChart from '../../components/homepage-parts/bar-chart'
 import Experience from '../../components/homepage-parts/Experience'
-import Ebook from '../../components/homepage-parts/Ebook'
 import About from '../../components/homepage-parts/About'
 import Services from '../../components/homepage-parts/Services'
 import WordCloud from '../../components/homepage-parts/WordCloud'
@@ -85,10 +84,6 @@ export const query = graphql`
             results
           }
         }
-        ebook {
-          content
-          formIntro
-        }
         whoAreBlink {
           shortContent
           longContent
@@ -157,7 +152,7 @@ const Page = ({ data }) => {
     homepage,
     contactBlock,
   } = data.page
-  const { experience, ebook, whoAreBlink, services } = homepage
+  const { experience, whoAreBlink, services } = homepage
 
   return (
     <Layout backgroundColor={pageSettings.backgroundColour} className="page">
@@ -175,7 +170,7 @@ const Page = ({ data }) => {
         <article>
           <section className="[ grid grid-flow-row sm:grid-flow-col sm:grid-cols-6 md:gap-8 ] [ mx-auto ] [ relative ]">
             <div className="[ row-start-1 col-start-1 col-end-7 lg:col-end-4 ] [ mb-8 ]">
-              <h1 className="[ hero-title hero-title--home ] [ text-white text-4xl sm:text-5xl lg:text-6xl leading-none mb-5 ]">
+              <h1 className="">
                 {title}
                 <span className="border-block"></span>
               </h1>
@@ -204,8 +199,6 @@ const Page = ({ data }) => {
             clients={experience.clients}
             resultsCallout={experience.resultsCallout}
           />
-
-          <Ebook content={ebook.content} formIntro={ebook.formIntro} />
 
           <About
             shortContent={whoAreBlink.shortContent}

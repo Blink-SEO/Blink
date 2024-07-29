@@ -8,7 +8,6 @@ import Contact from '../components/contactArea'
 
 import BarChart from '../components/homepage-parts/bar-chart'
 import Experience from '../components/homepage-parts/Experience'
-import Ebook from '../components/homepage-parts/Ebook'
 import About from '../components/homepage-parts/About'
 import Services from '../components/homepage-parts/Services'
 import WordCloud from '../components/homepage-parts/WordCloud'
@@ -52,15 +51,6 @@ export const query = graphql`
               }
             }
             results
-          }
-        }
-        ebook {
-          content
-          formIntro
-          cta {
-            target
-            title
-            url
           }
         }
         whoAreBlink {
@@ -133,7 +123,7 @@ const Index = ({ data }) => {
     contactBlock,
     seo,
   } = data.wpPage
-  const { experience, ebook, whoAreBlink, services } = homepage
+  const { experience, whoAreBlink, services } = homepage
 
   return (
     <Layout>
@@ -177,12 +167,6 @@ const Index = ({ data }) => {
         <Experience
           clients={experience.clients}
           resultsCallout={experience.resultsCallout}
-        />
-
-        <Ebook
-          content={ebook.content}
-          formIntro={ebook.formIntro}
-          cta={ebook.cta}
         />
 
         <About
