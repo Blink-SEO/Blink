@@ -4,8 +4,6 @@
   --border-color: #000;
   --border-span: 4ch;
 
-  max-width: var(--title-width, 12ch);
-
   &::before,
   &::after {
     content: '';
@@ -61,6 +59,8 @@
 
   position: relative;
   line-height: 1.04;
+  width: var(--title-width, 15ch);
+
 
   &::before {
     width: 8ch;
