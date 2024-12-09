@@ -42,7 +42,7 @@ const TeamPhotos = ({ backgroundColor }) => {
             {member.node?.featuredImage ? (
               <Img
                 fluid={
-                  member.node.featuredImage.node.localFile.childImageSharp.fluid
+                  member?.node?.featuredImage?.node?.localFile?.childImageSharp.fluid
                 }
                 fadeIn={true}
                 loading="lazy"

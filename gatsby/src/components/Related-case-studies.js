@@ -24,7 +24,7 @@ const RelatedCaseStudies = ({ caseStudies }) => (
               }
               fadeIn={true}
               loading="lazy"
-              alt={caseStudy?.featuredImage?.node.altText}
+              alt={caseStudy?.featuredImage?.node}
               className="[ w-full ]"
             />
 
